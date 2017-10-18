@@ -61,7 +61,7 @@ if(species==0){
 else {
 	this.img.src = "nymphous.png";
 }
-  this.atk = [{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)}];
+  this.atk = [{this : new attack("Bite", 1, 2, 25, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)}];
   this.currentatk= 0;
   this.basespeed = speed; 
   this.currentspeed= speed;
