@@ -33,6 +33,7 @@ function displayTime() {
   var enemyatkx = 0;
   var playeratkdrawinterval = 0;
   var enemyatkdrawinterval = 0;
+	var i =0;
 }
   
   /*
@@ -200,6 +201,10 @@ if(player.hp>0){
   ctx.fillStyle = "white";
   ctx.fillText(enemy.hp + "/" + enemy.basehp,15,24);
   ctx.fillText(player.hp + "/" + player.basehp,335,canvas.height-85);
+  ctx.beginPath();
+  ctx.arc(375,40,35,.5*Math.PI+i,.5*Math.PI-i);
+	ctx.fill();
+	i-=.05;
 }
 
 function draw() {	
