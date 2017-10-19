@@ -33,7 +33,6 @@ function displayTime() {
   var enemyatkx = 0;
   var playeratkdrawinterval = 0;
   var enemyatkdrawinterval = 0;
-	var i =0;
 }
   
   /*
@@ -56,9 +55,15 @@ function attack(name, interval, pwr, radius, src, x, y) {
 	this.img = new Image();
 	this.img.src = src;
 	this.interval = interval;
+	this.time = this.interval;
 	this.pwr = pwr;
 	this.radius = radius;
+	this.ready = true;
 	this.visual = new component(100,100,"#212121",300,300);
+	this.checkready = function() {
+		if(this.interval <= (this.time/2*10)) this.ready = true;		
+		else this.ready = false;
+	}
 }
 
 function character(species,speed,hp,alignment/*true if player, false if enemy*/) {
@@ -69,7 +74,7 @@ if(species==0){
 else {
 	this.img.src = "nymphous.png";
 }
-  this.atk = [{this : new attack("Bite", 1, 2, 25, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 100,100)}];
+  this.atk = [{this : new attack("Bite", 1, 2, 25, "biteatk.png", 100,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 200,100)},{this : new attack("Bite", 1, 2, 15, "biteatk.png", 200,100)}];
   this.currentatk= 0;
   this.basespeed = speed; 
   this.currentspeed= speed;
@@ -100,7 +105,7 @@ else {
 	  this.x += (this.currentspeed*posneg);}
 		  }
 		  
-		  else if(posneg<0&&this.movingleft==true){			  
+		  else if(posneg<0&&this.movingleft==true) {			  
 		  this.currentspeed += (this.currentspeed * this.acc);	
 		  if(this.currentspeed > (this.basespeed*2)) {
 		  this.currentspeed = this.basespeed*2;
@@ -115,11 +120,11 @@ else {
 			this.x += (this.currentspeed*posneg);
 		}
 	}
-	  if(posneg>0){
+	  if(posneg>0) {
 		this.movingleft=false;
 	  this.movingright=true;
 	  }
-	  else{
+	  else {
 	this.movingright=false;
 	  this.movingleft=true;
 	  }
@@ -168,7 +173,7 @@ function ai(){
 }
 
 function aiatk() {
-enemyatkx = getRndInteger(1,canvas.width);
+if(enemy.atk[currentatk].this.ready == true) enemyatkx = getRndInteger(1,canvas.width);
 }
 
 function animate() {
@@ -201,10 +206,11 @@ if(player.hp>0){
   ctx.fillStyle = "white";
   ctx.fillText(enemy.hp + "/" + enemy.basehp,15,24);
   ctx.fillText(player.hp + "/" + player.basehp,335,canvas.height-85);
+	for(int i=0;i<3;i++){
   ctx.beginPath();
-  ctx.arc(375,40,35,.5*Math.PI+i,.5*Math.PI-i);
-	ctx.fill();
-	i-=.05;
+  ctx.arc(375,40,35+(35*i)+(40*i),.5*Math.PI+(Math.PI/(enemy.atk[currentatk].this.interval*5)),.5*Math.PI-i);
+  ctx.fill();
+	}
 }
 
 function draw() {	
@@ -230,7 +236,11 @@ enemy = new character(1,5,50,0);
 
   setInterval(animate, 20);
   setInterval(ai, 20);
-  setInterval(aiatk, (enemy.atk[enemy.currentatk].interval*100));
+  setInterval(aiatk, 20);
+for(int i=0;i<3;i++) {
+	setInterval(enemy.atk[i].checkready(),20);	
+	setInterval(player.atk[i].checkready(),20);
+}
   
   bg= {img : new Image(), x:0, y:(canvas.width/2)-209};
   bg.img.src = "bg.png";
