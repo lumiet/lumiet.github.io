@@ -35,7 +35,14 @@ function displayTime() {
   var enemyatkdrawinterval = 0;
 }
   
-  
+  /*
+  ctx.beginPath();
+  ctx.arc(375,40,35,.5*Math.PI+i,.5*Math.PI-i);
+  where when i = math.pi, the circle is full and therefore ready to attack; time to fill circle dependent on interval of move, since 20 ms per frame (5fps) and interval is in seconds, i must increment by Math.PI/(interval*5)
+  'i' value should be included probably in the attack object itself; note that upon attacking (regardless of hit or miss) i must be reset to 0
+  not sure what maximum # of moves will be, but im going to set it up for >=3 per player/enemy; ill just loop it through to draw each of them i suppose, but ill probably need to make a database to load move data from for efficiency
+  ctx.fill();
+  */
  
   
 function clearGame(_ctx) {
