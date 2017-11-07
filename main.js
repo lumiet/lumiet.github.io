@@ -233,10 +233,6 @@ enemy = new character(1,5,50,0);
   setInterval(animate, 20);
   setInterval(ai, 20);
   setInterval(aiatk, 20);
-for(int i=0;i<3;i++) {
-	setInterval(enemy.atk[i].checkready(),20);	
-	setInterval(player.atk[i].checkready(),20);
-}
   
   bg= {img : new Image(), x:0, y:(canvas.width/2)-209};
   bg.img.src = "bg.png";
