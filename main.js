@@ -206,11 +206,7 @@ if(player.hp>0){
   ctx.fillStyle = "white";
   ctx.fillText(enemy.hp + "/" + enemy.basehp,15,24);
   ctx.fillText(player.hp + "/" + player.basehp,335,canvas.height-85);
-	for(int i=0;i<3;i++){
-  ctx.beginPath();
-  ctx.arc(375,40,35+(35*i)+(40*i),.5*Math.PI+(Math.PI/(enemy.atk[currentatk].this.interval*5)),.5*Math.PI-i);
-  ctx.fill();
-	}
+	
 }
 
 function draw() {	
