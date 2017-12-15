@@ -59,6 +59,8 @@ function attack(name, interval, pwr, radius, src, x, y) {
 	this.pwr = pwr;
 	this.radius = radius;
 	this.ready = true;
+	this.x = x;
+	this.y = y;
 	this.visual = new component(100,100,"#212121",300,300);
 	this.checkready = function() {
 		if(this.interval <= (this.time/2*10)) this.ready = true;		
