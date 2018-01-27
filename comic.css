@@ -1,0 +1,64 @@
+body {
+	margin:0px;
+	background:#000 url("bodybg.png") fixed;
+	color:#000;
+	font-size:2vh;
+}
+	
+#imgcontain {
+	padding:0px;
+	top:0px;
+	max-width: 80vw;
+	min-height: 2000px;
+	margin: 0px auto 0px auto;
+	background: rgba(255, 255, 255, .1);
+	overflow-x: hidden;
+	z-index:0;
+	user-select:none;
+	border-left: 3px solid #191919;
+	border-right: 3px solid #191919;
+}
+
+p {
+	margin: 0;
+	position:relative;
+	z-index:1;
+}
+
+#nav {
+	top:0;
+	margin:0px auto; 
+	padding:3px;
+	position:sticky;
+	z-index:2;
+	width:80vw;
+	min-height:7vh; max-height:7vh;
+	background:#070707;	
+	border-bottom: 3px solid #191919;
+	border-left: 3px solid #191919;
+	border-right: 3px solid #191919;
+	vertical-align:center;
+}
+
+.img {
+	max-width:80vw;
+	max-height:80vw;
+	position:absolute;
+	z-index:-1;
+}
+
+.bg {	
+	-webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+	position:fixed;
+	height:80vw;
+	width:80vw;
+	left:0; right:0; bottom:0;
+	margin: 0 auto;
+	z-index:-2;
+	opacity:.8;
+	user-select:none; -webkit-user-drag:none;
+}
+
+img {
+	margin:0;
+}
