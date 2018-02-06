@@ -1092,6 +1092,7 @@ var pokemon = [ "Venusaur",
 		}
 		added = 0;
 	}
+	alert("test");
   var content = "Your team is: ";
   for (var i = 0; i < 6; i++) {
 		if (i < 5) { content+= partyname[i] + ", "; }
