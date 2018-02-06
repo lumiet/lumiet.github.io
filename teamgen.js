@@ -1111,7 +1111,7 @@ var pokemon = [ "Venusaur",
 	var partytype2 = [ "","","","","","" ];
 	var added=0;
 	for (var i=0; i < 6;) {
-		
+		alert("here");
 	while (added<6) {
 			var pokenumber = Math.floor(Math.random()*100000) % 367;
 		alert(pokenumber);
