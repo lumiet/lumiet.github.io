@@ -3,6 +3,7 @@ aaaaa
 */
 alert("running???");
 function main() {
+	alert("got here wow");
 var pokemon = [ "Venusaur",
 		"Charizard",
 		"Blastoise",
