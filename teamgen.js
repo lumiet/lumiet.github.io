@@ -1113,7 +1113,7 @@ var pokemon = [ "Venusaur",
 	for (var i=0; i < 6;) {
 		
 	while (added<6) {
-			var pokenumber = Int(Math.random()*100000) % 367;
+			var pokenumber = Math.floor(Math.random()*100000) % 367;
 		alert(pokenumber);
 			for (var m = 0; m < 6; m++) {
 				if ((type1[pokenumber] != partytype1[m]) && (type1[pokenumber] != partytype2[m]) && (type2[pokenumber] != partytype1[m]) && (type2[pokenumber] != partytype2[m])) {
