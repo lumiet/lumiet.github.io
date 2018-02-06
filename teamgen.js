@@ -1135,9 +1135,9 @@ var pokemon = [ "Venusaur",
 		if (i < 5) { content+= partyname[i] + ", "; }
 		else { content+= "and " + partyname[i] + "."; }
 	}
-	/*for(int i = 0; i<6; i++) {	
+	for(int i = 0; i<6; i++) {	
 	  document.getElementById(i.toString()).innerHTML = "<img src='https://img.pokemondb.net/sprites/x-y/normal/" + partyname[i] + ".png'>"	
-	}*/
+	}
 document.getElementById("main").innerHTML = content;
 	return;
 }
