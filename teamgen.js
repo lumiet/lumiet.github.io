@@ -1,7 +1,7 @@
 /*
 aaaaa
 */
-
+alert("running???")
 function main() {
 var pokemon = [ "Venusaur",
 		"Charizard",
