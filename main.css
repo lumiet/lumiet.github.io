@@ -60,7 +60,7 @@ background: #D8DAFF url('headerbg.png') repeat left top;
 #changingtext {
 }
 #popup {
-display:none;
+display:inline;
 height:200px;
 width:300px;
 left:50%;
