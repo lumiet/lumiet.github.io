@@ -1111,10 +1111,8 @@ var pokemon = [ "Venusaur",
 	var partytype2 = [ "","","","","","" ];
 	var added=0;
 	for (var i=0; i < 6;) {
-		alert("here");
 	while (added<6) {
 			var pokenumber = Math.floor(Math.random()*100000) % 367;
-		alert(pokenumber);
 			for (var m = 0; m < 6; m++) {
 				if ((type1[pokenumber] != partytype1[m]) && (type1[pokenumber] != partytype2[m]) && (type2[pokenumber] != partytype1[m]) && (type2[pokenumber] != partytype2[m])) {
 					added++;
@@ -1132,7 +1130,6 @@ var pokemon = [ "Venusaur",
 		}
 		added = 0;
 	}
-	alert("test 3");
   var content = "Your team is: ";
   for (var i = 0; i < 6; i++) {
 		if (i < 5) { content+= partyname[i] + ", "; }
