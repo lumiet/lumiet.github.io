@@ -1064,6 +1064,9 @@ var pokemon = [ "Venusaur",
 		"fairy",
 		"fairy",
 		"0",		"fairy",		"ghost",		"ghost",		"0",		"dragon",		"ghost",		"dark",		"fairy",		"normal",		"0",		"electric",		"fighting",		"fire",		"fairy",		"0",		"0",		"poison",		"0",		"bug",		"0",		"fairy",		"poison",		"0",		"0",		"0",		"normal",		"0",		"bug",		"ground",		"0",		"flying",		"0",		"dragon",		"steel",		"fairy",		"psychic",		"normal",		"fighting",		"electric", "psychic",		"ghost",		"ground", "steel"];
+	alert(type2[56]);
+	alert(type1[230]);
+	
 	var partyname = [ "","","","","","" ];
 	var partytype1 = [ "","","","","","" ];
 	var partytype2 = [ "","","","","","" ];
