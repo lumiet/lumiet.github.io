@@ -1,9 +1,7 @@
 /*
 aaaaa
 */
-alert("running???");
 function main() {
-	alert("got here wow");
 var pokemon = [ "Venusaur",
 		"Charizard",
 		"Blastoise",
@@ -371,7 +369,6 @@ var pokemon = [ "Venusaur",
 		"Oricorio (Sensu)",
 		"Wormadam (Sandy Cloak)",
 		"Wormadam (Trash Cloak)"];
-	alert(pokemon[0]);
 	
 	var type1 = [ "grass",
 		"fire",
@@ -1064,8 +1061,7 @@ var pokemon = [ "Venusaur",
 		"fairy",
 		"fairy",
 		"0",		"fairy",		"ghost",		"ghost",		"0",		"dragon",		"ghost",		"dark",		"fairy",		"normal",		"0",		"electric",		"fighting",		"fire",		"fairy",		"0",		"0",		"poison",		"0",		"bug",		"0",		"fairy",		"poison",		"0",		"0",		"0",		"normal",		"0",		"bug",		"ground",		"0",		"flying",		"0",		"dragon",		"steel",		"fairy",		"psychic",		"normal",		"fighting",		"electric", "psychic",		"ghost",		"ground", "steel"];
-	alert(type2[56]);
-	alert(type1[230]);
+	
 	
 	var partyname = [ "","","","","","" ];
 	var partytype1 = [ "","","","","","" ];
@@ -1073,7 +1069,10 @@ var pokemon = [ "Venusaur",
 	var added=0;
 	for (var i=0; i < 6;) {
 		
+	alert("test 1");
 	while (added<6) {
+		
+	alert("test 2");
 			var pokenumber = (Math.random()*100000) % 367;
 			for (var m = 0; m < 6; m++) {
 				if ((type1[pokenumber] != partytype1[m]) && (type1[pokenumber] != partytype2[m]) && (type2[pokenumber] != partytype1[m]) && (type2[pokenumber] != partytype2[m])) {
@@ -1092,7 +1091,7 @@ var pokemon = [ "Venusaur",
 		}
 		added = 0;
 	}
-	alert("test");
+	alert("test 3");
   var content = "Your team is: ";
   for (var i = 0; i < 6; i++) {
 		if (i < 5) { content+= partyname[i] + ", "; }
