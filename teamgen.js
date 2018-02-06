@@ -1132,9 +1132,11 @@ var pokemon = [ "Venusaur",
 	}
   var content = "Your team is: ";
   for (var i = 0; i < 6; i++) {
+	  content += "<img src='https://img.pokemondb.net/sprites/x-y/normal/" + partyname[i] + ".png'>"
 		if (i < 5) { content+= partyname[i] + ", "; }
 		else { content+= "and " + partyname[i] + "."; }
 	}
+	
 document.getElementById("main").innerHTML = content;
 	return;
 }
