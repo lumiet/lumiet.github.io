@@ -371,6 +371,8 @@ var pokemon = [ "Venusaur",
 		"Oricorio (Sensu)",
 		"Wormadam (Sandy Cloak)",
 		"Wormadam (Trash Cloak)"];
+	alert(pokemon[0]);
+	
 	var type1 = [ "grass",
 		"fire",
 		"water",
