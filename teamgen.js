@@ -1133,7 +1133,7 @@ var pokemon = [ "Venusaur",
   var content = "Your team is: ";
   for (var i = 0; i < 6; i++) {
 		if (i < 5) { content+= partyname[i] + ", "; }
-		else { content+= "and " + partyname[i] + ".<br><br>"; }
+		else { content+= "and " + partyname[i] + "."; }
 	}
 	/*for(int i = 0; i<6; i++) {	
 	  document.getElementById(i).innerHTML = "<img src='https://img.pokemondb.net/sprites/x-y/normal/" + partyname[i] + ".png'>"	
