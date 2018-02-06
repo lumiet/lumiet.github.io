@@ -1098,4 +1098,5 @@ var pokemon = [ "Venusaur",
 		else { content+= "and " + partyname[i] + "."; }
 	}
 document.getElementById("main").innerHTML = content;
+	return;
 }
