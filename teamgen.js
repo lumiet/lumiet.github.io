@@ -3,7 +3,7 @@ aaaaa
 */
 
 function main() {
-var pokemon[367] = { "Venusaur",
+var pokemon = [ "Venusaur",
 		"Charizard",
 		"Blastoise",
 		"Butterfree",
@@ -369,8 +369,8 @@ var pokemon[367] = { "Venusaur",
 		"Oricorio (Pa'u)",
 		"Oricorio (Sensu)",
 		"Wormadam (Sandy Cloak)",
-		"Wormadam (Trash Cloak)"};
-	var type1[367] = { "grass",
+		"Wormadam (Trash Cloak)"];
+	var type1 = [ "grass",
 		"fire",
 		"water",
 		"bug",
@@ -736,8 +736,8 @@ var pokemon[367] = { "Venusaur",
 		"flying",
 		"flying",
 		"bug",
-		"bug"};
-	var type2[367] = { "poison",
+		"bug"];
+	var type2 = [ "poison",
 		"flying",
 		"0",
 		"flying",
@@ -1060,11 +1060,10 @@ var pokemon[367] = { "Venusaur",
 		"fighting",
 		"fairy",
 		"fairy",
-		"0",		"fairy",		"ghost",		"ghost",		"0",		"dragon",		"ghost",		"dark",		"fairy",		"normal",		"0",		"electric",		"fighting",		"fire",		"fairy",		"0",		"0",		"poison",		"0",		"bug",		"0",		"fairy",		"poison",		"0",		"0",		"0",		"normal",		"0",		"bug",		"ground",		"0",		"flying",		"0",		"dragon",		"steel",		"fairy",		"psychic",		"normal",		"fighting",		"electric", "psychic",		"ghost",		"ground", "steel"};
-	var partyname[6] = { "","","","","","" };
-	var partytype1[6] = { "","","","","","" };
-	var partytype2[6] = { "","","","","","" };
-	var partygen[6];
+		"0",		"fairy",		"ghost",		"ghost",		"0",		"dragon",		"ghost",		"dark",		"fairy",		"normal",		"0",		"electric",		"fighting",		"fire",		"fairy",		"0",		"0",		"poison",		"0",		"bug",		"0",		"fairy",		"poison",		"0",		"0",		"0",		"normal",		"0",		"bug",		"ground",		"0",		"flying",		"0",		"dragon",		"steel",		"fairy",		"psychic",		"normal",		"fighting",		"electric", "psychic",		"ghost",		"ground", "steel"];
+	var partyname = [ "","","","","","" ];
+	var partytype1 = [ "","","","","","" ];
+	var partytype2 = [ "","","","","","" ];
 	var added=0;
 	for (var i=0; i < 6;) {
 		
