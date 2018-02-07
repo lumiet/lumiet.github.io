@@ -5,6 +5,8 @@
 using namespace std;
 using namespace Magick;
 
+//https://stackoverflow.com/questions/23830471/convert-image-color-without-changing-its-transparent-background
+
 /////////
 string fakemonname = "tempestrike";
 int layers = 8;
