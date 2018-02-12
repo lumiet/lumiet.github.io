@@ -12,7 +12,7 @@ function main() {
 }
 
 
-function rgbToHsl(r, g, b) {
+function rgbToHsl(r, g, b, a) {
     r /= 255, g /= 255, b /= 255;
     var max = Math.max(r, g, b),
         min = Math.min(r, g, b);
@@ -41,11 +41,12 @@ function rgbToHsl(r, g, b) {
         h: h,
         s: s,
         l: l,
+        a: a
     });
 }
 
 
-function hslToRgb(h, s, l) {
+function hslToRgb(h, s, l, a) {
     var r, g, b;
 
     if (s == 0) {
@@ -71,5 +72,6 @@ function hslToRgb(h, s, l) {
         r: Math.round(r * 255),
         g: Math.round(g * 255),
         b: Math.round(b * 255),
+        a: a
     });
 }
