@@ -34,9 +34,9 @@ function main() {
 HSVcolor rgb2hsv(rgbcolor) {
 	var convert = new hsvcolor(0,0,0,0); 
 
-	var r = rgbcolor.r / 255.0f;
-	var g = rgbcolor.g / 255.0f;
-	var b = rgbcolor.b / 255.0f;
+	var r = rgbcolor.r / 255;
+	var g = rgbcolor.g / 255;
+	var b = rgbcolor.b / 255;
 
 	var h, s, v; // h:0-360.0, s:0.0-1.0, v:0.0-1.0
 
@@ -45,11 +45,11 @@ HSVcolor rgb2hsv(rgbcolor) {
 
 	v = max;
 
-	if (max == 0.0f) {
+	if (max == 0) {
 		s = 0;
 		h = 0;
 	}
-	else if (max - min == 0.0f) {
+	else if (max - min == 0) {
 		s = 0;
 		h = 0;
 	}
@@ -67,7 +67,7 @@ HSVcolor rgb2hsv(rgbcolor) {
 		}
 	}
 
-	if (h < 0) h += 360.0f;
+	if (h < 0) h += 360;
 
 	convert.h = (int)(h);   // dst_h : 0-360
 	convert.s = (int)(s * 100); // dst_s : 0-100
@@ -80,17 +80,17 @@ HSVcolor rgb2hsv(rgbcolor) {
 Color hsv2rgb(hsvcolor)
 {
 	var h = hsvcolor.h; // 0-360
-	var s = hsvcolor.s / 100.0f; // 0.0-1.0
-	var v = hsvcolor.v / 100.0f; // 0.0-1.0
+	var s = hsvcolor.s / 100; // 0.0-1.0
+	var v = hsvcolor.v / 100; // 0.0-1.0
   var a = hsvcolor.a;
   
 	var r, g, b; // 0.0-1.0
 
-	var   hi = (int)(h / 60.0f) % 6;
-	var f = (h / 60.0f) - hi;
-	var p = v * (1.0f - s);
-	var q = v * (1.0f - s * f);
-	var t = v * (1.0f - s * (1.0f - f));
+	var   hi = (int)(h / 60) % 6;
+	var f = (h / 60) - hi;
+	var p = v * (1 - s);
+	var q = v * (1 - s * f);
+	var t = v * (1 - s * (1.0f - f));
 
 	switch (hi) {
 	case 0: r = v, g = t, b = p; break;
