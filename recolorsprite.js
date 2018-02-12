@@ -1,77 +1,111 @@
 /*
 gonna try converting this to js, wish me luck OwO
 */
-var color = {h:230,s:149,l:230,a:255};
+function hsvcolor(h,s,v,a) {
+ this.h = h;
+ this.s = s;
+ this.v = v;
+ this.a = a;
+}
 
+function rgbcolor(r,g,b,a) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
+  this.a = a;
+}
+
+var color = new hsvcolor(230,149,230,255);
+
+  function fminf(a,b) {
+    if(a>b) return b;
+    if(b>=a) return a;
+  }
+  function fmaxf(a,b) {
+    if(a>b) return a;
+    if(b>=a) return b;
+  }
 
 
 function main() {
   alert(color.h + " " + color.s + " " + color.l);
-  rgbColor = hslToRgb(color.h, color.s, color.l, color.a);
-  alert(rgbColor.r + " " + rgbColor.g + " " + rgbColor.b + " " + rgbColor.a);
+  }
+
+HSVcolor rgb2hsv(rgbcolor) {
+	var convert = new hsvcolor(0,0,0,0); 
+
+	var r = rgbcolor.r / 255.0f;
+	var g = rgbcolor.g / 255.0f;
+	var b = rgbcolor.b / 255.0f;
+
+	var h, s, v; // h:0-360.0, s:0.0-1.0, v:0.0-1.0
+
+	var min = fminf(r, fminf(g, b));
+	var max = fmaxf(r, fmaxf(g, b));
+
+	v = max;
+
+	if (max == 0.0f) {
+		s = 0;
+		h = 0;
+	}
+	else if (max - min == 0.0f) {
+		s = 0;
+		h = 0;
+	}
+	else {
+		s = (max - min) / max;
+
+		if (max == r) {
+			h = 60 * ((g - b) / (max - min)) + 0;
+		}
+		else if (max == g) {
+			h = 60 * ((b - r) / (max - min)) + 120;
+		}
+		else {
+			h = 60 * ((r - g) / (max - min)) + 240;
+		}
+	}
+
+	if (h < 0) h += 360.0f;
+
+	convert.h = (int)(h);   // dst_h : 0-360
+	convert.s = (int)(s * 100); // dst_s : 0-100
+	convert.v = (int)(v * 100); // dst_v : 0-100
+  convert.a = rgbcolor.a;
+
+	return convert;
 }
 
+Color hsv2rgb(hsvcolor)
+{
+	var h = hsvcolor.h; // 0-360
+	var s = hsvcolor.s / 100.0f; // 0.0-1.0
+	var v = hsvcolor.v / 100.0f; // 0.0-1.0
+  var a = hsvcolor.a;
+  
+	var r, g, b; // 0.0-1.0
 
-function rgbToHsl(r, g, b, a) {
-    r /= 255, g /= 255, b /= 255;
-    var max = Math.max(r, g, b),
-        min = Math.min(r, g, b);
-    var h, s, l = (max + min) / 2;
+	var   hi = (int)(h / 60.0f) % 6;
+	var f = (h / 60.0f) - hi;
+	var p = v * (1.0f - s);
+	var q = v * (1.0f - s * f);
+	var t = v * (1.0f - s * (1.0f - f));
 
-    if (max == min) {
-        h = s = 0; // achromatic
-    } else {
-        var d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-        switch (max) {
-            case r:
-                h = (g - b) / d + (g < b ? 6 : 0);
-                break;
-            case g:
-                h = (b - r) / d + 2;
-                break;
-            case b:
-                h = (r - g) / d + 4;
-                break;
-        }
-        h /= 6;
-    }
+	switch (hi) {
+	case 0: r = v, g = t, b = p; break;
+	case 1: r = q, g = v, b = p; break;
+	case 2: r = p, g = v, b = t; break;
+	case 3: r = p, g = q, b = v; break;
+	case 4: r = t, g = p, b = v; break;
+	case 5: r = v, g = p, b = q; break;
+	}
 
-    return ({
-        h: h,
-        s: s,
-        l: l,
-        a: a
-    });
-}
+	var convert = new rgbcolor(0,0,0,0);
 
-
-function hslToRgb(h, s, l, a) {
-    var r, g, b;
-
-    if (s == 0) {
-        r = g = b = l; // achromatic
-    } else {
-        function hue2rgb(p, q, t) {
-            if (t < 0) t += 1;
-            if (t > 1) t -= 1;
-            if (t < 1 / 6) return p + (q - p) * 6 * t;
-            if (t < 1 / 2) return q;
-            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-            return p;
-        }
-
-        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-        var p = 2 * l - q;
-        r = hue2rgb(p, q, h + 1 / 3);
-        g = hue2rgb(p, q, h);
-        b = hue2rgb(p, q, h - 1 / 3);
-    }
-
-    return ({
-        r: Math.round(r * 255),
-        g: Math.round(g * 255),
-        b: Math.round(b * 255),
-        a: a
-    });
+	convert.r = (int)(r * 255); // dst_r : 0-255
+	convert.g = (int)(g *255); // dst_r : 0-255
+	convert.b = (int)(b *255) ; // dst_r : 0-255
+  convert.a = a;
+	return convert;
 }
