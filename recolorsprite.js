@@ -7,7 +7,8 @@ var color = {h:230,s:149,l:230,a:255};
 
 function main() {
   alert(color.h + " " + color.s + " " + color.l);
-  alert(hslToRgb(color.h, color.s, color.l));
+  rgbColor = hslToRgb(color.h, color.s, color.l);
+  alert(rgbColor.r + " " + rgbColor.g + " " + rgbColor.b);
 }
 
 
