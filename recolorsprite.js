@@ -1,12 +1,13 @@
 /*
 gonna try converting this to js, wish me luck OwO
 */
-var color = {h:230,s:149,v:230,a:255};
+var color = {h:230,s:149,l:230,a:255};
 
 
 
 function main() {
-  alert(color.h.toString() + " " + color.s + " " + color.v);
+  alert(color.h + " " + color.s + " " + color.l);
+  alert(hslToRgb(color.h, color.s, color.l));
 }
 
 
