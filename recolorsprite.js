@@ -32,7 +32,7 @@ alert("js works at least?");
   alert(color.h + " " + color.s + " " + color.l);
   }
 
-HSVcolor rgb2hsv(rgbcolor) {
+function rgb2hsv(rgbcolor) {
 	var convert = new hsvcolor(0,0,0,0); 
 
 	var r = rgbcolor.r / 255;
@@ -78,7 +78,7 @@ HSVcolor rgb2hsv(rgbcolor) {
 	return convert;
 }
 
-Color hsv2rgb(hsvcolor)
+function hsv2rgb(hsvcolor)
 {
 	var h = hsvcolor.h; // 0-360
 	var s = hsvcolor.s / 100; // 0.0-1.0
