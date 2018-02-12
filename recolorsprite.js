@@ -6,7 +6,7 @@ var color = {h:230,s:149,v:230,a:255};
 
 
 function main() {
-  alert(color.h, color.s, color.v);
+  alert(color.h + color.s, + color.v);
 }
 
 
