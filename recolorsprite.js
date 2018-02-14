@@ -30,8 +30,8 @@ var color = new hsvcolor(230,149,230,255);
 function main() {
 alert("js works at least?");
   alert(color.h + " " + color.s + " " + color.v);
-color = hsv2rgb(color.h, color.s, color.v, color.a);
-	alert(color.r);
+newcolor = hsv2rgb(color.h, color.s, color.v, color.a);
+	alert(newcolor.r);
   }
 
 function rgb2hsv(rgbcolor) {
