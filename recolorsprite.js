@@ -31,7 +31,7 @@ function main() {
 alert("js works at least?");
   alert(color.h + " " + color.s + " " + color.v);
 newcolor = hsv2rgb(color.h, color.s, color.v, color.a);
-	alert(newcolor.r);
+	alert(newcolor);
   }
 
 function rgb2hsv(rgbcolor) {
@@ -75,7 +75,7 @@ function rgb2hsv(rgbcolor) {
 	convert.h = Math.round(h);   // dst_h : 0-360
 	convert.s = Math.round(s * 100); // dst_s : 0-100
 	convert.v = Math.round(v * 100); // dst_v : 0-100
-  convert.a = rgbcolor.a;
+  	convert.a = rgbcolor.a;
 
 	return convert;
 }
@@ -85,7 +85,7 @@ function hsv2rgb(hsvcolor)
 	var h = hsvcolor.h; // 0-360
 	var s = hsvcolor.s / 100; // 0.0-1.0
 	var v = hsvcolor.v / 100; // 0.0-1.0
-  var a = hsvcolor.a;
+  	var a = hsvcolor.a;
   
 	var r, g, b; // 0.0-1.0
 
@@ -109,6 +109,6 @@ function hsv2rgb(hsvcolor)
 	convert.r = Math.round(r * 255); // dst_r : 0-255
 	convert.g = Math.round(g *255); // dst_r : 0-255
 	convert.b = Math.round(b *255) ; // dst_r : 0-255
-  convert.a = a;
+  	convert.a = a;
 	return convert;
 }
