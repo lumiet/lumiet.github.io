@@ -2,20 +2,21 @@
 gonna try converting this to js, wish me luck OwO
 */
 function hsvcolor(h,s,v,a) {
- this.h = h;
- this.s = s;
- this.v = v;
- this.a = a;
+ this.h = h; //0-360
+ this.s = s; //0-100
+ this.v = v; //0-100
+ this.a = a; //0-255
 }
 
 function rgbcolor(r,g,b,a) {
-  this.r = r;
-  this.g = g;
-  this.b = b;
-  this.a = a;
+  this.r = r; //0-255
+  this.g = g; //0-255
+  this.b = b; //0-255
+  this.a = a; //0-255
 }
 
-var color = new hsvcolor(230,149,230,255);
+var color = new hsvcolor(230,80,90,255);
+//rgb: r 46 g 76 b 230
 
   function fminf(a,b) {
     if(a>b) return b;
