@@ -72,9 +72,9 @@ function rgb2hsv(rgbcolor) {
 
 	if (h < 0) h += 360;
 
-	convert.h = (int)(h);   // dst_h : 0-360
-	convert.s = (int)(s * 100); // dst_s : 0-100
-	convert.v = (int)(v * 100); // dst_v : 0-100
+	convert.h = Math.round(h);   // dst_h : 0-360
+	convert.s = Math.round(s * 100); // dst_s : 0-100
+	convert.v = Math.round(v * 100); // dst_v : 0-100
   convert.a = rgbcolor.a;
 
 	return convert;
@@ -89,7 +89,7 @@ function hsv2rgb(hsvcolor)
   
 	var r, g, b; // 0.0-1.0
 
-	var   hi = (int)(h / 60) % 6;
+	var   hi = Math.round(h / 60) % 6;
 	var f = (h / 60) - hi;
 	var p = v * (1 - s);
 	var q = v * (1 - s * 1);
@@ -106,9 +106,9 @@ function hsv2rgb(hsvcolor)
 
 	var convert = new rgbcolor(0,0,0,0);
 
-	convert.r = (int)(r * 255); // dst_r : 0-255
-	convert.g = (int)(g *255); // dst_r : 0-255
-	convert.b = (int)(b *255) ; // dst_r : 0-255
+	convert.r = Math.round(r * 255); // dst_r : 0-255
+	convert.g = Math.round(g *255); // dst_r : 0-255
+	convert.b = Math.round(b *255) ; // dst_r : 0-255
   convert.a = a;
 	return convert;
 }
