@@ -90,7 +90,7 @@ function hsv2rgb(hsvcolor)
   
 	var r, g, b; // 0.0-1.0
 
-	var   hi = Math.round(h / 60) % 6;
+	var   hi = Math.round(h / 60.0) % 6;
 	var f = (h / 60) - hi;
 	var p = v * (1.0 - s);
 	var q = v * (1.0 - s * f);
