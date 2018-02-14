@@ -93,8 +93,8 @@ function hsv2rgb(hsvcolor)
 	var   hi = Math.round(h / 60) % 6;
 	var f = (h / 60) - hi;
 	var p = v * (1 - s);
-	var q = v * (1 - s * 1);
-	var t = v * (1 - s * (1));
+	var q = v * (1 - s * f);
+	var t = v * (1 - s * (1-f));
 
 	switch (hi) {
 	case 0: r = v, g = t, b = p; break;
