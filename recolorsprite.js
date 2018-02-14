@@ -31,7 +31,7 @@ function main() {
 alert("js works at least?");
   alert(color.h + " " + color.s + " " + color.v);
 var newcolor = hsv2rgb(color.h, color.s, color.v, color.a);
-	alert(newcolor);
+	alert(newcolor.r);
   }
 
 function rgb2hsv(rgbcolor) {
