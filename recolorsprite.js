@@ -20,7 +20,7 @@ var color = new hsvcolor(230,80,90,255);
 
 
 function main() {
-alert("js works at least? sigh");
+alert("js works at least? gfjh");
   alert(color.h + " " + color.s + " " + color.v);
 var newcolor = hsv2rgb(color);
 	alert(newcolor.r + " " + newcolor.g + " " + newcolor.b + " " + newcolor.a);
