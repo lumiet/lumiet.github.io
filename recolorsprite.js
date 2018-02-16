@@ -20,7 +20,7 @@ var color = new hsvcolor(230,80,90,255);
 
 
 function main() {
-alert("js works at least? gfjh");
+alert("js works at least?");
   alert(color.h + " " + color.s + " " + color.v);
 var newcolor = hsv2rgb(color);
 	alert(newcolor.r + " " + newcolor.g + " " + newcolor.b + " " + newcolor.a);
@@ -57,9 +57,9 @@ function rgb2hsv(rgbcolor) {
 
 	if (h < 0) h += 360;
 
-	convert.h = h;   // dst_h : 0-360
-	convert.s = s * 100; // dst_s : 0-100
-	convert.v = v * 100; // dst_v : 0-100
+	convert.h = Math.round(h);   // dst_h : 0-360
+	convert.s = Math.round(s * 100); // dst_s : 0-100
+	convert.v = Math.round(v * 100); // dst_v : 0-100
   	convert.a = rgbcolor.a;
 
 	return convert;
