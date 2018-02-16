@@ -18,15 +18,6 @@ function rgbcolor(r,g,b,a) {
 var color = new hsvcolor(230,80,90,255);
 //rgb: r 46 g 76 b 230
 
-  function fminf(a,b) {
-    if(a>b) return b;
-    if(b>=a) return a;
-  }
-  function fmaxf(a,b) {
-    if(a>b) return a;
-    if(b>=a) return b;
-  }
-
 
 function main() {
 alert("js works at least? sigh");
@@ -44,38 +35,31 @@ function rgb2hsv(rgbcolor) {
 
 	var h, s, v; // h:0-360.0, s:0.0-1.0, v:0.0-1.0
 
-	var min = fminf(r, fminf(g, b));
-	var max = fmaxf(r, fmaxf(g, b));
+	var min = Math.min(r, g, b);
+	var max = Math.max(r, g, b);
 
 	v = max;
 
-	if (max == 0) {
-		s = 0;
-		h = 0;
-	}
-	else if (max - min == 0) {
-		s = 0;
-		h = 0;
-	}
-	else {
-		s = (max - min) / max;
+	var d = max - min;
+  	s = max == 0 ? 0 : d / max;
 
-		if (max == r) {
-			h = 60 * ((g - b) / (max - min)) + 0;
-		}
-		else if (max == g) {
-			h = 60 * ((b - r) / (max - min)) + 120;
-		}
-		else {
-			h = 60 * ((r - g) / (max - min)) + 240;
-		}
-	}
+  if (max == min) {
+    h = 0; // achromatic
+  } else {
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+
+    h /= 6;
+  }
 
 	if (h < 0) h += 360;
 
-	convert.h = Math.round(h);   // dst_h : 0-360
-	convert.s = Math.round(s * 100); // dst_s : 0-100
-	convert.v = Math.round(v * 100); // dst_v : 0-100
+	convert.h = h;   // dst_h : 0-360
+	convert.s = s * 100; // dst_s : 0-100
+	convert.v = v * 100; // dst_v : 0-100
   	convert.a = rgbcolor.a;
 
 	return convert;
@@ -107,9 +91,9 @@ function hsv2rgb(hsvcolor)
 
 	var convert = new rgbcolor(0,0,0,0);
 
-	convert.r = Math.round(r * 255); // dst_r : 0-255
-	convert.g = Math.round(g *255); // dst_r : 0-255
-	convert.b = Math.round(b *255) ; // dst_r : 0-255
+	convert.r = r * 255; // dst_r : 0-255
+	convert.g = g *255; // dst_r : 0-255
+	convert.b = b *255; // dst_r : 0-255
   	convert.a = a;
 	return convert;
 }
