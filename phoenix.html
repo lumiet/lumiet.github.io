@@ -4,7 +4,8 @@
 <button onclick="playsound(0);">Crumbling rocks</button>
 <button onclick="playsound(1);">Rock slide</button>
 <button onclick="playsound(2);">Cave in</button>
-<button onclick="playsound(3);">Duel theme</button>
+<button onclick="playsound(3);">Duel theme</button>  
+<button onclick="playsound(4);">Ambient cave</button>
   <br><br>
 <button onclick="audio.pause(); audioPlaying=false;">Pause</button>
 
@@ -47,7 +48,11 @@ function playsound(sound) {
     break;
     case 3: audio = new Audio('The-Good-the-Bad-and-the-Ugly.mp3');
     break;
-    case 4: audio = new Audio('The-Good-the-Bad-and-the-Ugly.mp3');
+    case 4: audio = new Audio('cave.mp3');
+      audio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
     break;
   }
   audio.play();
