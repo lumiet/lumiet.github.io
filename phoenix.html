@@ -2,10 +2,10 @@
 
 </head><body>
 <button onclick="playsound(0);">Sound</button>
-<button onclick="playsound(0);">Sound</button>
-<button onclick="playsound(0);">Sound</button>
-<button onclick="playsound(0);">Sound</button>
-<button onclick="playsound(0);">Sound</button>
+<button onclick="playsound(1);">Sound</button>
+<button onclick="playsound(2);">Sound</button>
+<button onclick="playsound(3);">Sound</button>
+<button onclick="playsound(4);">Sound</button>
 
 
 
@@ -38,14 +38,16 @@ function playsound(sound) {
     audioPlaying=false;
   }
   switch(sound) {
-    case 0: audio = new Audio('Gaur Plains - Xenoblade Chronicles OST.mp3');
-    audio.play();
-    audioPlaying=true;
+    case 0: audio = new Audio('Gaur Plains - Xenoblade Chronicles OST.mp3');    
     break;
-    case 1:
+    case 1: audio = new Audio('leftherian archipelago (night)- xc2.mp3');
     break;
-    case 2:
+    case 2: audio = new Audio('rosa boss theme- xc2.mp3');
     break;
+    case 3:
+    case 4:
   }
+  audio.play();
+  audioPlaying=true;
 }
 </script>
