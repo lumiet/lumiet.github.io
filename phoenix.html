@@ -48,14 +48,14 @@ function pauseresume() {
   if(audioPlaying) {
     audio.pause();
     audioPlaying=false;
-    document.getElementById("pause").content = "Play";
+    document.getElementById("pause").value = "Play";
     document.getElementById("pause").style.backgroundColor = "green";
   }
   else {
    audio.play();
    audioPlaying=true;    
-    document.getElementById("pause").content = "Pause";
-    document.getElementById("pause").style.background-color = "red";
+    document.getElementById("pause").value = "Pause";
+    document.getElementById("pause").style.backgroundColor = "red";
   }
 }
  
