@@ -1,9 +1,9 @@
 <html><head>
 
 </head><body>
-<button onclick="playsound(0);">Sound 1</button>
-<button onclick="playsound(1);">Sound 2</button>
-<button onclick="playsound(2);">Sound 3</button>
+<button onclick="playsound(0);">Crumbling rocks</button>
+<button onclick="playsound(1);">Rock slide</button>
+<button onclick="playsound(2);">Cave in</button>
 <button onclick="playsound(3);">Sound 4</button>
   <br><br>
 <button onclick="audio.pause(); audioPlaying=false;">Pause</button>
@@ -39,11 +39,11 @@ function playsound(sound) {
     audioPlaying=false;
   }
   switch(sound) {
-    case 0: audio = new Audio('Gaur Plains - Xenoblade Chronicles OST.mp3');    
+    case 0: audio = new Audio('crumbling.mp3');    
     break;
-    case 1: audio = new Audio('leftherian archipelago (night)- xc2.mp3');
+    case 1: audio = new Audio('rockslide.mp3');
     break;
-    case 2: audio = new Audio('rosa boss theme- xc2.mp3');
+    case 2: audio = new Audio('cavein.mp3');
     break;
     case 3: audio = new Audio('tantal (night)- xc2.mp3');
     break;
