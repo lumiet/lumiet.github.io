@@ -53,7 +53,9 @@ function pauseresume() {
   }
   else {
    audio.play();
-   audioPlaying=true;
+   audioPlaying=true;    
+    document.getElementById("pause").content = "Pause";
+    document.getElementById("pause").style.background-color = "red";
   }
 }
  
