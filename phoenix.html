@@ -7,7 +7,7 @@
 <button onclick="playsound(3);">Duel theme</button>  
 <button onclick="playsound(4);">Ambient cave</button>
   <br><br>
-<button onclick="audio.pause(); audioPlaying=false;">Pause</button>
+<button onclick="audio.pause(); audioPlaying=false;" id="pause">Pause</button>
 
 
 
@@ -18,7 +18,7 @@ button {
   font-size:14pt;
   color:#fff;
   display:inline-block;
-  height:20vw; width:20vw;
+  height:150px; width:150px;
   border-radius:50%;
   border: 0px solid #000;
   background-color:#212121;
@@ -27,6 +27,15 @@ button:active {
   color:#909090;
   background-color:#313131;
   border: 2px solid #000;
+}
+  
+#pause {
+position:fixed;
+bottom:0;
+width:100%; height:250px;
+background-color:red;
+border-radius:0;
+border:0px;
 }
  
 
