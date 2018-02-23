@@ -8,10 +8,9 @@
 </body>
 <style>
 button {
-  &>div {
-    font-weight:bold;
-    font-size:14pt;
-  }
+  font-weight:bold;
+  font-size:14pt;
+  color:#fff;
   display:inline-block;
   height:10%; width:10%;
   border-radius:50%;
@@ -21,10 +20,12 @@ button {
 
 </style>
 <script>
+  var audioPlaying=false;
 function playsound(sound) {
   switch(sound) {
     case 0: var audio = new Audio('Gaur Plains - Xenoblade Chronicles OST.mp3');
     audio.play();
+    audioPlaying=true;
     break;
     case 1:
     break;
