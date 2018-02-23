@@ -31,9 +31,14 @@ button:active {
 </style>
 <script>
   var audioPlaying=false;
+  var audio;
 function playsound(sound) {
+  if(audioPlaying) {
+    audio.pause();
+    audioPlaying=false;
+  }
   switch(sound) {
-    case 0: var audio = new Audio('Gaur Plains - Xenoblade Chronicles OST.mp3');
+    case 0: audio = new Audio('Gaur Plains - Xenoblade Chronicles OST.mp3');
     audio.play();
     audioPlaying=true;
     break;
