@@ -4,7 +4,7 @@
 <button onclick="playsound(0);">Crumbling rocks</button>
 <button onclick="playsound(1);">Rock slide</button>
 <button onclick="playsound(2);">Cave in</button>
-<button onclick="playsound(3);">Sound 4</button>
+<button onclick="playsound(3);">Duel theme</button>
   <br><br>
 <button onclick="audio.pause(); audioPlaying=false;">Pause</button>
 
@@ -45,9 +45,10 @@ function playsound(sound) {
     break;
     case 2: audio = new Audio('cavein.mp3');
     break;
-    case 3: audio = new Audio('tantal (night)- xc2.mp3');
+    case 3: audio = new Audio('The-Good-the-Bad-and-the-Ugly.mp3');
     break;
-    case 4:
+    case 4: audio = new Audio('The-Good-the-Bad-and-the-Ugly.mp3');
+    break;
   }
   audio.play();
   audioPlaying=true;
