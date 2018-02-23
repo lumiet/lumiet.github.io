@@ -7,7 +7,7 @@
 <button onclick="playsound(3);">Duel theme</button>  
 <button onclick="playsound(4);">Ambient cave</button>
   <br><br>
-<button onclick="pauseresume();" id="pause">Pause</button>
+<button onclick="pauseresume();" id="pause">Pause/Play</button>
 
 
 
@@ -33,7 +33,7 @@ button:active {
 position:fixed;
 bottom:0; left:0;
 width:100%; height:250px;
-background-color:red;
+background-color:#303030;
 border-radius:0;
 border:0px;
   font-size:25pt;
@@ -48,14 +48,10 @@ function pauseresume() {
   if(audioPlaying) {
     audio.pause();
     audioPlaying=false;
-    document.getElementById("pause").value = "Play";
-    document.getElementById("pause").style.backgroundColor = "green";
   }
   else {
    audio.play();
-   audioPlaying=true;    
-    document.getElementById("pause").value = "Pause";
-    document.getElementById("pause").style.backgroundColor = "red";
+   audioPlaying=true;
   }
 }
  
