@@ -1,11 +1,11 @@
-function togglepopup(elementname){
+/*function togglepopup(elementname){
 if(document.getElementById(elementname).style.display != "none") {
 document.getElementById(elementname).style.display = "none";
 }
 else {
 document.getElementById(elementname).style.display = "inline";
 }
-}
+}*/
 function getRndInteger(min, max) {
 	//This JavaScript function always returns a random number between min (included) and max (excluded)
     return Math.floor(Math.random() * (max - min) ) + min;
