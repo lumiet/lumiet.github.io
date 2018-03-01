@@ -86,12 +86,12 @@ else {
   this.headingleft = false;
   this.headingright = false; 
 if(alignment==true){
-	 this.y= canvas.height-259;	  
+	 this.y= canvas.height-this.img.height;	  
      this.hpbar = new component(20, 100, "#23fc6f", 330,canvas.height-100);
   this.basehpbar = new component(20,300,"#212121",330,canvas.height-100);
 }  
 else {
-	this.y= 210;	  
+	this.y= canvas.height*.4;	  
      this.hpbar = new component(20, 100, "#ff2323",10,10);
   this.basehpbar = new component(20,300,"#212121",10,10);
 }
