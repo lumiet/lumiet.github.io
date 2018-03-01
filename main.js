@@ -236,7 +236,7 @@ enemy = new character(1,5,50,0);
   setInterval(ai, 20);
   setInterval(aiatk, 20);
   
-  bg= {img : new Image(), x:0, y:(canvas.width/2)-209};
+  bg= {img : new Image(), x:0, y:0};
   bg.img.src = "bg.png";
  
 }
