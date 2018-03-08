@@ -1,7 +1,8 @@
 var questionNumb = 3;
 var currQuestion = 0;
 var score = 0;
-var questionData[] = [question : "to dance", answer: "bailar"], [question: "to sing", answer: "cantar"], [question: "to speak", answer: "hablar"]
+var questionData = [{question : "to dance", answer: "bailar"}, {question: "to sing", answer: "cantar"}, {question: "to speak", answer: "hablar"}]
+
 
 function getRand(int x) {
 return Math.floor(Math.random()*x);
@@ -9,6 +10,7 @@ return Math.floor(Math.random()*x);
 
 
 function setQuestion() {
+ alert(questionData[1].question)
 currQuestion = getRand(questionNumb);
 document.getElementById('phrase').innerHTML = questionData[currQuestion].question;
 }
