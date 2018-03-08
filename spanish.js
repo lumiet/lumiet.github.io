@@ -2,13 +2,13 @@ var questionNumb = 3;
 var questionData = [{question : "To dance", answer: "bailar"}, {question: "To sing", answer: "cantar"}, {question: "To speak", answer: "hablar"}]
 
 function getRand(int x) {
-return Math.ceil(Math.random()*x);
+return Math.floor(Math.random()*x);
 }
 
 
 function setQuestion() {
-var question = getRand(questionNumb);
-document.getElementById('phrase').content = questionNumb.question;
+var currQuestion = getRand(questionNumb);
+document.getElementById('phrase').content = questionData[currQuestion].question;
 }
 
 function getData() {
