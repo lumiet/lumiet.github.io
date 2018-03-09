@@ -21,6 +21,7 @@ function updateScore() {
 
 function getData() {
 var userAnswer = toLowerCase(document.getElementById('submission').value);
+ alert(userAnswer);
   if(userAnswer==questionData[currQuestion].answer) {
     document.getElementById('checkans').innerHTML = "Correct";
     score++;
