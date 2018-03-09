@@ -1,6 +1,42 @@
+body {
+background-color:#f1f1f1;
+}
+
 input {
-margin: auto;
 width:80%;
-height:20%;
+height: 100px;
 font-size:40pt;
+min-width:300px;
+}
+
+h3 {
+font-size:30pt;
+margin:0px;
+}
+
+p {
+margin:0;
+align-items:middle;
+}
+
+button {
+height: 100px;
+width:10%;
+position:absolute;
+border-radius:0;
+border:0;
+font-weight:bold;
+background-color:#b1b1b1;
+}
+
+button:active {
+background-color:#919191;
+}
+
+#score {
+font-size:20pt;
+}
+
+#checkans {
+font-size:20pt;
 }
