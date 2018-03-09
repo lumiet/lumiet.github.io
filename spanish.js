@@ -4,7 +4,7 @@ var score = 0;
 var questionData = [{question : "to dance", answer: "bailar"}, {question: "to sing", answer: "cantar"}, {question: "to speak", answer: "hablar"}];
 
 
-function getRand(int x) {
+function getRand(x) {
 return Math.floor(Math.random()*x);
 }
 
