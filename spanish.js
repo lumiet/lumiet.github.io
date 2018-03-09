@@ -19,6 +19,7 @@ function updateScore() {
 }
 
 function getData() {
+ alert("got here");
 var userAnswer = toLowerCase(document.getElementById('submission').value);
  alert(userAnswer);
   if(userAnswer==questionData[currQuestion].answer) {
