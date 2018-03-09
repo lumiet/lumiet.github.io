@@ -20,7 +20,7 @@ function updateScore() {
 
 function getData() {
  alert("got here");
-var userAnswer = toLowerCase(document.getElementById('submission').value);
+var userAnswer = document.getElementById('submission').value.toLowerCase();
  alert(userAnswer);
   if(userAnswer==questionData[currQuestion].answer) {
     document.getElementById('checkans').innerHTML = "Correct";
