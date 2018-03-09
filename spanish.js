@@ -10,7 +10,7 @@ return Math.floor(Math.random()*x);
 
 
 function setQuestion() {
- alert(questionData[1].question)
+ alert(questionData[1].question);
 currQuestion = getRand(questionNumb);
 document.getElementById('phrase').innerHTML = questionData[currQuestion].question;
 }
