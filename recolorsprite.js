@@ -45,7 +45,8 @@ function rgb2hsv(r, g, b) {
     return {
         h: h*360,
         s: s*100,
-        v: v*100
+        v: v*100,
+	a: r.a
     };
 }
 /*function rgb2hsv(rgbcolor) {
@@ -108,7 +109,8 @@ function hsv2rgb(h, s, v) {
     return {
         r: Math.round(r * 255),
         g: Math.round(g * 255),
-        b: Math.round(b * 255)
+        b: Math.round(b * 255),	    
+	a: h.a
     };
 }
 /*function hsv2rgb(hsvcolor)
