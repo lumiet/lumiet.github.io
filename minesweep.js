@@ -10,7 +10,6 @@ function getRndInteger(min, max) {
 
 
 function setUp() {
-
 	for(var i=0; i<bombcount;) {
 		targetCell = board.rows[getRndInteger(0,boardwidth)].cells[getRndInteger(0,boardwidth)];
 		if (targetCell.className != "bomb") {
@@ -22,10 +21,10 @@ function setUp() {
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
 			board.rows[i].cells[j].addEventListener('click', function() {
-				checkClick(this, true, this.parentNode.parentNode.rows, this.parentNode.cells);
+				checkClick(this, true, 0,0);
 			});
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
-				checkClick(this, false, this.parentNode.parentNode.rows, this.parentNode.cells);
+				checkClick(this, false, 0, 0);
 			});
 			checkCount(board.rows[i].cells[j], i, j);
 		}
