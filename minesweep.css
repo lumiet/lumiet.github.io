@@ -9,6 +9,7 @@ margin:0 auto 0 auto;
 border-collapse: collapse;
 border: 1px solid #000;
 overflow:hidden;
+user-select:none;
 }
 
 
@@ -25,6 +26,7 @@ border: 1px solid #000;
 #numb {
  display:none; 
   font-size:15pt;
+ font-decoration:bold;
 }
 .clicked {
 background-color:#212121;
