@@ -22,10 +22,10 @@ function setUp() {
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
 			board.rows[i].cells[j].addEventListener('click', function() {
-				checkClick(this, true, this.rows, this.cells);
+				checkClick(this, true, this.parentNode.parentNode.rows, this.parentNode.cells);
 			});
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
-				checkClick(this, false, this.rows, this.cells);
+				checkClick(this, false, this.parentNode.parentNode.rows, this.parentNode.cells);
 			});
 			checkCount(board.rows[i].cells[j], i, j);
 		}
