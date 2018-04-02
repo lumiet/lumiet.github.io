@@ -1,0 +1,40 @@
+body {
+background: #919191;
+}
+
+table, tr, td {
+background:#616161;
+padding:0;
+margin:0 auto 0 auto;
+border-collapse: collapse;
+border: 1px solid #000;
+overflow:hidden;
+}
+
+
+td {
+content {
+visibility:hidden;
+font-decoration:bold;
+}
+display:inline-block;
+min-width:50px; max-width:50px;
+min-height:50px; max-height:50px;
+line-height:50px;
+text-align:center;
+margin:0;
+padding:0;
+border: 1px solid #000;
+}
+
+.clicked {
+background-color:#212121;
+}
+
+.flagged {
+background-color: orange;
+}
+
+.bomb.clicked {
+background: red;
+}
