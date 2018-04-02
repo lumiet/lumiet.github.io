@@ -74,8 +74,10 @@ function checkClick(element, click, i, j) {
 					checkClick(board.rows[i+1].cells[j],true, i+1, j);
 				}
 			
-				if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].innerHTML == '<div id="numb">0</div>') {
-					checkClick(board.rows[i+1].cells[j+1],true, i+1, j+1);
+				if(j+1<boardwidth) {
+					if(board.rows[i+1].cells[j+1].innerHTML == '<div id="numb">0</div>') {
+						checkClick(board.rows[i+1].cells[j+1],true, i+1, j+1);
+					}
 				}
 			}
 		}
