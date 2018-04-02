@@ -37,7 +37,7 @@ function setUp() {
 function checkClick(element, click) {
 	if(click) {
 		element.className += " clicked";
-		/*if(element.innerHTML = '<div id="numb">0</div>') {
+		if(element.innerHTML = '<div id="numb">0</div>') {
 			if(i-1>=0) {
 				if(j-1>=0) {
 					if(board.rows[i-1].cells[j-1].innerHTML == '<div id="numb">0</div>') {
@@ -75,12 +75,16 @@ function checkClick(element, click) {
 		}
 	}
 	if(i+1<boardwidth) {
-		if(board.rows[i+1].cells[j].className == "bomb") count++;
+		if(board.rows[i+1].cells[j].innerHTML == '<div id="numb">0</div>') {		
+			checkClick(board.rows[i+1].cells[j],true);
+		}
 	}
 	if(i+1<boardwidth) {
-		if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].className == "bomb") count++;
+		if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].innerHTML == '<div id="numb">0</div>') {
+			checkClick(board.rows[i+1].cells[j+1],true);
+		}
 	}
-}*/
+}
 	}
 	else element.className = " flagged";
 }
