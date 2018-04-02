@@ -37,7 +37,7 @@ function setUp() {
 function checkClick(element, click, i, j) {
 	if(click) {
 		element.className += " clicked";
-		/*if(element.innerHTML = '<div id="numb">0</div>') {
+		if(element.innerHTML == '<div id="numb">0</div>') {
 			if(i-1>=0) {
 				if(j-1>=0) {
 					if(board.rows[i-1].cells[j-1].innerHTML == '<div id="numb">0</div>') {
@@ -78,7 +78,7 @@ function checkClick(element, click, i, j) {
 					checkClick(board.rows[i+1].cells[j+1],true, i+1, j+1);
 				}
 			}
-		}*/
+		}
 	}
 	else element.className = " flagged";
 }
