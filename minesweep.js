@@ -80,8 +80,8 @@ function checkClick(element, click) {
 	if(i+1<boardwidth) {
 		if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].className == "bomb") count++;
 	}
-		}
-	}*/
+}*/
+	}
 	else element.className = " flagged";
 }
 
