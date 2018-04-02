@@ -22,10 +22,10 @@ function setUp() {
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
 			board.rows[i].cells[j].addEventListener('click', function() {
-				checkClick(this, true);
+				checkClick(this, true, i, j);
 			});
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
-				checkClick(this, false);
+				checkClick(this, false, i, j);
 			});
 			checkCount(board.rows[i].cells[j], i, j);
 		}
@@ -34,65 +34,60 @@ function setUp() {
 }
 
 
-function checkClick(element, click) {
+function checkClick(element, click, i, j) {
 	if(click) {
 		element.className += " clicked";
 		if(element.innerHTML = '<div id="numb">0</div>') {
 			if(i-1>=0) {
 				if(j-1>=0) {
 					if(board.rows[i-1].cells[j-1].innerHTML == '<div id="numb">0</div>') {
-						checkClick(board.rows[i-1].cells[j-1],true);
-				}		
+						checkClick(board.rows[i-1].cells[j-1],true, i-1, j-1);
+					}		
+				}
 			}
-		}
 		if(i-1>=0) {
 			if (board.rows[i-1].cells[j].innerHTML == '<div id="numb">0</div>') {
-				checkClick(board.rows[i-1].cells[j],true);
+				checkClick(board.rows[i-1].cells[j],true, i-1, j);
 			}
 		}
 		if(i-1>=0) {
 			if(j+1<boardwidth) {
 				if (board.rows[i-1].cells[j+1].innerHTML == '<div id="numb">0</div>') {
- 					checkClick(board.rows[i-1].cells[j+1],true);
+ 					checkClick(board.rows[i-1].cells[j+1],true, i-1, j+1);
 				}
 			}
 		}
 		if(j-1>=0) {
 			if(board.rows[i].cells[j-1].innerHTML == '<div id="numb">0</div>') {
-				checkClick(board.rows[i].cells[j-1],true);
+				checkClick(board.rows[i].cells[j-1],true, i, j-1);
 			}
 		}
 		if(j+1<boardwidth) {
 			if(board.rows[i].cells[j+1].innerHTML == '<div id="numb">0</div>') {
-				checkClick(board.rows[i].cells[j+1],true);
+				checkClick(board.rows[i].cells[j+1],true, i, j+1);
 			}
 		}
 	if(i+1<boardwidth) {
 		if(j-1>=0) {
 			if(board.rows[i+1].cells[j-1].innerHTML == '<div id="numb">0</div>') {
-				checkClick(board.rows[i].cells[j+1],true);
+				checkClick(board.rows[i].cells[j+1],true, i+1, j-1);
 			}
 		}
 	}
 	if(i+1<boardwidth) {
 		if(board.rows[i+1].cells[j].innerHTML == '<div id="numb">0</div>') {		
-			checkClick(board.rows[i+1].cells[j],true);
+			checkClick(board.rows[i+1].cells[j],true, i+1, j);
 		}
 	}
 	if(i+1<boardwidth) {
 		if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].innerHTML == '<div id="numb">0</div>') {
-			checkClick(board.rows[i+1].cells[j+1],true);
+			checkClick(board.rows[i+1].cells[j+1],true, i+1, j+1);
 		}
 	}
 }
 	}
 	else element.className = " flagged";
 }
-
-function checkZeroValue(element, i, j) {
-
-}
-
 
 function checkCount(cell, i, j) {
 	var count=0;
