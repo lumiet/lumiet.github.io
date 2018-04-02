@@ -58,16 +58,20 @@ function checkClick(element, click) {
 			}
 		}
 		if(j-1>=0) {
-			if(board.rows[i].cells[j-1].className == "bomb") {
+			if(board.rows[i].cells[j-1].innerHTML == '<div id="numb">0</div>') {
 				checkClick(board.rows[i].cells[j-1],true);
 			}
 		}
 		if(j+1<boardwidth) {
-			if(board.rows[i].cells[j+1].className == "bomb") count++;
+			if(board.rows[i].cells[j+1].innerHTML == '<div id="numb">0</div>') {
+				checkClick(board.rows[i].cells[j+1],true);
+			}
 		}
 	if(i+1<boardwidth) {
 		if(j-1>=0) {
-			if(board.rows[i+1].cells[j-1].className == "bomb") count++;
+			if(board.rows[i+1].cells[j-1].innerHTML == '<div id="numb">0</div>') {
+				checkClick(board.rows[i].cells[j+1],true);
+			}
 		}
 	}
 	if(i+1<boardwidth) {
