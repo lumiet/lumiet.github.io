@@ -29,7 +29,7 @@ border: 1px solid #000;
 .clicked {
 background-color:#212121;
 }
-#numb .clicked {
+.clicked span {
  display:inline; 
 }
 
