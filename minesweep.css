@@ -36,7 +36,7 @@ background-color:#212121;
 .clicked #numb {
  display:inline; 
 }
-#bomb .clicked #numb {
+#bomb .clicked > #numb {
 background:url('https://i.imgur.com/geYgLyk.png') center center;
 background-size:cover;
 }
