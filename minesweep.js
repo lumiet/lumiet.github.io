@@ -27,7 +27,7 @@ function setUp() {
 				checkClick(this, false, 0, 0);
 			});
 			if(targetCell.id !="bomb") checkCount(board.rows[i].cells[j], i, j);
-			else targetCell.innerHTML = '<img src="https://canvas.allenisd.org/images/thumbnails/42505944/C7xI0ihDEp4j7J24duYtqDkOWlns1s4BS5B1nQqA" \>'
+			else targetCell.innerHTML = '<div id="numb" style="background:url("https://canvas.allenisd.org/images/thumbnails/42505944/C7xI0ihDEp4j7J24duYtqDkOWlns1s4BS5B1nQqA") center center; background-size:cover;"></div>'
 		}
 	}
 
