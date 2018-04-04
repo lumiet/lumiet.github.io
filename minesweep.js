@@ -12,8 +12,8 @@ function getRndInteger(min, max) {
 function setUp() {
 	for(var i=0; i<bombcount;) {
 		targetCell = board.rows[getRndInteger(0,boardwidth)].cells[getRndInteger(0,boardwidth)];
-		if (targetCell.className != "bomb") {
-			targetCell.className = "bomb";
+		if (targetCell.id != "bomb") {
+			targetCell.id = "bomb";
 			i++;
 		}
 	}
@@ -26,7 +26,7 @@ function setUp() {
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
 				checkClick(this, false, 0, 0);
 			});
-			if(targetCell.className !="bomb") checkCount(board.rows[i].cells[j], i, j);
+			if(targetCell.id !="bomb") checkCount(board.rows[i].cells[j], i, j);
 			else targetCell.innerHTML = '<img src="https://canvas.allenisd.org/images/thumbnails/42505944/C7xI0ihDEp4j7J24duYtqDkOWlns1s4BS5B1nQqA" \>'
 		}
 	}
@@ -35,8 +35,8 @@ function setUp() {
 
 
 function checkClick(element, click, i, j) {
-	if(click && element.className!=" flagged") {
-		element.className += " clicked";
+	if(click && element.className!="flagged") {
+		element.className += "clicked";
 		/*if(element.innerHTML == '<div id="numb">0</div>') {
 			if(i-1>=0) {
 				if(j-1>=0) {
@@ -82,43 +82,43 @@ function checkClick(element, click, i, j) {
 			}
 		}*/
 	}
-	else if(element.className == " flagged") {
+	else if(element.className != "clicked" && element.className == "flagged") {
 		element.className = "";	
 	}
-	else element.className = " flagged";
+	else if (element.className !="clicked") element.className = "flagged";
 }
 
 function checkCount(cell, i, j) {
 	var count=0;
 	if(i-1>=0) {
 		if(j-1>=0) {
-			if(board.rows[i-1].cells[j-1].className == "bomb") count++;
+			if(board.rows[i-1].cells[j-1].id == "bomb") count++;
 		}
 	}
 	if(i-1>=0) {
-		if (board.rows[i-1].cells[j].className == "bomb") count++;
+		if (board.rows[i-1].cells[j].id == "bomb") count++;
 	}
 	if(i-1>=0) {
 		if(j+1<boardwidth) {
-			if (board.rows[i-1].cells[j+1].className == "bomb") count++;
+			if (board.rows[i-1].cells[j+1].id == "bomb") count++;
 		}
 	}
 	if(j-1>=0) {
-		if(board.rows[i].cells[j-1].className == "bomb") count++;
+		if(board.rows[i].cells[j-1].id == "bomb") count++;
 	}
 	if(j+1<boardwidth) {
-		if(board.rows[i].cells[j+1].className == "bomb") count++;
+		if(board.rows[i].cells[j+1].id == "bomb") count++;
 	}
 	if(i+1<boardwidth) {
 		if(j-1>=0) {
-			if(board.rows[i+1].cells[j-1].className == "bomb") count++;
+			if(board.rows[i+1].cells[j-1].id == "bomb") count++;
 		}
 	}
 	if(i+1<boardwidth) {
-		if(board.rows[i+1].cells[j].className == "bomb") count++;
+		if(board.rows[i+1].cells[j].id == "bomb") count++;
 	}
 	if(i+1<boardwidth) {
-		if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].className == "bomb") count++;
+		if(j+1<boardwidth) if(board.rows[i+1].cells[j+1].id == "bomb") count++;
 	}
 	cell.innerHTML = '<div id="numb">' + count + '</div>';
 }
