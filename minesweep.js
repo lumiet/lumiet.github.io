@@ -26,7 +26,7 @@ function setUp() {
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
 				checkClick(this, false, 0, 0);
 			});
-			if(targetCell.id !="bomb") checkCount(board.rows[i].cells[j], i, j);
+			checkCount(board.rows[i].cells[j], i, j);
 		}
 	}
 
