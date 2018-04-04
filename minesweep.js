@@ -1,5 +1,5 @@
 const boardwidth = 15;
-const bombcount = 30;
+const bombcount = 50;
 const board = document.getElementById('board');
 
 function getRndInteger(min, max) {
