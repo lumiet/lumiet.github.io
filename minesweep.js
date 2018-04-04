@@ -81,6 +81,9 @@ function checkClick(element, click, i, j) {
 			}
 		}*/
 	}
+	else if(element.className == " flagged") {
+		element.className = "";	
+	}
 	else element.className = " flagged";
 }
 
