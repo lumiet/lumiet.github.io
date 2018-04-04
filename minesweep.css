@@ -27,6 +27,7 @@ border: 1px solid #000;
  display:none; 
   font-size:15pt;
  font-decoration:bold;
+ color:white;
 }
 .clicked {
 background-color:#212121;
