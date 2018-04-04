@@ -41,6 +41,6 @@ background-color:#212121;
 background-color: orange;
 }
 
-.bomb.clicked {
+#bomb.clicked {
 background: red;
 }
