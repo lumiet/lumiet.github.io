@@ -34,7 +34,7 @@ function setUp() {
 
 
 function checkClick(element, click, i, j) {
-	if(click) {
+	if(click && element.className!=" flagged") {
 		element.className += " clicked";
 		/*if(element.innerHTML == '<div id="numb">0</div>') {
 			if(i-1>=0) {
