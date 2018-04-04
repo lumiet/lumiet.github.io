@@ -40,6 +40,10 @@ td#bomb.clicked {
 background:url('https://i.imgur.com/geYgLyk.png') red center center;
 background-size:cover;
 }
+#bomb.clicked>#numb {
+ display:none;
+}
+
 .flagged {
 background-color: orange;
 }
