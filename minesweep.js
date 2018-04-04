@@ -27,7 +27,6 @@ function setUp() {
 				checkClick(this, false, 0, 0);
 			});
 			if(targetCell.id !="bomb") checkCount(board.rows[i].cells[j], i, j);
-			else targetCell.innerHTML = '<div id="numb" style="background:url("https://canvas.allenisd.org/images/thumbnails/42505944/C7xI0ihDEp4j7J24duYtqDkOWlns1s4BS5B1nQqA") center center; background-size:cover;"></div>'
 		}
 	}
 
@@ -36,7 +35,7 @@ function setUp() {
 
 function checkClick(element, click, i, j) {
 	if(click && element.className!="flagged") {
-		element.className += "clicked";
+		element.className = "clicked";
 		/*if(element.innerHTML == '<div id="numb">0</div>') {
 			if(i-1>=0) {
 				if(j-1>=0) {
