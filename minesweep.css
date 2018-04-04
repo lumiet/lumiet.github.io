@@ -36,7 +36,10 @@ background-color:#212121;
 .clicked #numb {
  display:inline; 
 }
-
+#bomb .clicked #numb {
+background:url('https://vignette.wikia.nocookie.net/mario/images/7/79/Bob-omb_%28Mario_Kart_8%29.png/revision/latest?cb=20140505194042') center center;
+background-size:cover;
+}
 .flagged {
 background-color: orange;
 }
