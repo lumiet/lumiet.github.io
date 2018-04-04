@@ -26,7 +26,8 @@ function setUp() {
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
 				checkClick(this, false, 0, 0);
 			});
-			checkCount(board.rows[i].cells[j], i, j);
+			if(targetCell.className !="bomb") checkCount(board.rows[i].cells[j], i, j);
+			else targetCell.innerHTML = '<img src="https://canvas.allenisd.org/images/thumbnails/42505944/C7xI0ihDEp4j7J24duYtqDkOWlns1s4BS5B1nQqA" \>'
 		}
 	}
 
