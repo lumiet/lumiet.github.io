@@ -72,6 +72,7 @@ position:absolute;
 	display:inline-block;
 	overflow:hidden;	
 	width:30%;	
+	max-width:400px;
 	height:91px;
 	background-size-x:cover;
 	border:2px solid #000;
