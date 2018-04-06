@@ -75,6 +75,7 @@ position:absolute;
 	height:91px;
 	background-size-x:cover;
 	border:2px solid #000;
+	background-repeat:no-repeat;
 	background: #fff url('https://i.imgur.com/CKIFLDV.png');
 	
 }
