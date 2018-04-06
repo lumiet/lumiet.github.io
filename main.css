@@ -73,7 +73,8 @@ position:absolute;
 	overflow:hidden;	
 	width:30%;	
 	height:91px;
-	background: #fff url('banner.png');
+	background-size-x:cover;
+	background: #fff url('https://i.imgur.com/kuwQDfY.png');
 	
 }
 
