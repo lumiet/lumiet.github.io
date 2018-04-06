@@ -55,7 +55,7 @@ height:125px;
 width: 100%;
 clear:both;
 overflow:hidden;
-background: #D8DAFF url('headerbg.png') repeat left top;
+background: url('https://i.imgur.com/kyRMb4h.png') repeat-x left top;
 }
 #changingtext {
 }
@@ -63,8 +63,8 @@ background: #D8DAFF url('headerbg.png') repeat left top;
 display:none;
 height:200px;
 width:300px;
-left:50%;
-top:50%;
+left:calc(50%-300px);
+top:calc(50%-200px);
 padding:2px;
 border: 3px;
 border-color:#282A63;
@@ -77,13 +77,12 @@ position:absolute;
 	overflow:hidden;	
 	width:30%;	
 	height:91px;
-	background-size: 2px;
-	background: #fff url('banner.png') norepeat left top;
+	background: #fff url('banner.png');
 	
 }
 
 #insideheading {
-	display:inline-block;
+display:inline-block;
 left:0px;
 top:0px;
 position:fixed;
@@ -93,7 +92,7 @@ overflow:hidden;
 }
 
 #currencybar {
-	padding:10px;
+padding:10px;
 position:fixed;
 left:0px;
 top:87px;
@@ -104,11 +103,11 @@ color:white;
 
 #sidebar {	
 left:0px;
+padding:3px;
 top:125px;
-position:fixed;
+position:absolute;
 height:100%;
 width: 150px;
-background-color:blue;
 clear:both;
 background: #D8DAFF url('navbg.png') repeat left top;
 }
