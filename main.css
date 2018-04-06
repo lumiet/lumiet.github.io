@@ -15,7 +15,7 @@ color:#fff;
 .button {
 	float:left;
     background-color: #313131;
-    border: 4px solid #000;
+    border: 2px solid #000;
     color: white;
     padding: 3px;
     text-align: center;
@@ -110,7 +110,7 @@ background: #D8DAFF url('navbg.png') repeat left top;
 
 #button {
 	float:right;
-	border: 4px solid #000;
+	border: 2px solid #000;
 	border-radius:2px;
 	height:75px;
 	line-height:75px;
@@ -118,7 +118,6 @@ background: #D8DAFF url('navbg.png') repeat left top;
 	width:15%;
 	display:inline-block;
 	margin:.5%;
-	margin-top: 8px;
 	background-color:#313131;
 	overflow:hidden;
 	transition: .1s;
