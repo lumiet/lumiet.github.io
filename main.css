@@ -55,7 +55,7 @@ height:125px;
 width: 100%;
 clear:both;
 overflow:hidden;
-background: url('https://i.imgur.com/kyRMb4h.png') repeat-x left top;
+background: url('https://i.imgur.com/lKI096e.png') repeat-x left top;
 }
 #changingtext {
 }
@@ -73,6 +73,7 @@ position:absolute;
 
 }
 #banner {
+	margin:2px;
 	display:inline-block;
 	overflow:hidden;	
 	width:30%;	
