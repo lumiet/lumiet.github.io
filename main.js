@@ -191,7 +191,8 @@ function checkatk() {
             enemy.hp -= player.atk[player.currentatk].pwr;
         if (enemy.hp < 0)
             enemy.hp = 0;
-    } else if (!checkhit(lastclickx, enemy, player) && player.atk[player.currentatk].ready && click) {
+    } 
+else if (!checkhit(lastclickx, enemy, player) && player.atk[player.currentatk].ready && click) {
         player.atk[player.currentatk].time = 0;
     }
 
@@ -212,10 +213,10 @@ function updateatk() {
             player.atk[i].buttnborder.color = "red";
 	}
         else {
-            player.atk[i].buttnborder.color = "#000";
+            player.atk[i].buttnborder.color = "#000";}
         player.atk[i].buttnborder.draw(0, 2 * Math.PI);
         player.atk[i].checkready();
-	}
+	
     }
 
     for (var i = 0; i < enemy.atk.length; i++) {
@@ -224,10 +225,10 @@ function updateatk() {
             enemy.atk[i].buttnborder.color = "red";
 	}
         else {
-            enemy.atk[i].buttnborder.color = "#000";
+            enemy.atk[i].buttnborder.color = "#000"; }
         enemy.atk[i].buttnborder.draw(0, 2 * Math.PI);
         enemy.atk[i].checkready();
-	}
+	
     }
 }
 function checkinput() {
