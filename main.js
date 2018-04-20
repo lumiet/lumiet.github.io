@@ -285,7 +285,7 @@ function animate() {
     updateatk();
     checkatk();
     ctx.globalAlpha = (atkanitime / 10);
-    ctx.drawImage(player.atk[player.currentatk].imgeffect, lastclickx - img.width / 2, enemy.y + 20);
+    ctx.drawImage(player.atk[player.currentatk].imgeffect, lastclickx - player.atk[player.currentatk].imgeffect.width / 2, enemy.y + 20);
 }
 
 function draw() {
