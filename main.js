@@ -258,7 +258,7 @@ function animate() {
   var img = new Image();
   img.src="hit.png";
   ctx.globalAlpha = (atkanitime/10);
-  ctx.drawImage(player.atk[currentatk].imgeffect,lastclickx-img.width/2,enemy.y+20);
+  ctx.drawImage(player.atk[player.currentatk].imgeffect,lastclickx-img.width/2,enemy.y+20);
 	
 }
 
