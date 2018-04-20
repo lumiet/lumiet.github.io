@@ -181,7 +181,6 @@ function aiatk() {
 
 function checkhit(x, target, user) {
     return ((x >= (target.x - user.atk[user.currentatk].radius)) && (x <= (target.x + user.atk[user.currentatk].radius)) && (x > 0));
-
 }
 
 function checkatk() {
@@ -205,15 +204,17 @@ else if (!checkhit(lastclickx, enemy, player) && player.atk[player.currentatk].r
 }
 
 function updateatk() {
-    if (atkanitime > 0)
+    if (atkanitime > 0) {
         atkanitime -= .25;
+    }
     for (var i = 0; i < player.atk.length; i++) {
         player.atk[i].time++;
         if (i == player.currentatk) {
             player.atk[i].buttnborder.color = "red";
 	}
         else {
-            player.atk[i].buttnborder.color = "#000";}
+            player.atk[i].buttnborder.color = "#000";
+	}
         player.atk[i].buttnborder.draw(0, 2 * Math.PI);
         player.atk[i].checkready();
 	
@@ -225,7 +226,8 @@ function updateatk() {
             enemy.atk[i].buttnborder.color = "red";
 	}
         else {
-            enemy.atk[i].buttnborder.color = "#000"; }
+            enemy.atk[i].buttnborder.color = "#000"; 
+	}
         enemy.atk[i].buttnborder.draw(0, 2 * Math.PI);
         enemy.atk[i].checkready();
 	
@@ -284,7 +286,6 @@ function animate() {
     checkatk();
     ctx.globalAlpha = (atkanitime / 10);
     ctx.drawImage(player.atk[player.currentatk].imgeffect, lastclickx - img.width / 2, enemy.y + 20);
-
 }
 
 function draw() {
