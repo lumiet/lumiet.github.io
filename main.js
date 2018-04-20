@@ -202,7 +202,7 @@ function ai(){
 
 function aiatk() {
 	if(enemy.atk[enemy.currentatk].ready) {		
-	enemyatkx = getRndInteger(1,canvas.width);		
+	enemyatkx = player.x + getRndInteger(enemy.atk[enemy.currentatk].radius*-2, enemy.atk[enemy.currentatk].radius*2);		
 	enemy.atk[enemy.currentatk].time = 0;
 	}
 }
