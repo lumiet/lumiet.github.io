@@ -200,10 +200,14 @@ function ai(){
     movetime-=enemy.currentspeed;
 }
 
-function aiatk() {
+function aiatk() {	
 	if(enemy.atk[enemy.currentatk].ready) {		
 	enemyatkx = player.x + getRndInteger(enemy.atk[enemy.currentatk].radius*-2, enemy.atk[enemy.currentatk].radius*2);		
 	enemy.atk[enemy.currentatk].time = 0;
+	}
+	else {
+	if(enemy.currentatk==2)	enemy.currentatk++;	
+	else enemy.currentatk = 0;
 	}
 }
 
