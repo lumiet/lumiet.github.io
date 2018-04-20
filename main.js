@@ -1,25 +1,3 @@
-/*function togglepopup(elementname){
-if(document.getElementById(elementname).style.display != "none") {
-document.getElementById(elementname).style.display = "none";
-}
-else {
-document.getElementById(elementname).style.display = "inline";
-}
-}*/
-function getRndInteger(min, max) {
-	//This JavaScript function always returns a random number between min (included) and max (excluded)
-    return Math.floor(Math.random() * (max - min) ) + min;
-}
-function getRnd(min, max) {
-	//This JavaScript function always returns a random number between min (included) and max (excluded)
-    return (Math.random() * (max - min) ) + min;
-}
-
-function displayTime() {
-	return Date("T12:00Z");
-}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //constants
 {
   var atkanitime = 0;
@@ -36,17 +14,7 @@ function displayTime() {
   var playeratkdrawinterval = 0;
   var enemyatkdrawinterval = 0;
 }
-  
-  /*
-  ctx.beginPath();
-  ctx.arc(375,40,35,.5*Math.PI+i,.5*Math.PI-i);
-  where when i = math.pi, the circle is full and therefore ready to attack; time to fill circle dependent on interval of move, since 20 ms per frame (5fps) and interval is in seconds, i must increment by Math.PI/(interval*5)
-  'i' value should be included probably in the attack object itself; note that upon attacking (regardless of hit or miss) i must be reset to 0
-  not sure what maximum # of moves will be, but im going to set it up for >=3 per player/enemy; ill just loop it through to draw each of them i suppose, but ill probably need to make a database to load move data from for efficiency
-  ctx.fill();
-  */
- 
-  
+    
 function clearGame(_ctx) {
 	_ctx.clearRect(0,0,canvas.width,canvas.height);
  	return _ctx;
@@ -112,7 +80,7 @@ else {
   this.headingleft = false;
   this.headingright = false; 
 if(alignment==true){
-	this.atk = [new attack("Bite", 250, 2, 50, "bite.png", "biteeffect.png", canvas.width-280,canvas.height-75),new attack("Wave", 600, 15, 50, "wave.png", "waveeffect.png", canvas.width-200,canvas.height-75),new attack("Splash", 150, 2, 50, "splash.png", "splasheffect.png", canvas.width-120,canvas.height-75)];
+	this.atk = [new attack("Bite", 250, 2, 50, "bite.png", "biteeffect.png", canvas.width-280,canvas.height-75),new attack("Wave", 600, 15, 50, "wave.png", "waveeffect.png", canvas.width-200,canvas.height-75),new attack("Splash", 150, 2, 50, "splash.png", "waveeffect.png", canvas.width-120,canvas.height-75)];
 	this.y = canvas.height-150;	  
     this.hpbar = new component(20, 100, "#23fc6f", canvas.width-310,canvas.height-30);
     this.basehpbar = new component(20,300,"#212121",canvas.width-310,canvas.height-30);
@@ -328,4 +296,29 @@ enemy = new character(1,5,50,0);
   bg= {img : new Image(), x:0, y:0};
   bg.img.src = "bg.png";
  
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*function togglepopup(elementname){
+if(document.getElementById(elementname).style.display != "none") {
+document.getElementById(elementname).style.display = "none";
+}
+else {
+document.getElementById(elementname).style.display = "inline";
+}
+}*/
+function getRndInteger(min, max) {
+	//This JavaScript function always returns a random number between min (included) and max (excluded)
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+function getRnd(min, max) {
+	//This JavaScript function always returns a random number between min (included) and max (excluded)
+    return (Math.random() * (max - min) ) + min;
+}
+
+function displayTime() {
+	return Date("T12:00Z");
 }
