@@ -204,13 +204,17 @@ function updateatk() {
 	if(atkanitime>0)atkanitime-=.25;
 	for(var i=0;i<player.atk.length;i++) {
 		player.atk[i].time++;
-		if(i==player.currentatk) player.atk[i].buttnborder.draw(0,2*Math.PI);
+		if(i==enemy.currentatk) enemy.atk[i].buttnborder.color = "#000";
+		else enemy.atk[i].buttnborder.color = "red";
+		enemy.atk[i].buttnborder.draw(0,2*Math.PI);
 		player.atk[i].checkready();
 	}
 	
 	for(var i=0;i<enemy.atk.length;i++) {
 		enemy.atk[i].time++;
-		if(i==enemy.currentatk) enemy.atk[i].buttnborder.draw(0,2*Math.PI);
+		if(i==enemy.currentatk) enemy.atk[i].buttnborder.color = "#000";
+		else enemy.atk[i].buttnborder.color = "red";
+		enemy.atk[i].buttnborder.draw(0,2*Math.PI);
 		enemy.atk[i].checkready();
 	}
 }
