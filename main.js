@@ -208,22 +208,26 @@ function updateatk() {
         atkanitime -= .25;
     for (var i = 0; i < player.atk.length; i++) {
         player.atk[i].time++;
-        if (i == player.currentatk)
+        if (i == player.currentatk) {
             player.atk[i].buttnborder.color = "red";
-        else
+	}
+        else {
             player.atk[i].buttnborder.color = "#000";
         player.atk[i].buttnborder.draw(0, 2 * Math.PI);
         player.atk[i].checkready();
+	}
     }
 
     for (var i = 0; i < enemy.atk.length; i++) {
         enemy.atk[i].time++;
-        if (i == enemy.currentatk)
+        if (i == enemy.currentatk) {
             enemy.atk[i].buttnborder.color = "red";
-        else
+	}
+        else {
             enemy.atk[i].buttnborder.color = "#000";
         enemy.atk[i].buttnborder.draw(0, 2 * Math.PI);
         enemy.atk[i].checkready();
+	}
     }
 }
 function checkinput() {
@@ -277,8 +281,6 @@ function animate() {
     ctx.fillText(player.hp + "/" + player.basehp, canvas.width - 305, canvas.height - 15);
     updateatk();
     checkatk();
-    var img = new Image();
-    img.src = "hit.png";
     ctx.globalAlpha = (atkanitime / 10);
     ctx.drawImage(player.atk[player.currentatk].imgeffect, lastclickx - img.width / 2, enemy.y + 20);
 
