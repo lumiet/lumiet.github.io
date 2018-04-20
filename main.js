@@ -86,7 +86,7 @@ if(alignment==true){
     this.basehpbar = new component(20,300,"#212121",canvas.width-310,canvas.height-30);
 }  
 else {
-	this.atk = [new attack("Bite", 400, 2, 25, "bite.png","bite.png", 45,70),new attack("Bite", 20, 2, 15, "bite.png","bite.png", 125,70),new attack("Bite", 20, 2, 15, "bite.png","bite.png", 205,70)];
+	this.atk = [new attack("Bite", 400, 2, 25, "bite.png","bite.png", 45,70),new attack("Bite", 400, 2, 15, "bite.png","bite.png", 125,70),new attack("Bite", 400, 2, 15, "bite.png","bite.png", 205,70)];
 	this.y= canvas.height*.4;	  
      this.hpbar = new component(20, 100, "#ff2323",10,10);
   this.basehpbar = new component(20,300,"#212121",10,10);
@@ -242,10 +242,12 @@ function setcurratkcolor() {
 }
 /////////////////////////////////////////////
 function animate() {
+	
 	ctx.globalAlpha=1;
   ctx = clearGame(ctx);  
   ctx.drawImage(bg.img, bg.x,bg.y);
   checkinput();
+	aiatk();
   setcurratkcolor();
   if(enemy.hp>0)ctx.drawImage(enemy.img, enemy.x-(enemy.img.width/4), enemy.y, enemy.img.width*.6,enemy.img.height*.6);
   if(player.hp>0) ctx.drawImage(player.img, player.x-(player.img.width/4), player.y);
