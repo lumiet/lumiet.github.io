@@ -171,12 +171,11 @@ function aiatk() {
         enemy.atk[enemy.currentatk].time = 0;
     } 
 	else {
-		if (enemy.currentatk == 2) {
-           		enemy.currentatk++;
+		enemy.currentatk++;
+		if (enemy.currentatk < 2) {
+           		enemy.currentatk=0;
 		}
-        	else {
-           		enemy.currentatk = 0;
-		}
+        	
     }
 }
 
