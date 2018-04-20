@@ -80,7 +80,7 @@ else {
   this.headingleft = false;
   this.headingright = false; 
 if(alignment==true){
-	this.atk = [new attack("Bite", 250, 2, 50, "bite.png", "biteeffect.png", canvas.width-280,canvas.height-75),new attack("Wave", 600, 15, 50, "wave.png", "waveeffect.png", canvas.width-200,canvas.height-75),new attack("Splash", 150, 2, 50, "splash.png", "waveeffect.png", canvas.width-120,canvas.height-75)];
+	this.atk = [new attack("Bite", 250, 2, 50, "bite.png", "hit.png", canvas.width-280,canvas.height-75),new attack("Wave", 600, 15, 50, "wave.png", "waveeffect.png", canvas.width-200,canvas.height-75),new attack("Splash", 150, 2, 50, "splash.png", "waveeffect.png", canvas.width-120,canvas.height-75)];
 	this.y = canvas.height-150;	  
     this.hpbar = new component(20, 100, "#23fc6f", canvas.width-310,canvas.height-30);
     this.basehpbar = new component(20,300,"#212121",canvas.width-310,canvas.height-30);
@@ -258,7 +258,7 @@ function animate() {
   var img = new Image();
   img.src="hit.png";
   ctx.globalAlpha = (atkanitime/10);
-  ctx.drawImage(img,lastclickx-img.width/2,enemy.y+20);
+  ctx.drawImage(player.atk[currentatk].imgeffect,lastclickx-img.width/2,enemy.y+20);
 	
 }
 
