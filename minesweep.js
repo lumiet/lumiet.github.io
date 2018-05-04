@@ -37,7 +37,7 @@ function checkClick(element, click, i, j) {
 	if(click && element.className!="flagged") {
 		element.className = "clicked";
 		if(element.innerHTML == '<div id="numb">0</div>') {
-			alert("hi");
+			//alert("hi");
 			/*if(i-1>=0) {
 				if(j-1>=0) {
 					if(board.rows[i-1].cells[j-1].innerHTML == '<div id="numb">0</div>' && board.rows[i-1].cells[j-1].className != "clicked") {
