@@ -6,7 +6,7 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-
+document.addEventListener('dblclick', function() { event.preventDefault() });
 
 
 function setUp() {
