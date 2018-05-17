@@ -28,14 +28,16 @@ function setUp() {
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
 				checkClick(this, false, 0, 0);
 			});
-			checkCount(board.rows[i].cells[j], i, j);
+			checkCount(board.rows[i].cells[j]);
 		}
 	}
 
 }
 
 
-function checkClick(element, click, i, j) {
+function checkClick(element, click) {
+	var i=element.parentNode.rowIndex;
+	var j=element.cellIndex;
 	if(click && element.className!="flagged") {
 		element.className = "clicked";
 		if(element.innerHTML == '<div id="numb">0</div>') {
