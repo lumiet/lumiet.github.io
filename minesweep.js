@@ -41,14 +41,38 @@ function checkClick(element, click) {
 	if(click && element.className!="flagged") {
 		element.className = "clicked";
 		if(element.innerHTML == '<div id="numb">0</div>') {
-			if(checkIndex(i-1,j-1)) board.rows[i-1].cells[j-1].className = "clicked";
-			if(checkIndex(i-1,j)) board.rows[i-1].cells[j].className = "clicked";			
-			if(checkIndex(i-1,j+1)) board.rows[i-1].cells[j+1].className = "clicked";			
-			if(checkIndex(i,j-1)) board.rows[i].cells[j-1].className = "clicked";			
-			if(checkIndex(i,j+1)) board.rows[i].cells[j+1].className = "clicked";		
-			if(checkIndex(i+1,j-1)) board.rows[i+1].cells[j-1].className = "clicked";		
-			if(checkIndex(i+1,j)) board.rows[i+1].cells[j].className = "clicked";					
-			if(checkIndex(i+1,j+1)) board.rows[i+1].cells[j+1].className = "clicked";			
+			if(checkIndex(i-1,j-1)) {
+				board.rows[i-1].cells[j-1].className = "clicked"; 
+				if(board.rows[i-1].cells[j-1].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i-1].cells[j-1],true);
+			}
+			if(checkIndex(i-1,j)) {
+				board.rows[i-1].cells[j].className = "clicked";	
+				if(board.rows[i-1].cells[j].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i-1].cells[j],true);
+			}
+			if(checkIndex(i-1,j+1)) {
+				board.rows[i-1].cells[j+1].className = "clicked";
+				if(board.rows[i-1].cells[j+1].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i-1].cells[j+1],true);
+			}
+			if(checkIndex(i,j-1)) {
+				board.rows[i].cells[j-1].className = "clicked";	
+				if(board.rows[i].cells[j-1].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i].cells[j-1],true);
+			}
+			if(checkIndex(i,j+1)) {
+				board.rows[i].cells[j+1].className = "clicked";	
+				if(board.rows[i].cells[j+1].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i].cells[j+1],true);
+			}
+			if(checkIndex(i+1,j-1)) {
+				board.rows[i+1].cells[j-1].className = "clicked";	
+				if(board.rows[i+1].cells[j-1].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i+1].cells[j-1],true);
+			}
+			if(checkIndex(i+1,j)) {
+				board.rows[i+1].cells[j].className = "clicked";	
+				if(board.rows[i+1].cells[j].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i+1].cells[j],true);
+			}
+			if(checkIndex(i+1,j+1)) {
+				board.rows[i+1].cells[j+1].className = "clicked";
+				if(board.rows[i+1].cells[j+1].innerHTML == '<div id="numb">0</div>') checkClick(board.rows[i+1].cells[j+1],true);
+			}
 		}
 	}
 	else if(element.className != "clicked" && element.className == "flagged") {
