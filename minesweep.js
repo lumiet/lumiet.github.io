@@ -23,12 +23,12 @@ function setUp() {
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
 			board.rows[i].cells[j].addEventListener('click', function() {
-				checkClick(this, true, 0,0);
+				checkClick(this, true);
 			});
 			board.rows[i].cells[j].addEventListener('contextmenu', function() {
-				checkClick(this, false, 0, 0);
+				checkClick(this, false);
 			});
-			checkCount(board.rows[i].cells[j]);
+			checkCount(board.rows[i].cells[j], i, j);
 		}
 	}
 
