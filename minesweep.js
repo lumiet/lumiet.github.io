@@ -40,7 +40,7 @@ function checkClick(element, click) {
 	var j=element.cellIndex;
 	if(click && element.className!="flagged") {
 		element.className = "clicked";
-		if(element.innerHTML == '<div id="numb">0</div>' && element.className!="bomb") {
+		if(element.innerHTML == '<div id="numb">0</div>' && !element.className.contains("bomb")) {
 			if(checkIndex(i-1,j-1)) board.rows[i-1].cells[j-1].className = "clicked";
 			if(checkIndex(i-1,j)) board.rows[i-1].cells[j].className = "clicked";			
 			if(checkIndex(i-1,j+1)) board.rows[i-1].cells[j+1].className = "clicked";			
