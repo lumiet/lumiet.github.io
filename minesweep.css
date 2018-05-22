@@ -6,7 +6,8 @@ font-family:Arial;
 #timer {
 text-align:center;
 width:100%;
-font-size:12pt;
+font-size:14pt;
+font-decoration:bold;
 }
 
 table, tr, td {
