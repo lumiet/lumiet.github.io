@@ -1,7 +1,11 @@
 body {
 background: #919191;
 font-family:Arial;
+}
 
+#timer {
+text-align:center;
+width:100%;
 }
 
 table, tr, td {
