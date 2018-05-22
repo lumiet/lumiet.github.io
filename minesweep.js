@@ -3,13 +3,16 @@ const bombcount = 35;
 const board = document.getElementById('board');
 const timer = document.getElementById('timer');
 var time = 0.0;
+
+setInterval(updateTimer(), 100);
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
 
 function updateTimer() {
-	time+=.1;
-	timer.innerHTML = "Time: " + time;
+time += .1;
+timer.innerHTML = "Time: " + time + "s";
 }
 
 function checkIndex(j,i) {
@@ -18,7 +21,6 @@ return true;
 }
 
 function setUp() {
-	setInterval(updateTimer(), 100);
 	for(var i=0; i<bombcount;) {
 		targetCell = board.rows[getRndInteger(0,boardwidth)].cells[getRndInteger(0,boardwidth)];
 		if (targetCell.id != "bomb") {
