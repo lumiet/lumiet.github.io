@@ -2,7 +2,7 @@ const boardwidth = 15;
 const bombcount = 35;
 const board = document.getElementById('board');
 const timer = document.getElementById('timer');
-var time = 0.0;
+var time = 0;
 
 setInterval(updateTimer(), 100);
 
