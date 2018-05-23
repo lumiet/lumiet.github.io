@@ -4,10 +4,12 @@ const board = document.getElementById('board');
 const timer = document.getElementById('timer');
 var time = 0.0;
 
-board.addEventListener('click', function() { //start
-	board.removeEventListener();	
+board.addEventListener('click', start);
+
+function start() { //start
+	board.removeEventListener('click', start);	
 	setInterval(updateTimer, 100);
-});
+}
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
