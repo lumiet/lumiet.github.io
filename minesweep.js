@@ -68,9 +68,9 @@ function setUp() {
 function checkClick(element, click) {
 	var i=element.parentNode.rowIndex;
 	var j=element.cellIndex;
-	if(click && element.className!="flagged") {
-		element.className = "clicked";		
+	if(click && element.className!="flagged") {		
 		if(element.className.includes('bomb')) end();
+		element.className = "clicked";		
 		if(element.innerHTML == '<div id="numb">0</div>') {
 			if(checkIndex(i-1,j-1)) {
 				if(board.rows[i-1].cells[j-1].innerHTML == '<div id="numb">0</div>' && board.rows[i-1].cells[j-1].className != "clicked") checkClick(board.rows[i-1].cells[j-1],true);
