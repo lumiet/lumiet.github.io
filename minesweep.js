@@ -12,7 +12,7 @@ function start() {
 }
 
 function end() {
-	removeInterval(t);
+	clearInterval(t);
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
 			board.rows[i].cells[j].removeEventListener('click', function() {
