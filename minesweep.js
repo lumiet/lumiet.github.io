@@ -4,6 +4,11 @@ const board = document.getElementById('board');
 const timer = document.getElementById('timer');
 var time = 0.0;
 
+board.addEventListener('click', function() { //start
+	board.removeEventListener();	
+	setInterval(updateTimer, 100);
+});
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
@@ -21,7 +26,6 @@ return true;
 }
 
 function setUp() {
-	setInterval(updateTimer, 100);
 	for(var i=0; i<bombcount;) {
 		targetCell = board.rows[getRndInteger(0,boardwidth)].cells[getRndInteger(0,boardwidth)];
 		if (targetCell.id != "bomb") {
