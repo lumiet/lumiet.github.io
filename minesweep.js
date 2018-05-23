@@ -11,7 +11,8 @@ function getRndInteger(min, max) {
 function updateTimer() {
 time += .1;
 time = Math.round((time + 0.00001) * 100) / 100;
-timer.innerHTML = "Time: " + time + "s";
+if(time%1==0) timer.innerHTML = "Time: " + time + ".0s";	
+else timer.innerHTML = "Time: " + time + "s";
 }
 
 function checkIndex(j,i) {
