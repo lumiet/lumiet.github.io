@@ -9,8 +9,8 @@ function getRndInteger(min, max) {
 }
 
 function updateTimer() {
-alert("yo");
 time += .1;
+time.toFixed(1);
 timer.innerHTML = "Time: " + time + "s";
 }
 
