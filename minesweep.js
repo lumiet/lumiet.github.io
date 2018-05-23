@@ -26,19 +26,19 @@ function end() {
 }
 
 function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
+	return Math.floor(Math.random() * (max - min) ) + min;
 }
 
 function updateTimer() {
-time += .1;
-time = Math.round((time + 0.00001) * 100) / 100;
-if(time%1==0) timer.innerHTML = "Time: " + time + ".0s";	
-else timer.innerHTML = "Time: " + time + "s";
+	time += .1;
+	time = Math.round((time + 0.00001) * 100) / 100;
+	if(time%1==0) timer.innerHTML = "Time: " + time + ".0s";	
+	else timer.innerHTML = "Time: " + time + "s";
 }
 
 function checkIndex(j,i) {
-if (j>=boardwidth || i>=boardwidth || j<0 || i<0) return false;
-return true;
+	if (j>=boardwidth || i>=boardwidth || j<0 || i<0) return false;
+	return true;
 }
 
 function setUp() {
