@@ -6,9 +6,23 @@ var time = 0.0;
 
 board.addEventListener('click', start);
 
-function start() { //start
+function start() {
 	board.removeEventListener('click', start);	
-	setInterval(updateTimer, 100);
+	var t = setInterval(updateTimer, 100);
+}
+
+function end() {
+	removeInterval(t);
+	for(var i=0; i<boardwidth;i++) {
+		for(var j=0; j<boardwidth; j++) {
+			board.rows[i].cells[j].removeEventListener('click', function() {
+				checkClick(this, true);
+			});
+			board.rows[i].cells[j].removeEventListener('contextmenu', function() {
+				checkClick(this, false);
+			});
+		}
+	}
 }
 
 function getRndInteger(min, max) {
