@@ -10,7 +10,7 @@ function getRndInteger(min, max) {
 
 function updateTimer() {
 time += .1;
-time.toFixed(1);
+time = time.toFixed(1);
 timer.innerHTML = "Time: " + time + "s";
 }
 
