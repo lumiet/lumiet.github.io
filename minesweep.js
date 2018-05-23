@@ -20,7 +20,7 @@ return true;
 }
 
 function setUp() {
-	setInterval(updateTimer(), 100);
+	setInterval(updateTimer, 100);
 	for(var i=0; i<bombcount;) {
 		targetCell = board.rows[getRndInteger(0,boardwidth)].cells[getRndInteger(0,boardwidth)];
 		if (targetCell.id != "bomb") {
