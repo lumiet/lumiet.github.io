@@ -9,7 +9,7 @@ board.addEventListener('click', start);
 
 function start() {
 	board.removeEventListener('click', start);	
-	var t = setInterval(updateTimer, 100);
+	t = setInterval(updateTimer, 100);
 }
 
 function end() {
