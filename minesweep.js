@@ -24,8 +24,8 @@ function end() {
 	clearInterval(t);
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {			
-			board.rows[i].cells[j].addEventListener('click', click);
-			board.rows[i].cells[j].addEventListener('contextmenu', flag);
+			board.rows[i].cells[j].removeEventListener('click', click);
+			board.rows[i].cells[j].removeEventListener('contextmenu', flag);
 		}
 	}
 }
