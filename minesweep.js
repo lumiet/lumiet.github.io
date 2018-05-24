@@ -69,7 +69,7 @@ function checkClick(element, click) {
 	var i=element.parentNode.rowIndex;
 	var j=element.cellIndex;
 	if(click && element.className!="flagged") {		
-		if(element.className.includes('bomb')) end();
+		if(element.id.includes('bomb')) end();
 		element.className = "clicked";		
 		if(element.innerHTML == '<div id="numb">0</div>') {
 			if(checkIndex(i-1,j-1)) {
