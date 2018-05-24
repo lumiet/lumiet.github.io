@@ -15,13 +15,9 @@ function start() {
 function end() {
 	clearInterval(t);
 	for(var i=0; i<boardwidth;i++) {
-		for(var j=0; j<boardwidth; j++) {
-			board.rows[i].cells[j].addEventListener('click', function() {
-				return false;
-			});
-			board.rows[i].cells[j].addEventListener('contextmenu', function() {
-				return false;
-			});
+		for(var j=0; j<boardwidth; j++) {			
+			board.rows[i].cells[j].addEventListener('click', click);
+			board.rows[i].cells[j].addEventListener('contextmenu', flag);
 		}
 	}
 }
@@ -53,12 +49,14 @@ function setUp() {
 
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
-			board.rows[i].cells[j].addEventListener('click', function() {
+			var click = function() {
 				checkClick(this, true);
-			});
-			board.rows[i].cells[j].addEventListener('contextmenu', function() {
-				checkClick(this, false);
-			});
+			}
+			var flag = function() {
+				checkClick(this, true);
+			}
+			board.rows[i].cells[j].addEventListener('click', click);
+			board.rows[i].cells[j].addEventListener('contextmenu', flag);
 			checkCount(board.rows[i].cells[j], i, j);
 		}
 	}
