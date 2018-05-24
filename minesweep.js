@@ -16,11 +16,11 @@ function end() {
 	clearInterval(t);
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
-			board.rows[i].cells[j].removeEventListener('click', function() {
-				checkClick(this, true);
+			board.rows[i].cells[j].addEventListener('click', function() {
+				return false;
 			});
-			board.rows[i].cells[j].removeEventListener('contextmenu', function() {
-				checkClick(this, false);
+			board.rows[i].cells[j].addEventListener('contextmenu', function() {
+				return false;
 			});
 		}
 	}
