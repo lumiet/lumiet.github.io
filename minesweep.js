@@ -3,6 +3,7 @@ const bombcount = 35;
 const board = document.getElementById('board');
 const timer = document.getElementById('timer');
 var time = 0.0;
+var t;
 
 board.addEventListener('click', start);
 
