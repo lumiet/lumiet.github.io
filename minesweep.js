@@ -4,6 +4,14 @@ const board = document.getElementById('board');
 const timer = document.getElementById('timer');
 var time = 0.0;
 var t;
+var click = function() {
+	checkClick(this, true);
+}
+var flag = function() {
+	checkClick(this, false);
+}
+
+///////////////////////////
 
 board.addEventListener('click', start);
 
@@ -49,12 +57,6 @@ function setUp() {
 
 	for(var i=0; i<boardwidth;i++) {
 		for(var j=0; j<boardwidth; j++) {
-			var click = function() {
-				checkClick(this, true);
-			}
-			var flag = function() {
-				checkClick(this, true);
-			}
 			board.rows[i].cells[j].addEventListener('click', click);
 			board.rows[i].cells[j].addEventListener('contextmenu', flag);
 			checkCount(board.rows[i].cells[j], i, j);
