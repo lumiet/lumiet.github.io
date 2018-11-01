@@ -1,8 +1,16 @@
+* {
+box-sizing:border-box;
+}
+
 body {
 background:#212121;
 color:#fff;
+font-family:arial;
 }
+
 #main {
  background:rgba(255,255,255,.3); 
   border: 1px solid rgba(255,255,255,.6);
+ text-align:center;
+ padding:5px;
 }
