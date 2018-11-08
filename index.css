@@ -1,6 +1,9 @@
 body {
 font-family:"Georgia";
 }
+h1, h2, h3 {
+ font-family:"Lucida Console"; 
+}
 * {
 box-sizing:border-box;
 }
