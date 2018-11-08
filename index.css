@@ -1,6 +1,6 @@
 body {
 font-family: Tahoma;
- background-color:#212121;
+ background: url('assets/bodybg.png') #212121;
  color:#fff;
 }
 h1, h2, h3 {
