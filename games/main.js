@@ -67,9 +67,9 @@ function character(species, speed, hp, alignment /*true if player, false if enem
 ) {
     this.img = new Image();
     if (species == 0) {
-        this.img.src = "wupperbehind.png";
+        this.img.src = "assets/wupperbehind.png";
     } else {
-        this.img.src = "nymphous.png";
+        this.img.src = "assets/nymphous.png";
     }
     this.currentatk = 0;
     this.basespeed = speed;
@@ -80,12 +80,12 @@ function character(species, speed, hp, alignment /*true if player, false if enem
     this.headingleft = false;
     this.headingright = false;
     if (alignment == true) {
-        this.atk = [new attack("Bite",250,2,50,"bite.png","hit.png",canvas.width - 280,canvas.height - 75), new attack("Wave",600,15,50,"wave.png","waveeffect.png",canvas.width - 200,canvas.height - 75), new attack("Splash",150,2,50,"splash.png","waveeffect.png",canvas.width - 120,canvas.height - 75)];
+        this.atk = [new attack("Bite",250,2,50,"assets/bite.png","assets/hit.png",canvas.width - 280,canvas.height - 75), new attack("Wave",600,15,50,"assets/wave.png","assets/waveeffect.png",canvas.width - 200,canvas.height - 75), new attack("Splash",150,2,50,"assets/splash.png","assets/waveeffect.png",canvas.width - 120,canvas.height - 75)];
         this.y = canvas.height - 150;
         this.hpbar = new component(20,100,"#23fc6f",canvas.width - 310,canvas.height - 30);
         this.basehpbar = new component(20,300,"#212121",canvas.width - 310,canvas.height - 30);
     } else {
-        this.atk = [new attack("Bite",400,2,25,"bite.png","bite.png",45,70), new attack("Bite",20,2,15,"bite.png","bite.png",125,70), new attack("Bite",20,2,15,"bite.png","bite.png",205,70)];
+        this.atk = [new attack("Bite",400,2,25,"assets/bite.png","assets/bite.png",45,70), new attack("Bite",20,2,15,"assets/bite.png","assets/bite.png",125,70), new attack("Bite",20,2,15,"assets/bite.png","assets/bite.png",205,70)];
         this.y = canvas.height * .4;
         this.hpbar = new component(20,100,"#ff2323",10,10);
         this.basehpbar = new component(20,300,"#212121",10,10);
@@ -324,7 +324,7 @@ function draw() {
         x: 0,
         y: 0
     };
-    bg.img.src = "bg.png";
+    bg.img.src = "assets/bg.png";
 
 }
 
