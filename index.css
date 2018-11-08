@@ -19,3 +19,8 @@ box-sizing:border-box;
  width:70%;
  padding: 7px;
 }
+#zekrom {
+ position: fixed;
+ width:20%;
+ bottom: 0; right: 0;
+ }
