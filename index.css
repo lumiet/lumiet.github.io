@@ -5,7 +5,7 @@ font-family: Tahoma;
 }
 h1, h2, h3 {
  font-family:"Lucida Console"; 
- text-shadow: 3px 0px #fff;
+ text-shadow: 3px 0px #000;
 }
 * {
 box-sizing:border-box;
