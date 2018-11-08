@@ -22,5 +22,7 @@ box-sizing:border-box;
 #zekrom {
  position: fixed;
  width:20%;
+ height: 20%;
+ background: url("assets/zekrom.png");
  bottom: 0; right: 0;
  }
