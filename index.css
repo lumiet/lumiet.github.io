@@ -1,9 +1,15 @@
 body {
 font-family:"Georgia";
+ background-color:#212121;
+ color:#fff;
 }
 h1, h2, h3 {
  font-family:"Lucida Console"; 
 }
 * {
 box-sizing:border-box;
+}
+#main {
+ margin:20px;
+ padding: 7px;
 }
