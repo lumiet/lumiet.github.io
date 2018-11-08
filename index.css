@@ -3,9 +3,12 @@ font-family: Tahoma;
  background: url('assets/bodybg.png') #212121;
  color:#fff;
 }
+h1, h2 {
+text-align:center;
+ }
 h1, h2, h3 {
  font-family:"Lucida Console"; 
- text-shadow: 0px 0px 5px #000;
+ text-shadow: 0px 0px 8px #000;
 }
 * {
 box-sizing:border-box;
