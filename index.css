@@ -1,9 +1,11 @@
 body {
+ font-size: 1em;
 font-family: Tahoma;
  background: url('assets/bodybg.png') #212121;
  color:#fff;
 }
 h1, h2 {
+ font-size: 2em;
 text-align:center;
  }
 h1, h2, h3 {
@@ -24,5 +26,5 @@ box-sizing:border-box;
  width:20%;
  height: 20%;
  background: url("assets/zekrom.png");
- bottom: 0; right: 0;
+ bottom: -20%; right: -20%;
  }
