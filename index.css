@@ -15,6 +15,11 @@ h1, h2, h3 {
 * {
 box-sizing:border-box;
 }
+#head {
+ position: sticky;
+ width:100%;
+ background-color: linear-gradient(to bottom, #fff, rgba(255,255,255,.2));
+}
 #main {
  background-color: rgba(255,255,255,.2);
  margin: auto;
