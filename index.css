@@ -23,6 +23,10 @@ a:hover {
 * {
 box-sizing:border-box;
 }
+#head>a {
+ margin: 0 10px 0 10px;
+ 
+}
 #head {
  left: 0; top:0;
  display:flex;
