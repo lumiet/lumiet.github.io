@@ -37,7 +37,6 @@ box-sizing:border-box;
  margin: 40px auto 40px auto;
  width:70%;
  padding: 7px calc(2% + 7px) 7px calc(2% + 7px);
- box-shadow: 0px 0px 3px #000;
 }
 #zekrom {
  position: fixed;
