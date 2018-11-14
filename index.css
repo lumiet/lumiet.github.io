@@ -19,6 +19,7 @@ box-sizing:border-box;
  display:flex;
  position: sticky;
  width:100%;
+ justify-content:center;
  height:100px;
  background-color: linear-gradient(to bottom, #fff, rgba(255,255,255,.2));
 }
