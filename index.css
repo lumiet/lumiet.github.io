@@ -3,6 +3,7 @@ body {
 font-family: Tahoma;
  background: url('assets/bodybg.png') #212121;
  color:#fff;
+ margin:0;
 }
 h1, h2 {
  font-size: 2em;
