@@ -6,7 +6,7 @@ font-family: Tahoma;
  margin:0;
 }
 h1, h2 {
- font-size: 20pt;
+ font-size: 30pt;
 text-align:center;
  }
 h1, h2, h3 {
@@ -25,14 +25,14 @@ box-sizing:border-box;
 }
 #head>a {
  margin: 0 10px 0 10px;
- 
+ font-size:18pt;
 }
 #head {
  left: 0; top:0;
  display:flex;
  position: sticky;
  width:100%;
- padding:5px;
+ padding:20px;
  justify-content:center;
  background: linear-gradient(to bottom, rgba(255,255,255,.1), rgba(255,255,255,.1) 85%, rgba(255,255,255,0));
 }
