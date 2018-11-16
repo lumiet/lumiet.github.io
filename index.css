@@ -1,12 +1,12 @@
 body {
- font-size: 1em;
+ font-size: 12pt;
 font-family: Tahoma;
  background: url('assets/bodybg.png') #212121;
  color:#fff;
  margin:0;
 }
 h1, h2 {
- font-size: 2em;
+ font-size: 20pt;
 text-align:center;
  }
 h1, h2, h3 {
