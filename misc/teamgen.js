@@ -1135,9 +1135,19 @@ var pokemon = [ "Venusaur",
 		if (i < 5) { content+= partyname[i] + ", "; }
 		else { content+= "and " + partyname[i] + "."; }
 	}
-for(var z = 1; z<=6; z++) {	  
-	document.getElementById(z).innerHTML = "<img src='https://img.pokemondb.net/sprites/xydex/" + partyname[z-1].toLowerCase() + ".png'>";	
+for(var z = 1; z<=6; z++) {
+	var url = partyname[z-1];
+	if(partyname[z-1] = "Wormadam (Sandy Cloak)") {
+		url = "wormadam-sandy";
+	}
+	if(partyname[z-1] = "Wormadam (Trash Cloak)") {
+		url = "wormadam-trash";
+	}
+	if(partyname[z-1] = "Wormadam (Plant Cloak)") {
+		url = "wormadam-plant";
+	}
+	document.getElementById(z).innerHTML = "<img src='https://img.pokemondb.net/sprites/xydex/" + url.toLowerCase() + ".png'>";	
 }
 document.getElementById("main").innerHTML = content;
-	return;
+	
 }
