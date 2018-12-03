@@ -195,7 +195,7 @@ var pokemon = [ "Venusaur",
 		"Cherrim",
 		"Gastrodon",
 		"Ambipom",
-		"Driftblim",
+		"Drifblim",
 		"Lopunny",
 		"Mismagius",
 		"Honchkrow",
@@ -1160,6 +1160,9 @@ for(var z = 1; z<=6; z++) {
 	}
 	if(partyname[z-1] == "Kommo-o") {
 		url = "kommoo";
+	}
+	if(partyname[z-1] == "Mr. Mime") {
+		url = "mrmime";
 	}
 	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xydex/" + url.toLowerCase() + ".png'>";	
 }
