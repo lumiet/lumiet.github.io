@@ -1137,13 +1137,13 @@ var pokemon = [ "Venusaur",
 	}
 for(var z = 1; z<=6; z++) {
 	var url = partyname[z-1];
-	if(partyname[z-1] = "Wormadam (Sandy Cloak)") {
+	if(partyname[z-1] == "Wormadam (Sandy Cloak)") {
 		url = "wormadam-sandy";
 	}
-	if(partyname[z-1] = "Wormadam (Trash Cloak)") {
+	if(partyname[z-1] == "Wormadam (Trash Cloak)") {
 		url = "wormadam-trash";
 	}
-	if(partyname[z-1] = "Wormadam (Plant Cloak)") {
+	if(partyname[z-1] == "Wormadam (Plant Cloak)") {
 		url = "wormadam-plant";
 	}
 	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xydex/" + url.toLowerCase() + ".png'>";	
