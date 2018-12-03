@@ -1158,6 +1158,9 @@ for(var z = 1; z<=6; z++) {
 	if(partyname[z-1] == "Oricorio (Sensu)") {
 		url = "oricorio-sensu";
 	}
+	if(partyname[z-1] == "Kommo-o") {
+		url = "kommoo";
+	}
 	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xydex/" + url.toLowerCase() + ".png'>";	
 }
 document.getElementById("main").innerHTML = content;
