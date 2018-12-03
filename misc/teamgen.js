@@ -1164,6 +1164,9 @@ for(var z = 1; z<=6; z++) {
 	if(partyname[z-1] == "Mr. Mime") {
 		url = "mrmime";
 	}
+	if(partyname[z-1] == "Farfetch'd") {
+		url = "farfetchd";
+	}
 	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xydex/" + url.toLowerCase() + ".png'>";	
 }
 document.getElementById("main").innerHTML = content;
