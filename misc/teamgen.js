@@ -1146,7 +1146,7 @@ for(var z = 1; z<=6; z++) {
 	if(partyname[z-1] = "Wormadam (Plant Cloak)") {
 		url = "wormadam-plant";
 	}
-	document.getElementById(z).innerHTML = "<img src='https://img.pokemondb.net/sprites/xydex/" + url.toLowerCase() + ".png'>";	
+	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xydex/" + url.toLowerCase() + ".png'>";	
 }
 document.getElementById("main").innerHTML = content;
 	
