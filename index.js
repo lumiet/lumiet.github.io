@@ -11,6 +11,6 @@ setInterval(move, 20);
 function move() {
 x+=5;
 y=Math.sin(x)*amp;
-img.style.left = "\(x) px";
-img.style.top = "\(y) px";
+img.style.left = "\(x)px";
+img.style.top = "\(y)px";
 }
