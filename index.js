@@ -1,4 +1,4 @@
-var img = document.getElementById(zekrom);
+var img = document.getElementById('zekrom');
 var x = 0;
 var y = 0;
 var amp = 50;
