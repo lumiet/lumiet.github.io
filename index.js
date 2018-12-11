@@ -10,7 +10,7 @@ setInterval(move, 20);
 
 function move() {
 x+=1;
-y=Math.sin(x)*amp;
+y=Math.sin(x/10)*amp;
 img.style.left = x+"px";
 img.style.top = y+"px";
 }
