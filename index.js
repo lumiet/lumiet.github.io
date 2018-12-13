@@ -1,7 +1,8 @@
 var img = document.getElementById('zekrom');
-var x = 0;
-var y = 0;
 var amp = 25;
+var x = 0;
+var y = window.innerHeight - (amp*2) - 3;
+
 
 function main() {
 img.style.position = 'absolute';
