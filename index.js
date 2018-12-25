@@ -1,5 +1,5 @@
 var img = document.getElementById('zekrom');
-var height = img.style.height;
+var height = img.offsetHeight;
 var amp = 25;
 var x = 0;
 var y = 0;
