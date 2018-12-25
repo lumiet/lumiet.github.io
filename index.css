@@ -44,10 +44,10 @@ box-sizing:border-box;
 }
 #zekrom {
  position: fixed;
- width:400px;
- height: 400px;
- background: url("assets/zekrom.png");
+ width:25px;
+ height: 25px;
+ background: url("https://i.imgur.com/8adVTor.png");
  background-size:cover;
- top: calc(100% - 400px); 
- left: calc(100% - 400px);
+ top: calc(100% - 25px); 
+ left: calc(100% - 25px);
  }
