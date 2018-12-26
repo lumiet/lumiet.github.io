@@ -12,7 +12,7 @@ setInterval(move, 20);
 }
 
 function move() {
-if(x<0||x>(window.innerWidth-height)) {
+if(x<0||x>(window.innerWidth-(2*height))) {
   step*=-1;
 }
 x+=step;
