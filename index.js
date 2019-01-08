@@ -1,4 +1,4 @@
-var img = document.getElementById('zekrom');
+var img = document.getElementById('ani');
 var height = img.offsetHeight;
 var amp = 25;
 var step = 1;
