@@ -1,0 +1,221 @@
+.ingameLink {
+    display: none;
+}
+
+/*.contentRightModule:not(.pixpetMenu) {
+    display: none;
+}*/
+.mainContentBackground {
+    background: #212121;
+    box-shadow: none;
+}
+
+.contentLeftBackground,
+.contentRightModule,
+.contentRightModule > a,
+.contentRightModule > a:hover,
+.contentRightModule > a:focus,
+.footerModule {
+    background: #414141;
+    box-shadow: none;
+    text-shadow: none;
+    border-color: #000;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.contentLeftTitle,
+.contentRightModuleTitle,
+.headerMenu a {
+    box-shadow: none;
+    background: linear-gradient(to bottom, #515151 0%, #222222 100%);
+    border-color: #000;
+    text-shadow: none;
+    font-weight: bold;
+}
+.headerMenu a:hover,
+.headerMenu a:focus {
+    background: #212121!important;
+}
+#headerMenuSelectedLink {
+    background: #212121;
+}
+.formButton:focus,
+.formButton:hover,
+.formButton:active {
+    background: linear-gradient(to bottom, #313131 0%, #111111 100%);
+    box-shadow: 0px 1px 2px #111;
+}
+img[src*="images/page/egg"] {
+    filter: grayscale(1);
+}
+
+.contentRightModule > a,
+.interactionBox,
+.interactionBox:hover,
+.interactionAvatar {
+    background: #444;
+    border-color: #000;
+}
+.userInfoText {
+    text-shadow: none;
+}
+.grid {
+    box-shadow: none;
+}
+.contentMenu,
+.formButton,
+.userInfo,
+.contentMenuSmall,
+.contentMenuFullWidth,
+.contentMenuSmall {
+    box-shadow: none;
+    background: linear-gradient(to bottom, #444 0%, #212121 100%);
+    text-shadow: none;
+    border-color: #000;
+}
+.formButtonDisabled {
+    box-shadow: none;
+    background: linear-gradient(to bottom, #aaa 0%, #666 100%);
+    text-shadow: none;
+    border-color: #000;
+    color: #fff;
+}
+.header {
+    background: linear-gradient(to bottom, #a5e 0%, rgba(0, 0, 0, .5) 100%), url('https://pixpet.net/css/images/headerBG_1.gif');
+    background-blend-mode: multiply;
+    background-position: 0px 0px, 0px 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .5);
+}
+.headerPet {
+    filter: brightness(1)!important;
+}
+.contentMenu,
+.formButton,
+.userInfo,
+.userInfoIcon {
+    border-color: #000;
+}
+#headerMenuSelectedLink,
+.whiteCover,
+.pixpetMenuIcon,
+.footerBackground {
+    background: #212121;
+    border-color: #000;
+    border-spacing: 0;
+    box-shadow: none;
+}
+#headerMenu > div {
+    background: linear-gradient(to bottom, #516181 0%, #223252 100%);
+}
+.nav-md {
+    background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .8) 100%), url("https://pixpet.net/css/images/pageBackground.gif");
+    background-blend-mode: multiply;
+    background-position: 0px 0px, 0px 0px;
+}
+.signature {
+ background:inherit;  
+    border-color:#000;
+}
+.bbQuote {
+ background:inherit;   
+}
+.customBox {
+    background: inherit;
+    border-color: #000!important;
+}
+#nav li:hover a,
+#nav li:hover ul li a:hover {
+    background: #212121;
+    box-shadow: none;
+    border-color: #000;
+}
+#nav li:hover {
+    border: 1px solid #000;
+    border-bottom: 0!important;
+}
+#nav li ul {
+    box-shadow: none;
+    border: 1px solid #000;
+    border-top: 0;
+}
+#nav li ul li {
+    border: 0!important;
+}
+.newMsgMenu {
+    color: inherit;
+    background: #444!important;
+    box-shadow: none;
+}
+.gridMenu > a,
+.gridMenu > a:hover,
+.gridMenu > a:focus {
+    color: #fff!important;
+}
+.currencyMenu {
+    background: #444;
+    border-color: #000!important;
+}
+.currencyMenu > a {
+    border-color: #000!important;
+}
+.currencyMenu > a:hover {
+    background: #212121;
+    border-bottom: 1px solid #000;
+}
+.successBoxMessage b {
+    color: inherit;
+}
+.inventoryContent {
+    background: #444;
+}
+.userInfoText,
+.userInfoText > a {
+    color: inherit;
+}
+.footerModule,
+.footerLinks {
+    text-shadow: none;
+    color: #bbd;
+}
+
+.progressBar {
+    background: #444 url('../usersc/images/page/progressBar.gif') no-repeat -130px;
+}
+
+a,
+.blankLink,
+a[target="_blank"] {
+    text-shadow: none!important;
+    color: #cbd!important;
+}
+a:focus,
+a:hover {
+    color: #dce !important;
+}
+.homeIllustrationText,
+.homeIllustrationText b {
+    color: #222;
+}
+td,
+.inventoryHead,
+.cookingStation2 {
+    background: #212121;
+    border: 1px solid #000 !important;
+}
+th {
+    background: linear-gradient(to bottom, #516181 0%, #223252 100%)!important;
+    text-shadow: none!important;
+    color: #eeeeff!important;
+    border: solid 1px #000 !important;
+    border-color: #000!important;
+}
+body {
+    text-shadow: none;
+    color: #b3b4c2;
+}
+b {
+    color: #a6a6d0;
+}
+hr {
+    border: 1px solid #000;
+}
