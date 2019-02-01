@@ -8,6 +8,9 @@
 .contentRightModule > a,
 .contentRightModule > a:hover,
 .contentRightModule > a:focus,
+.forumBoxLink:hover,
+forumBoxLink:focus,
+forumBoxLink:active,
 .footerModule {
     background: #414141;
     box-shadow: none;
@@ -37,7 +40,7 @@
 .formButton:active {
     background: linear-gradient(to bottom, #313131 0%, #111111 100%)!important;
     box-shadow: 0px 1px 2px #111!important;
-    border-color:#000!important;
+    border-color: #000!important;
 }
 img[src*="images/page/egg"] {
     filter: grayscale(1);
@@ -62,7 +65,7 @@ img[src*="images/page/egg"] {
 .contentMenuSmall,
 .contentMenuFullWidth,
 .contentMenuSmall,
-.formButton:focus{
+.formButton:focus {
     box-shadow: none;
     background: linear-gradient(to bottom, #444 0%, #212121 100%);
     text-shadow: none!important;
@@ -103,7 +106,7 @@ img[src*="images/page/egg"] {
     background: linear-gradient(to bottom, #516181 0%, #223252 100%);
 }
 #nav li ul {
- margin-left:-1px;   
+    margin-left: -1px;
 }
 .nav-md {
     background: linear-gradient(to top, rgba(80, 70, 100, .8) 0%, rgba(80, 70, 100, .8) 100%), url("https://pixpet.net/css/images/pageBackground.gif");
@@ -124,13 +127,13 @@ img[src*="images/page/egg"] {
 .newPm td {
     background: #454!important;
     color: #121!important;
-    border-color:#121!important;
+    border-color: #121!important;
 }
 .newPm td a,
 .newPm td a:hover,
 .newPm td a:focus,
 .newPm td a:active {
-color:#5c5!important;
+    color: #5c5!important;
 }
 #nav li:hover a,
 #nav li:hover ul li a:hover {
@@ -175,7 +178,7 @@ color:#5c5!important;
     color: inherit;
 }
 .infoBoxMessage b {
-    color:inherit;   
+    color: inherit;
 }
 .inventoryContent {
     background: #444;
@@ -190,24 +193,30 @@ color:#5c5!important;
     color: #bbd;
 }
 .normalInput {
- color:#333;   
+    color: #333;
 }
 
 .progressBar {
     background: #444 url('../usersc/images/page/progressBar.gif') no-repeat -130px;
 }
-.colorSortLink, .colorSortLink:hover, .colorSortLink:focus, .colorSortLink:active  {
- background: #55a;   
-text-shadow:none;
+.colorSortLink,
+.colorSortLink:hover,
+.colorSortLink:focus,
+.colorSortLink:active {
+    background: #55a;
+    text-shadow: none;
 }
-.colorSortLink:hover, .colorSortLink:focus, .colorSortLink:active {
- background: #338;   
-
+.colorSortLink:hover,
+.colorSortLink:focus,
+.colorSortLink:active {
+    background: #338;
 }
 .colorSortLinkSelected {
- background: #77c;  
-        text-shadow:none;
-
+    background: #77c;
+    text-shadow: none;
+}
+.forumBoxLink {
+    border-color: #000!important;
 }
 a,
 .blankLink,
@@ -230,7 +239,7 @@ td,
     border: 1px solid #000 !important;
 }
 select {
- color:#333;
+    color: #333;
 }
 
 th {
