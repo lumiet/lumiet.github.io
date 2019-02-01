@@ -1,10 +1,3 @@
-
-
-
-
-/*.contentRightModule:not(.pixpetMenu) {
-    display: none;
-}*/
 .mainContentBackground {
     background: #212121;
     box-shadow: none;
@@ -42,8 +35,9 @@
 .formButton:focus,
 .formButton:hover,
 .formButton:active {
-    background: linear-gradient(to bottom, #313131 0%, #111111 100%);
-    box-shadow: 0px 1px 2px #111;
+    background: linear-gradient(to bottom, #313131 0%, #111111 100%)!important;
+    box-shadow: 0px 1px 2px #111!important;
+    border-color:#000!important;
 }
 img[src*="images/page/egg"] {
     filter: grayscale(1);
@@ -67,16 +61,17 @@ img[src*="images/page/egg"] {
 .userInfo,
 .contentMenuSmall,
 .contentMenuFullWidth,
-.contentMenuSmall {
+.contentMenuSmall,
+.formButton:focus{
     box-shadow: none;
     background: linear-gradient(to bottom, #444 0%, #212121 100%);
-    text-shadow: none;
+    text-shadow: none!important;
     border-color: #000;
 }
 .formButtonDisabled {
     box-shadow: none;
     background: linear-gradient(to bottom, #aaa 0%, #666 100%);
-    text-shadow: none;
+    text-shadow: none!important;
     border-color: #000;
     color: #fff;
 }
@@ -107,21 +102,35 @@ img[src*="images/page/egg"] {
 #headerMenu > div {
     background: linear-gradient(to bottom, #516181 0%, #223252 100%);
 }
+#nav li ul {
+ margin-left:-1px;   
+}
 .nav-md {
     background: linear-gradient(to top, rgba(80, 70, 100, .8) 0%, rgba(80, 70, 100, .8) 100%), url("https://pixpet.net/css/images/pageBackground.gif");
     background-blend-mode: multiply;
     background-position: 0px 0px, 0px 0px;
 }
 .signature {
- background:inherit;  
-    border-color:#000;
+    background: inherit;
+    border-color: #000;
 }
 .bbQuote {
- background:inherit;   
+    background: inherit;
 }
 .customBox {
     background: inherit;
     border-color: #000!important;
+}
+.newPm td {
+    background: #454!important;
+    color: #121!important;
+    border-color:#121!important;
+}
+.newPm td a,
+.newPm td a:hover,
+.newPm td a:focus,
+.newPm td a:active {
+color:#5c5!important;
 }
 #nav li:hover a,
 #nav li:hover ul li a:hover {
@@ -165,6 +174,9 @@ img[src*="images/page/egg"] {
 .successBoxMessage b {
     color: inherit;
 }
+.infoBoxMessage b {
+    color:inherit;   
+}
 .inventoryContent {
     background: #444;
 }
@@ -177,11 +189,26 @@ img[src*="images/page/egg"] {
     text-shadow: none;
     color: #bbd;
 }
+.normalInput {
+ color:#333;   
+}
 
 .progressBar {
     background: #444 url('../usersc/images/page/progressBar.gif') no-repeat -130px;
 }
+.colorSortLink, .colorSortLink:hover, .colorSortLink:focus, .colorSortLink:active  {
+ background: #55a;   
+text-shadow:none;
+}
+.colorSortLink:hover, .colorSortLink:focus, .colorSortLink:active {
+ background: #338;   
 
+}
+.colorSortLinkSelected {
+ background: #77c;  
+        text-shadow:none;
+
+}
 a,
 .blankLink,
 a[target="_blank"] {
@@ -202,6 +229,10 @@ td,
     background: #212121;
     border: 1px solid #000 !important;
 }
+select {
+ color:#333;
+}
+
 th {
     background: linear-gradient(to bottom, #516181 0%, #223252 100%)!important;
     text-shadow: none!important;
