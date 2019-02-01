@@ -108,7 +108,7 @@ img[src*="images/page/egg"] {
     background: linear-gradient(to bottom, #516181 0%, #223252 100%);
 }
 .nav-md {
-    background: linear-gradient(to top, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .8) 100%), url("https://pixpet.net/css/images/pageBackground.gif");
+    background: linear-gradient(to top, rgba(80, 70, 100, .8) 0%, rgba(80, 70, 100, .8) 100%), url("https://pixpet.net/css/images/pageBackground.gif");
     background-blend-mode: multiply;
     background-position: 0px 0px, 0px 0px;
 }
