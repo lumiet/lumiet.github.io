@@ -113,6 +113,29 @@ img[src*="images/page/egg"] {
     background-blend-mode: multiply;
     background-position: 0px 0px, 0px 0px;
 }
+.backgroundNormal {
+    background: #444;
+}
+.houseDisplaySelected b,
+.houseDisplaySelected b:visited,
+.houseDisplaySelected b:hover,
+.houseDisplaySelected b:focus,
+.houseDisplaySelected b:active {
+    color: #3f6936 !important;
+}
+.houseDisplay b,
+.houseDisplay b:visited,
+.houseDisplay b:hover,
+.houseDisplay b:focus,
+.houseDisplay b:active {
+    color: #ddd;
+    !important;
+}
+.houseDisplay {
+    color: #444;
+    border-color: #000;
+    background: #999;
+}
 .signature {
     background: inherit;
     border-color: #000;
@@ -124,7 +147,8 @@ img[src*="images/page/egg"] {
     background: inherit;
     border-color: #000!important;
 }
-.newPm td {
+.newPm td,
+.newPm td b {
     background: #454!important;
     color: #121!important;
     border-color: #121!important;
@@ -174,10 +198,74 @@ img[src*="images/page/egg"] {
     background: #212121;
     border-bottom: 1px solid #000;
 }
+.patreonLink a,
+.patreonButton,
+.patreonButton:visited,
+.patreonHeader {
+    background: linear-gradient(to bottom, #a65 0%, #a42 100%) !important;
+}
+.tableSelectedLink {
+    background: #223;
+}
+.linkRefining,
+.linkBrewing,
+.linkBaking,
+.linkRefining:hover,
+.linkBrewing:hover,
+.linkBaking:hover,
+.linkRefining:active,
+.linkBrewing:active,
+.linkBaking:active,
+.linkRefining:focus,
+.linkBrewing:focus,
+.linkBaking:focus {
+    color: #fff!important;
+}
+.cookingStation0,
+.cookingStation1 {
+    border-color: #000!important;
+}
+.pages a:hover {
+    background: rgba(100, 100, 150, .6);
+}
+.stickyTopic td {
+    background: #304349!important;
+    border-color: #000!important;
+    color: #def!important;
+}
+.stickyTopic td a {
+    color: #add!important;
+}
+.stickyTopic td img[src*="images/page/egg"] {
+    filter: brightness(2) grayscale(.5);
+}
+.closedTopic td {
+    background: #554!important;
+    border-color: #000!important;
+    color: #ddc!important;
+}
+.closedTopic td img[src*="images/page/egg"] {
+    filter: brightness(2) grayscale(.5);
+}
+.closedTopic td a {
+    color: #dda!important;
+}
 .successBoxMessage b {
     color: inherit;
 }
+.stickyTopic {
+    background: #556!important;
+}
+.successBoxMessage a,
+.successBoxMessage a:hover,
+.successBoxMessage a:active,
+.successBoxMessage a:focus {
+    color: #3f6936!important;
+}
 .infoBoxMessage b {
+    color: inherit;
+}
+.errorBoxMessage b {
     color: inherit;
 }
 .inventoryContent {
@@ -214,6 +302,9 @@ img[src*="images/page/egg"] {
 .colorSortLinkSelected {
     background: #77c;
     text-shadow: none;
+}
+.colorDisplay b {
+    color: inherit;
 }
 .forumBoxLink {
     border-color: #000!important;
