@@ -9,8 +9,8 @@
 .contentRightModule > a:hover,
 .contentRightModule > a:focus,
 .forumBoxLink:hover,
-forumBoxLink:focus,
-forumBoxLink:active,
+.forumBoxLink:focus,
+.forumBoxLink:active,
 .footerModule {
     background: #414141;
     box-shadow: none;
@@ -129,7 +129,6 @@ img[src*="images/page/egg"] {
 .houseDisplay b:focus,
 .houseDisplay b:active {
     color: #ddd;
-    !important;
 }
 .houseDisplay {
     color: #444;
@@ -142,6 +141,9 @@ img[src*="images/page/egg"] {
 }
 .bbQuote {
     background: inherit;
+}
+.bbSpoiler {
+ background:inherit;   
 }
 .customBox {
     background: inherit;
@@ -340,6 +342,11 @@ th {
     border: solid 1px #000 !important;
     border-color: #000!important;
 }
+
+th a {
+ color:#fff!important;   
+}
+
 body {
     text-shadow: none;
     color: #b3b4c2;
