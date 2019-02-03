@@ -27,6 +27,7 @@
     border-color: #000;
     text-shadow: none;
     font-weight: bold;
+    transition: none!important;
 }
 .headerMenu a:hover,
 .headerMenu a:focus {
@@ -143,7 +144,7 @@ img[src*="images/page/egg"] {
     background: inherit;
 }
 .bbSpoiler {
- background:inherit;   
+    background: inherit;
 }
 .customBox {
     background: inherit;
@@ -344,7 +345,7 @@ th {
 }
 
 th a {
- color:#fff!important;   
+    color: #fff!important;
 }
 
 body {
