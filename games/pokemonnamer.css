@@ -27,6 +27,6 @@ ul {
 text-align:left;
 }
 .container > li {
-min-width:10ch;
+min-width:15ch;
 padding: 3px;
 }
