@@ -28,5 +28,6 @@ text-align:left;
 }
 .container > li {
 min-width:15ch;
+text-align:left;
 padding: 3px;
 }
