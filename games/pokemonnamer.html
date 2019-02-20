@@ -1,13 +1,37 @@
-<html>
+<html user-scalable="no">
 <head>
 <title>hrrrgrh</title>
-<link type="text/css" href="pokemonnamer.css">
+<link rel="stylesheet" type="text/css" href="pokemonnamer.css">
 </head>
 <body>
-<div class="block"><form onsubmit="check(); return false;">
+
+<div class="container"><div class="block">
+<form onsubmit="check(); return false;">
 <input type="text"><button type="button" onclick="check()">Go</button>
 </form>
-<div id="counter">Pokemon named: <span>0</span></div></div>
+
+<div id="counter">Pokémon named: <span>0</span>
+
+<br><br>
+Time elapsed: <div id="timer">0.0</div> seconds</div>
+</div>
+
+<div class="block">
+<h3>Instructions</h3>
+<ul>
+<li>Special characters (including spaces, dashes, or accents) are ignored.</li>
+<li>Each Pokémon can only be named once.</li>
+<li>Try to name as many as possible from memory-- good luck!</li>
+</ul>
+</div>
+
+<div class="block">
+<h3>Previously Named</h3>
+<ul class="container" id="list">
+</ul>
+</div>
+
+</div>
 </body>
 <script src="pokemonnamer.js"></script>
 </html>
