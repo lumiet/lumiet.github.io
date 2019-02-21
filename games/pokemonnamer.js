@@ -5,10 +5,27 @@ var count = 0;
 var countSpan = document.getElementById("counter").getElementsByTagName("span")[0];
 var timerDiv = document.getElementById("timer");
 var seconds = 0;
+var pluralS = "second";
+var pluralM = "minute";
+var minutes = 0;
 var firstTime = true;
+
 function timer() {
 seconds += 1;
-timerDiv.innerHTML = seconds;
+if(seconds>=60) {
+seconds = seconds%60;
+minutes +=1;
+}
+if(seconds%10==1){
+pluralS = "second";
+}else {pluralS = "seconds";}
+if(minutes%10==1) {
+pluralM = "minute";
+}else {pluralM = "minutes";}
+if(minutes>0) {
+timerDiv.innerHTML = minutes + " " + pluralM + " " + seconds + " " + pluralS;
+}
+else {timerDiv.innerHTML = seconds + " " + pluralS;}
 }
 function check() {
 if(firstTime) {
