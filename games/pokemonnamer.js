@@ -16,10 +16,10 @@ if(seconds>=60) {
 seconds = seconds%60;
 minutes +=1;
 }
-if(seconds%10==1){
+if(seconds==1){
 pluralS = "second";
 }else {pluralS = "seconds";}
-if(minutes%10==1) {
+if(minutes==1) {
 pluralM = "minute";
 }else {pluralM = "minutes";}
 if(minutes>0) {
