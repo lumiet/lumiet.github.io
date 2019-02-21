@@ -3,8 +3,18 @@ var pokenames = ["BULBASAUR","IVYSAUR","VENUSAUR","CHARMANDER","CHARMELEON","CHA
 var prevSubmit = [];
 var count = 0;
 var countSpan = document.getElementById("counter").getElementsByTagName("span")[0];
-
+var timerDiv = document.getElementById("timer");
+var seconds = 0;
+var firstTime = true;
+function timer() {
+seconds += 1;
+timerDiv.innerHTML = seconds;
+}
 function check() {
+if(firstTime) {
+setInterval(timer, 1000);
+}
+firstTime = false;
 var input = document.getElementsByTagName("input")[0].value.toUpperCase().replace(/[^a-zA-Z0-9]/g, "");
 //console.log(input);
 
