@@ -22,7 +22,38 @@ correct=true;
 count++;
 prevSubmit.push(input);
 var li = document.createElement('li');
-li.innerHTML = input[0] + input.substring(1).toLowerCase();
+
+switch(input) {
+case "MRMIME": input = "Mr. Mime";
+break;
+case "MIMEJR": input = "Mime Jr.";
+break;
+case "TYPENULL": input = "Type: Null";
+break;
+case "TAPULELE": input = "Tapu Lele";
+break;
+case "TAPUBULU": input = "Tapu Bulu";
+break;
+case "TAPUKOKO": input = "Tapu Koko";
+break;
+case "TAPUFINI": input = "Tapu Fini";
+break;
+case "JANGMOO": input = "Jangmo-o";
+break;
+case "HAKAMOO": input = "Hakamo-o";
+break;
+case "KOMMOO": input = "Kommo-o";
+break;
+case "PORYGONZ": input = "Porygon-Z";
+break;
+case "HOOH": input = "Ho-Oh";
+break;
+case "FLABEBE": input = "Flabébé";
+break;
+case "FARFETCHD": input = "Farfetch'd";
+default: input = input[0] + input.substring(1).toLowerCase();
+}
+li.innerHTML = input;
 document.getElementById("list").appendChild(li);
 }
 }
