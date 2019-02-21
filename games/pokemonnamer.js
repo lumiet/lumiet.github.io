@@ -75,7 +75,7 @@ case "PORYGONZ": input = "Porygon-Z";
 break;
 case "HOOH": input = "Ho-Oh";
 break;
-case "FLABEBE": input = "Flabébé";
+case "FLABEBE": input = "Flab&eacute;b&eacute;";
 break;
 case "FARFETCHD": input = "Farfetch'd";
 default: input = input[0] + input.substring(1).toLowerCase();
