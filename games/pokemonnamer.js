@@ -24,10 +24,10 @@ else {
  }
 }
 function storageUpdate() {
-  localStorage.setItem('prevSubmitLS', [String](prevSubmit));
-  localStorage.setItem('countLS', Int(count));
-  localStorage.setItem('secondsLS', Int(seconds));
-  localStorage.setItem('minutesLS', Int(minutes));  
+  localStorage.setItem('prevSubmitLS', prevSubmit);
+  localStorage.setItem('countLS', count);
+  localStorage.setItem('secondsLS', seconds);
+  localStorage.setItem('minutesLS', minutes);  
 }
 
 function timer() {
