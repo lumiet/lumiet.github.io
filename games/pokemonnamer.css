@@ -2,6 +2,7 @@ body {
 padding:5%;
 font-family:arial;
 font-size:12pt;
+background: repeating-linear-gradient(#000 2px, #222 2px);
 }
 .block {
 padding:20px;
