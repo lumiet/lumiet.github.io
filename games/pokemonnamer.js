@@ -11,9 +11,9 @@ var minutes = 0;
 var firstTime = true;
 
 
-/*
+
 function storageInit() {
-  console.log(localStorage.getItem("prevSubmitLS") === null);
+/*  console.log(localStorage.getItem("prevSubmitLS") === null);
   console.log(localStorage.getItem("prevSubmitLS"));
     console.log(localStorage.getItem("countLS"));
     console.log(localStorage.getItem("secondsLS"));
@@ -28,9 +28,9 @@ function storageInit() {
 else {
   storageUpdate(); 
  }
-}
+*/}
 function storageUpdate() {
-  console.log('updating storage');
+  /*console.log('updating storage');
   localStorage.setItem('prevSubmitLS', prevSubmit);
   localStorage.setItem('countLS', count);
   localStorage.setItem('secondsLS', seconds);
@@ -40,8 +40,8 @@ function storageUpdate() {
  localStorage.getItem('countLS');
 localStorage.getItem('minutesLS');
 localStorage.getItem('secondsLS');
-}
-*/
+*/}
+
 function timer() {
 seconds += 1;
 if(seconds>=60) {
