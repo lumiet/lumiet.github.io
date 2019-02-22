@@ -1,40 +1,22 @@
+html, body{min-height:100%;}
 body {
 padding:5%;
 font-family:arial;
 font-size:12pt;
-  animation: 30s infinite hue-shift;
+  background-blend-mode:multiply;
+background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #0ff, transparent);
 }
-@keyframes hue-shift {
- 0% {
-   repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #f0f, transparent);
-  background-blend-mode:multiply;
-  }
-  20%{
-    repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #f00, transparent);
-  background-blend-mode:multiply;
-  }
-  40%{
-    repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #ff0, transparent);
-  background-blend-mode:multiply;
-  }
-  60% {
-    repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #0f0, transparent);
-  background-blend-mode:multiply;
-  }
-  80% {
-    
-  }
-  
-}
+
 .block {
 padding:20px;
-background: rgba(50,50,50,.5);
+background: rgba(0,0,0,.4);
 color:#fff;
 display:inline-block;
 width:400px;
 text-align:center;
 margin:10px auto 10px auto;
 min-height:150px;
+border: 1px solid #fff;
 }
 .container {
 display:flex;
@@ -50,7 +32,36 @@ ul {
 text-align:left;
 }
 .container > li {
-min-width:15ch;
+min-width:12ch;
 text-align:left;
-padding: 3px;
+}
+
+
+
+
+@keyframes hue-shift {
+ 0% {
+   background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #f0f, transparent);
+
+  }
+  16%{
+    background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #f00, transparent);
+
+  }
+  33%{
+    background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #ff0, transparent);
+
+  }
+  49% {
+    background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #0f0, transparent);
+
+  }
+  66% {
+        background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #0ff, transparent);
+
+  }
+ 83% {
+        background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #00f, transparent);
+  }
+  
 }
