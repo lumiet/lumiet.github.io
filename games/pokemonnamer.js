@@ -11,7 +11,7 @@ var minutes = 0;
 var firstTime = true;
 
 
-
+/*
 function storageInit() {
   console.log(localStorage.getItem("prevSubmitLS") === null);
   console.log(localStorage.getItem("prevSubmitLS"));
@@ -41,7 +41,7 @@ function storageUpdate() {
 localStorage.getItem('minutesLS');
 localStorage.getItem('secondsLS');
 }
-
+*/
 function timer() {
 seconds += 1;
 if(seconds>=60) {
