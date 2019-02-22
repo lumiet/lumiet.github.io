@@ -13,7 +13,7 @@ var firstTime = true;
 
 
 function storageInit() {
-  if(!localStorage.getItem('prevSubmitLS')){
+  if("username" in localStorage){
     prevSubmit = localStorage.getItem('prevSubmitLS');
     count = localStorage.getItem('countLS');
     minutes = localStorage.getItem('minutesLS');
