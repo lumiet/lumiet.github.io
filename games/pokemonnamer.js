@@ -14,7 +14,9 @@ var firstTime = true;
 
 function storageInit() {
   if("username" in localStorage){
+    console.log('retrieving local storage');
     prevSubmit = localStorage.getItem('prevSubmitLS');
+    console.log('prevSubmit = ' + prevSubmit);
     count = localStorage.getItem('countLS');
     minutes = localStorage.getItem('minutesLS');
     seconds = localStorage.getItem('secondsLS');
@@ -24,6 +26,7 @@ else {
  }
 }
 function storageUpdate() {
+  console.log('updating storage');
   localStorage.setItem('prevSubmitLS', prevSubmit);
   localStorage.setItem('countLS', count);
   localStorage.setItem('secondsLS', seconds);
