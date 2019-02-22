@@ -28,6 +28,11 @@ function storageUpdate() {
   localStorage.setItem('countLS', count);
   localStorage.setItem('secondsLS', seconds);
   localStorage.setItem('minutesLS', minutes);  
+  //must use get in order for data to persist, for some reason
+  localStorage.getItem('prevSubmitLS');
+ localStorage.getItem('countLS');
+localStorage.getItem('minutesLS');
+localStorage.getItem('secondsLS');
 }
 
 function timer() {
