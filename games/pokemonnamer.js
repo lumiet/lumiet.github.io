@@ -13,7 +13,7 @@ var firstTime = true;
 
 
 function storageInit() {
-  if("username" in localStorage){
+  if(localStorage.getItem("prevSubmitLS") === null){
     console.log('retrieving local storage');
     prevSubmit = localStorage.getItem('prevSubmitLS');
     console.log('prevSubmit = ' + prevSubmit);
