@@ -2,7 +2,8 @@ body {
 padding:5%;
 font-family:arial;
 font-size:12pt;
-background: repeating-linear-gradient(#000 2px, #222 2px);
+background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #f0f, transparent);
+  background-blend-mode:multiply;
 }
 .block {
 padding:20px;
