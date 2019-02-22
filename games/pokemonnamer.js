@@ -14,6 +14,9 @@ var firstTime = true;
 
 function storageInit() {
   console.log(localStorage.getItem("prevSubmitLS") === null);
+  console.log(localStorage.getItem("prevSubmitLS"));
+    console.log(localStorage.getItem("countLS"));
+    console.log(localStorage.getItem("secondsLS"));
   if(localStorage.getItem("prevSubmitLS") === null){
     console.log('retrieving local storage');
     prevSubmit = localStorage.getItem('prevSubmitLS');
