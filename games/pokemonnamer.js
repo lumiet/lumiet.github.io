@@ -13,21 +13,21 @@ var firstTime = true;
 
 
 function storageInit() {
-  if(!localStorage.getItem('prevSubmit')){
-    prevSubmit = localStorage.getItem('prevSubmit');
-    count = localStorage.getItem('prevSubmit');
-    minutes = localStorage.getItem('prevSubmit');
-    seconds = localStorage.getItem('prevSubmit');
+  if(!localStorage.getItem('prevSubmitLS')){
+    prevSubmit = localStorage.getItem('prevSubmitLS');
+    count = localStorage.getItem('prevSubmitLS');
+    minutes = localStorage.getItem('prevSubmitLS');
+    seconds = localStorage.getItem('prevSubmitLS');
  }
 else {
   storageUpdate(); 
  }
 }
 function storageUpdate() {
-  localStorage.setItem('prevSubmit', prevSubmit);
-  localStorage.setItem('count', count);
-  localStorage.setItem('seconds', seconds);
-  localStorage.setItem('minutes', minutes);  
+  localStorage.setItem('prevSubmitLS', prevSubmit);
+  localStorage.setItem('countLS', count);
+  localStorage.setItem('secondsLS', seconds);
+  localStorage.setItem('minutesLS', minutes);  
 }
 
 function timer() {
