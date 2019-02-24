@@ -16,6 +16,8 @@ width:400px;
 text-align:center;
 margin:10px auto 10px auto;
 min-height:150px;
+max-height:500px;
+overflow-y:auto;
 border: 1px solid #fff;
 }
 .container {
