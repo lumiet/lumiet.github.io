@@ -1,0 +1,43 @@
+html, body{min-height:100%; text-align:center;}
+body {
+padding:5%;
+font-family:arial;
+font-size:12pt;
+  background-blend-mode:multiply;
+background: repeating-linear-gradient(#222, #222 2px, #000 0px, #000 4px), linear-gradient(to top, #f00, transparent);
+}
+table {
+border-collapse:collapse;
+margin:auto;
+}
+h1 {
+font-size:20pt;
+margin:0;
+}
+td {
+background: rgba(255,255,255,.2);
+border: 1px solid #fff;
+padding:3px;
+height:135px;width:135px;
+overflow:hidden;
+text-align:center;
+}
+.block {
+padding:20px;
+background: rgba(0,0,0,.4);
+color:#fff;
+display:inline-block;
+text-align:center;
+margin:auto;
+overflow-y:auto;
+border: 1px solid #fff;
+width:80%;
+max-width:900px;
+}
+
+button {
+border: 1px solid #fff;
+color:#fff;
+background: rgba(255,255,255,.2);
+margin:10px;
+}
