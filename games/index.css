@@ -5,6 +5,7 @@ font-family: Tahoma;
  color:#fff;
  margin:0;
 }
+body{overflow-x:hidden;}
 h1, h2 {
  font-size: 30pt;
 text-align:center;
@@ -51,4 +52,3 @@ box-sizing:border-box;
  top: calc(100% - 25px); 
  left: calc(100% - 25px);
  }
-body{overflow-x:hidden;}
