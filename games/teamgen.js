@@ -1144,7 +1144,7 @@ for(var z = 1; z<=6; z++) {
 		url = "wormadam-trash";
 	}
 	if(partyname[z-1] == "Wormadam (Plant Cloak)") {
-		url = "wormadam-plant";
+		url = "wormadam";
 	}
 	if(partyname[z-1] == "Oricorio (Pa'u)") {
 		url = "oricorio-pau";
