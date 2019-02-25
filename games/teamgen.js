@@ -1170,7 +1170,7 @@ for(var z = 1; z<=6; z++) {
 	if(partyname[z-1] == "Porygon-Z") {
 		url = "porygonz";
 	}
-	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xydex/" + url.toLowerCase() + ".png'>";	
+	document.getElementById(z).innerHTML = "<img src='http://play.pokemonshowdown.com/sprites/xyani/" + url.toLowerCase() + ".gif'>";	
 }
 document.getElementById("main").innerHTML = content;
 	
