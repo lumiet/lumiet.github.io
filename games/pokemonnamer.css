@@ -16,8 +16,11 @@ width:400px;
 text-align:center;
 margin:10px auto 10px auto;
 min-height:150px;
-max-height:500px;
+max-height:250px;
 overflow-y:auto;
+-webkit-scrollbar: #444;
+-webkit-scrollbar-button: #444;
+
 border: 1px solid #fff;
 }
 .container {
