@@ -18,9 +18,9 @@ function move(moven, cTd){
 if(moven==0){return;}
 var dir = Math.floor((Math.random()*10)) % 4;
 cTd.classList.replace("wall","path");
-var x = cTd.getAttribute(x); 
-var y = cTd.getAttribute(y);
-	
+var x = cTd.getAttribute('x'); 
+var y = cTd.getAttribute('y');
+console.log(cTd);
 	
 switch(dir) {
 case 0: //move up
