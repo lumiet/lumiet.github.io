@@ -13,24 +13,23 @@ function create2DArray(rows) {
   return arr;
 }
 
-function move(move, cTd){
+function move(moven, cTd){
 	
-if(move==0){return;}
-	var dir = Math.floor((Math.random()*10)) % 4;
+if(moven==0){return;}
+var dir = Math.floor((Math.random()*10)) % 4;
 cTd.classList.replace("wall","path");
-	var x = cTd.getAttribute(x); 
-	var y = cTd.getAttribute(y);
+var x = cTd.getAttribute(x); 
+var y = cTd.getAttribute(y);
 	
 	
-	switch(dir) {
+switch(dir) {
 case 0: //move up
 if(y-1<0){ break;}
 else { cTd = td[y-1][x];} 
 break;
 case 1: //move right
 if(x+1>=size){break;} 
-			else{cTd=td[y][x+1];}
-			
+else{cTd=td[y][x+1];}			
 break;
 case 2: // move down
 if(y+1>=size){ break;}
@@ -38,10 +37,10 @@ else { cTd = td[y+1][x];}
 break;
 case 3: // move left
 if(x-1<0){break;} 
-			else{cTd=td[y][x-1];}
+else{cTd=td[y][x-1];}
 break;
 }
-move(move-1, cTd);
+return move(moven-1, cTd);
 }
 
 function main() {
