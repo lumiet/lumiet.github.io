@@ -15,13 +15,20 @@ function create2DArray(rows) {
 
 function move(move, cTd){
 var dir = Math.floor((Math.random()*10)) % 4;
-switch(dir) {
+cTd.classList.replace("wall","path");
+	var x = cTd.getAttribute(x); 
+	var y = cTd.getAttribute(y);
+	
+	
+	switch(dir) {
 case 0: //move up
-if(cTd.y-1<0){ break;}
-else { cTd = td[cTd.y-1][cTd.x];} 
+if(y-1<0){ break;}
+else { cTd = td[y-1][x];} 
 break;
 case 1: //move right
-
+if(x+1>=size){break;} 
+			else{cTd=td[y][x+1];}
+			
 break;
 case 2: // move down
 
