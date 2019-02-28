@@ -63,6 +63,6 @@ document.body.appendChild(table);
     }
   }
 start = document.getElementById("start");
-  move(50,start);
+  move(moves,start);
   //end main
 }
