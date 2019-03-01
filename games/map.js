@@ -1,7 +1,7 @@
 var table = document.createElement('table');
-var size = 12;
+var size = 15;
 var td = create2DArray(size);
-var moves = 50;
+var moves = 500;
 
 function create2DArray(rows) {
   var arr = [];
@@ -16,31 +16,30 @@ function create2DArray(rows) {
 function move(moven, cTd){
 	
 if(moven==0){return;}
-var dir = Math.floor((Math.random()*10)) % 4;
+var dir = Math.floor((Math.random()*4)) % 4;
 cTd.classList.replace("wall","path");
-var x = cTd.getAttribute('x'); 
-var y = cTd.getAttribute('y');
-console.log(cTd);
+var x = Number(cTd.getAttribute('x')); 
+var y = Number(cTd.getAttribute('y'));
 	
 switch(dir) {
 
 case 0: //move up
-if(y-1<0){ break;}
+if((y-1) <0){ break;}
 else { cTd = td[y-1][x];} 
 break;
 
 case 1: //move right
-if(x+1 >= size){break;} 
+if((x+1) >= size){break;} 
 else{cTd = td[y][x+1];}			
 break;
 
 case 2: // move down
-if(y+1 >= size){ break;}
+if((y+1) >= size){ break;}
 else { cTd = td[y+1][x];} 
 break;
 
 case 3: // move left
-if(x-1<0){break;} 
+if((x-1) <0){break;} 
 else{cTd = td[y][x-1];}
 break;
 
@@ -68,5 +67,6 @@ document.body.appendChild(table);
   }
 start = document.getElementById("start");
   move(moves,start);
-  //end main
+
+//end main
 }
