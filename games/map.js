@@ -23,24 +23,29 @@ var y = cTd.getAttribute('y');
 console.log(cTd);
 	
 switch(dir) {
+
 case 0: //move up
 if(y-1<0){ break;}
 else { cTd = td[y-1][x];} 
 break;
+
 case 1: //move right
-if(x+1>=size){break;} 
-else{cTd=td[y][x+1];}			
+if(x+1 >= size){break;} 
+else{cTd = td[y][x+1];}			
 break;
+
 case 2: // move down
-if(y+1>=size){ break;}
+if(y+1 >= size){ break;}
 else { cTd = td[y+1][x];} 
 break;
+
 case 3: // move left
 if(x-1<0){break;} 
-else{cTd=td[y][x-1];}
+else{cTd = td[y][x-1];}
 break;
+
 }
-return move(moven-1, cTd);
+move(moven-1, cTd);
 }
 
 function main() {
