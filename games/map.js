@@ -2,6 +2,7 @@ var table = document.createElement('table');
 var size = 15;
 var td = create2DArray(size);
 var moves = 500;
+var encounter = Math.floor(size/3);
 
 function create2DArray(rows) {
   var arr = [];
@@ -67,6 +68,13 @@ document.body.appendChild(table);
   }
 start = document.getElementById("start");
   move(moves,start);
-
+var path = document.getElementsByClassName("path");
+for(var i = 0; i<encounter;){
+var chosen = path[Math.floor((Math.random()*path.length))];
+	 if(!chosen.classList.contains("encounter")){
+		chosen.classList.add("encounter");
+		i++;
+	}
+}
 //end main
 }
