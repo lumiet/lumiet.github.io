@@ -14,8 +14,19 @@ background: #433;
     background:#877;
     }
 .encounter {
-background: url("assets/question.png") center center;
-background-size:100%;
+background: url("assets/question.png") no-repeat center center #877;
+background-size:50%;
+image-rendering: crisp-edges;
+animation: hover 1s infinite;
+
+}
+@keyframes hover {
+from {
+background-position: center 15px;
+}
+to {
+background-position: center center;
+}
 }
 </style>
 <body onload="main()">
