@@ -47,7 +47,9 @@ break;
 }
 move(moven-1, cTd);
 }
-
+function charaMove(x, y) {
+	console.log(x + y);
+}
 function main() {
 console.log("hewwo?");
 document.body.appendChild(table);
@@ -60,6 +62,7 @@ document.body.appendChild(table);
 	td[i][j].classList.add("wall");
 	td[i][j].setAttribute("y", i);
 	td[i][j].setAttribute("x", j);
+	 td[i][j].setAttribute("onclick", "charaMove(this.x, this.y)");
 	if(i==size-1&&j==Math.floor(size/2)) {
 	td[i][j].id = "start";
 	}
