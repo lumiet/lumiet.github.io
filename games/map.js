@@ -58,7 +58,7 @@ function charaMove(x, y) {
 	var oldSq = document.getElementsByClassName('char')[0];
 	oldSq.classList.remove('char');
 	console.log(x + " " + y);
-	td[y][x].classList.add('char');
+	td[x][y].classList.add('char');
 }
 function main() {
 console.log("hewwo?");
