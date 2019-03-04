@@ -56,9 +56,12 @@ move(moven-1, cTd);
 }
 function charaMove(x, y) {
 	var oldSq = document.getElementsByClassName('char')[0];
+	var oldX = Number(oldSq.getAttribute('x'));
+	var oldY = Number(oldSq.getAttribute('y'));
+	if((oldX+1==x||oldX==x||oldX-1==x)&&(oldY+1==y||oldY==y||oldY-1==y)&&!td[x][y].classList.contains('wall')) {
 	oldSq.classList.remove('char');
-	console.log(x + " " + y);
 	td[x][y].classList.add('char');
+	}
 }
 function main() {
 console.log("hewwo?");
