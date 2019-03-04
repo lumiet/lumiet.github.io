@@ -82,7 +82,7 @@ document.body.appendChild(table);
 start = document.getElementById("start");
 	character.x = start.x;
 	character.y = start.y;
-	character.img.url = "";
+	character.img.url = "https://i.imgur.com/9BxbowV.png";
 	start.classList.add('char');
   move(moves,start);
 var path = document.getElementsByClassName("path");
