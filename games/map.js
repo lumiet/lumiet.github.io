@@ -22,6 +22,12 @@ function create2DArray(rows) {
   return arr;
 }
 
+function battle() {
+var panel = document.createElement('div');	
+document.appendChild('panel');
+	
+}
+
 function move(moven, cTd){
 	
 if(moven==0){return;}
