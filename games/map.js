@@ -62,7 +62,7 @@ document.body.appendChild(table);
 	td[i][j].classList.add("wall");
 	td[i][j].setAttribute("y", i);
 	td[i][j].setAttribute("x", j);
-	 td[i][j].setAttribute("onclick", "charaMove(this.x, this.y)");
+	 td[i][j].setAttribute("onclick", "charaMove(j, i)");
 	if(i==size-1&&j==Math.floor(size/2)) {
 	td[i][j].id = "start";
 	}
