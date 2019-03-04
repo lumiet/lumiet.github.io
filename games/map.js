@@ -48,7 +48,7 @@ break;
 move(moven-1, cTd);
 }
 function charaMove(x, y) {
-	console.log(x + y);
+	console.log(x + " " + y);
 }
 function main() {
 console.log("hewwo?");
