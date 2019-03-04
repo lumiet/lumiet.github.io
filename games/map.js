@@ -3,6 +3,7 @@ var size = 15;
 var td = create2DArray(size);
 var moves = 500;
 var encounter = Math.floor(size/3);
+var enemyRate = 20; //percentage out of 100 of encountering enemy
 var character = {
 name: "Chrom",
 x: 0,
@@ -54,6 +55,15 @@ break;
 }
 move(moven-1, cTd);
 }
+
+function enemyRoll() {
+	if((Math.random()*100)<enemyRate) {
+		console.log("enemy on this square :(");
+	}
+}
+
+
+
 function charaMove(x, y) {
 	var oldSq = document.getElementsByClassName('char')[0];
 	var oldX = Number(oldSq.getAttribute('y'));
