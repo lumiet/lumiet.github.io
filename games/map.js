@@ -55,7 +55,7 @@ break;
 move(moven-1, cTd);
 }
 function charaMove(x, y) {
-	var oldSq = document.getElementsByClass('char')[0];
+	var oldSq = document.getElementsByClassName('char')[0];
 	oldSq.classList.remove('char');
 	console.log(x + " " + y);
 	td[y][x].classList.add('char');
