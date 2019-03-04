@@ -58,6 +58,7 @@ function charaMove(x, y) {
 	var oldSq = document.getElementsByClassName('char')[0];
 	var oldX = Number(oldSq.getAttribute('x'));
 	var oldY = Number(oldSq.getAttribute('y'));
+	console.log(oldY + " " + oldX);
 	console.log((oldX+1==x||oldX==x||oldX-1==x) + " " + (oldY+1==y||oldY==y||oldY-1==y) + " " + !td[x][y].classList.contains('wall'));
 	if((oldX+1==x||oldX==x||oldX-1==x)&&(oldY+1==y||oldY==y||oldY-1==y)&&!td[x][y].classList.contains('wall')) {
 	oldSq.classList.remove('char');
