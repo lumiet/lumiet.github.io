@@ -71,6 +71,7 @@ function charaMove(x, y) {
 	if(((oldX+1==x||oldX==x||oldX-1==x)&&(oldY+1==y||oldY==y||oldY-1==y))&&!td[x][y].classList.contains('wall')) {
 	oldSq.classList.remove('char');
 	td[x][y].classList.add('char');
+	enemyRoll();
 	}
 }
 function main() {
