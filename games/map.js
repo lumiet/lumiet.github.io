@@ -3,7 +3,14 @@ var size = 15;
 var td = create2DArray(size);
 var moves = 500;
 var encounter = Math.floor(size/3);
-
+var character = {
+name: "Chrom",
+x: 0,
+y: 0,
+hp: 0,
+maxhp: 10,
+img: new Image()
+};
 function create2DArray(rows) {
   var arr = [];
 
@@ -70,6 +77,10 @@ document.body.appendChild(table);
     }
   }
 start = document.getElementById("start");
+	character.x = start.x;
+	character.y = start.y;
+	character.img.url = "";
+	start.classList.add('char');
   move(moves,start);
 var path = document.getElementsByClassName("path");
 for(var i = 0; i<encounter;){
