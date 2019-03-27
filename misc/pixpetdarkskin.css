@@ -1,3 +1,8 @@
+/*
+LAST UPDATED: 3/26/19
+Original thread:
+https://pixpet.net/forum.php?section=posts&t=765&title=Game-Guides---Custom-CSS%2FUser-Styles%3A-A-Compilation
+*/
 .mainContentBackground {
     background: #212121;
     box-shadow: none;
@@ -146,6 +151,10 @@ img[src*="images/page/egg"] {
 .bbSpoiler {
     background: inherit;
 }
+.favPixpet {
+ background:#444;
+    border-color:#000;
+}
 .customBox {
     background: inherit;
     border-color: #000!important;
@@ -236,8 +245,22 @@ img[src*="images/page/egg"] {
     border-color: #000!important;
     color: #def!important;
 }
+.pixpetMenuEmpty {
+ border-color:#000;   
+}
+.objectHover:hover {
+ background:#292929;   
+}
 .stickyTopic td a {
     color: #add!important;
+}
+.usersOnline a {
+ background:#212121; 
+    border-color:#000;
+}
+.usersOnline a:hover {
+     background:#292929;   
+
 }
 .stickyTopic td img[src*="images/page/egg"] {
     filter: brightness(2) grayscale(.5);
@@ -254,6 +277,9 @@ img[src*="images/page/egg"] {
     color: #dda!important;
 }
 .successBoxMessage b {
+    color: inherit;
+}
+.warningBoxMessage b {
     color: inherit;
 }
 .stickyTopic {
