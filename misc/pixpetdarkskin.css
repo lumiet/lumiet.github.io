@@ -262,6 +262,18 @@ img[src*="images/page/egg"] {
      background:#292929;   
 
 }
+.friendHover {
+ background:#212121;   
+    border-color:#000;
+}
+.usersOnline > a, .usersOnline > span > a {
+ background:#212121;   
+    border:#000;
+}
+.usersOnline > a:hover, .usersOnline > span > a:hover {
+      background:#292929;   
+  
+}
 .stickyTopic td img[src*="images/page/egg"] {
     filter: brightness(2) grayscale(.5);
 }
