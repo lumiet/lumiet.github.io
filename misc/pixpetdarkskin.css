@@ -1,5 +1,5 @@
 /*
-LAST UPDATED: 3/26/19
+LAST UPDATED: 5/6/19
 Original thread:
 https://pixpet.net/forum.php?section=posts&t=765&title=Game-Guides---Custom-CSS%2FUser-Styles%3A-A-Compilation
 */
@@ -26,13 +26,19 @@ https://pixpet.net/forum.php?section=posts&t=765&title=Game-Guides---Custom-CSS%
 }
 .contentLeftTitle,
 .contentRightModuleTitle,
-.headerMenu a,  .contentLeftTitleFullWidth {
+.headerMenu a,  .contentLeftTitleFullWidth, .contentLeftTitleGalleryModule {
     box-shadow: none;
     background: linear-gradient(to bottom, #515151 0%, #222222 100%);
     border-color: #000;
     text-shadow: none;
     font-weight: bold;
     transition: none!important;
+}
+.rightGalleryModule {
+ background:#444;   
+}
+.galleryModuleImgBox > tbody > tr > td {
+ background:#444!important;   
 }
 .labelCheckbox,.labelCheckbox:hover {
  background:#414141;
