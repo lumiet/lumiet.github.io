@@ -1,0 +1,45 @@
+@mainbg: #222;
+@foreground: #444;
+@textcolor: #ccc;
+@link: #fff;
+@vlink: #ccc;
+@hlink: #ddd;
+
+
+
+body { 
+background: @mainbg;
+color:@textcolor;
+font-family:Sans-Serif;
+font-size:12pt;
+padding:0; margin:0;
+}
+p {
+	white-space: pre-wrap;
+}
+a {
+	color: @link;
+}
+a:visited {
+	color: @vlink;
+}
+a:hover, a:focus, a:active {
+	color:@hlink;
+}
+#container {
+	width:950px;
+	margin:auto;
+}
+
+#header {
+	min-height:100px;
+	width:100%;
+	margin:0;
+	background: url('banner.png') #111;
+}
+
+#main {
+	padding:5px;
+	background:@foreground;
+	min-height:400px;
+}
