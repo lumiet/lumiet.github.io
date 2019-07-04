@@ -1,5 +1,5 @@
 /*
-LAST UPDATED: 5/6/19
+LAST UPDATED: 7/3/19
 Original thread:
 https://pixpet.net/forum.php?section=posts&t=765&title=Game-Guides---Custom-CSS%2FUser-Styles%3A-A-Compilation
 */
@@ -304,6 +304,9 @@ img[src*="images/page/egg"] {
 .warningBoxMessage b {
     color: inherit;
 }
+.warningBoxMessage a, .warningBoxMessage a:hover, .warningBoxMessage a:active, .warningBoxMessage a:focus {
+color: #AA8844!important;
+}
 .stickyTopic {
     background: #556!important;
 }
@@ -316,8 +319,14 @@ img[src*="images/page/egg"] {
 .infoBoxMessage b {
     color: inherit;
 }
+.infoBoxMessage a, .infoBoxMessage a:hover, .infoBoxMessage a:active, .infoBoxMessage a:focus {
+color: #283960!important;
+}
 .errorBoxMessage b {
     color: inherit;
+}
+.errorBoxMessage a, .errorBoxMessage a:hover, .errorBoxMessage a:active, .errorBoxMessage a:focus {
+color: #7c3a35!important;
 }
 .inventoryContent {
     background: #444;
