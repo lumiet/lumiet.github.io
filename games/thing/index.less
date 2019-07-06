@@ -1,45 +1,201 @@
-@mainbg: #222;
-@foreground: #444;
-@textcolor: #ccc;
-@link: #fff;
-@vlink: #ccc;
-@hlink: #ddd;
+@mainbg: #251512;
+@foreground: #fdc;
+@foreground2: #fed;
+@accentbg: #b53f2a;
+@accenttext: #fff;
+@textcolor: #222;
+@titlecolor: #251512;
+@bordercolor: #352522;
+@link: #a05020;
+@vlink: #a05020;
+@hlink: #a05020;
 
-
+* {
+box-sizing:border-box;
+}
 
 body { 
-background: @mainbg;
-color:@textcolor;
-font-family:Sans-Serif;
-font-size:12pt;
-padding:0; margin:0;
+	background: @mainbg;
+	color:@textcolor;
+	font-family:Sans-Serif;
+	font-size:11pt;
+	padding:0; margin:0;
 }
+
 p {
 	white-space: pre-wrap;
 }
+
 a {
 	color: @link;
+	&:visited {
+		color: @vlink;
+	}
+	&:hover, &:focus, &:active {
+		color:@hlink;
+	}
 }
-a:visited {
-	color: @vlink;
+
+h1 {
+	font-size: 18pt;
+	color:@titlecolor;
+	text-align:center;
 }
-a:hover, a:focus, a:active {
-	color:@hlink;
+
+table,th,td {
+	border: 2px solid @bordercolor;
+	border-collapse:collapse;
+	margin:auto;
 }
+
+table {
+	border-radius:4px;
+}
+
+th {
+	background:@accentbg;
+	color:@accenttext;
+	padding:3px;
+}
+td {
+	padding:3px;
+	background: @foreground2;
+}
+
+
+////////////
+
+
 #container {
-	width:950px;
+	width:930px;
 	margin:auto;
 }
 
 #header {
-	min-height:100px;
+	height:150px;
 	width:100%;
 	margin:0;
 	background: url('banner.png') #111;
+	overflow:hidden;
+	h1{
+		position:absolute;
+		font-family:monospace;
+		font-weight:bold;
+		color:#fff;
+		text-shadow: 0 -2px 0 #000, -2px 0 0 #000, 0 0 5px #000;
+		font-size:22pt;
+		left:10%;
+		top:80px;
+	}
+	img#peticon {
+		width:300px;
+		position:relative;
+		left:100%;
+		transform:translate(-100%);
+		top:-10px;
+	}
 }
 
 #main {
-	padding:5px;
+	padding:20px 5px 20px 5px;
 	background:@foreground;
 	min-height:400px;
+}
+
+a.button  {
+	display:inline-block;
+	border: 2px solid @bordercolor;
+	color:@accenttext;
+	background:@accentbg;
+	padding:3px;
+	text-decoration:none;
+	border-radius:4px;
+	font-weight:bold;
+}
+
+.header {
+	background: @accentbg;
+	color: @accenttext;
+	width:100%;
+	font-weight:bold;
+	text-align:center;
+	margin:0;
+	padding:3px;
+	border-bottom: 2px solid @bordercolor;
+}
+
+.userclass {
+	font-size:10pt;
+	padding:3px; 
+	margin:2px;
+	border-radius:3px;
+	&.admin {
+		background-color:#ff5555;
+		color:#fff;
+	}
+	&.mod {
+		background: #55cc55;
+		color:#fff;
+	}
+	&.art {
+		background: #ff55ff;
+		color:#fff;
+	}
+	&.user {
+		background: #5555ff;
+		color:#fff;
+	}
+}
+
+
+///////////////////////
+// USER PAGE SPECIFIC
+
+
+
+#userflex {
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	justify-content:center;
+	
+	#tablecol {
+		display:flex;
+		width:350px;
+		flex-wrap:wrap;
+		justify-content:center;
+		align-content:center;
+	}
+	
+	#userpanel {
+		border:2px solid @bordercolor;
+		background:@foreground2;
+		border-radius:4px;
+		padding:3px 20px 3px 20px;
+		text-align:center;
+		white-space:pre-wrap;
+		line-height:18pt;
+		a {font-weight:bold;}
+	}
+	
+	#showcase {
+	margin:20px;
+		td {
+			text-align:center; 
+			height:100px;
+			width:100px;
+			
+		}
+	
+	}
+}
+#userabout {
+	width:500px;
+	margin:auto;
+	border: 2px solid @bordercolor;
+	#aboutcontent {
+		min-height:30px;
+		padding:3px;
+		background: @foreground2;
+	}
 }
