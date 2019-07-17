@@ -1,8 +1,9 @@
 /*
-LAST UPDATED: 7/3/19
+LAST UPDATED: 7/17/19
 Original thread:
 https://pixpet.net/forum.php?section=posts&t=765&title=Game-Guides---Custom-CSS%2FUser-Styles%3A-A-Compilation
 */
+
 .mainContentBackground {
     background: #212121;
     box-shadow: none;
@@ -172,14 +173,15 @@ img[src*="images/page/egg"] {
 .newPm td,
 .newPm td b {
     background: #454!important;
-    color: #121!important;
+    color: #bed2be!important;
     border-color: #121!important;
 }
 .newPm td a,
 .newPm td a:hover,
 .newPm td a:focus,
-.newPm td a:active {
-    color: #5c5!important;
+.newPm td a:active,
+.newPm td a:visited {
+    color: #5c5;
 }
 #nav li:hover a,
 #nav li:hover ul li a:hover {
@@ -206,7 +208,8 @@ img[src*="images/page/egg"] {
 }
 .gridMenu > a,
 .gridMenu > a:hover,
-.gridMenu > a:focus {
+.gridMenu > a:focus,
+.gridMenu > a:visited {
     color: #fff!important;
 }
 .currencyMenu {
@@ -304,7 +307,7 @@ img[src*="images/page/egg"] {
 .warningBoxMessage b {
     color: inherit;
 }
-.warningBoxMessage a, .warningBoxMessage a:hover, .warningBoxMessage a:active, .warningBoxMessage a:focus {
+.warningBoxMessage a, .warningBoxMessage a:hover, .warningBoxMessage a:active, .warningBoxMessage a:focus, .warningBoxMessage a:visited {
 color: #AA8844!important;
 }
 .stickyTopic {
@@ -313,19 +316,20 @@ color: #AA8844!important;
 .successBoxMessage a,
 .successBoxMessage a:hover,
 .successBoxMessage a:active,
-.successBoxMessage a:focus {
+.successBoxMessage a:focus,
+.successBoxMessage a:visited {
     color: #3f6936!important;
 }
 .infoBoxMessage b {
     color: inherit;
 }
-.infoBoxMessage a, .infoBoxMessage a:hover, .infoBoxMessage a:active, .infoBoxMessage a:focus {
+.infoBoxMessage a, .infoBoxMessage a:hover, .infoBoxMessage a:active, .infoBoxMessage a:focus, .infoBoxMessage a:visited {
 color: #283960!important;
 }
 .errorBoxMessage b {
     color: inherit;
 }
-.errorBoxMessage a, .errorBoxMessage a:hover, .errorBoxMessage a:active, .errorBoxMessage a:focus {
+.errorBoxMessage a, .errorBoxMessage a:visited, .errorBoxMessage a:hover, .errorBoxMessage a:active, .errorBoxMessage a:focus {
 color: #7c3a35!important;
 }
 .inventoryContent {
@@ -368,6 +372,26 @@ color: #7c3a35!important;
 }
 .forumBoxLink {
     border-color: #000!important;
+}
+.orangeButton {
+    background-color:#996301;
+    text-shadow:#442500 0px -1px 0px;
+}
+.tooltipText {
+    color:#b3b4c2;
+    background:#444;
+    border-color:#000;
+}
+.tooltipText:after {
+    border-color:transparent transparent #000 transparent!important;    
+}
+.tooltipText > a {
+    color: #cbd!important;    
+}
+.gridSquareLabel {
+    color:#b3b4c2;
+    background:#444;
+    border-color:#000;    
 }
 a,
 .blankLink,
