@@ -385,8 +385,11 @@ color: #7c3a35!important;
 .tooltipText:after {
     border-color:transparent transparent #000 transparent!important;    
 }
-.tooltipText > a {
+.tooltipText > a,.tooltipText > a:visited, .tooltipText > a:hover, .tooltipText > a:focus, .tooltipText > a:active {
     color: #cbd!important;    
+}
+.baseTooltip{
+    border-bottom-color:#b3b4c2;    
 }
 .gridSquareLabel {
     color:#b3b4c2;
