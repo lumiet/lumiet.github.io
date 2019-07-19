@@ -396,6 +396,10 @@ color: #7c3a35!important;
     background:#444;
     border-color:#000;    
 }
+.gridSquareLabel a, .gridSquareLabel a:visited, .gridSquareLabel a:hover, .gridSquareLabel a:active, .gridSquareLabel a:focus {
+    color:#cbd!important;    
+}
+
 .friendHover {
     color:inherit;
 }
