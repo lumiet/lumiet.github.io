@@ -181,7 +181,7 @@ img[src*="images/page/egg"] {
 .newPm td a:focus,
 .newPm td a:active,
 .newPm td a:visited {
-    color: #5c5;
+    color: #5c5!important;
 }
 #nav li:hover a,
 #nav li:hover ul li a:hover {
