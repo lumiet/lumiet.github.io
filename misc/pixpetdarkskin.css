@@ -1,5 +1,5 @@
 /*
-LAST UPDATED: 7/17/19
+LAST UPDATED: 8/7/19
 Original thread:
 https://pixpet.net/forum.php?section=posts&t=765&title=Game-Guides---Custom-CSS%2FUser-Styles%3A-A-Compilation
 */
@@ -423,6 +423,14 @@ td,
     background: #212121;
     border: 1px solid #000 !important;
 }
+.usersOnline > a, .usersOnline > div > a {
+    background:#333;
+    border-color:#000;
+}
+.usersOnline > a, .usersOnline > div > a:hover {
+    background:#333;    
+}
+
 select {
     color: #333;
 }
