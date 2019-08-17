@@ -1,12 +1,12 @@
 body {
- font-size: 12pt;
+ font-size: 14px;
 font-family: Tahoma;
  background: url('assets/bodybg.png') #212121;
  color:#fff;
  margin:0;
 }
 h1, h2 {
- font-size: 30pt;
+ font-size: 30px;
 text-align:center;
  }
 h1, h2, h3 {
@@ -19,6 +19,9 @@ a, a:visited {
 }
 a:hover {
  color:#dfd;
+}
+ul {
+	padding-left:inherit;
 }
 * {
 box-sizing:border-box;
@@ -51,4 +54,12 @@ box-sizing:border-box;
  top: calc(100% - 25px); 
  left: calc(100% - 25px);
  }
+ #art {
+	 background: url('assets/noiverntrans.png');
+	 background-size:contain;
+	 background-repeat:no-repeat;
+	 width: 20vw; height:20vw;
+	 position:fixed; left:20px; bottom:0px;
+ }
+ 
 body{overflow-x:hidden;}
