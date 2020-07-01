@@ -7,45 +7,36 @@
 @media (min-width: 800px) {
 	#main {	
 		width: 600px;	
-		min-height: 600px;
+		min-height: 500px;
 	}
 }
 
 body {
-	background: url("assets/bodybg.png");
-	color:#fff;
-	font-family: Consolas;
-	font-size: 12pt;
+	background: #000;
+	color: #fff;
+	font-size: 20pt;
 }
 
 #main {
 	margin:100px auto auto auto;
-	background: rgba(255,255,255,.2);
 	padding:10px;
-	border-radius:10px;
-	border: 2px solid #a44;
-	border-bottom-color:#833;
-	border-right-color:#833;
+	border: 2px solid #fff;
 	text-align:center;
-	display:flex;
-	align-items:center;
-	
-}
-#main > p > img {
-	width:70%;
-	margin:auto;
-	display:block;	
+	position:relative;
 }
 
 a, a:visited {
 	transition:.2s;
 	text-decoration:none;
-	color:#e44;
+	color:#4aa;
 }
 a:hover, a:active{
 	letter-spacing:2px;
-	color:#e77;
+	color:#7aa;
 }
 p {
-	margin:auto;
+	position:absolute;
+	bottom:0;
+	left:50%;
+	transform: translate(-50%, 0);
 }
