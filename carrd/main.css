@@ -1,42 +1,47 @@
-@media (max-width: 800px) {
-	#main {
-		width: 75%;	
-		min-height: 75vw;
-	}
-}
-@media (min-width: 800px) {
-	#main {	
-		width: 600px;	
-		min-height: 500px;
-	}
-}
-
 body {
-	background: #000;
-	color: #fff;
-	font-size: 20pt;
+	font-size:12pt; 
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background:#111;	
 }
 
 #main {
-	margin:100px auto auto auto;
-	padding:10px;
-	border: 2px solid #fff;
-	text-align:center;
-	position:relative;
+	border: 1px solid #fff;
+	background: rgba(255,255,255,.1);
+	color:#858F9D;
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	align-items:center;
+	margin:200px auto 0 auto;
+	padding:4px;
+	min-height:500px;
+	max-width:80%;
+	width:600px;
 }
 
-a, a:visited {
-	transition:.2s;
+#portrait {
+	width: 250px;
+	min-height:450px;
+	background: url('https://pbs.twimg.com/media/Edii6VvVAAARex9?format=png') 30% center;
+	background-size:50vh;
+	margin: 20px;
+	display:inline-block;
+}
+
+#content {
+	text-align:center;
+	width:100%;
+	display:inline-block;
+}
+
+#content > span {
+	font-size: 20pt;
+	color: #BFC6CF;
+}
+b { 
+	color: #BFC6CF;
+}
+a, a:visited, a:hover, a:active {
+	color:#C1DEE7;
 	text-decoration:none;
-	color:#4aa;
-}
-a:hover, a:active{
-	letter-spacing:2px;
-	color:#7aa;
-}
-p {
-	position:absolute;
-	bottom:0;
-	left:50%;
-	transform: translate(-50%, 0);
 }
