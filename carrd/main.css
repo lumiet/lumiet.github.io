@@ -22,8 +22,8 @@ body {
 #portrait {
 	width: 250px;
 	min-height:450px;
-	background: url('https://pbs.twimg.com/media/Edii6VvVAAARex9?format=png') 30% center;
-	background-size:50vh;
+	background: url('graha.png');
+	background-size:cover;
 	margin: 20px;
 	display:inline-block;
 }
