@@ -1,0 +1,117 @@
+/*
+
+NPC Dark mode by Exarch (https://neopetsclassic.com/userlookup/?user=exarch)
+
+Use with Stylus extension. I don't recommend the Stylish extension due to prior security issues.
+
+Chrome: https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en
+Firefox: https://addons.mozilla.org/en-US/firefox/addon/styl-us/
+
+DM questions, problems or concerns to lumiet#6386 on Discord.
+
+*/
+body,
+table.re,
+td[bgcolor="#ffffee"],
+td[bgcolor="#FFFFFF"],
+td[bgcolor="white"] {
+    background: #666!important;
+}
+
+a {
+    color: #144;
+}
+
+a:visited,
+a:active,
+a:hover {
+    color: #133;
+}
+
+#inventoryitempic,
+img,
+table[background*="themes"],
+img[src*="themes"],
+table#n,
+input[type=image],
+td[background*="scratchcards"]{
+    mix-blend-mode: multiply;
+}
+
+table[background*="themes/default"],
+img[src*="themes/default"],
+table#n {
+    filter: hue-rotate(120deg) grayscale(.85);
+}
+
+font {
+    filter: brightness(.4);
+}
+
+.qstable th,
+#qsfooter,
+.sdbtable,
+tr[bgcolor="#dedf73"],
+td[bgcolor="#dddd77"],
+#sdbheader,
+.neomail_table th {
+    background-color: #344!important;
+}
+.qstable tr:nth-child(even) td,
+td.shh,
+.sdbtablebody,
+td[bgcolor="#ffffcc"],
+.qstablebody tr:nth-child(even) td,
+.neomail_table tr:nth-child(2n+1) td,
+td[bgcolor="#C8E3FF"],
+td[bgcolor="#dbdb55"],
+.petStatsBlock {
+    background-color: #455!important;
+}
+
+.qstable tr:nth-child(odd) td, 
+.qstablebody tr:nth-child(odd) td,
+.neomail_table tr:nth-child(2n) td,
+td[bgcolor="#F6F6F6"],
+table[style*="background-color:#feffeb"] {
+    background-color: #566!important;
+}
+
+input[type="radio"],
+td > input:not([type=image]),
+td > select,
+input#adoptbutton,
+input#refreshbutton,
+input[value*="return" i],
+input[value*="back" i],
+input[value*="heal" i],
+input[value*="for sale" i],
+input[value*="spin" i],
+hr,
+input[value*="trade" i],
+input#map, 
+input#addpetBtn,
+button[id*="disown"],
+select[name*="card"],
+input[value*="scratch" i],
+.safetyDepositContent input,
+.safetyDepositContent select,
+button[onclick*="scratchcard"],
+button[onclick*="winter"] {
+    filter: brightness(.4);
+}
+
+th#tpheader,
+th[height="20px"] {
+    background: #434;
+}
+
+.tradingPostTable,
+#tradingCreate {
+    border-color: #434;
+}
+
+td[style*="rgb(198,198,186)"], 
+table[style*="rgb(198,198,186)"] {
+    border-color: #222!important;
+}

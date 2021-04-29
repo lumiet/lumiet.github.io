@@ -1,0 +1,57 @@
+// ==UserScript==
+// @name         NPC Pound Name Storage
+// @version      0.1.1
+// @description  Stores names encountered in the pound in a list
+// @author       exarch
+// @include      https://neopetsclassic.com/adopt/
+// @include      https://www.neopetsclassic.com/adopt/
+// @noframes
+// @grant        none
+// ==/UserScript==
+
+var storage;
+localStorage.getItem("poundnames") != null ? storage = JSON.parse(localStorage.getItem("poundnames")) : storage = {names: []};
+
+var pets = document.getElementsByClassName("poundPets");
+var innerHTML = document.body.innerHTML;
+
+
+(function(){
+    "use strict";
+
+    window.resetNameList = function() {
+       storage.names = [];
+       localStorage.setItem("poundnames", JSON.stringify(storage));
+       console.log("Name list cleared!");
+       nameContainer.innerHTML = "<i>Name list cleared!<i><br><br><button onclick='resetNameList()'>Reset Name List</button>";
+
+    }
+
+    for(var i = 0; i < 3; i++){
+        var name = pets[i].getElementsByTagName("b")[0].innerHTML;
+        if(!storage.names.includes(name)){
+            storage.names.push(name);
+            storage.names.sort(); //sorts in alphabetical order. comment out for chronologicsl
+        }
+
+    }
+
+    var nameContainer = document.createElement("div");
+    nameContainer.id = "nameContainer";
+    nameContainer.style = "width:600px;";
+    document.getElementsByClassName("poundWrapper")[0].appendChild(nameContainer);
+
+    var text = storage.names.map(function (item, index) {
+        if(index!=(storage.names.length-1)) {
+            return item + ", ";
+        }
+        else {
+            return item;
+        }
+    }).join(" ");
+
+    nameContainer.innerHTML = text + "<br><br><button onclick='resetNameList()'>Reset Name List</button>";
+
+    localStorage.setItem("poundnames", JSON.stringify(storage));
+    console.log(storage.names);
+})();

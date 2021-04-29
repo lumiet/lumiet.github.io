@@ -1,0 +1,228 @@
+/*
+--CSS Variables--
+
+When making a new theme, modify the variables here, not the CSS below it!
+*/
+
+:root {    
+    --body-bg-img: url("https://i.imgur.com/ilFszaQ.png");
+    --clock-bg: #F9E298;
+    --clock-txt: #000;
+    --usertxt-color: #fff;
+    --userlink-color:#ECB0E1;
+    --top-header-bg: url("https://i.imgur.com/tSPeCEp.png");
+    --nav-border-img: url("https://i.imgur.com/FMMiGQe.png");
+    --nav-img-src: url("https://i.imgur.com/WJPPWek.png");
+    --sidebar-bottom-bg: url("https://i.imgur.com/s3Q1smk.png");
+    --rotating-img-1: url("https://i.imgur.com/T35Phri.png");
+    --rotating-img-2: url("https://i.imgur.com/6apyEEg.png");
+    --rotating-img-3: url("https://i.imgur.com/HTYKUBV.png");
+    --rotating-img-4: url("https://i.imgur.com/D8GJa6O.png");
+    --rotating-img-5: url("https://i.imgur.com/EP1qxje.png");
+    --rotating-img-6: url("https://i.imgur.com/GJ9uZHK.png");
+    --rotating-img-7: url("https://i.imgur.com/T35Phri.png");
+    --rotating-img-8: url("https://i.imgur.com/6apyEEg.png");
+    --rotating-img-9: url("https://i.imgur.com/HTYKUBV.png");
+    --rotating-img-10: url("https://i.imgur.com/D8GJa6O.png");
+    --rotating-img-11: url("https://i.imgur.com/EP1qxje.png");
+    --rotating-img-12: url("https://i.imgur.com/GJ9uZHK.png");
+    --battle-accept-img: url("https://i.imgur.com/Bl8GGlM.png");
+    --battle-challenge-img: url("https://i.imgur.com/UTKV4nn.png");
+    --battle-reject-img: url("https://i.imgur.com/aYMv5cR.png");
+    --friend-accept-img: url("https://i.imgur.com/g0o7Nxs.png");
+    --friend-req-img: url("https://i.imgur.com/BQ1M8vu.png");
+    --game-accept-img: url("https://i.imgur.com/awZVAyb.png");
+    --game-challenge-img: url("https://i.imgur.com/szpLlQV.png");
+    --game-result-img: url("https://i.imgur.com/902IYz0.png");
+    --item-img: url("https://i.imgur.com/d5uYxQw.png");
+    --neomail-img: url("https://i.imgur.com/GP8SZyO.png");
+    --trade-accept-img: url("https://i.imgur.com/PRsIw8I.png");
+    --trade-offer-img: url("https://i.imgur.com/zTZD0gR.png");
+    --trade-reject-img: url("https://i.imgur.com/vtopwR9.png");
+    --trade-withdraw-img: url("https://i.imgur.com/RsL2v6x.png");
+    --warning-img: url("https://i.imgur.com/5J2FMy9.png");
+}
+
+body {
+    background: var(--body-bg-img);
+    background-repeat: repeat;
+    background-size: 425px 425px;    
+}
+
+/*Creates new psuedoelement for the border to the right of the nav. Can be removed if not desired.*/
+body::before {
+    content:"";
+    background: var(--nav-border-img);
+    width:29px;
+    height:946px;
+    position:absolute;
+    top:44px;
+    left:130px;
+    z-index:0;    
+}
+
+body::after {
+    content:"";
+    background: var(--nav-img-src);
+    width:130px;
+    height:427px;
+    z-index:0;
+    position:absolute;
+    top:44px;
+    left:0;
+}
+
+img#m {
+    position:relative;
+    z-index:1;   
+    opacity:0;
+}
+
+map {
+    z-index:-1!important;
+}
+
+#nst {
+    background: var(--clock-bg)!important;
+    color: var(--clock-txt)!important;    
+}
+
+.tt > font > a {
+    color: var(--userlink-color)!important;    
+}
+
+.tt > font {
+    color: var(--usertxt-color);    
+}
+
+table[width="728"] {
+    background: var(--top-header-bg)!important;    
+}
+
+table[style*="ms.gif"] {
+    background: var(--sidebar-bottom-bg)!important;
+}
+
+/*Rotating theme images*/
+
+img#mb {
+    width:0!important; height:0!important;
+    padding-left:130px; /*width of img*/
+    padding-top:242px; /*height of img*/    
+}
+
+img[src*="/images/misc/themes/acp/1.gif"] {
+    background: var(--rotating-img-1) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/2.gif"] {
+    background: var(--rotating-img-2) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/3.gif"] {
+    background: var(--rotating-img-3) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/4.gif"] {
+    background: var(--rotating-img-4) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/5.gif"] {
+    background: var(--rotating-img-5) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/6.gif"] {
+    background: var(--rotating-img-6) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/7.gif"] {
+    background: var(--rotating-img-7) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/8.gif"] {
+    background: var(--rotating-img-8) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/9.gif"] {
+    background: var(--rotating-img-9) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/10.gif"] {
+    background: var(--rotating-img-10) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/11.gif"] {
+    background: var(--rotating-img-11) no-repeat center center;    
+}
+
+img[src*="/images/misc/themes/acp/12.gif"] {
+    background: var(--rotating-img-12) no-repeat center center;    
+}
+
+/*Event images*/
+
+a[href*="processevent"] > img {
+    width:0!important; height:0!important;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+a[href*="processevent"] > img[src*="battle_accept"] {
+    background: var(--battle-accept-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="battle_challenge"] {
+    background: var(--battle-challenge-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="battle_reject"] {
+    background: var(--battle-reject-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="friend_accept"] {
+    background: var(--friend-accept-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="friend_request"] {
+    background: var(--friend-req-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="game_accept"] {
+    background: var(--game-accept-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="game_challenge"] {
+    background: var(--game-challenge-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="game_result"] {
+    background: var(--game-result-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="item"] {
+    background: var(--item-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="neomail"] {
+    background: var(--neomail-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="trade_accept"] {
+    background: var(--trade-accept-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="trade_offer"] {
+    background: var(--trade-offer-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="trade_reject"] {
+    background: var(--trade-reject-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="trade_withdraw"] {
+    background: var(--trade-withdraw-img) no-repeat center center;
+}
+
+a[href*="processevent"] > img[src*="warning"] {
+    background: var(--warning-img) no-repeat center center;
+}
