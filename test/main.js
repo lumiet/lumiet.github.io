@@ -1,7 +1,7 @@
-
-function main() {
 var baseimg = new Image();
 baseimg.src = "assets/lineart.png";
+
+function main() {
 
 var ctx = document.getElementById('img').getContext('2d');
 
