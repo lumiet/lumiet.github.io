@@ -7,27 +7,32 @@ var darkBase = new Image();
 var newDarkBase = new Image();
 var lightBase = new Image();
 var newLightBase = new Image();
+var testElem = document.getElementById("test");
 
-ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
-	ctx.fillStyle='blue';ctx.rect(0,0,100,100);
 
 for(var i = 0; i<3; i++){		
 	switch(i) {
-		case 0: base.onload = function() { ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0);console.log("kdfjgf");}; newBase.src = canvas.toDataURL(); console.log(newBase.src); break;
-		case 1: darkBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0);}; newDarkBase.src = canvas.toDataURL(); console.log(newDarkBase.src); break;
-		case 2: lightBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0);}; newLightBase.src = canvas.toDataURL(); console.log(newLightBase.src); break;	
+		case 0: base.onload = 
+		function() { 
+			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
+			ctx.drawImage(this,0,0); 
+			newBase.src = canvas.toDataURL(); 
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			};  break;
+		case 1: darkBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0); newDarkBase.src = canvas.toDataURL();ctx.clearRect(0,0,canvas.width,canvas.height);
+};  break;
+		case 2: lightBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0); newLightBase.src = canvas.toDataURL();}; break;	
 		default: break;
 	}
-	console.log(i);
-	//ctx.clearRect(0,0,canvas.width,canvas.height);
-} 
+	} 
 base.src = "assets/base.png";
 darkBase.src = "assets/dark-base.png"; 
 lightBase.src = "assets/light-base.png"; 
 
-console.log("lol hi");
-var testElem = document.getElementById("test");
+
 test.style = 'background: url("'+newBase.src+'");';
+console.log(newBase.src);
+console.log("lol hi");
 
 
 /*	console.log("losdfsdf");
