@@ -17,6 +17,7 @@ for(var i = 0; i<3; i++){
 			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
 			ctx.drawImage(this,0,0); 
 			newBase.src = canvas.toDataURL(); 
+			test.style = 'background: url("'+newBase.src+'");';
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 			};  break;
 		case 1: darkBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0); newDarkBase.src = canvas.toDataURL();ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -29,8 +30,6 @@ base.src = "assets/base.png";
 darkBase.src = "assets/dark-base.png"; 
 lightBase.src = "assets/light-base.png"; 
 
-
-test.style = 'background: url("'+newBase.src+'");';
 console.log(newBase.src);
 console.log("lol hi");
 
