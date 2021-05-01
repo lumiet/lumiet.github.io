@@ -11,14 +11,11 @@ var newLightBase = new Image();
 ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
 	ctx.fillStyle='blue';ctx.rect(0,0,100,100);
 
-for(var i = 0; i<3; i++){	
-	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
-	ctx.fillStyle='blue';ctx.rect(0,0,100,100);
-	console.log(ctx.filter);
+for(var i = 0; i<3; i++){		
 	switch(i) {
-		case 0: base.onload = function() { ctx.fillStyle='red';ctx.rect(0,0,200,200);ctx.drawImage(this,0,0);console.log("kdfjgf");}; newBase.src = canvas.toDataURL(); console.log(newBase.src); break;
-		case 1: darkBase.onload = function() {ctx.drawImage(this,0,0);}; newDarkBase.src = canvas.toDataURL(); console.log(newDarkBase.src); break;
-		case 2: lightBase.onload = function() {ctx.drawImage(this,0,0);}; newLightBase.src = canvas.toDataURL(); console.log(newLightBase.src); break;	
+		case 0: base.onload = function() { ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0);console.log("kdfjgf");}; newBase.src = canvas.toDataURL(); console.log(newBase.src); break;
+		case 1: darkBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0);}; newDarkBase.src = canvas.toDataURL(); console.log(newDarkBase.src); break;
+		case 2: lightBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0);}; newLightBase.src = canvas.toDataURL(); console.log(newLightBase.src); break;	
 		default: break;
 	}
 	console.log(i);
