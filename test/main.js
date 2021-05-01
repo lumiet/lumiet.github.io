@@ -16,9 +16,9 @@ for(var i = 0; i<3; i++){
 	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
 	console.log(ctx.filter);
 	switch(i) {
-		case 0: ctx.drawImage(base,0,0); base.src = canvas.toDataURL("image/png"); console.log(base.src); return;
-		case 1: ctx.drawImage(darkBase,0,0); darkBase.src = canvas.toDataURL("image/png"); console.log(darkBase.src); return;
-		case 2: ctx.drawImage(lightBase.png,0,0); lightBase.src = canvas.toDataURL("image/png"); console.log(lightBase.src); return;	
+		case 0: ctx.drawImage(base,0,0); base.src = canvas.toDataURL("image/png"); console.log(base.src); break;
+		case 1: ctx.drawImage(darkBase,0,0); darkBase.src = canvas.toDataURL("image/png"); console.log(darkBase.src); break;
+		case 2: ctx.drawImage(lightBase.png,0,0); lightBase.src = canvas.toDataURL("image/png"); console.log(lightBase.src); break;	
 	}
 	//ctx.clearRect(0,0,canvas.width,canvas.height);
 } 
