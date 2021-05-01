@@ -14,7 +14,7 @@ for(var i = 0; i<3; i++){
 	switch(i) {
 		case 0: base.onload = function() {base.src = "assets/base.png"; ctx.drawImage(this,0,0);console.log("kdfjgf");}; base.src = canvas.toDataURL(); console.log(base.src); break;
 		case 1: darkBase.onload = function() {darkBase.src = "assets/dark-base.png"; ctx.drawImage(this,0,0);}; darkBase.src = canvas.toDataURL(); console.log(darkBase.src); break;
-		case 2: lightBase.onload = function() {lightBase.src = "assets/light-base.png"; ctx.drawImage(lightBase,0,0);}; lightBase.src = canvas.toDataURL(); console.log(lightBase.src); break;	
+		case 2: lightBase.onload = function() {lightBase.src = "assets/light-base.png"; ctx.drawImage(this,0,0);}; lightBase.src = canvas.toDataURL(); console.log(lightBase.src); break;	
 		default: break;
 	}
 	console.log(i);
