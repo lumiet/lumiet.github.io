@@ -1,7 +1,6 @@
+function main() {
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
-
-function main() {
 var base = new Image();
 var newBase = new Image();
 var darkBase = new Image();
