@@ -16,9 +16,9 @@ for(var i = 0; i<3; i++){
 	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
 	console.log(ctx.filter);
 	switch(i) {
-		case 0: base.onload = function() {ctx.drawImage(this,0,0);}; base.src = canvas.toDataURL("image/png"); console.log(base.src); break;
-		case 1: darkBase.onload = function() {ctx.drawImage(this,0,0);}; darkBase.src = canvas.toDataURL("image/png"); console.log(darkBase.src); break;
-		case 2: lightBase.onload = function() {ctx.drawImage(lightBase,0,0);}; lightBase.src = canvas.toDataURL("image/png"); console.log(lightBase.src); break;	
+		case 0: base.onload = function() {ctx.drawImage(this,0,0);}; base.src = canvas.toDataURL(); console.log(base.src); break;
+		case 1: darkBase.onload = function() {ctx.drawImage(this,0,0);}; darkBase.src = canvas.toDataURL(); console.log(darkBase.src); break;
+		case 2: lightBase.onload = function() {ctx.drawImage(lightBase,0,0);}; lightBase.src = canvas.toDataURL(); console.log(lightBase.src); break;	
 		default: break;
 	}
 	console.log(i);
