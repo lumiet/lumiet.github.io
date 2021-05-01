@@ -11,7 +11,7 @@ console.log(darkBase.src);
 var lightBase = new Image();
 lightBase.src = "assets/light-base.png";
 
-lightBase.onload = function() {
+
 for(var i = 0; i<3; i++){	
 	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
 	console.log(ctx.filter);
@@ -24,7 +24,7 @@ for(var i = 0; i<3; i++){
 	console.log(i);
 	//ctx.clearRect(0,0,canvas.width,canvas.height);
 } 
-}
+
 console.log("lol hi");
 var testElem = document.getElementById("test");
 test.style = 'background: url("'+base.src+'");';
