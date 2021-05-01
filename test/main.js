@@ -12,6 +12,7 @@ var newLightBase = new Image();
 
 for(var i = 0; i<3; i++){	
 	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
+	ctx.fillStyle='blue';ctx.rect(0,0,100,100);
 	console.log(ctx.filter);
 	switch(i) {
 		case 0: base.onload = function() { ctx.fillStyle='red';ctx.rect(0,0,200,200);ctx.drawImage(this,0,0);console.log("kdfjgf");}; newBase.src = canvas.toDataURL(); console.log(newBase.src); break;
