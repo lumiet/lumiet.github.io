@@ -6,10 +6,10 @@ var base = new Image();
 base.src = "assets/base.png";
 console.log(base.src);
 var darkBase = new Image();
-darkBase.src = "assets/dark_base.png";
+darkBase.src = "assets/dark-base.png";
 console.log(darkBase.src);
 var lightBase = new Image();
-lightBase.src = "assets/light_base.png";
+lightBase.src = "assets/light-base.png";
 
 
 for(var i = 0; i<3; i++){	
