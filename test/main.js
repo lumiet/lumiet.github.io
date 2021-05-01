@@ -9,6 +9,8 @@ var newDarkBase = new Image();
 var lightBase = new Image();
 var newLightBase = new Image();
 
+ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
+	ctx.fillStyle='blue';ctx.rect(0,0,100,100);
 
 for(var i = 0; i<3; i++){	
 	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
