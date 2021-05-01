@@ -20,9 +20,18 @@ for(var i = 0; i<3; i++){
 			test.style = 'background: url("'+newBase.src+'");';
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 			};  break;
-		case 1: darkBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0); newDarkBase.src = canvas.toDataURL();ctx.clearRect(0,0,canvas.width,canvas.height);
-};  break;
-		case 2: lightBase.onload = function() {ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; ctx.drawImage(this,0,0); newLightBase.src = canvas.toDataURL();}; break;	
+		case 1: darkBase.onload = 
+		function() {
+			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
+			ctx.drawImage(this,0,0); newDarkBase.src = canvas.toDataURL();
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+		};  break;
+		case 2: lightBase.onload = 
+		function() {
+			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
+			ctx.drawImage(this,0,0); 
+			newLightBase.src = canvas.toDataURL();
+		}; break;	
 		default: break;
 	}
 	} 
