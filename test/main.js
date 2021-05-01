@@ -3,22 +3,18 @@ var ctx = canvas.getContext('2d');
 
 function main() {
 var base = new Image();
-base.src = "assets/base.png";
-console.log(base.src);
 var darkBase = new Image();
-darkBase.src = "assets/dark-base.png";
 console.log(darkBase.src);
 var lightBase = new Image();
-lightBase.src = "assets/light-base.png";
 
 
 for(var i = 0; i<3; i++){	
 	ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)';	
 	console.log(ctx.filter);
 	switch(i) {
-		case 0: base.onload = function() {ctx.drawImage(this,0,0);console.log("kdfjgf");}; base.src = canvas.toDataURL(); console.log(base.src); break;
-		case 1: darkBase.onload = function() {ctx.drawImage(this,0,0);}; darkBase.src = canvas.toDataURL(); console.log(darkBase.src); break;
-		case 2: lightBase.onload = function() {ctx.drawImage(lightBase,0,0);}; lightBase.src = canvas.toDataURL(); console.log(lightBase.src); break;	
+		case 0: base.onload = function() {base.src = "assets/base.png"; ctx.drawImage(this,0,0);console.log("kdfjgf");}; base.src = canvas.toDataURL(); console.log(base.src); break;
+		case 1: darkBase.onload = function() {darkBase.src = "assets/dark-base.png"; ctx.drawImage(this,0,0);}; darkBase.src = canvas.toDataURL(); console.log(darkBase.src); break;
+		case 2: lightBase.onload = function() {lightBase.src = "assets/light-base.png"; ctx.drawImage(lightBase,0,0);}; lightBase.src = canvas.toDataURL(); console.log(lightBase.src); break;	
 		default: break;
 	}
 	console.log(i);
