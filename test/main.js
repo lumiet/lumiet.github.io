@@ -1,16 +1,16 @@
-function processImage() {
-	
+function setColors() {
+	document.getElementById("test").style = 'background: url("'+baseUrls.lightBase+'"), url("'+baseUrls.darkBase+'"), url("'+baseUrls.base+'")';
 }
+
+
+var baseUrls = {base:"", darkBase:"", lightBase:""};
 
 function main() {
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 var base = new Image();
-var newBase = new Image();
 var darkBase = new Image();
-var newDarkBase = new Image();
 var lightBase = new Image();
-var newLightBase = new Image();
 var testElem = document.getElementById("test");
 
 
@@ -20,23 +20,22 @@ for(var i = 0; i<3; i++){
 		function() { 
 			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
 			ctx.drawImage(this,0,0); 
-			newBase.src = canvas.toDataURL(); 
-			test.style = 'background: url("'+newBase.src+'")';
+			baseUrls.base = canvas.toDataURL(); 		
 			ctx.clearRect(0,0,canvas.width,canvas.height);		
 			};  break;
 		case 1: darkBase.onload = 
 		function() {
 			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
 			ctx.drawImage(this,0,0); 
-			newDarkBase.src = canvas.toDataURL();
-			test.style.background += 'url("'+newDarkBase.src+'")';
+			baseUrls.darkBase = canvas.toDataURL();			
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 		};  break;
 		case 2: lightBase.onload = 
 		function() {
 			ctx.filter = 'hue-rotate('+ (Math.random()*360) +'deg)'; 
 			ctx.drawImage(this,0,0); 
-			newLightBase.src = canvas.toDataURL();
+			baseUrls.lightBase = canvas.toDataURL();
+			setColors(); //fix later lol
 		}; break;	
 		default: break;
 	}
