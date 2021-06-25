@@ -23,7 +23,7 @@ var innerHTML = document.body.innerHTML;
        storage.names = [];
        localStorage.setItem("poundnames", JSON.stringify(storage));
        console.log("Name list cleared!");
-       nameContainer.innerHTML = "<i>Name list cleared!<i><br><br><button onclick='resetNameList()'>Reset Name List</button>";
+       nameContainer.innerHTML = "<br><i>Name list cleared!<i><br><br><button onclick='resetNameList()'>Reset Name List</button>";
 
     }
 
@@ -31,7 +31,7 @@ var innerHTML = document.body.innerHTML;
         var name = pets[i].getElementsByTagName("b")[0].innerHTML;
         if(!storage.names.includes(name)){
             storage.names.push(name);
-            storage.names.sort(); //sorts in alphabetical order. comment out for chronological
+            storage.names.sort(); //sorts in alphabetical order. comment out for chronologicsl
         }
 
     }
@@ -50,7 +50,7 @@ var innerHTML = document.body.innerHTML;
         }
     }).join(" ");
 
-    nameContainer.innerHTML = text + "<br><br><button onclick='resetNameList()'>Reset Name List</button>";
+    nameContainer.innerHTML = "<br>Current tally: <b>"+storage.names.length+"</b> pets in list<br><br>"+ text + "<br><br><button onclick='resetNameList()'>Reset Name List</button>";
 
     localStorage.setItem("poundnames", JSON.stringify(storage));
     console.log(storage.names);
