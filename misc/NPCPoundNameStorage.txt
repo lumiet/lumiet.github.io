@@ -2,7 +2,7 @@
 // @name         NPC Pound Name Storage
 // @version      0.1.1
 // @description  Stores names encountered in the pound in a list
-// @author       exarch
+// @author       null
 // @include      https://neopetsclassic.com/adopt/
 // @include      https://www.neopetsclassic.com/adopt/
 // @noframes
@@ -31,7 +31,7 @@ var innerHTML = document.body.innerHTML;
         var name = pets[i].getElementsByTagName("b")[0].innerHTML;
         if(!storage.names.includes(name)){
             storage.names.push(name);
-            storage.names.sort(); //sorts in alphabetical order. comment out for chronologicsl
+            storage.names.sort(); //sorts in alphabetical order. comment out for chronological
         }
 
     }
