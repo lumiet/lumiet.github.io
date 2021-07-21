@@ -2,8 +2,8 @@
 function toggleTab(newTab, oldTab) {
 	
 var mainBg = "url('https://i.imgur.com/cH1C6vY.png'),#555";
-var maintwoBg = "url('https://i.imgur.com/iWaiOFQ.png'),#555";
-var mainthreeBg = "url('https://i.imgur.com/a0Jms1M.png'),#555";
+var maintwoBg = "url('https://i.imgur.com/1E3CCZV.png'),#fff";
+var mainthreeBg = "url('https://i.imgur.com/By4e6Hn.png'),#fff";
 	
 var newElem = document.getElementById(newTab);
 newElem.classList.remove("hidden");
