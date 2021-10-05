@@ -46,7 +46,6 @@ a:hover {
 	display:flex;
 	align-items:center;
 	justify-content:center;	
-	box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
 }
 
 #info {	
@@ -94,6 +93,5 @@ a:hover {
 	margin:10px;
 	background: url("assets/notcisverticalcrop.png") center center rgba(255,255,255,.4);
 	background-size: cover;	
-	box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
 }
 
