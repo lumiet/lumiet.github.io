@@ -1,5 +1,5 @@
 body {
-	background:linear-gradient(to top, #000, rgba(0,0,0,0)) #222;
+	background:linear-gradient(0deg, #000, rgba(0,0,0,0)) #091D28;
 	font-family:Arial;
 }
 
@@ -40,7 +40,7 @@ a:hover {
 	rgba(255,255,255,.15) 100%);	
 	background-size: 8.49px 8.49px;
 	text-align:center;
-	color:#fff;
+	color:#ccc;
 	font-size:12pt;
 	padding:4px;
 	display:flex;
@@ -52,13 +52,13 @@ a:hover {
 #info {	
 	white-space:pre-wrap;
 	background: linear-gradient(45deg, 
-	rgba(255,255,255,.6) 8.33%, 
-	rgba(255,255,255,.7) 8.33%, 
-	rgba(255,255,255,.7) 50%, 
-	rgba(255,255,255,.6) 50%, 
-	rgba(255,255,255,.6) 58.33%, 
-	rgba(255,255,255,.7) 58.33%, 
-	rgba(255,255,255,.7) 100%);
+	#111 8.33%, 
+	rgba(0,0,0,0) 8.33%, 
+	rgba(0,0,0,0) 50%, 
+	#111 50%, 
+	#111 58.33%, 
+	rgba(0,0,0,0) 58.33%, 
+	rgba(0,0,0,0) 100%), #151515;
 	background-size: 8.49px 8.49px;
 	width:50%;
 	max-width:400px;
@@ -67,6 +67,7 @@ a:hover {
 	left: 50%; top: 50%;
 	padding:4px;
 	font-size:12pt;
+	color:#777;
 	text-align: center;
 	transform: translate(-50%,-50%);
 	box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
