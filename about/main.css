@@ -1,0 +1,98 @@
+body {
+	background:linear-gradient(to top, #000, rgba(0,0,0,0)) #222;
+	font-family:Arial;
+}
+
+a, a:visited, a:active {
+	color: #fff;
+	text-shadow: 0 0 3px #A959FF,0 0 3px #A959FF,0 0 3px #A959FF, 0 0 7px #FF7FF6,0 0 7px #FF7FF6,0 0 7px #FF7FF6,0 0 7px #FF7FF6, 0 0 7px #FF7FF6;
+	text-decoration:none;
+	transition:1s;
+}
+a:hover {
+	color: #fff;
+	text-shadow: 0 0 3px #FF4F6F,0 0 3px #FF4F6F,0 0 3px #FF4F6F, 0 0 7px #FF9B9B,0 0 7px #FF9B9B,0 0 7px #FF9B9B,0 0 7px #FF9B9B, 0 0 7px #FF9B9B;
+	text-decoration:none;
+}
+
+#container {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:100%;
+	margin:auto;
+	
+}
+
+#main {
+	white-space:pre-wrap;
+	min-width:380px;
+	height:500px;
+	width:20%;
+	margin:10px;
+	background: linear-gradient(45deg, 
+	rgba(255,255,255,.1) 8.33%, 
+	rgba(255,255,255,.15) 8.33%, 
+	rgba(255,255,255,.15) 50%, 
+	rgba(255,255,255,.1) 50%, 
+	rgba(255,255,255,.1) 58.33%, 
+	rgba(255,255,255,.15) 58.33%, 
+	rgba(255,255,255,.15) 100%);	
+	background-size: 8.49px 8.49px;
+	text-align:center;
+	color:#fff;
+	font-size:12pt;
+	padding:4px;
+	display:flex;
+	align-items:center;
+	justify-content:center;	
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
+}
+
+#info {	
+	white-space:pre-wrap;
+	background: linear-gradient(45deg, 
+	rgba(255,255,255,.6) 8.33%, 
+	rgba(255,255,255,.7) 8.33%, 
+	rgba(255,255,255,.7) 50%, 
+	rgba(255,255,255,.6) 50%, 
+	rgba(255,255,255,.6) 58.33%, 
+	rgba(255,255,255,.7) 58.33%, 
+	rgba(255,255,255,.7) 100%);
+	background-size: 8.49px 8.49px;
+	width:50%;
+	max-width:400px;
+	height:400px;
+	position: absolute;
+	left: 50%; top: 50%;
+	padding:4px;
+	font-size:12pt;
+	text-align: center;
+	transform: translate(-50%,-50%);
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
+	border: 1px solid #000;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+}
+
+.hide {
+	display:none!important;
+}
+
+.biggums {
+	font-size:14pt;
+}
+
+#imgleft {
+	padding:4px;
+	height:500px;
+	min-width:285px;	
+	width:15%;
+	margin:10px;
+	background: url("assets/notcisverticalcrop.png") center center rgba(255,255,255,.4);
+	background-size: cover;	
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.4);
+}
+
