@@ -1,0 +1,175 @@
+<div id="bgone"></div>
+<div id="bgtwo"></div>
+<div id="bgthree"></div>
+<div id="bgtop"></div>
+<style>
+:root {
+	--logo-blue: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), url('https://media.discordapp.net/attachments/914395620243042354/915832057521905724/unknown.png');
+	--lighter-blue: #222;	
+	--even-lighter-blue: #222;
+	--lightest-blue: #262626;
+--light-orange: #222;
+--dark-orange: #aaa;
+--even-lighter-orange: #171717;
+
+}
+@keyframes bgmove {
+from {
+background-position: 0% 0%;
+}
+to {
+background-position: 100% 100%;
+}
+}
+@keyframes bgmovetwo {
+from {
+background-position: 0% 0%;
+}
+to {
+background-position: 100% 0%;
+}
+}
+@keyframes bgmovethree {
+from {
+background-position: 0% 0%;
+}
+to {
+background-position: 0% 100%;
+}
+}
+@keyframes opacity {
+from {
+opacity: 0;
+}
+to {
+opacity: .4;
+}
+}
+@keyframes hueshift {
+from {
+filter:hue-rotate(-60deg);
+}
+to {
+filter: hue-rotate(60deg);
+}
+}
+nav .top {
+background-size: cover, cover;
+background-position: center, 43%;
+min-height:300px;
+}
+.logo, nav .center, nav .right {
+filter: drop-shadow(0 0 1rem #000) drop-shadow(0 0 1rem rgba(0,0,0,.5));
+
+text-shadow: 0 0 3px #000;
+}
+body {
+background:#000;
+z-index: -1;
+position: relative;
+}
+main {
+background: #444;
+}
+a, a:visited, nav .links li.active a, nav .links a, nav .links .special a, .profile .friends .person p  {
+color: #ff3535;
+transition: 1s;
+text-decoration: none;
+font-weight: normal;
+}
+a:hover, a:active, nav .links li.active a:hover, nav .links a:hover, nav .links .special a:hover, .profile .friends .person p:hover {
+color: #fff;
+text-decoration: none;
+text-shadow: 0 0 1rem #f00, 0 0 1rem #f00, 0 0 .5rem #f00, 0 0 .5rem #f00;
+}
+
+nav .top:after {
+content: "\a abyss.";
+font-weight: bold;
+font-style: italic;
+color:white;
+font-size: 50pt;
+text-shadow: 0 0 20px #f00;
+position: absolute;
+white-space:pre;
+}
+.search-wrapper, button {
+opacity:.5;
+}
+.logout-btn {
+opacity: 1;
+}
+.links .active a img, .links .special a img {
+display:none;
+}
+.links {
+text-align: center;
+padding: auto;
+}
+.profile .contact .heading, .profile .table-section .heading, .home-actions .heading {
+color: #aaa;
+}
+.details-table td * {
+color: #777;
+}
+footer {
+background: rgba(50,50,50,1);
+opacity: .5;
+}
+.comments-table {
+color: #aaa;
+border: 0!important;
+}
+.comment-replies {
+border: 1px solid #000;
+}
+@media(min-width: 30em){ 
+#bgone {
+background: url("https://img.itch.zone/aW1hZ2UvNTQzNDMyLzY1MDQwMzAucG5n/original/aRTU1s.png");
+height: 100vh;
+width: 100vw;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+animation: 11.4s ease infinite alternate bgmove, 
+1.3s infinite alternate opacity,
+2.4s infinite alternate hueshift;
+}
+#bgtwo {
+background: url("https://img.itch.zone/aW1hZ2UvNTQzNDMyLzY1MDQwMzAucG5n/original/aRTU1s.png");
+height: 100vh;
+width: 100vw;
+position: fixed;
+background-position: 40% 40%;
+top: 0;
+left: 0;
+z-index: -1;
+animation: 15.7s ease infinite alternate bgmovetwo, 2.1s infinite alternate opacity, 5.4s infinite alternate hueshift;
+}
+#bgthree {
+background: url("https://img.itch.zone/aW1hZ2UvNTQzNDMyLzY1MDQwMzAucG5n/original/aRTU1s.png");
+height: 100vh;
+width: 100vw;
+position: fixed;
+background-position: 80% 80%;
+top: 0;
+left: 0;
+z-index: -1;
+animation: 12.8s ease infinite alternate bgmovethree, 2.4s infinite alternate opacity, 4.3s infinite alternate hueshift;
+}
+}
+#bgtop {
+background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+height: 100vh;
+width: 100vw;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+}
+.container{
+z-index:100;
+position: relative;
+}
+</style>
