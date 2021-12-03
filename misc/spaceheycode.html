@@ -1,32 +1,44 @@
+<p>i'm null i don't exist hi
+<br/><br/>
+programming and web design is my special interest, i don't use premade code and everything is by me :)
+<br/><br/>
+<img class="gorb" src="https://cdn.discordapp.com/emojis/643982289742594062.png"/></p>
 <div id="bgone"></div>
 <div id="bgtwo"></div>
 <div id="bgthree"></div>
 <div id="bgtop"></div>
+
 <style>
 :root {
 	--logo-blue: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), url('https://media.discordapp.net/attachments/914395620243042354/915832057521905724/unknown.png');
-	--lighter-blue: #222;	
-	--even-lighter-blue: #222;
-	--lightest-blue: #262626;
---light-orange: #222;
---dark-orange: #aaa;
---even-lighter-orange: #171717;
+	--lighter-blue: #000;	
+	--even-lighter-blue: #000;
+	--lightest-blue: #000;
+--light-orange: rgba(0,0,0,.3);
+--dark-orange: rgba(0,0,0,.3);
+--even-lighter-orange: #000;
 
 }
 @keyframes bgmove {
-from {
-background-position: 0% 0%;
+0% {
+background-position: 25% 25%;
 }
-to {
-background-position: 100% 100%;
+50% {
+background-position: 125% 125%;
+}
+100% {
+background-position: 225% 225%;
 }
 }
 @keyframes bgmovetwo {
-from {
-background-position: 0% 0%;
+0% {
+background-position: 80% 80%;
 }
-to {
-background-position: 100% 0%;
+50% {
+background-position: 180% 40%;
+}
+100% {
+background-position: 280% 0%;
 }
 }
 @keyframes bgmovethree {
@@ -69,7 +81,8 @@ z-index: -1;
 position: relative;
 }
 main {
-background: #444;
+background: rgba(0,0,0,.4);
+color: #aaa;
 }
 a, a:visited, nav .links li.active a, nav .links a, nav .links .special a, .profile .friends .person p  {
 color: #ff3535;
@@ -113,8 +126,8 @@ color: #aaa;
 color: #777;
 }
 footer {
-background: rgba(50,50,50,1);
-opacity: .5;
+background: rgba(0,0,0,.4);
+color:#444;
 }
 .comments-table {
 color: #aaa;
@@ -132,7 +145,7 @@ position: fixed;
 top: 0;
 left: 0;
 z-index: -1;
-animation: 11.4s ease infinite alternate bgmove, 
+animation: 21.4s ease-in-out infinite alternate bgmove, 
 1.3s infinite alternate opacity,
 2.4s infinite alternate hueshift;
 }
@@ -141,22 +154,22 @@ background: url("https://img.itch.zone/aW1hZ2UvNTQzNDMyLzY1MDQwMzAucG5n/original
 height: 100vh;
 width: 100vw;
 position: fixed;
-background-position: 40% 40%;
+background-position: 20% 40%;
 top: 0;
 left: 0;
 z-index: -1;
-animation: 15.7s ease infinite alternate bgmovetwo, 2.1s infinite alternate opacity, 5.4s infinite alternate hueshift;
+animation: 25.7s ease-in-out infinite alternate bgmovetwo, 2.1s infinite alternate opacity, 5.4s infinite alternate hueshift;
 }
 #bgthree {
 background: url("https://img.itch.zone/aW1hZ2UvNTQzNDMyLzY1MDQwMzAucG5n/original/aRTU1s.png");
 height: 100vh;
 width: 100vw;
 position: fixed;
-background-position: 80% 80%;
+background-position: 80% 40%;
 top: 0;
 left: 0;
 z-index: -1;
-animation: 12.8s ease infinite alternate bgmovethree, 2.4s infinite alternate opacity, 4.3s infinite alternate hueshift;
+animation: 22.8s ease-in-out infinite alternate bgmovethree, 2.4s infinite alternate opacity, 4.3s infinite alternate hueshift;
 }
 }
 #bgtop {
@@ -171,5 +184,61 @@ z-index: -1;
 .container{
 z-index:100;
 position: relative;
+}
+.general-about {
+text-align:center;
+}
+.profile-pic {
+float: inherit !important;
+}
+.profile-pic img, .person a img, .comments-table td:first-child img:not(.icon) {
+border-radius: 100%;
+}
+span[itemprop="name"] {
+text-align:center;
+}
+span[itemprop="name"] h1 {
+font-weight: bold;
+font-style: italic;
+color: #fff;
+text-shadow: 0 0 20px #f00, 0 0 20px #f00, 0 0 10px #f00, 0 0 5px #f00;
+}
+table.comments-table {
+visibility: hidden;
+}
+table.comments-table tbody {
+visibility: visible;
+}
+h4 {
+color: #eee;
+}
+img.icon {
+height:0; width:0;
+padding: 4px;
+background: url('https://i.imgur.com/CXKmQR8.png');
+background-size: cover;
+position: relative;
+top: 50%;
+transform: translateY(-50%);
+}
+
+div.table-section:nth-child(6) > div:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1) p{
+visibility:hidden;
+}
+div.table-section:nth-child(6) > div:nth-child(2) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1) p:after {
+position: relative;
+visibility: visible;
+content: "Games";
+margin-left:-37px;
+}
+@keyframes speen {
+from { transform:rotate(0deg);}
+to {transform: rotate(360deg);}
+}
+.gorb {
+width: 60px;
+}
+.gorb:hover {
+animation: 1s ease-in-out speen;
 }
 </style>
