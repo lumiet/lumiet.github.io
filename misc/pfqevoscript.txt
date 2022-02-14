@@ -1,0 +1,42 @@
+// ==UserScript==
+// @name         Ignore Party Evolutions
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       Corviknight
+// @match        https://pokefarm.com/*
+// @icon         https://www.google.com/s2/favicons?domain=pokefarm.com
+// @grant        none
+// ==/UserScript==
+
+
+
+(function() {
+    'use strict';
+
+    let pidToHide = "2Mkmm"; //modify this value to the pid you want hidden OR remove [data-pid="..."] to hide for all
+    let customCSS = `
+    /*hides evolution button on given pokemon*/
+    div[data-pid="`+ pidToHide +`"] a[data-evolve] {
+display:none!important;
+}
+`;
+
+    $("<style>").prop("type", "text/css").html(customCSS).appendTo("head");
+
+
+    if( !$.pfqHook) $.pfqHook = {};
+    const oldhook = $.pfqHook.notifications;
+
+    $.pfqHook.notifications = r=>{
+        oldhook && oldhook(r);
+        if(r.html.includes("Evolution")) {
+        var evoCount = r.html.split("can evolve!").length-1;
+        var newHTML = r.html.split("<p>").slice(2).join("<p>");
+        r.html = "<p>" + newHTML;
+        var newCount = (r.count-evoCount).toString();
+        r.count=newCount;
+    }
+    };
+
+})();
