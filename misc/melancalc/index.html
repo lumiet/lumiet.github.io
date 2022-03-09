@@ -1,10 +1,51 @@
 <html>
 <head>
 <title>Melanistic Odds Calculator</title>
+<style>
+body {
+font-family: arial;
+font-size: 14pt;
+background: #ccc;
+}
+input[type="text"] {
+width:50px;
+}
+#longchain {
+text-align: right;
+}
+#container {
+padding: 10px;
+border: 2px solid #000;
+text-align:center;
+width:350px;
+background: #fff;
+margin: auto;
+line-height:1.3;
+display: inline-block;
+margin:20px;
+}
+h3 {
+margin: 4px;
+}
+.info {
+font-size: 12pt;
+}
+.info>ul {
+text-align: left;
+margin: 0;
+padding: 0 0 0 10px;
+}
+#flexcontainer {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+</style>
 </head>
 <body onload="main()">
+<div id="flexcontainer"><div id="container"><h3>Melanistic Odds Calculator</h3>
 <form>
-<label>Base shiny odds: 1/</label>
+<label>Base shiny odds (at 40 chain): 1/</label>
 <input type="text" id="baseshiny" value="200">
 <br>
 <label>Base albino odds (at level 7): 1/</label>
@@ -23,7 +64,19 @@
 <label>PoTD boost:</label>
 <input type="checkbox" id="potd">
 </form>
+<div id="results"></div></div>
+<div id="container" class="info"><h3>Info</h3>
+<ul>
+<li>Odds are referenced from <a href="https://pokefarm.com/forum/thread/341650/I-over-buffed-Melanistic-Pokemon">this announcement</a>.</li>
+<li>Since a Melanistic Pokemon occurs when a Pokemon is both Albino and Shiny, we can conclude that Melanistic odds are equal to Shiny odds * Albino odds.</li>
+<li>Shiny odds at a 40 chain (with Hypermode) are <b>1/200</b>.</li>
+<li>Albino odds at level 7 (full charge) are <b>1/240</b>.</li>
+<li>Long Chain bonus scaling can be found <a href="https://pokefarm.wiki/Melanistic_Hunting#Long_Chain_Bonus">here</a>, or directly on your Shiny Hunting page.</li>
+<li>Shiny Charm doubles Shiny odds.</li>
+<li>Z-Crystal doubles Albino odds.</li>
+<li>PoTD increases Shiny odds by 10%.</li>
+</ul>
+</div></div>
 </body>
 </html>
-<div id="results"></div>
 <script src="main.js"></script>
