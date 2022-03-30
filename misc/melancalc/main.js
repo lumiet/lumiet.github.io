@@ -36,9 +36,10 @@ function calculateOdds(baseShiny,baseAlbino,sei,longChain,shinyCharm,uberCharm,z
 	if(potd) baseShiny /= 1.1; //10% shiny boost
 	if(sei>0) baseShiny = Math.sqrt(baseShiny) * Math.sqrt(50-sei); //apply sei boost formula. must be calculated in this order
 	
+	if(z) baseAlbino /=1.5; //1.5x albino odds (+50%)
+		
 	var result = baseShiny * baseAlbino; //base melan odds
 	if(uberCharm) result/=6; //6x melan odds
-	if(z) result /=1.5; //1.5x albino odds (+50%)
 	if(longChain!=0) result/=longChain;
 	console.log(result);
 	document.getElementById("results").innerHTML = "Calculated odds: 1/" + Number.parseFloat(result.toFixed(3)) + ", or " + Number.parseFloat((1/result*100).toFixed(3)) + "%";
