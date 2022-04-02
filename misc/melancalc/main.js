@@ -11,6 +11,16 @@ function main() {
 		document.getElementById('eggshatched').addEventListener('input', updateValues);
 		
 		document.getElementById("lvl").innerHTML = document.getElementById("basealbino").value;
+		
+		var styleToAppend = `
+		body {
+		background: url('assets/bg` + Math.floor(Math.random()*28 + 1) + `.jpg'), rgba(0,0,0,.5);
+		background-blend-mode: multiply;
+		}`;
+		var newstyle = document.createElement("style");
+		newstyle.innerHTML = styleToAppend;
+		document.head.appendChild(newstyle);
+		
 }
 
 function updateValues() {
