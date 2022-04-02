@@ -16,6 +16,7 @@ function main() {
 		body {
 		background: url('assets/bg` + Math.floor(Math.random()*28 + 1) + `.jpg'), rgba(0,0,0,.5);
 		background-blend-mode: multiply;
+		background-attachment: fixed;
 		}`;
 		var newstyle = document.createElement("style");
 		newstyle.innerHTML = styleToAppend;
