@@ -50,8 +50,9 @@ flex-flow: row wrap;
 <label>Shiny odds: 1/</label>
 <input type="text" id="baseshiny" value="200">
 <br>
-<label>Albino odds (at level 7): 1/</label>
-<input type="text" id="basealbino" value="180">
+<label>Albino radar level: <span id="lvl"></span></label>
+<br>
+<input type="range" id="basealbino" min="1" max="7" step="1" value="7">
 <br>
 <label>Sei Power (if no Sei day, put 0):</label>
 <input type="text" id="sei" value="0">
