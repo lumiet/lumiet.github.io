@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <head></head>
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<body>
-<model-viewer src="Sandile/pikachu.glb" ar ar-modes="webxr scene-viewer quick-look" animation-name="mad" autoplay="true" shadow-intensity="1" scale="3 3 3" camera-controls enable-pan></model-viewer>
+<body onload="test()">
+<model-viewer id="model" src="Sandile/pikachu.glb" ar ar-modes="webxr scene-viewer quick-look" animation-name="mad" autoplay="true" shadow-intensity="1" scale="3 3 3" camera-controls enable-pan></model-viewer>
 </body>
+<script type="text/javascript">
+function test() {
+console.log("working");
+const model = document.getElementById("model");
+model.addEventListener("click", function() {
+const animationNames = ["mad", "play_A", "run"];
+const index = parseInt((Math.random()*1000)%animationNames.length);
+const next = animationNames[index];
+	console.log("changing animation to "+next+ " index " + index);
+	model.animationName = next;
+});
+}
+
+</script>
