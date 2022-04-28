@@ -14,7 +14,7 @@
 
 </body>
 <script type="text/javascript">
-var window.data;
+window.data = "hi";
  $.get("data.csv", function(CSVdata) {
       window.data = $.csv.toObjects(CSVdata);
   });
