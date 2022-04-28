@@ -8,3 +8,9 @@ id,name,url,steps,color,typeone,typetwo,eggone,eggtwo,evo,bodystyle,basic
 7,Squirtle,https://pfq-static.com/img/pkmn/h/h/e.png,5120,blue,water,null,water 1,monster,level-16,5,TRUE
 8,Wartortle,https://pfq-static.com/img/pkmn/j/n.png,5120,blue,water,null,water 1,monster,level-36,5,FALSE
 9,Blastoise,https://pfq-static.com/img/pkmn/2/4/p.png,5120,blue,water,null,water 1,monster,none,5,FALSE
+10,Caterpie,https://pfq-static.com/img/pkmn/8/i/9.png,3840,green,bug,null,bug,null,level-7,13,TRUE
+11,Metapod,https://pfq-static.com/img/pkmn/o/o/m.png,3840,green,bug,null,bug,null,level-10,1,FALSE
+12,Butterfree,https://pfq-static.com/img/pkmn/e/k/d.png,3840,white,bug,flying,bug,null,none,12,FALSE
+13,Weedle,https://pfq-static.com/img/pkmn/9/6/y.png,3840,brown,bug,poison,bug,null,level-7,13,TRUE
+14,Kakuna,https://pfq-static.com/img/pkmn/f/1/q.png,3840,yellow,bug,poison,bug,null,level-10,1,FALSE
+15,Beedrill,https://pfq-static.com/img/pkmn/f/c/4.png,3840,yellow,bug,poison,bug,null,none,12,FALSE
