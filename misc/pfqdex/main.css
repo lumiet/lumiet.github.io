@@ -15,11 +15,11 @@ padding: 100px;
 
 .row {
 	display:flex;
+	align-items: center;
 	background: rgba(255,255,255,.5);
+	height:80px;
 }
 .row > * {
-	align-items:center;
-	border: 2px solid #222;
-	border-collapse: collapse;
-	display: inline;
+	display: inline-flex;	
+	padding: 5px;
 }

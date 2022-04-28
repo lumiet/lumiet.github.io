@@ -1,3 +1,10 @@
-"id","name","url","steps","colorone","colortwo","typeone","typetwo","eggone","eggtwo","evo","bodystyle","basic"
-"1","Bulbasaur","https://pfq-static.com/img/pkmn/1/g/g.png","5120","green","green","grass","poison","grass","monster","level-16","7","true"
-"2","Ivysaur","https://pfq-static.com/img/pkmn/9/6/r.png","5120","green","green","grass","poison","grass","monster","level-32","7","false"
+id,name,url,steps,color,typeone,typetwo,eggone,eggtwo,evo,bodystyle,basic
+1,Bulbasaur,https://pfq-static.com/img/pkmn/1/g/g.png,5120,green,grass,poison,grass,monster,level-16,7,TRUE
+2,Ivysaur,https://pfq-static.com/img/pkmn/9/6/r.png,5120,green,grass,poison,grass,monster,level-32,7,FALSE
+3,Venusaur,https://pfq-static.com/img/pkmn/c/1/5.png,5120,green,grass,poison,grass,monster,none,7,FALSE
+4,Charmander,https://pfq-static.com/img/pkmn/5/l/t.png,5120,red,fire,null,dragon,monster,level-16,5,TRUE
+5,Charmelon,https://pfq-static.com/img/pkmn/o/i/v.png,5120,red,fire,null,dragon,monster,level-36,5,FALSE
+6,Charizard,https://pfq-static.com/img/pkmn/j/j/t.png,5120,red,fire,flying,dragon,monster,none,5,FALSE
+7,Squirtle,https://pfq-static.com/img/pkmn/h/h/e.png,5120,blue,water,null,water 1,monster,level-16,5,TRUE
+8,Wartortle,https://pfq-static.com/img/pkmn/j/n.png,5120,blue,water,null,water 1,monster,level-36,5,FALSE
+9,Blastoise,https://pfq-static.com/img/pkmn/2/4/p.png,5120,blue,water,null,water 1,monster,none,5,FALSE
