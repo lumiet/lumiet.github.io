@@ -1,0 +1,15 @@
+body {
+	background: #555;
+	font-family:Verdana;
+}
+
+#container {
+padding: 100px;	
+}
+
+#scrollbox {
+	overflow-y: scroll;
+	height: 500px;
+	background: rgba(255,255,255,.6);
+	
+}

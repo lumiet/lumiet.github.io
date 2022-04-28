@@ -1,17 +1,24 @@
 <html><head>
   <script type="text/JavaScript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script src="jquery-csv.js"></script>
+  <script src="jquery-csv/src/jquery.csv.js"></script>
+  <link type="text/css" rel="stylesheet" href="main.css"/>
 </head>
 <body>
+<div id="container">
+<div id="scrollbox">
+<div id="placeholder">wewewewe</div>
 
+</div>
+
+</div>
 
 </body>
 <script type="text/javascript">
  $.get("data.csv", function(CSVdata) {
      // CSVdata is populated with the file contents...
      // ...ready to be converted into an Array
-      data = $.csv.toArray(CSVdata);
-      console.log(data)
+      data = $.csv.fromObjects(CSVdata);
+      console.log(data);
   });
 </script>
 
