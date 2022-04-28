@@ -1,2 +1,3 @@
-"id":"1", "url":"https://pfq-static.com/img/pkmn/1/g/g.png", "steps":"5120", "colorone":"green", "colortwo":"green", "typeone":"grass", "typetwo":"poison", "eggone":"grass", "eggtwo":"monster", "evo":"level-16","bodystyle":"7", "basic":"true"
-"id":"2", "url":"https://pfq-static.com/img/pkmn/9/6/r.png", "steps":"0", "colorone":"green", "colortwo":"green", "typeone":"grass", "typetwo":"poison", "eggone":"grass", "eggtwo":"monster", "evo":"level-32","bodystyle":"7", "basic":"false"
+"id", "url", "steps", "colorone", "colortwo", "typeone", "typetwo", "eggone", "eggtwo", "evo", "bodystyle", "basic"
+"1", "https://pfq-static.com/img/pkmn/1/g/g.png", "5120", "green", "green", "grass", "poison", "grass", "monster", "level-16", "7", "true"
+"2", "https://pfq-static.com/img/pkmn/9/6/r.png", "5120", "green", "green", "grass", "poison", "grass", "monster", "level-32", "7", "false"
