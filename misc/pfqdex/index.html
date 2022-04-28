@@ -15,16 +15,16 @@
 </body>
 <script type="text/javascript">
 
-var data;
+window.data;
  $.get("data.csv", function(CSVdata) {
-      data = $.csv.toObjects(CSVdata);
+      window.data = $.csv.toObjects(CSVdata);
   });
-   console.log(data);
-  for(var i=0;i<data.length;i++) {
+   console.log(window.data);
+  for(var i=0;i<window.data.length;i++) {
 	var elem = `
-	<div class="id">${data[i].id}</div>
-	<div class="name">${data[i].name}</div>
-	<div class="img"><img src="${data[i].url}"></div>	
+	<div class="id">${window.data[i].id}</div>
+	<div class="name">${window.data[i].name}</div>
+	<div class="img"><img src="${window.data[i].url}"></div>	
 	`;
 	document.getElementById('scrollbox').appendChild(elem);
   }
