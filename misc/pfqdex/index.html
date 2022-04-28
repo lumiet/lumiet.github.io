@@ -3,7 +3,7 @@
   <script src="jquery-csv/src/jquery.csv.js"></script>
   <link type="text/css" rel="stylesheet" href="main.css"/>
 </head>
-<body onload="main()">
+<body>
 <div id="container">
 <div id="scrollbox">
 <div class="row"><img src="https://pfq-static.com/img/pkmn/1/g/g.png"><div>Bulbasaur</div></div>
@@ -14,15 +14,8 @@
 
 </body>
 <script type="text/javascript">
-/*var reader = new FileReader();
-reader.readAsText("data.csv");
-reader.onload = function(event) {
-	var csv = event.target.result;
-	var data = $.csv.toObjects(csv);
-	console.log(data);
-}*/
-function main() {
-const data;
+
+var data;
  $.get("data.csv", function(CSVdata) {
       data = $.csv.toObjects(CSVdata);
   });
@@ -36,7 +29,6 @@ const data;
 	document.getElementById('scrollbox').appendChild(elem);
   }
   
-  }
   
 </script>
 
