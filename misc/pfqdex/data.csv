@@ -1,2 +1,2 @@
-"id":"0", "url":"this", "color":"blue"
-"id":"1", "url":"that", "color":"orange"
+"id":1, "url":"https://pfq-static.com/img/pkmn/1/g/g.png", "steps":5120, "colorone":"green", "colortwo":"green", "typeone":"grass, "typetwo":poison, "eggone":"grass", "eggtwo":"monster", "evo":"level-16","bodystyle":7, "basic":true
+"id":2, "url":"https://pfq-static.com/img/pkmn/9/6/r.png", "steps":0, "colorone":"green", "colortwo":"green", "typeone":"grass, "typetwo":poison, "eggone":"grass", "eggtwo":"monster", "evo":"level-32","bodystyle":7, "basic":false
