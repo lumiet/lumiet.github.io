@@ -20,11 +20,13 @@ window.data = "hi";
   });
    console.log(window.data);
   for(var i=0;i<window.data.length;i++) {
-	var elem = `
+	var html = `
 	<div class="id">${window.data[i].id}</div>
 	<div class="name">${window.data[i].name}</div>
 	<div class="img"><img src="${window.data[i].url}"></div>	
 	`;
+	var elem = document.createElement('div');
+	elem.innerHTML = html;
 	document.getElementById('scrollbox').appendChild(elem);
   }
   
