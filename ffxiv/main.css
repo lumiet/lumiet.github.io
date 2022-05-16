@@ -82,26 +82,26 @@ color:#935;
 
 /*maintwo*/
 #maintwo b, #maintwo h2 {
-color:#f00;
+color:#937;
 }
 #maintwo a, #maintwo a:visited {
-color:#0f0;
+color:#8E3D71;
 transition:.5s;
 }
 #maintwo a:hover {
-color:#00f;
+color:#FF93DF;
 }
 
 /*mainthree*/
 #mainthree b, #mainthree h2 {
-color:#364c5e;
+color:#72273D;
 }
 #mainthree a, #mainthree a:visited {
-color:#724;
+color:#333254;
 transition:.5s;
 }
 #mainthree a:hover {
-color:#935;
+color:#355D8C;
 }
 
 

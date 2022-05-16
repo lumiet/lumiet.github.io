@@ -16,21 +16,18 @@ if(oldTab=="main") {
 	bgFade.style.background = mainBg;
 	bgFade.classList = '';	
 	void bgFade.offsetWidth;
-	console.log(bgFade.classList);
 	bgFade.className = "fadeOut";
 }
 else if(oldTab=="maintwo") {
 	bgFade.style.background = maintwoBg;
 	bgFade.classList = '';
 	void bgFade.offsetWidth;	
-	console.log(bgFade.classList);
 	bgFade.className = "fadeOut";
 }
 else if(oldTab=="mainthree") {
 	bgFade.style.background = mainthreeBg;	
 	document.getElementById("bgFade").classList = '';	
 	void bgFade.offsetWidth;
-	console.log(bgFade.classList);
 	bgFade.className = "fadeOut";
 }
 
