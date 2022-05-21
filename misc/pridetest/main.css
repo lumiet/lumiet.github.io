@@ -16,25 +16,35 @@ body {
 	background: #f44;
 	color:#fff;
 }
-#banner {
+#banner {/*
 	--colors: #fa4848, #ee7752, #e7ff5c, #23a6d5, #d063e6, #d063e6, #23a6d5, #e7ff5c, #ee7752, #fa4848;
+	background: linear-gradient(-45deg, var(--colors)), linear-gradient(45deg, var(--colors));
+	background-blend-mode: hard-light;
+	background-size: 200% 200%;
+	animation: gradient 20s ease-in-out infinite;
+*/
+	background: conic-gradient(#fff 0 32.72deg, #f00 32.72deg 65.45deg, #f70 65.45deg 98.17deg, #f8ea00 98.17deg 130.89deg, #00bd2f 130.89deg 163.61deg, #0054ac 163.61deg 196.33deg, #a5008c 196.33deg 229.05deg, #000 229.05deg 261.77deg, #67370c 261.77deg 294.49deg, #66d1ff 294.49deg 327.21deg, #ff92c2 327.21deg 360deg);
 	height: 250px;
 	width:100%;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(-45deg, var(--colors)), linear-gradient(45deg, var(--colors));
-	background-blend-mode: hard-light;
-	background-size: 200% 200%;
-	animation: gradient 20s ease-in-out infinite;
 }
-#banner > span {
-	color: #fff;
-	font-size: 40pt;
+#banner > div {
+	background: #fff;
+	border-radius: 100%;
+	min-height: 200px; max-height:200px;
+	min-width: 200px; max-width:200px;
+	color: #000;
+	font-size: 26pt;
 	font-weight: bold;
-	-webkit-text-stroke: 2px #000;
-	filter: drop-shadow(0 0 3px #000);
+	filter: drop-shadow(0 0 20px #000);	
+	display:flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex-flow:wrap;
 }
 #nav {
 	display: flex;
