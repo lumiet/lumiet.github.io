@@ -9,6 +9,7 @@ body {
 	margin: auto;
 	width: 80%;
 	min-width: 400px;
+	max-width:800px;
 	background: #aaa;
 	filter: drop-shadow(0 0 5px #000);
 }
@@ -24,6 +25,7 @@ body {
 	animation: gradient 20s ease-in-out infinite;
 */
 	background: conic-gradient(#fff 0 32.72deg, #f00 32.72deg 65.45deg, #f70 65.45deg 98.17deg, #f8ea00 98.17deg 130.89deg, #00bd2f 130.89deg 163.61deg, #0054ac 163.61deg 196.33deg, #a5008c 196.33deg 229.05deg, #000 229.05deg 261.77deg, #67370c 261.77deg 294.49deg, #66d1ff 294.49deg 327.21deg, #ff92c2 327.21deg 360deg);
+
 	height: 250px;
 	width:100%;
 	text-align: center;
@@ -59,8 +61,18 @@ body {
 	text-decoration: none;
 }
 #nav>a:hover {
-	color:#fff;
+	color:#fff!important;
 	background:#333;
+}
+#iconcontainer {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	align-content:center;
+}
+iframe {
+	width:95%;
+	height:600px;
 }
 .activeLink {
 	background: #222;
@@ -68,17 +80,25 @@ body {
 }
 .active {
 	display: inline-block;
+	width:100%;
 }
 .inactive {
 	display: none;
 }
+.icon {
+	width:75px;
+	margin:10px;
+}
 #content {
 	background: #aaa;
+	
 }
 #content > div:not(#footer) {
-	padding:10px 5px 10px 5px;
+	box-sizing: border-box;
+	padding: 10px 5px 10px 5px;
 	white-space: pre-line;
 	color: #000;
+	text-align:center;
 }
 #footer {
 	padding:10px 5px 10px 5px;
@@ -86,8 +106,27 @@ body {
 	font-size: 10pt;
 	color: #888;
 }
-h1, h2, h3 {
+
+h1, h2, h3, p {
 	margin: 0;
+	text-align:center;
+}
+
+a {
+	color: #3252a8;
+	transition:.5s;
+}
+a:hover {
+	color: #57a4f7;
+}
+
+@keyframes rainbow {
+	0% {color:#e04c4c;}
+	20% {color:#de954b;}
+	40% {color:#f2ee74;}
+	60% {color:#79e08a;}
+	80% {color:#7cc1f2;}
+	100% {color:#e04c4c;}
 }
 @keyframes gradient {
 	0% {
