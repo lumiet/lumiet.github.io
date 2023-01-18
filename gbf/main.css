@@ -1,0 +1,47 @@
+/*@font-face { 
+	font-family: gbf;
+	src: url("assets/basic.woff");
+}*/
+
+
+
+/*PC/shared CSS goes here...*/
+
+body {
+	font-family: fot-tsukuaoldmin-pr6n,sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	font-size:16pt;
+	margin:0;
+}
+h1 {
+	text-align:center;
+}
+#banner {
+	width:100%;
+	height:100px;
+	text-align:center;
+	background:#aca;
+}
+#container {
+	margin:auto;
+	width:800px;
+	background:#caa;
+	min-height:800px;
+}
+#content {	
+	white-space: pre-line;
+	padding:5px;
+}
+
+@media (max-aspect-ratio:2/3) { /*mobile CSS goes in this block...*/	
+  body { 
+    background-color: #f00;
+	font-size:20pt;
+	
+  }
+  #container {
+	width:100%;  
+	max-width:100%;
+  }
+}
