@@ -7,6 +7,7 @@ function main() {
 		document.getElementById('shinycharm').addEventListener('input', updateValues);
 		document.getElementById('ubercharm').addEventListener('input', updateValues);
 		document.getElementById('z').addEventListener('input', updateValues);
+		document.getElementById('typerace').addEventListener('input', updateValues);
 		document.getElementById('potd').addEventListener('input', updateValues);
 		document.getElementById('eggshatched').addEventListener('input', updateValues);
 		
@@ -33,13 +34,14 @@ function updateValues() {
 	var eggsHatched = document.getElementById("eggshatched").value;	
 	var shinyCharm = document.getElementById("shinycharm").checked;
 	var uberCharm = document.getElementById("ubercharm").checked;
-	var z = document.getElementById("z").checked;
+	var z = document.getElementById("z").checked;	
+	var typerace = document.getElementById("typerace").checked;
 	var potd = document.getElementById("potd").checked;
 	longChain = 1 + longChain/100;
-	calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,potd,eggsHatched);
+	calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,eggsHatched);
 }
 
-function calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,potd,eggsHatched) {
+function calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,eggsHatched) {
 	/*
 	If your Shiny chances are 1/X, and Sei power is S, then first convert Sei power into a modifier P = 50-S 
 	and then your Sei-boosted Shiny chances are 1/(sqrt(X/P)*P) - 
@@ -56,6 +58,7 @@ function calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,p
 	if(sei>0) baseShiny = Math.sqrt(baseShiny) * Math.sqrt(50-sei); //apply sei boost formula. must be calculated in this order
 	console.log("Shiny odds after boosts: 1/" + baseShiny); 
 	if(z) baseAlbino /=1.5; //1.5x albino odds (+50%)
+	if(typerace) baseAlbino /=1.2; //1.2x albino odds (+20)
 		
 	var result = baseShiny * baseAlbino; //base melan odds
 	if(uberCharm) result/=6; //6x melan odds
