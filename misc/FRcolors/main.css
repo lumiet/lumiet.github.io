@@ -1,0 +1,708 @@
+.color-Maize {
+ color:black;
+ background:#fffdea
+}
+.color-Dust {
+ color:black;
+ background:#9c9c9e
+}
+.color-Moss {
+ color:white;
+ background:#7e7745
+}
+.color-Goldenrod {
+ color:black;
+ background:#bea55d
+}
+.color-Amber {
+ color:black;
+ background:#c18e1b
+}
+.color-Honey {
+ color:black;
+ background:#d1b300
+}
+.color-Lemon {
+ color:black;
+ background:#ffe63b
+}
+.color-Yellow {
+ color:black;
+ background:#f9e255
+}
+.color-Grapefruit {
+ color:black;
+ background:#f7ff6f
+}
+.color-Banana {
+ color:black;
+ background:#ffec80
+}
+.color-Sanddollar {
+ color:black;
+ background:#ebe7ae
+}
+.color-Flaxen {
+ color:black;
+ background:#fde9ae
+}
+.color-Grey {
+ color:white;
+ background:#808080
+}
+.color-Ivory {
+ color:black;
+ background:#ffd297
+}
+.color-Buttercup {
+ color:black;
+ background:#f6bf6b
+}
+.color-Gold {
+ color:black;
+ background:#e8af49
+}
+.color-Metals {
+ color:black;
+ background:#d1b046
+}
+.color-Marigold {
+ color:black;
+ background:#ffb43b
+}
+.color-Sunshine {
+ color:black;
+ background:#fa912b
+}
+.color-Saffron {
+ color:black;
+ background:#ff8400
+}
+.color-Sunset {
+ color:black;
+ background:#ffa248
+}
+.color-Peach {
+ color:black;
+ background:#ffb576
+}
+.color-Cantaloupe {
+ color:black;
+ background:#ff984f
+}
+.color-Smoke {
+ color:black;
+ background:#9494a9
+}
+.color-Orange {
+ color:white;
+ background:#d5602b
+}
+.color-Bronze {
+ color:white;
+ background:#b2560d
+}
+.color-Terracotta {
+ color:white;
+ background:#b23b07
+}
+.color-Carrot {
+ color:black;
+ background:#ff5500
+}
+.color-Fire {
+ color:white;
+ background:#ef5c23
+}
+.color-Pumpkin {
+ color:black;
+ background:#ff6840
+}
+.color-Tangerine {
+ color:black;
+ background:#ff7360
+}
+.color-Cinnamon {
+ color:white;
+ background:#c05a39
+}
+.color-Caramel {
+ color:white;
+ background:#c67047
+}
+.color-Sand {
+ color:white;
+ background:#b27749
+}
+.color-Gloom {
+ color:white;
+ background:#535264
+}
+.color-Tan {
+ color:black;
+ background:#c49a70
+}
+.color-Beige {
+ color:black;
+ background:#cabba2
+}
+.color-Stone {
+ color:white;
+ background:#827a64
+}
+.color-Taupe {
+ color:white;
+ background:#6d665a
+}
+.color-Slate {
+ color:white;
+ background:#564d48
+}
+.color-Driftwood {
+ color:white;
+ background:#766359
+}
+.color-Latte {
+ color:white;
+ background:#977b6c
+}
+.color-Dirt {
+ color:white;
+ background:#76483f
+}
+.color-Clay {
+ color:white;
+ background:#603f3d
+}
+.color-Sable {
+ color:white;
+ background:#57372c
+}
+.color-Lead {
+ color:white;
+ background:#413c3f
+}
+.color-Umber {
+ color:white;
+ background:#2f1e1a
+}
+.color-Soil {
+ color:white;
+ background:#5a4534
+}
+.color-Hickory {
+ color:white;
+ background:#725639
+}
+.color-Tarnish {
+ color:white;
+ background:#855c32
+}
+.color-Ginger {
+ color:white;
+ background:#90532b
+}
+.color-Brown {
+ color:white;
+ background:#8e5b3f
+}
+.color-Chocolate {
+ color:white;
+ background:#563012
+}
+.color-Auburn {
+ color:white;
+ background:#7b3c1d
+}
+.color-Copper {
+ color:white;
+ background:#a44b28
+}
+.color-Rust {
+ color:white;
+ background:#8b3220
+}
+.color-Shale {
+ color:white;
+ background:#4d4850
+}
+.color-Tomato {
+ color:white;
+ background:#ba311c
+}
+.color-Vermilion {
+ color:white;
+ background:#e22d17
+}
+.color-Ruby {
+ color:white;
+ background:#cd000e
+}
+.color-Cherry {
+ color:white;
+ background:#aa0024
+}
+.color-Crimson {
+ color:white;
+ background:#850012
+}
+.color-Garnet {
+ color:white;
+ background:#5b0f14
+}
+.color-Sanguine {
+ color:white;
+ background:#2e0002
+}
+.color-Blood {
+ color:white;
+ background:#451717
+}
+.color-Maroon {
+ color:white;
+ background:#652127
+}
+.color-Berry {
+ color:white;
+ background:#8b272c
+}
+.color-Flint {
+ color:white;
+ background:#626268
+}
+.color-Red {
+ color:white;
+ background:#c1272d
+}
+.color-Strawberry {
+ color:white;
+ background:#de3235
+}
+.color-Cerise {
+ color:white;
+ background:#a22929
+}
+.color-Carmine {
+ color:white;
+ background:#b13a3a
+}
+.color-Brick {
+ color:white;
+ background:#9a534d
+}
+.color-Coral {
+ color:black;
+ background:#cc6f6f
+}
+.color-Blush {
+ color:black;
+ background:#ffa2a2
+}
+.color-Cottoncandy {
+ color:black;
+ background:#eb7997
+}
+.color-Watermelon {
+ color:black;
+ background:#db518d
+}
+.color-Magenta {
+ color:black;
+ background:#e934aa
+}
+.color-Charcoal {
+ color:white;
+ background:#545454
+}
+.color-Fuchsia {
+ color:white;
+ background:#ec0089
+}
+.color-Raspberry {
+ color:white;
+ background:#8a0249
+}
+.color-Wine {
+ color:white;
+ background:#4d0f28
+}
+.color-Mauve {
+ color:white;
+ background:#9c4875
+}
+.color-Pink {
+ color:black;
+ background:#e77fbf
+}
+.color-Bubblegum {
+ color:black;
+ background:#eaa9ff
+}
+.color-Rose {
+ color:black;
+ background:#ffd6f6
+}
+.color-Pearl {
+ color:black;
+ background:#fbe9f8
+}
+.color-Coal {
+ color:white;
+ background:#4b4946
+}
+.color-Oilslick {
+ color:white;
+ background:#342b25
+}
+.color-Cream {
+ color:black;
+ background:#ffefdc
+}
+.color-Black {
+ color:white;
+ background:#333333
+}
+.color-Obsidian {
+ color:white;
+ background:#1d2224
+}
+.color-Eldritch {
+ color:white;
+ background:#252a25
+}
+.color-Midnight {
+ color:white;
+ background:#252735
+}
+.color-Shadow {
+ color:white;
+ background:#3a2e44
+}
+.color-Blackberry {
+ color:white;
+ background:#4b294f
+}
+.color-Mulberry {
+ color:white;
+ background:#6e235d
+}
+.color-Plum {
+ color:white;
+ background:#853390
+}
+.color-Wisteria {
+ color:white;
+ background:#724e7b
+}
+.color-Thistle {
+ color:black;
+ background:#8f7c8b
+}
+.color-Antique {
+ color:black;
+ background:#d8d6cd
+}
+.color-Fog {
+ color:black;
+ background:#a593b0
+}
+.color-Mist {
+ color:black;
+ background:#e1ceff
+}
+.color-Lavender {
+ color:black;
+ background:#cca4e0
+}
+.color-Heather {
+ color:black;
+ background:#9777bd
+}
+.color-Purple {
+ color:white;
+ background:#a261cf
+}
+.color-Orchid {
+ color:black;
+ background:#d950ff
+}
+.color-Amethyst {
+ color:white;
+ background:#993bd0
+}
+.color-Nightshade {
+ color:white;
+ background:#782eb2
+}
+.color-Violet {
+ color:white;
+ background:#643f9c
+}
+.color-Grape {
+ color:white;
+ background:#570fc0
+}
+.color-White {
+ color:black;
+ background:#ffffff
+}
+.color-Royal {
+ color:white;
+ background:#4d2c89
+}
+.color-Eggplant {
+ color:white;
+ background:#332b65
+}
+.color-Iris {
+ color:white;
+ background:#535195
+}
+.color-Storm {
+ color:black;
+ background:#757adb
+}
+.color-Twilight {
+ color:white;
+ background:#474aa0
+}
+.color-Indigo {
+ color:white;
+ background:#2d237a
+}
+.color-Sapphire {
+ color:white;
+ background:#0d095b
+}
+.color-Navy {
+ color:white;
+ background:#212b5f
+}
+.color-Cobalt {
+ color:white;
+ background:#003484
+}
+.color-Ultramarine {
+ color:white;
+ background:#1c51e7
+}
+.color-Moon {
+ color:black;
+ background:#d8d7d8
+}
+.color-Blue {
+ color:white;
+ background:#324ba9
+}
+.color-Periwinkle {
+ color:white;
+ background:#4866d5
+}
+.color-Lapis {
+ color:white;
+ background:#2b84ff
+}
+.color-Splash {
+ color:black;
+ background:#6392df
+}
+.color-Cornflower {
+ color:black;
+ background:#75a8ff
+}
+.color-Sky {
+ color:black;
+ background:#aec8ff
+}
+.color-Stonewash {
+ color:black;
+ background:#7895c1
+}
+.color-Overcast {
+ color:white;
+ background:#444f69
+}
+.color-Steel {
+ color:white;
+ background:#556979
+}
+.color-Denim {
+ color:white;
+ background:#2f4557
+}
+.color-Ice {
+ color:black;
+ background:#ebefff
+}
+.color-Abyss {
+ color:white;
+ background:#0d1e24
+}
+.color-Phthalo {
+ color:white;
+ background:#0b2d46
+}
+.color-Azure {
+ color:white;
+ background:#0a3d67
+}
+.color-Caribbean {
+ color:white;
+ background:#0086ce
+}
+.color-Teal {
+ color:white;
+ background:#2b768f
+}
+.color-Cerulean {
+ color:white;
+ background:#00b4d6
+}
+.color-Cyan {
+ color:black;
+ background:#00fff0
+}
+.color-Robin {
+ color:black;
+ background:#9aeaef
+}
+.color-Aqua {
+ color:black;
+ background:#72c4c4
+}
+.color-Turquoise {
+ color:white;
+ background:#3aa0a1
+}
+.color-Orca {
+ color:black;
+ background:#e0dfff
+}
+.color-Spruce {
+ color:black;
+ background:#8bbbb2
+}
+.color-Pistachio {
+ color:black;
+ background:#e2ffe6
+}
+.color-Seafoam {
+ color:black;
+ background:#b2e2bd
+}
+.color-Mint {
+ color:black;
+ background:#9affc7
+}
+.color-Jade {
+ color:white;
+ background:#61ab89
+}
+.color-Spearmint {
+ color:white;
+ background:#148e67
+}
+.color-Thicket {
+ color:white;
+ background:#005e48
+}
+.color-Peacock {
+ color:white;
+ background:#1f4739
+}
+.color-Emerald {
+ color:white;
+ background:#20603f
+}
+.color-Shamrock {
+ color:white;
+ background:#236925
+}
+.color-Platinum {
+ color:black;
+ background:#c8bece
+}
+.color-Jungle {
+ color:white;
+ background:#1e361a
+}
+.color-Hunter {
+ color:white;
+ background:#1d2715
+}
+.color-Forest {
+ color:white;
+ background:#425035
+}
+.color-Camo {
+ color:white;
+ background:#51684c
+}
+.color-Algae {
+ color:black;
+ background:#97af8b
+}
+.color-Swamp {
+ color:white;
+ background:#687f67
+}
+.color-Avocado {
+ color:white;
+ background:#567c34
+}
+.color-Green {
+ color:white;
+ background:#629c3f
+}
+.color-Fern {
+ color:black;
+ background:#7ece73
+}
+.color-Mantis {
+ color:black;
+ background:#99ff9c
+}
+.color-Silver {
+ color:black;
+ background:#bbbabf
+}
+.color-Pear {
+ color:black;
+ background:#8ecd55
+}
+.color-Leaf {
+ color:black;
+ background:#a5e32d
+}
+.color-Radioactive {
+ color:black;
+ background:#c6ff00
+}
+.color-Honeydew {
+ color:black;
+ background:#d0e672
+}
+.color-Peridot {
+ color:black;
+ background:#e8ffb5
+}
+.color-Chartreuse {
+ color:black;
+ background:#b4cd3c
+}
+.color-Spring {
+ color:white;
+ background:#a9a832
+}
+.color-Crocodile {
+ color:white;
+ background:#828335
+}
+.color-Olive {
+ color:white;
+ background:#697135
+}
+.color-Murk {
+ color:white;
+ background:#4b4420
+}
