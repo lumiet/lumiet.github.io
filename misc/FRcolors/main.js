@@ -8,6 +8,7 @@ var textColor = rules[i].style.color;
 const newCanvas = document.body.appendChild(document.createElement("canvas"));
 newCanvas.width = 100;
 newCanvas.height = 100;
+newCanvas.className = colorName;
 var ctx = newCanvas.getContext("2d");
 ctx.fillStyle = colorValue;
 ctx.fillRect(0,0,newCanvas.width,newCanvas.height);
