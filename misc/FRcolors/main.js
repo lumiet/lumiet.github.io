@@ -12,7 +12,7 @@ var ctx = newCanvas.getContext("2d");
 ctx.fillStyle = colorValue;
 ctx.fillRect(0,0,newCanvas.width,newCanvas.height);
 ctx.fillStyle = textColor;
-ctx.font = "12px serif";
+ctx.font = "16px Arial";
 ctx.fillText(colorName, 5, newCanvas.height - 20);
 }
 }
