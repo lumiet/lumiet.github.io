@@ -1,0 +1,112 @@
+// ==UserScript==
+// @name         flight rising hatch recorder
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  adds buttons on a dragon's profile to save hatch info to a csv file
+// @author       lumiet
+// @match        https://www1.flightrising.com/dragon/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=flightrising.com
+// @grant        none
+// @noframes
+// @run-at document-end
+// ==/UserScript==
+class Dragon {
+    constructor(id, prim, sec, tert, ele) {
+     this.id = id;
+     this.prim = prim;
+     this.sec = sec;
+     this.tert = tert;
+     this.ele = ele;
+    }
+    toString() {
+     return ("ID: " + this.id + "\nPrimary: " + this.prim + "\nSecondary: " + this.sec + "\nTertiary: " + this.tert + "\nElement: " + this.ele);
+    }
+    toArray() {
+     return [this.id,this.prim,this.sec,this.tert,this.ele];
+    }
+}
+
+(function() {
+    'use strict';
+    //for adding the dragon's data to our localstorage object
+    window.addDragon = function (x) {
+        var newCSV = localStorage.getItem("frHatchStorage");
+        newCSV += x.toArray().join(",") + '\n';
+        localStorage.setItem("frHatchStorage",newCSV);
+        //console.log(localStorage.getItem("frHatchStorage"));
+        let button = document.getElementById("addButton");
+        button.innerHTML = "Added!";
+        button.style = "padding:2px; margin:2px;background: #afa;border-radius:4px";
+        button.setAttribute("onClick", "");
+    }
+
+    //pass the csv data from localstorage
+    window.downloadHatchCsv = function(x) {
+        var encodedUri = encodeURI(x);
+        var dlLink = document.createElement("a");
+        dlLink.setAttribute("href", encodedUri);
+        dlLink.setAttribute("download", "Flight_Rising_Hatches_" + Date.now() + ".csv");
+        document.body.appendChild(dlLink); // Required for FF
+
+        dlLink.click(); // This will download the data file
+    }
+
+    window.clearHatchListStorage = function() {
+        localStorage.setItem("frHatchStorage","data:text/csv;charset=utf-8,");
+        let button = document.getElementById("deleteButton");
+        button.innerHTML = "Data deleted.";
+        button.style = "padding:2px; margin:2px;background:#fff;border-radius:4px";
+        button.setAttribute("onClick", "");
+    }
+
+    window.deleteConfirmation = function() {
+        let button = document.getElementById("deleteButton");
+        button.innerHTML = "Confirm?";
+        button.style = "padding:2px; margin:2px;background: #faa;border-radius:4px";
+        button.setAttribute("onClick", "clearHatchListStorage()");
+    }
+
+    if (localStorage.getItem("frHatchStorage") === null) {
+        //our localstorage is storing an csv object and we can append each dragon's data
+        localStorage.setItem("frHatchStorage","data:text/csv;charset=utf-8,");
+    }
+
+    const newButton = document.createElement("button");
+    const buttonText = document.createTextNode("Record Hatch");
+    newButton.appendChild(buttonText);
+    newButton.style = "padding:2px; margin:2px;background:#fff;border-radius:4px";
+    newButton.id = "addButton";
+    document.getElementById("dragon-profile-physical").appendChild(newButton);
+
+    const dlCsvButton = document.createElement("button");
+    const csvButtonText = document.createTextNode("Download CSV");
+    dlCsvButton.appendChild(csvButtonText);
+    dlCsvButton.style = "padding:2px; margin:2px;background:#fff;border-radius:4px";
+    document.getElementById("dragon-profile-physical").appendChild(dlCsvButton);
+
+    const deleteStorageDataButton = document.createElement("button");
+    const deleteButtonText = document.createTextNode("Clear Data");
+    deleteStorageDataButton.appendChild(deleteButtonText);
+    deleteStorageDataButton.style = "padding:2px; margin:2px;background:#fff;border-radius:4px";
+    deleteStorageDataButton.id = "deleteButton";
+    document.getElementById("dragon-profile-physical").appendChild(deleteStorageDataButton);
+
+    var query = document.getElementsByClassName("dragon-profile-stat-icon-value");
+    var id = document.getElementsByClassName("dragon-profile-header-number")[0].childNodes[0].data.slice(2,-1);
+    //console.log(id);
+    //console.log(query);
+    var prim = query.item(0).firstChild.data.trim();
+    var sec = query.item(1).firstChild.data.trim();
+    var tert = query.item(2).firstChild.data.trim();
+    var ele = query.item(5).firstChild.data.trim();
+    //console.log(prim + " " + sec + " " + tert + " " + ele + " " + id);
+
+    window.newDragon = new Dragon(id, prim, sec, tert, ele);
+
+    //console.log(localStorage.getItem("frHatchStorage"));
+
+    newButton.setAttribute("onClick", "addDragon(newDragon)");
+    dlCsvButton.setAttribute("onClick", `downloadHatchCsv(localStorage.getItem("frHatchStorage"))`);
+    deleteStorageDataButton.setAttribute("onClick", "deleteConfirmation()");
+
+})();
