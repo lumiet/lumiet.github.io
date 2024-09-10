@@ -8,6 +8,7 @@ function main() {
 		document.getElementById('ubercharm').addEventListener('input', updateValues);
 		document.getElementById('z').addEventListener('input', updateValues);
 		document.getElementById('typerace').addEventListener('input', updateValues);
+		document.getElementById('silveramulet').addEventListener('input', updateValues);
 		document.getElementById('potd').addEventListener('input', updateValues);
 		document.getElementById('eggshatched').addEventListener('input', updateValues);
 		
@@ -36,21 +37,23 @@ function updateValues() {
 	var uberCharm = document.getElementById("ubercharm").checked;
 	var z = document.getElementById("z").checked;	
 	var typerace = document.getElementById("typerace").checked;
+	var silverAmulet = document.getElementById("silveramulet").checked;
 	var potd = document.getElementById("potd").checked;
 	longChain = 1 + longChain/100;
-	calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,eggsHatched);
+	calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,silverAmulet,potd,eggsHatched);
 }
 
-function calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,eggsHatched) {
+function calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,silveramulet,potd,eggsHatched) {
 	/*
 	If your Shiny chances are 1/X, and Sei power is S, then first convert Sei power into a modifier P = 50-S 
 	and then your Sei-boosted Shiny chances are 1/(sqrt(X/P)*P) - 
 	which now that I'm looking at it is really just 1/(sqrt(X) * sqrt(50-S))
 	*/
-	var baseAlbino = 6145.2;
+	var baseAlbino = 6144;
 	const albBoost = [1,2,4,8,12.8,22.76,34.14];
 	console.log("Albino odds at level " + albIndex + " (before Z): 1/" + baseAlbino/albBoost[albIndex-1]);
 	baseAlbino /= albBoost[albIndex-1]; //applies boost from alb radar level
+	if(silveramulet) baseAlbino/=4/3;
 	
 	
 	if(shinyCharm) baseShiny/=2.5; //2.5x shiny odds
