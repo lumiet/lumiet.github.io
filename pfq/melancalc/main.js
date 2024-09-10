@@ -47,7 +47,7 @@ function calculateOdds(baseShiny,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 	and then your Sei-boosted Shiny chances are 1/(sqrt(X/P)*P) - 
 	which now that I'm looking at it is really just 1/(sqrt(X) * sqrt(50-S))
 	*/
-	var baseAlbino = 6145.2;
+	var baseAlbino = 4608;
 	const albBoost = [1,2,4,8,12.8,22.76,34.14];
 	console.log("Albino odds at level " + albIndex + " (before Z): 1/" + baseAlbino/albBoost[albIndex-1]);
 	baseAlbino /= albBoost[albIndex-1]; //applies boost from alb radar level
