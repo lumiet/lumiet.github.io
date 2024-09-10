@@ -54,7 +54,7 @@ flex-flow: row wrap;
 <div id="flexcontainer"><div id="container"><h3>Melanistic Odds Calculator</h3>
 <form>
 <label>Shiny odds: 1/</label>
-<input type="text" id="baseshiny" value="200">
+<input type="text" id="baseshiny" value="160">
 <br>
 <label>Albino radar level: <span id="lvl"></span></label>
 <br>
@@ -76,6 +76,8 @@ flex-flow: row wrap;
 <label>Type Race Boost:</label>
 <input type="checkbox" id="typerace">
 <br>
+<label>Silver Amulet:</label>
+<input type="checkbox" id="silveramulet" checked>
 <label>PoTD boost:</label>
 <input type="checkbox" id="potd">
 </form>
@@ -91,8 +93,9 @@ flex-flow: row wrap;
 <ul>
 <li>Odds are referenced from <a href="https://pokefarm.com/forum/thread/341650/I-over-buffed-Melanistic-Pokemon">this announcement</a>.</li>
 <li>Since a Melanistic Pokemon occurs when a Pokemon is both Albino and Shiny, we can conclude that Melanistic odds are equal to Shiny odds * Albino odds.</li>
-<li>Shiny odds at a 40 chain (with Hypermode) are <b>1/200</b>. For non-Hypermode users, chains will max at 39, or <b>1/400</b>.</li>
-<li>Albino odds at level 7 (full charge) are <b>1/180</b>.</li>
+<li>Shiny odds at a 40 chain (with Hypermode) are <b>1/200</b>. For non-Hypermode users, chains will max at 39, or <b>1/400</b>.
+	<ul><li>If you have the Gold Amulet, these numbers change to <b>1/160</b> and <b>1/320</b> respectively.</li></ul></li>
+<li>Albino odds at level 7 (full charge) are <b>1/180</b>, <b>1/135</b> with the Silver Amulet.</li>
 <li>Long Chain bonus scaling can be found <a href="https://pokefarm.wiki/Melanistic_Hunting#Long_Chain_Bonus">here</a>, or directly on your Shiny Hunting page.</li>
 <li>Shiny Charm is a 2.5x modifier to Shiny odds.</li>
 <li>Z-Crystal is a 1.5x modifier to Albino odds.</li>
