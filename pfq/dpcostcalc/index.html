@@ -1,59 +1,25 @@
-<head>
-<title>Shiny/Albino DP Price Calculator</title>
-<script src="main.js"></script>
-</head>
-<body onload="main()">
-<div id="flexcontainer">
-<div id="formcontainer">
-<h3>DP Cost Calculation</h3>
-<br>
-<form>
-<select id="vouchersize">
-<option value="10">Delta Voucher X (10 DP)</option>
-<option value="100">Delta Voucher C (100 DP)</option>
-<option value="1000" selected>Delta Voucher M (1000 DP)</option>
-</select>
-<label> Cost: </label>
-<input type="text" id="vouchercost" value="4,000,000"><label> Credits</label>
-</form>
-<div>Calculated cost per DP: <span id="calculation">N/A</span></div>
-</div>
-<div id="tablecontainer">
-<h3>Special Pokemon Cost Calculation</h3>
-<br>
-<div>Click a DP value to calculate for that value.</div>
-<br>
-<table id="dpvalues">
-<tr><th>Egg EXP</th><th>Delta DP</th><th>Shiny DP</th><th>Albino DP</th><th>Melan DP</th></tr>
-<tr><td id="exp">1,280</td><td>1</td><td>4</td><td>6</td><td>200</td></tr>
-<tr><td id="exp">2,560</td><td>2</td><td>8</td><td>12</td><td>400</td></tr>
-<tr><td id="exp">3,840</td><td>3</td><td>12</td><td>18</td><td>600</td></tr>
-<tr><td id="exp">5,120</td><td>4</td><td>16</td><td>24</td><td>800</td></tr>
-<tr><td id="exp">6,400</td><td>5</td><td>20</td><td>30</td><td>1000</td></tr>
-<tr><td id="exp">7,680</td><td>6</td><td>24</td><td>36</td><td>1200</td></tr>
-<tr><td id="exp">8,960</td><td>7</td><td>28</td><td>42</td><td>1400</td></tr>
-<tr><td id="exp">10,240</td><td>8</td><td>32</td><td>48</td><td>1600</td></tr>
-<tr><td id="exp">20,480</td><td>16</td><td>64</td><td>96</td><td>3200</td></tr>
-<tr><td id="exp">30,720</td><td>24</td><td>96</td><td>144</td><td>4800</td></tr>
-</table>
-<br>
-<div>Calculated cost for selected: <span id="specialcost">N/A</span></div>
-</div>
-<div id="aboutcontainer"><h3>How to use</h3>
-First, you need to go to the Market to find the current prices for Delta Vouchers. Select the quantity you're viewing in the drop down and enter the recent sale price in Credits.
-This will calculate the DP price for the next section.
-<br>
-Then, select from the table the special that you want to know the price of. Once you click that table cell, it will calculate the price of that special.
-<br><br>
-<b>Important note:</b> These prices should only be used as a baseline and not everyone will want to sell based on DP price. This is meant to be a tool to help people figure out how to price their specials.
-</div>
-</div>
-</body>
+<!DOCTYPE html><head>
+<title>Special Pokemon DP Price Calculator</title>
 <style>
 body {
 font-family: Verdana;
+font-size: 12pt;
+background-repeat: no-repeat no-repeat!important;
+background-size: cover!important;
+background-position: center center !important;
 }
-
+div:not([id="flexcontainer"]) {
+background: rgba(255,255,255,.8);
+}
+th, td:not([data-label]) {
+background:rgba(0,0,0,.2);
+}
+td, th {
+padding: 2px;
+}
+#selected {
+ background: rgba(255,0,0,.5);
+}
 #formcontainer, #tablecontainer, #aboutcontainer {
 border: 1px solid #000;
 padding:20px;
@@ -70,14 +36,8 @@ border-collapse: collapse;
 table {
 margin: auto;
 }
-td, th {
-padding: 2px;
-}
-h3 {
+h3, p {
 margin: 0;
-}
-#selected {
- background: #aaa;
 }
 #flexcontainer {
 display: flex;
@@ -85,4 +45,61 @@ align-items: center;
 justify-content: center;
 flex-flow: row wrap;
 }
+</style>
+<script src="main.js"></script>
+</head>
+<body onload="main()">
+<div id="flexcontainer">
+<div id="formcontainer">
+<h3>DP Cost Calculation</h3>
+<br>
+<form>
+<select id="vouchersize">
+<option value="10">Delta Voucher X (10 DP)</option>
+<option value="100">Delta Voucher C (100 DP)</option>
+<option value="1000" selected>Delta Voucher M (1000 DP)</option>
+</select>
+<label> Cost: </label>
+<input type="text" id="vouchercost" value="2,000,000"><label> Credits</label>
+</form>
+<br>
+<p>Calculated cost:
+<br>
+<b><span id="calculation">N/A</span></b> per DP</p>
+</div>
+<div id="tablecontainer">
+<h3>Special Pokemon Cost Calculation</h3>
+<br>
+<p>Click a DP value to calculate for that value.</p>
+<br>
+<table id="dpvalues">
+<tr><th>Egg EXP</th><th>Delta DP</th><th>Shiny DP</th><th>Albino DP</th><th>Melan DP</th></tr>
+<tr><td id="exp">1,280</td><td data-label="1,280 EHP Delta">1</td><td data-label="1,280 EHP Shiny">10</td><td data-label="1,280 EHP Albino">12</td><td data-label="1,280 EHP Melan">180</td></tr>
+<tr><td id="exp">2,560</td><td data-label="2,560 EHP Delta">2</td><td data-label="2,560 EHP Shiny">20</td><td data-label="2,560 EHP Albino">24</td><td data-label="2,560 EHP Melan">360</td></tr>
+<tr><td id="exp">3,840</td><td data-label="3,840 EHP Delta">3</td><td data-label="3,840 EHP Shiny">30</td><td data-label="3,840 EHP Albino">36</td><td data-label="3,840 EHP Melan">540</td></tr>
+<tr><td id="exp">5,120</td><td data-label="5,120 EHP Delta">4</td><td data-label="5,120 EHP Shiny">40</td><td data-label="5,120 EHP Albino">48</td><td data-label="5,120 EHP Melan">720</td></tr>
+<tr><td id="exp">6,400</td><td data-label="6,400 EHP Delta">5</td><td data-label="6,400 EHP Shiny">50</td><td data-label="6,400 EHP Albino">60</td><td data-label="6,400 EHP Melan">900</td></tr>
+<tr><td id="exp">7,680</td><td data-label="7,680 EHP Delta">6</td><td data-label="7,680 EHP Shiny">60</td><td data-label="7,680 EHP Albino">72</td><td data-label="7,680 EHP Melan">1080</td></tr>
+<tr><td id="exp">8,960</td><td data-label="8,960 EHP Delta">7</td><td data-label="8,960 EHP Shiny">70</td><td data-label="8,960 EHP Albino">84</td><td data-label="8,960 EHP Melan">1260</td></tr>
+<tr><td id="exp">10,240</td><td data-label="10,240 EHP Delta">8</td><td data-label="10,240 EHP Shiny">80</td><td data-label="10,240 EHP Albino">96</td><td data-label="10,240 EHP Melan">1440</td></tr>
+<tr><td id="exp">20,480</td><td data-label="20,480 EHP Delta">16</td><td data-label="20,480 EHP Shiny">160</td><td data-label="20,480 EHP Albino">192</td><td data-label="20,480 EHP Melan">2880</td></tr>
+<tr><td id="exp">30,720</td><td data-label="30,720 EHP Delta">24</td><td data-label="30,720 EHP Shiny">240</td><td data-label="30,720 EHP Albino">288</td><td data-label="30,720 EHP Melan">4320</td></tr>
+</table>
+<br>
+<p>Calculated cost for <span id="label">N/A</span>:
+<br>
+<b><span id="specialcost">N/A</span></b></p>
+</div>
+<div id="aboutcontainer"><h3>How to use</h3>
+First, you need to go to the Market to find the current prices for Delta Vouchers. Select the quantity you're viewing in the drop down and enter the recent sale price in Credits.
+This will calculate the DP price for the next section.
+<br>
+Then, select from the table the special that you want to know the price of. Once you click that table cell, it will calculate the price of that special.
+<br><br>
+<b>Important note:</b> These prices should only be used as a baseline and not everyone will want to sell based on DP price. This is meant to be a tool to help people figure out how to price their specials.
+</div>
+</div>
+</body>
+<style>
+
 </style>

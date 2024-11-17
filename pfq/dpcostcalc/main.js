@@ -16,6 +16,16 @@ function main() {
 		}
 	}
 	updateValues();
+	
+	var styleToAppend = `
+		body {
+		background: url('assets/bg` + Math.floor(Math.random()*28 + 1) + `.jpg'), rgba(0,0,0,.5);
+		background-blend-mode: multiply;
+		background-attachment: fixed;
+		}`;
+		var newstyle = document.createElement("style");
+		newstyle.innerHTML = styleToAppend;
+		document.head.appendChild(newstyle);
 }
 
 function tdClick(e) {
@@ -26,15 +36,18 @@ function tdClick(e) {
 			tds[i].removeAttribute('id');
 		}
 	}
-	console.log(e);
+	//console.log(e); //debug
+	//console.log(e.getAttribute("data-label")); //debug
 	e.id = "selected";
-	updateValues();
+	updateValues(e.getAttribute("data-label"));
 }
 
-function updateValues() {
+function updateValues(x) {
 	let vs = document.getElementById('vouchersize').value;
 	let vc = document.getElementById('vouchercost').value.replace(/\D/g,'');
 	var calculation = vc/vs;
+	if(x!="[object Event]") document.getElementById('label').innerHTML = x; //don't change the label if just the dp price is changing
+	if(typeof x =="undefined") document.getElementById('label').innerHTML = "1,280 EHP Delta"; //default
 	document.getElementById('calculation').innerHTML = Number.parseFloat(calculation.toFixed(3)).toLocaleString(undefined, {minimumFractionDigits: 0}) + " credits, " + Number.parseFloat((calculation/1000).toFixed(3)).toLocaleString(undefined, {minimumFractionDigits: 0}) + " GP, or " + Number.parseFloat((calculation/5000).toFixed(3)).toLocaleString(undefined, {minimumFractionDigits: 0}) + " ZC";
 	var currentDP = document.getElementById('selected').innerHTML;
 	var cr = currentDP*calculation;
