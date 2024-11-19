@@ -4,17 +4,95 @@
     <meta charset="UTF-8" />
     <title>bbcode</title>
   <style>
+  body { font-family:Verdana;}
   svg { display:none;}
+  h3 {margin:0;}
   </style>
   </head>
   
  <body><form name="uploadForm">
     <input type="file" id="fileinput"/><br>
 </form>
-    <h2>File Contents:</h2>
-    <span id="contents"></span>
+<form name="generate">
+<h3>Options</h3>
+<select id="typeselect">
+<option value="m_egg">Missing Eggdex</option>
+<option value="m_pkmn">Missing Pokedex</option>
+<option value="m_shiny">Missing Shiny</option>
+<option value="m_albino">Missing Albino</option>
+<option value="m_melan">Missing Melan</option>
+<option value="h_egg">Obtained Eggdex</option>
+<option value="h_pkmn">Obtained Pokedex</option>
+<option value="h_shiny">Obtained Shiny</option>
+<option value="h_albino">Obtained Albino</option>
+<option value="h_melan">Obtained Melan</option>
+</select>
+<br>
+<h3>Region</h3>
+<select id="regionselect">
+<option value=0>Kanto</option>
+<option value=1>Johto</option>
+<option value=2>Hoenn</option>
+<option value=3>Sinnoh</option>
+<option value=4>Unova</option>
+<option value=5>Kalos</option>
+<option value=6>Alola</option>
+<option value=7>Galar</option>
+<option value=8>Paldea</option>
+<option value=9>PFQ Exclusives</option>
+<option value=10>PFQ Megas</option>
+<option value=11>PFQ Variants</option>
+</select>
+<br>
+<h3>Type</h3>
+<input type="radio" id="sel_bbcode" name="type" value="bbcode" checked>
+<label for="sel_bbcode">BBCode</label><br>
+<input type="radio" id="sel_text" name="type" value="text">
+<label for="sel_text">Text-only</label><br>
+</input>
+<button type='button' onclick="gen()">Generate</button>
+</form>
+<h3>Output</h3>
+<textarea id="output">N/A</textarea>
 	<script>
 	//this entire thing will probably break horrifically if the html page is changed in any significant way, but i'm not gonna think about that <3
+	
+function gen() {
+		const option = document.getElementById("typeselect").value;
+		const region = document.getElementById("regionselect").value;
+		const type = document.querySelector('input[name="type"]:checked').value;
+		const output = document.getElementById("output");
+		const list = window.regionList[region].pkmnlist;
+		var filteredList = [];
+		
+		if(type=="bbcode") {
+		
+		}
+		else { //text
+			for(var i = 0; i<list.length; i++) {
+				pkmn = list[i];
+				if(option=="m_egg" && pkmn.egg==false) filteredList.push(" " + pkmn.name); 
+				else if(option=="h_egg" && pkmn.egg==true) filteredList.push(" " + pkmn.name);
+				else if(option=="m_pkmn" && pkmn.pkmn==false) filteredList.push(" " + pkmn.name); 
+				else if(option=="h_pkmn" && pkmn.pkmn==true) filteredList.push(" " + pkmn.name);  
+				else if(option=="m_shiny" && pkmn.shiny==false) filteredList.push(" " + pkmn.name); 
+				else if(option=="h_shiny" && pkmn.shiny==true) filteredList.push(" " + pkmn.name); 
+				else if(option=="m_albino" && pkmn.albino==false) filteredList.push(" " + pkmn.name); 
+				else if(option=="h_albino" && pkmn.albino==true) filteredList.push(" " + pkmn.name); 
+				else if(option=="m_melan" && pkmn.melan==false) filteredList.push(" " + pkmn.name); 
+				else if(option=="h_melan" && pkmn.melan==true) filteredList.push(" " + pkmn.name); 
+				
+			}
+			if(filteredList.length == 0) {
+				output.value = "No entries";
+				return;
+			}
+			filteredList[0] = filteredList[0].replace(" ", ''); //just getting rid of leading space
+			output.value = filteredList; 
+			
+		}
+	}
+	
 	
 	function region(html, name) {
 	this.html = html;
@@ -32,15 +110,19 @@
 		var hasShiny = ol.children[i].classList.contains("shiny-complete");
 		var hasAlbino = ol.children[i].classList.contains("albino-complete");
 		var hasMelan = ol.children[i].classList.contains("melan-complete");
-		var bbcode = "[pkmn=" + foundName + "]";
+		//bbcode: array with 0 = normal, 1 = shiny, 2 = albino, 3 = melan
+		var bbcode = ["[pkmn=" + foundName + "]","[pkmn=" + foundName + "(S)]","[pkmn=" + foundName + "(A)]","[pkmn=" + foundName + "(M)]"];
 		//variants and exclusives need bbcode format [pkmn=name/]
-		if(this.name == "PokéFarm Q (Variants)" || this.name == "PokéFarm Q (Exclusives)") bbcode = "[pkmn=" + foundName + "/]";
+		if(this.name == "PokéFarm Q (Variants)" || this.name == "PokéFarm Q (Exclusives)") bbcode = ["[pkmn=" + foundName + "/]", "[pkmn=" + foundName + "(S)/]","[pkmn=" + foundName + "(A)/]","[pkmn=" + foundName + "(M)/]"];
 		//megas or other formes need bbcode format [pkmn=name/forme]
 		//foundName format name[forme]
-		if(foundName.includes("[")) bbcode = "[pkmn=" + foundName.replace('[','/').replace(']','') + "]";
+		if(foundName.includes("[")) {
+			temp = "[pkmn=" + (foundName.replace('[','/').replace(']','') + "]");
+			bbcode = [temp,temp.replace(/\//g, "(S)/"),temp.replace(/\//g, "(A)/"),temp.replace(/\//g, "(M)/")];
+			}
 		this.pkmnlist.push(new pkmn(foundName,hasEgg,hasPkmn,hasShiny,hasAlbino,hasMelan, bbcode));
 	}
-	console.log(this.pkmnlist);
+	//console.log(this.pkmnlist);
 		}
 	}
 	
@@ -70,9 +152,9 @@ function readFile(){
         //console.log(e.target.result);
 		const parser = new DOMParser();
 		const htmlDoc = parser.parseFromString(page, 'text/html');
-		
+
 		//make sure they're actually on pokedex page...
-		if(htmlDoc.title!="PokÃ©dex - PokÃ©Farm Q") {
+		if(htmlDoc.title!="Pokédex - PokéFarm Q") {
 		window.alert("Incorrect HTML page used, please re-read instructions");
 		return;
 		}
@@ -131,12 +213,21 @@ function readFile(){
 		//console.log(kanto.html.body);
         //contents.innerHTML= page.children[3];
 		//contents.innerHTML = kanto.html.body.innerHTML;
-		const regionList = [kanto,johto,hoenn,sinnoh,unova,kalos,alola,galar,paldea,exclusives,megas,variants];
+		//var bbcodeStr = "";
+		window.regionList = [kanto,johto,hoenn,sinnoh,unova,kalos,alola,galar,paldea,exclusives,megas,variants];
+		/*for(var i = 0; i < regionList.length; i++) {
+		var bbcodeStr = "";
+			for(var j=0; j<regionList[i].pkmnlist.length; j++) {
+				bbcodeStr += regionList[i].pkmnlist[j].bbcode;
+			}
+			console.log(bbcodeStr);
+		}
+		*/
+		
     }
-    //tells file reader to read file
-    reader.readAsBinaryString(file);
+    //will read and then perform onload
+    reader.readAsText(file, "UTF-8");
     //Prevents page from refreshing
     return false;
 }
-
 	</script></body>
