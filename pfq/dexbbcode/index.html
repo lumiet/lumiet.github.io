@@ -1,0 +1,31 @@
+<form action="form.asp">
+    <input type="file" id="fileinput"/><br>
+    <input type="submit" id="sub" value="Submit"/>
+</form>
+    <h2>File Contents:</h2>
+    <span id="contents"></span>
+	<script type="text/js">
+	
+	
+	document.getElementById('sub').onclick=readFile;
+function readFile(){
+    var contents=document.getElementById('contents');
+    //Gets files from document element
+    var files=document.getElementById('fileinput').files;
+    //Selects first File and assigns it to file
+    var file=files[0];
+    //creates file reader
+    var reader = new FileReader();
+    //tells the file reader what to do after loading file
+    reader.onload=function(e){
+        //Prints contents of first file to the console
+        console.log(e.target.result);
+        contents.innerHTML=e.target.result;
+    }
+    //tells file reader to read file
+    reader.readAsBinaryString(file);
+    //Prevents page from refreshing
+    return false;
+}
+-
+	</script>
