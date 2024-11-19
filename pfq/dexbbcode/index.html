@@ -1,31 +1,142 @@
-<form action="form.asp">
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>bbcode</title>
+  <style>
+  svg { display:none;}
+  </style>
+  </head>
+  
+ <body><form name="uploadForm">
     <input type="file" id="fileinput"/><br>
-    <input type="submit" id="sub" value="Submit"/>
 </form>
     <h2>File Contents:</h2>
     <span id="contents"></span>
-	<script type="text/js">
+	<script>
+	//this entire thing will probably break horrifically if the html page is changed in any significant way, but i'm not gonna think about that <3
 	
+	function region(html, name) {
+	this.html = html;
+	this.name = name;
+	this.pkmnlist = [];
+	this.initlist = function() {	
+	var ol = this.html.body.children[0];
+	var pkmnlength = ol.children.length;
+	//is length - 1 because the last child is a node to jump to the top, not a pokemon
+	for(var i = 0; i<pkmnlength-1; i++) {
+		//console.log(ol.children[i]);
+		var foundName = ol.children[i].getElementsByClassName("name")[0].textContent;
+		var hasEgg = ol.children[i].classList.contains("egg-complete");
+		var hasPkmn = ol.children[i].classList.contains("pkmn-complete");
+		var hasShiny = ol.children[i].classList.contains("shiny-complete");
+		var hasAlbino = ol.children[i].classList.contains("albino-complete");
+		var hasMelan = ol.children[i].classList.contains("melan-complete");
+		var bbcode = "[pkmn=" + foundName + "]";
+		//variants and exclusives need bbcode format [pkmn=name/]
+		if(this.name == "PokéFarm Q (Variants)" || this.name == "PokéFarm Q (Exclusives)") bbcode = "[pkmn=" + foundName + "/]";
+		//megas or other formes need bbcode format [pkmn=name/forme]
+		//foundName format name[forme]
+		if(foundName.includes("[")) bbcode = "[pkmn=" + foundName.replace('[','/').replace(']','') + "]";
+		this.pkmnlist.push(new pkmn(foundName,hasEgg,hasPkmn,hasShiny,hasAlbino,hasMelan, bbcode));
+	}
+	console.log(this.pkmnlist);
+		}
+	}
 	
-	document.getElementById('sub').onclick=readFile;
+	function pkmn(name, egg, pkmn, shiny, albino, melan, bbcode) {
+	this.name = name;
+	this.egg = egg;
+	this.pkmn = pkmn;
+	this.shiny = shiny;
+	this.albino = albino;
+	this.melan = melan;
+	this.bbcode = bbcode;
+	}
+	
+	document.getElementById('fileinput').addEventListener("change", readFile, false);
 function readFile(){
-    var contents=document.getElementById('contents');
+    const contents=document.getElementById('contents');
     //Gets files from document element
-    var files=document.getElementById('fileinput').files;
+    const files=document.getElementById('fileinput').files;
     //Selects first File and assigns it to file
-    var file=files[0];
+    const file=files[0];
     //creates file reader
-    var reader = new FileReader();
+    const reader = new FileReader();
     //tells the file reader what to do after loading file
     reader.onload=function(e){
         //Prints contents of first file to the console
-        console.log(e.target.result);
-        contents.innerHTML=e.target.result;
+		const page = e.target.result;
+        //console.log(e.target.result);
+		const parser = new DOMParser();
+		const htmlDoc = parser.parseFromString(page, 'text/html');
+		
+		//make sure they're actually on pokedex page...
+		if(htmlDoc.title!="PokÃ©dex - PokÃ©Farm Q") {
+		window.alert("Incorrect HTML page used, please re-read instructions");
+		return;
+		}
+		
+		//window.htmlDoc = htmlDoc;
+		//console.log(htmlDoc.getElementsByTagName('a'));
+		//contents.innerHTML = htmlDoc.body.innerHTML;
+		//KANTO - 1
+		const kantohtml = parser.parseFromString(htmlDoc.getElementById("region-1").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const kanto = new region(kantohtml,"Kanto");
+		kanto.initlist();
+		//JOHTO - 2
+		const johtohtml = parser.parseFromString(htmlDoc.getElementById("region-2").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const johto = new region(johtohtml,"Johto");
+		johto.initlist();
+		//HOENN - 3
+		const hoennhtml = parser.parseFromString(htmlDoc.getElementById("region-3").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const hoenn = new region(hoennhtml,"Hoenn");
+		hoenn.initlist();
+		//SINNOH - 4
+		const sinnohhtml = parser.parseFromString(htmlDoc.getElementById("region-4").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const sinnoh = new region(sinnohhtml,"Sinnoh");
+		sinnoh.initlist();
+		//UNOVA - 5
+		const unovahtml = parser.parseFromString(htmlDoc.getElementById("region-5").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const unova = new region(unovahtml,"Unova");
+		unova.initlist();
+		//KALOS - 6
+		const kaloshtml = parser.parseFromString(htmlDoc.getElementById("region-6").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const kalos = new region(kaloshtml,"Kalos");
+		kalos.initlist();
+		//ALOLA - 7
+		const alolahtml = parser.parseFromString(htmlDoc.getElementById("region-7").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const alola = new region(alolahtml,"Alola");
+		alola.initlist();
+		//GALAR - 8
+		const galarhtml = parser.parseFromString(htmlDoc.getElementById("region-8").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const galar = new region(galarhtml,"Galar");
+		galar.initlist();
+		//PALDEA - 9
+		const paldeahtml = parser.parseFromString(htmlDoc.getElementById("region-9").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const paldea = new region(paldeahtml,"Paldea");
+		paldea.initlist();
+		//POKEFARM Q (EXCLUSIVES) - 97
+		const exclusiveshtml = parser.parseFromString(htmlDoc.getElementById("region-97").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const exclusives = new region(exclusiveshtml,"PokéFarm Q (Exclusives)");
+		exclusives.initlist();
+		//POKEFARM Q (MEGAS) - 98
+		const megashtml = parser.parseFromString(htmlDoc.getElementById("region-98").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const megas = new region(megashtml,"PokéFarm Q (Megas)");
+		megas.initlist();
+		//POKEFARM Q (VARIANTS) - 99
+		const variantshtml = parser.parseFromString(htmlDoc.getElementById("region-99").getElementsByClassName("region-entries")[0].outerHTML, 'text/html');
+		const variants = new region(variantshtml,"PokéFarm Q (Variants)");
+		variants.initlist();
+		//console.log(kanto.html.body);
+        //contents.innerHTML= page.children[3];
+		//contents.innerHTML = kanto.html.body.innerHTML;
+		const regionList = [kanto,johto,hoenn,sinnoh,unova,kalos,alola,galar,paldea,exclusives,megas,variants];
     }
     //tells file reader to read file
     reader.readAsBinaryString(file);
     //Prevents page from refreshing
     return false;
 }
--
-	</script>
+
+	</script></body>
