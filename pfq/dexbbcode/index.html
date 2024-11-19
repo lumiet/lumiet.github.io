@@ -53,10 +53,15 @@
 <button type='button' onclick="gen()">Generate</button>
 </form>
 <h3>Output</h3>
-<textarea id="output">N/A</textarea>
+<textarea id="output" style="width:300px;height:150px;">N/A</textarea>
 	<script>
 	//this entire thing will probably break horrifically if the html page is changed in any significant way, but i'm not gonna think about that <3
 	
+	
+	document.getElementById('fileinput').value = null; // clear file input on reload
+	
+	document.getElementById('fileinput').addEventListener("change", readFile, false);
+	document.getElementById('output').value = "N/A";
 function gen() {
 		const option = document.getElementById("typeselect").value;
 		const region = document.getElementById("regionselect").value;
@@ -93,50 +98,8 @@ function gen() {
 		}
 	}
 	
+
 	
-	function region(html, name) {
-	this.html = html;
-	this.name = name;
-	this.pkmnlist = [];
-	this.initlist = function() {	
-	var ol = this.html.body.children[0];
-	var pkmnlength = ol.children.length;
-	//is length - 1 because the last child is a node to jump to the top, not a pokemon
-	for(var i = 0; i<pkmnlength-1; i++) {
-		//console.log(ol.children[i]);
-		var foundName = ol.children[i].getElementsByClassName("name")[0].textContent;
-		var hasEgg = ol.children[i].classList.contains("egg-complete");
-		var hasPkmn = ol.children[i].classList.contains("pkmn-complete");
-		var hasShiny = ol.children[i].classList.contains("shiny-complete");
-		var hasAlbino = ol.children[i].classList.contains("albino-complete");
-		var hasMelan = ol.children[i].classList.contains("melan-complete");
-		//bbcode: array with 0 = normal, 1 = shiny, 2 = albino, 3 = melan
-		var bbcode = ["[pkmn=" + foundName + "]","[pkmn=" + foundName + "(S)]","[pkmn=" + foundName + "(A)]","[pkmn=" + foundName + "(M)]"];
-		//variants and exclusives need bbcode format [pkmn=name/]
-		if(this.name == "PokéFarm Q (Variants)" || this.name == "PokéFarm Q (Exclusives)") bbcode = ["[pkmn=" + foundName + "/]", "[pkmn=" + foundName + "(S)/]","[pkmn=" + foundName + "(A)/]","[pkmn=" + foundName + "(M)/]"];
-		//megas or other formes need bbcode format [pkmn=name/forme]
-		//foundName format name[forme]
-		if(foundName.includes("[")) {
-			temp = "[pkmn=" + (foundName.replace('[','/').replace(']','') + "]");
-			bbcode = [temp,temp.replace(/\//g, "(S)/"),temp.replace(/\//g, "(A)/"),temp.replace(/\//g, "(M)/")];
-			}
-		this.pkmnlist.push(new pkmn(foundName,hasEgg,hasPkmn,hasShiny,hasAlbino,hasMelan, bbcode));
-	}
-	//console.log(this.pkmnlist);
-		}
-	}
-	
-	function pkmn(name, egg, pkmn, shiny, albino, melan, bbcode) {
-	this.name = name;
-	this.egg = egg;
-	this.pkmn = pkmn;
-	this.shiny = shiny;
-	this.albino = albino;
-	this.melan = melan;
-	this.bbcode = bbcode;
-	}
-	
-	document.getElementById('fileinput').addEventListener("change", readFile, false);
 function readFile(){
     const contents=document.getElementById('contents');
     //Gets files from document element
@@ -154,7 +117,9 @@ function readFile(){
 		const htmlDoc = parser.parseFromString(page, 'text/html');
 
 		//make sure they're actually on pokedex page...
-		if(htmlDoc.title!="Pokédex - PokéFarm Q") {
+		console.log(htmlDoc.title);
+		console.log(htmlDoc.title.includes("Pokédex - PokéFarm Q"));
+		if(!htmlDoc.title.includes("Pokédex - PokéFarm Q")) {
 		window.alert("Incorrect HTML page used, please re-read instructions");
 		return;
 		}
@@ -230,4 +195,46 @@ function readFile(){
     //Prevents page from refreshing
     return false;
 }
+	//OBJECT CLASSES
+	function region(html, name) {
+	this.html = html;
+	this.name = name;
+	this.pkmnlist = [];
+	this.initlist = function() {	
+	var ol = this.html.body.children[0];
+	var pkmnlength = ol.children.length;
+	//is length - 1 because the last child is a node to jump to the top, not a pokemon
+	for(var i = 0; i<pkmnlength-1; i++) {
+		//console.log(ol.children[i]);
+		var foundName = ol.children[i].getElementsByClassName("name")[0].textContent;
+		var hasEgg = ol.children[i].classList.contains("egg-complete");
+		var hasPkmn = ol.children[i].classList.contains("pkmn-complete");
+		var hasShiny = ol.children[i].classList.contains("shiny-complete");
+		var hasAlbino = ol.children[i].classList.contains("albino-complete");
+		var hasMelan = ol.children[i].classList.contains("melan-complete");
+		//bbcode: array with 0 = normal, 1 = shiny, 2 = albino, 3 = melan
+		var bbcode = ["[pkmn=" + foundName + "]","[pkmn=" + foundName + "(S)]","[pkmn=" + foundName + "(A)]","[pkmn=" + foundName + "(M)]"];
+		//variants and exclusives need bbcode format [pkmn=name/]
+		if(this.name == "PokéFarm Q (Variants)" || this.name == "PokéFarm Q (Exclusives)") bbcode = ["[pkmn=" + foundName + "/]", "[pkmn=" + foundName + "(S)/]","[pkmn=" + foundName + "(A)/]","[pkmn=" + foundName + "(M)/]"];
+		//megas or other formes need bbcode format [pkmn=name/forme]
+		//foundName format name[forme]
+		if(foundName.includes("[")) {
+			temp = "[pkmn=" + (foundName.replace('[','/').replace(']','') + "]");
+			bbcode = [temp,temp.replace(/\//g, "(S)/"),temp.replace(/\//g, "(A)/"),temp.replace(/\//g, "(M)/")];
+			}
+		this.pkmnlist.push(new pkmn(foundName,hasEgg,hasPkmn,hasShiny,hasAlbino,hasMelan, bbcode));
+	}
+	//console.log(this.pkmnlist);
+		}
+	}
+	
+	function pkmn(name, egg, pkmn, shiny, albino, melan, bbcode) {
+	this.name = name;
+	this.egg = egg;
+	this.pkmn = pkmn;
+	this.shiny = shiny;
+	this.albino = albino;
+	this.melan = melan;
+	this.bbcode = bbcode;
+	}
 	</script></body>
