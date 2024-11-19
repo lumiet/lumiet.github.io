@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <title>bbcode</title>
   <style>
-  body { font-family:Verdana;}
+  body { 
+  font-family:Verdana;
+  background:#555;
+  }
   svg { display:none;}
-  h3 {margin:0;}
+  h3 {margin:3px;}
   #container {
   display: flex;
   flex-direction:row;
   }
   #instructions,#forms {
-  max-width:50%;
+  width:25%;
+  margin: 50px;
+  background: rgba(255,255,255,.8);
+  padding:10px;
+  
   }
   </style>
   </head>
@@ -26,10 +33,10 @@
  <li>Navigate to your <a href="https://pokefarm.com/dex">Pokédex page</a>.</li>
  <li>Expand every region's tab so that every Pokémon is listed.</li>
  <li>Right-click to open your browser's context menu, and select the option "Save page as..." or similar.</li>
- <li>Download the page as an .html file.</li>
+ <li>Download the page as an .html/.htm file.</li>
  <li>Continue to the HTML file upload and upload this file.</li>
  </ol>
- <p>Disclaimer: Please do not upload any sensitive information to any website that you don't trust. This is a client-side JavaScript application, but don't take my word for it, you can <a href="https://github.com/lumiet/lumiet.github.io/tree/master/pfq/dexbbcode">view the open source code here</a>.
+ <p><b>Disclaimer:</b> Please do not upload any sensitive information to any website that you don't trust. This is a client-side JavaScript application, but don't take my word for it, you can <a href="https://github.com/lumiet/lumiet.github.io/tree/master/pfq/dexbbcode">view the open source code here</a>.
  </div>
  <div id="forms"><h3>HTML File Upload</h3><form name="uploadForm">
     <input type="file" id="fileinput"/><br>
