@@ -32,7 +32,8 @@
  <ol>
  <li>Navigate to your <a href="https://pokefarm.com/dex">Pokédex page</a>.</li>
  <li>Expand every region's tab so that every Pokémon is listed.</li>
- <li>Right-click to open your browser's context menu, and select the option "Save page as..." or similar.</li>
+ <li>Right-click to open your browser's context menu, and select the option "Save page as..." or similar.
+ <br><b>NOTE:</b> Make sure you save the page as a <b>complete</b> webpage, not HTML only.</li>
  <li>Download the page as an .html/.htm file.</li>
  <li>Continue to the HTML file upload and upload this file.</li>
  </ol>
@@ -78,7 +79,7 @@
 <input type="radio" id="sel_text" name="type" value="text">
 <label for="sel_text">Text-only</label><br>
 </input>
-<button type='button' onclick="gen()">Generate</button>
+<button type='button' id="genbutton" onclick="gen()">Generate</button>
 </form>
 <h3>Output</h3>
 <textarea id="output" style="width:300px;height:150px;">N/A</textarea>
@@ -89,9 +90,9 @@
 	
 	
 	document.getElementById('fileinput').value = null; // clear file input on reload
-	
 	document.getElementById('fileinput').addEventListener("change", readFile, false);
 	document.getElementById('output').value = "N/A";
+	document.getElementById('genbutton').addEventListener('click', gen);
 function gen() {
 		const option = document.getElementById("typeselect").value;
 		const region = document.getElementById("regionselect").value;
