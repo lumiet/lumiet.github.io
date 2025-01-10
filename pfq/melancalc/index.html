@@ -28,7 +28,7 @@ line-height:1.3;
 display: inline-block;
 margin:20px;
 }
-#container:nth-child(3) {
+#container:nth-child(4) {
 width:500px;
 }
 h3 {
@@ -41,7 +41,7 @@ margin:4px;
 .info {
 font-size: 12pt;
 }
-.info>ul {
+.info ul {
 text-align: left;
 margin: 0;
 padding: 0 0 0 10px;
@@ -51,6 +51,16 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-flow: row wrap;
+}
+#hidebox {
+overflow: hidden;
+height: 0;
+}
+svg {
+transition: .5s;
+}
+#apikey {
+width:200px;
 }
 </style>
 </head>
@@ -97,8 +107,15 @@ flex-flow: row wrap;
 <br>
 <div id="hatchedresults"></div>
 <p><b>Note:</b> Displayed values are rounded and will never total exactly 100%, and Melan odds only uses your initial long chain Melan boost.</p></div>
-<div id="container" class="info"><h3>Info</h3>
-<h4>Shiny Odds</h4>
+<div id="container"><h3>PFQ API Key</h3>
+To automatically fill your buffs according to your status onsite, please input your API key. This will be saved to your browser's local storage so that you only need to input it once.
+<br>You can still alter numbers after the application auto-fills if you'd like to play with odds.
+<br><a href="https://pokefarm.com/farm#tab=5.7">Click here</a> and navigate to the bottom to find or generate a new API key.
+<br><br>
+<input type="password" id="apikey"><button id="apibutton">Add</button>
+<span id="apierrortext" style="color:#a22"></span></div>
+<div id="container" class="info"><h3 id="togglehide">Info (click to toggle)<svg viewBox="-6 -6 12 12" height="16"><polygon fill="#777" points="-2,-4 4,0 -2,4"></polygon></svg></h3>
+<div id="hidebox"><h4>Shiny Odds</h4>
 <ul>
 <li>Shiny odds at a 40 chain (with Hypermode) are <b>1/200</b>. For non-Hypermode users, chains will max at 39, or <b>1/400</b>.</li>
 <li>The Gold Amulet is a 1.25x modifier, bringing Hypermode odds to <b>1/160</b>, or for non-Hypermode users, <b>1/320</b>.</li>
@@ -131,7 +148,7 @@ flex-flow: row wrap;
 <br>
 <b>IMPORTANT DISCLAIMER:</b> You are not guaranteed a Melan within the calculated odds! This is just the odds for any specific egg to be Melanistic, and your actual luck may be better or worse thanks to RNG.
 
-</div></div>
+</div></div></div>
 </body>
 </html>
 <script src="main.js"></script>

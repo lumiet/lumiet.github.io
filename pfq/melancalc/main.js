@@ -1,4 +1,63 @@
+function reqListener() { //once we get API data, auto-apply it
+  var values = JSON.parse(this.responseText);
+  
+  if(this.status != 200) {
+	  console.log("API key incorrect or site timeout, etc")
+	  document.getElementById("apierrortext").innerHTML += "<br><br>API key incorrect or site error; please re-enter API key or try again later.";
+	  return;
+  }	  //key is incorrect, timeout, etc
+  
+  document.getElementById('hypermode').checked = values.hyperMode;
+  document.getElementById('silveramulet').checked = values.silverAmulet;
+  document.getElementById('goldamulet').checked = values.goldAmulet;
+  if(!values.cobaltAmulet) document.getElementById('longchain').value = 0; //if you don't have cobalt amulet, it's 0
+  else if(values.shinyChainCount <= 5000) document.getElementById('longchain').value = (values.shinyChainCount - (values.shinyChainCount%100))/100 * 1.5; //if you do have cobalt amulet, it's this expression
+  else document.getElementById('longchain').value = 75; //caps at 75% if you're over 5k chain
+  document.getElementById('basealbino').value = values.albinoLevel;
+  document.getElementById("lvl").innerHTML = document.getElementById("basealbino").value;
+  document.getElementById('sei').value = values.seiPower;
+  document.getElementById('shinycharm').checked = values.shinyCharm;
+  document.getElementById("ubercharm").checked = values.uberCharm;
+  document.getElementById("z").checked = values.zCrystal;
+  document.getElementById("typerace").checked = values.typeRace;
+  document.getElementById("potd").checked = values.potd;
+  updateValues();
+}
+
+function httpApiRequest(key) {
+	const req = new XMLHttpRequest();
+	req.addEventListener("load", reqListener);
+	req.open("GET", "https://api.pokefarm.com/boosts");
+	req.setRequestHeader("Authorization", key);
+	req.send();	
+}
+
+function toggleHide() {
+	//for toggling the info box
+	style = document.createElement("style");
+	style.id = "toggle";
+	style.innerHTML = `
+	#hidebox {
+		height: 100%;
+	}
+	svg {
+		transform: rotate(90deg);
+	}
+	`;
+	if(document.getElementById("toggle") == null) document.head.appendChild(style);
+	else document.getElementById("toggle").remove();
+
+}
+function setApiKey() {
+	var key = document.getElementById("apikey").value;
+	localStorage.setItem("melancalcKey", key);
+	document.getElementById("apibutton").innerHTML = "Saved";
+}
+
 function main() {
+		if (localStorage.getItem("melancalcKey") != null) { 
+			httpApiRequest(localStorage.getItem("melancalcKey"));
+		}
 		updateValues();
 		document.getElementById('hypermode').addEventListener('change', updateValues);
 		document.getElementById('basealbino').addEventListener('change', updateValues);
@@ -11,7 +70,10 @@ function main() {
 		document.getElementById('goldamulet').addEventListener('input', updateValues);
 		document.getElementById('silveramulet').addEventListener('input', updateValues);
 		document.getElementById('potd').addEventListener('input', updateValues);
-		document.getElementById('eggshatched').addEventListener('input', updateValues);
+		document.getElementById('eggshatched').addEventListener('input', updateValues);		
+		
+		document.getElementById('togglehide').addEventListener('click', toggleHide);
+		document.getElementById('apibutton').addEventListener('click', setApiKey);
 		
 		document.getElementById("lvl").innerHTML = document.getElementById("basealbino").value;
 		
