@@ -1,6 +1,6 @@
 function reqListener() { //once we get API data, auto-apply it
   var values = JSON.parse(this.responseText);
-  
+  console.log(values);
   if(this.status != 200) {
 	  console.log("API key incorrect or site timeout, etc")
 	  document.getElementById("apierrortext").innerHTML += "<br><br>API key incorrect or site error; please re-enter API key or try again later.";
