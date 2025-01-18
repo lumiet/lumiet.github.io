@@ -47,7 +47,7 @@ function updateValues(x) {
 	let vc = document.getElementById('vouchercost').value.replace(/\D/g,'');
 	var calculation = vc/vs;
 	if(x!="[object Event]") document.getElementById('label').innerHTML = x; //don't change the label if just the dp price is changing
-	if(typeof x =="undefined") document.getElementById('label').innerHTML = "1,280 EHP Delta"; //default
+	if(typeof x =="undefined") document.getElementById('label').innerHTML = "1,280 Egg EXP Delta"; //default
 	document.getElementById('calculation').innerHTML = Number.parseFloat(calculation.toFixed(3)).toLocaleString(undefined, {minimumFractionDigits: 0}) + " credits, " + Number.parseFloat((calculation/1000).toFixed(3)).toLocaleString(undefined, {minimumFractionDigits: 0}) + " GP, or " + Number.parseFloat((calculation/5000).toFixed(3)).toLocaleString(undefined, {minimumFractionDigits: 0}) + " ZC";
 	var currentDP = document.getElementById('selected').innerHTML;
 	var cr = currentDP*calculation;
