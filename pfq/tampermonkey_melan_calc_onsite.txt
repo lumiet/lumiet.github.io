@@ -15,7 +15,7 @@
     window.calculateOdds = function (hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,silverAmulet,goldAmulet,chaincount) {
         var baseAlbino = 6144;
         const albBoost = [6144, 3072, 1536, 768, 480, 270, 180];
-        baseAlbino = albBoost[albIndex-1]; //applies boost from alb radar level
+        baseAlbino = albIndex==0 ? Infinity : albBoost[albIndex-1]; //applies boost from alb radar level. 1/inf if not active
         if(silverAmulet) baseAlbino = Math.ceil(baseAlbino/(4/3));
         //this was a ton of manual entry so if it's wrong then god help me
         var earlyChain = [8192, 7129.68,6971.91,6809.64,6649.35,6486.14,6325.87,6159.4,5997.07,5830.6,5665.28, //0-10
@@ -23,21 +23,21 @@
                          3769.9,3591.41,3413.33,3232.83,3052.16,2869.35,2685.9,2501.37,2316.09,2128.9, //21-30
                          1940.77,1751.92,1561.87,1371.05,1179.04,984.97,790.96,595,400];//31-39
         var baseShiny = chaincount<39 ? earlyChain[chaincount] : 400;
-        if(hypermode) {baseShiny = Math.ceil(baseShiny/2);} //hypermode users will have 1/200
-        if(shinyCharm) {baseShiny = Math.ceil(baseShiny/2.5);} //2.5x shiny odds
-        if(potd) {baseShiny = Math.ceil(baseShiny/1.1);} //10% shiny boost
-        if(goldAmulet) {baseShiny = Math.ceil(baseShiny/1.25);} //1.25x shiny odds
-        if(sei>0) {baseShiny = Math.ceil(Math.sqrt(baseShiny) * Math.sqrt(50-sei));} //apply sei boost formula. must be calculated in this order
+        if(hypermode) baseShiny = Math.ceil(baseShiny/2); //hypermode users will have 1/200
+        if(shinyCharm) baseShiny = Math.ceil(baseShiny/2.5); //2.5x shiny odds
+        if(potd) baseShiny = Math.ceil(baseShiny/1.1); //10% shiny boost
+        if(goldAmulet) baseShiny = Math.ceil(baseShiny/1.25); //1.25x shiny odds
+        if(sei>0) baseShiny = Math.ceil(Math.sqrt(baseShiny) * Math.sqrt(50-sei)); //apply sei boost formula. must be calculated in this order
         console.log("Calculated shiny odds: 1/" + baseShiny);
-        if(z) {baseAlbino = Math.ceil(baseAlbino/1.5);} //1.5x albino odds (+50%)
-        if(typerace) {baseAlbino =Math.ceil(baseAlbino/1.2);} //1.2x albino odds (+20%)
+        if(z) baseAlbino = Math.ceil(baseAlbino/1.5); //1.5x albino odds (+50%)
+        if(typerace) baseAlbino =Math.ceil(baseAlbino/1.2); //1.2x albino odds (+20%)
 
         var trueAlbino = baseAlbino; //this point is the actual albino odds, so preserve that
         console.log("Calculated albino odds: 1/" + trueAlbino);
 
         //note: melan modifiers are technically applied to albino odds, and rounding
-        if(uberCharm) {baseAlbino = Math.ceil(baseAlbino/6);} //6x melan odds
-        if(longChain!=0) {baseAlbino=Math.ceil(baseAlbino/(1+longChain/100));}
+        if(uberCharm) baseAlbino = Math.ceil(baseAlbino/6); //6x melan odds
+        if(longChain!=0) baseAlbino=Math.ceil(baseAlbino/(1+longChain/100));
         var result = baseShiny * baseAlbino; //base melan odds
         console.log("Calculated melan odds: 1/" + result);
         document.querySelector("span#calculatedMelanOdds").innerHTML = " 1/"+result;
