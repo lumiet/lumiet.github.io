@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         PFQ Melan Calculator Timers Bar
 // @namespace    http://tampermonkey.net/
-// @version      2025-01-31
-// @description  adds a button to the timers bar showing your current melan odds, fetched every 15 minutes
+// @version      2025-02-1
+// @description  adds a button to the timers bar showing your current melan odds, fetched every 5 minutes
 // @author       Corviknight https://pfq.link/@Kp
 // @match        https://pokefarm.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=pokefarm.com
@@ -18,11 +18,12 @@
         baseAlbino = albIndex==0 ? Infinity : albBoost[albIndex-1]; //applies boost from alb radar level. 1/inf if not active
         if(silverAmulet) baseAlbino = Math.ceil(baseAlbino/(4/3));
         //this was a ton of manual entry so if it's wrong then god help me
+        //it's fairly likely this will be off by a smidge because i don't know how exactly niet rounds things, but this is according to wiki listed boosts
         var earlyChain = [8192, 7129.68,6971.91,6809.64,6649.35,6486.14,6325.87,6159.4,5997.07,5830.6,5665.28, //0-10
                          5497.99,5329.86,5158.69,4989.04,4818.82,4646.63,4474.06,4298.01,4124.87,3947.95, //11-20
                          3769.9,3591.41,3413.33,3232.83,3052.16,2869.35,2685.9,2501.37,2316.09,2128.9, //21-30
                          1940.77,1751.92,1561.87,1371.05,1179.04,984.97,790.96,595,400];//31-39
-        var baseShiny = chaincount<39 ? earlyChain[chaincount] : 400;
+        var baseShiny = chaincount<39 ? Math.ceil(earlyChain[chaincount]) : 400;
         if(hypermode) baseShiny = Math.ceil(baseShiny/2); //hypermode users will have 1/200
         if(shinyCharm) baseShiny = Math.ceil(baseShiny/2.5); //2.5x shiny odds
         if(potd) baseShiny = Math.ceil(baseShiny/1.1); //10% shiny boost
@@ -47,20 +48,26 @@
     }
     var prevResults = null;
     if(localStorage.getItem("0melancalc.results") != null) prevResults = localStorage.getItem("0melancalc.results").split(',');
-    const timestamp = localStorage.getItem("0melancalc.resultstimestamp");
+    var timestamp = localStorage.getItem("0melancalc.resultstimestamp");
     const delta = Date.now() - timestamp;
     console.log("Melan odds last fetched (ms): " + delta);
 
-
+    if(localStorage.getItem("0melancalc.pinleft") == null) localStorage.setItem("0melancalc.pinleft", 0);
+    const pin = localStorage.getItem("0melancalc.pinleft");
     const announceul = document.querySelector("#announcements ul");
     const spacer = document.querySelector("#announcements li.spacer");
     const myli = document.createElement("li");
-    announceul.insertBefore(myli,spacer); // you have to insert it before you can change outerhtml for whatever reason
+
+    //defaults to putting it as the last timer, but has option to put it as the first in config
+    if(!(+pin)) { announceul.insertBefore(myli,spacer); } //unary operator + converts to int because localstorage stores as string
+    else { announceul.prepend(myli); }
+
+    // you have to insert it before you can change outerhtml for whatever reason
     myli.outerHTML = `
     <li data-name="melancalc" style="cursor: pointer;"><a title="Melanistic Calculator"><img src="https://pokefarm.com/upload/:Kp/melan_calc_star.png" alt="Melanistic Calculator"><span id="calculatedMelanOdds">` + (prevResults == null ? " N/A" : " 1/" + prevResults[2]) + `</span> </a></li>
     `;
     if (localStorage.getItem("0melancalc.key") != null) {
-        if(delta>900000) { //only send a request every 15 minutes
+        if(delta>300000) { //only send a request every 5 minutes
         //gotta do it with tampermonkey's special xml method to avoid cors killing me
         //it'll come up with a screen asking the user for permission the first time
         GM_xmlhttpRequest ({
@@ -93,6 +100,9 @@
         document.querySelector("span#calculatedMelanOdds").innerHTML = " Click to set up";
     }
     document.querySelector(`li[data-name="melancalc"]`).addEventListener('click', function() {
+        //get updated timestamp b/c this is loaded asynchronously
+        timestamp = localStorage.getItem("0melancalc.resultstimestamp");
+
         const configele = document.createElement("div");
         document.body.appendChild(configele);
         var curresults = localStorage.getItem("0melancalc.results");
@@ -102,17 +112,31 @@
     <div><h4 style="margin:5px 0">API Key Entry</h4>You can find or generate your PFQ API key <a href="https://pokefarm.com/farm#tab=5.7">here</a>. Reload the page for the change to take effect.
     <br><input id="apikey" type="text" autocomplete="off"><button id="apibutton">Add</button>
     <hr>
+    <h4 style="margin:5px 0">Options</h4>
+    Reload the page to apply new settings.
+    <br><br>
+    <input type="checkbox" id="pinleftcheck"` + (+localStorage.getItem("0melancalc.pinleft") != 0 ? "checked" : "" ) + `> Pin to first in timers bar
+    <hr>
     <h4 style="margin:5px 0">Known bug:</h4> The Type Race albino bonus may be incorrectly applied while Type Race is not currently taking place. This is due to an error with PFQ's API. Please be patient while we wait for this to be fixed.
     <br><br>For other functionality, try visiting <a href="https://lumiet.github.io/pfq/melancalc/">my calculator offsite</a>. Please report any issues <a href="https://pokefarm.com/pm/send/:Kp">via PM</a>.`
             +
-            "<br><br>To ease server load, API data is fetched every 15 minutes.<br>Last calculated: " + (new Date(+timestamp))
+            "<br><br>To ease server load, API data is fetched every 5 minutes. Use the refresh button below to fetch the most current data.<br>Last calculated: " + (timestamp!=null ? (new Date(+timestamp)) : "N/A")
             +
             (curresults != null ?
              "<br><br>Shiny odds: 1/" + curresults.split(',')[0] + "<br>Albino odds: 1/" + curresults.split(',')[1] : "")
             +
-            `<button id="closecalcconfig" type="button" style="float: right; margin: 8px 0 0 0;">Close</button></div>
+            `<br><button id="refreshcalc" type="button" style="margin: 8px 0 0 0;">Refresh Data</button>
+            <button id="closecalcconfig" type="button" style="float: right; margin: 8px 0 0 0;">Close</button></div>
     </div></div></div></div>
     `;
+        document.querySelector("#pinleftcheck").addEventListener('change', function() {
+           if(document.querySelector("#pinleftcheck").checked) {
+               localStorage.setItem("0melancalc.pinleft", 1);
+           }
+           else {
+               localStorage.setItem("0melancalc.pinleft", 0);
+           }
+        });
         const apisubmit = document.querySelector("#apibutton");
         apisubmit.addEventListener('click', function() {
             apisubmit.innerHTML = "Added!";
@@ -121,6 +145,13 @@
         document.querySelector("#closecalcconfig").addEventListener('click', function() {
             document.querySelector("div.melancalc").remove();
             document.querySelector("#core").classList.remove('scrolllock');
+        });
+        document.querySelector("#refreshcalc").addEventListener('click', function() {
+            //removing these from localstorage will force it to recall on refresh
+            localStorage.removeItem("0melancalc.results");
+            localStorage.removeItem("0melancalc.resultstimestamp");
+            document.querySelector("#refreshcalc").innerHTML = "Refreshing...";
+            location.reload();
         });
         document.querySelector("#core").classList.add('scrolllock');
     });
