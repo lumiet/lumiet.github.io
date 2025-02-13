@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PFQ Melan Calculator Timers Bar
 // @namespace    http://tampermonkey.net/
-// @version      2025-02-1
+// @version      2025-02-13
 // @description  adds a button to the timers bar showing your current melan odds, fetched every 5 minutes
 // @author       Corviknight https://pfq.link/@Kp
 // @match        https://pokefarm.com/*
@@ -79,7 +79,13 @@
             onload: function (response) { //once we get API data, auto-apply it
                 var values = JSON.parse(response.responseText);
                 console.log(values);
-                if(this.status != 200) {
+                if(this.status == 500) {
+                    //this is probably happening because the user doesn't currently have a chain at all, the api doesn't handle it right
+                    //we can't get status of other things like albino charge because of this, even though there is a theoretical melan chance
+                    console.log("Status code 500, is there an active chain? (API doesn't return data when there is no chain)");
+                    return;
+                }
+                else if(this.status != 200) {
                     console.log("API key incorrect or site timeout, status code: " + this.status)
                     document.querySelector("span#calculatedMelanOdds").innerHTML = " Invalid key";
                     //document.getElementById("apierrortext").innerHTML += "<br><br>API key incorrect or site error; please re-enter API key or try again later.";
