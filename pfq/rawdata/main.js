@@ -46,6 +46,32 @@ function httpRequest() {
 	req.send();	
 }
 function handleData(data) {
+	const dropdown = document.getElementById("graphform");
+	dropdown.addEventListener('change', function() {
+
+		const boostoption = dropdown[0].value == "exp" ? dataobj.boosts.exp 
+		: dropdown[0].value == "ip" ? dataobj.boosts.ip
+		: dropdown[0].value == "scour" ? dataobj.boosts.scour
+		: dropdown[0].value == "gem" ? dataobj.boosts.gem
+		: dropdown[0].value == "credit" ? dataobj.boosts.credit
+		: dropdown[0].value == "shelter" ? dataobj.boosts.shelter
+		: dropdown[0].value == "gp" ? dataobj.boosts.gp
+		: dropdown[0].value == "shiny" ? dataobj.boosts.shiny
+		: null;
+		const graphtitle = dropdown[0].value == "exp" ? "Niet/EXP Bonus" 
+		: dropdown[0].value == "ip" ? "Garthic/IP Bonus"
+		: dropdown[0].value == "scour" ? "Suríya/Scour Bonus"
+		: dropdown[0].value == "gem" ? "Ravyne/Gem Bonus"
+		: dropdown[0].value == "credit" ? "Novan-chan/Credit Discount"
+		: dropdown[0].value == "shelter" ? "Shazi/Shelter Adoption Bonus"
+		: dropdown[0].value == "gp" ? "Eltafez/GP Discount"
+		: dropdown[0].value == "shiny" ? "Sei/Shiny Bonus"
+		: null;
+		const timerange = dropdown[1].value;
+		console.log(boostoption);
+		renderBarGraph(boostoption.filter(n => n!=0), "Multiplier", graphtitle);
+	});
+	
 	console.log(data.split('\n'));
 	const lines = data.split('\n');
 	dataobj.headers = lines[0].split('\t');
@@ -77,8 +103,10 @@ function handleData(data) {
 
 function renderBarGraph(data, xlabel, title) {
 	//https://observablehq.com/@observablehq/plot-bar
+	//https://observablehq.com/plot/transforms/group
 const myplot = Plot.plot({
 	color: {
+		legend:true,
 	type: "linear",
 	range: ["#b5d1ff", "#fc6f8e"],
 	interpolate: "hcl"
@@ -87,30 +115,35 @@ const myplot = Plot.plot({
 width:960,
 height:500,
 marks:[
-Plot.barY(data, {x: d=>d, fill: d=>d}),
+Plot.barY(data, Plot.groupX({y:"count"},{x: d=>d, fill: d=>d})),
 Plot.ruleY([0]),
 Plot.text([title],{frameAnchor:"top", dy:-20,fontSize:20,fontWeight:600})
 
 ],
 x: {
 	type: "band",
-	label: xlabel,
-	fontSize:20
+	label: xlabel
 },
 y: {
 	grid: true,
-	label: "Frequency"
+//	label: "Frequency"
 }
 });
-document.body.append(myplot);
+document.getElementById("graphcontainer").innerHTML = "";
+document.getElementById("graphcontainer").appendChild(myplot);
 }
 
 function renderLineGraph(data, xlabel, title) {
 	console.log(data.eggs);
 	const boosts = dataobj.boosts;
+	
 const myplot = Plot.plot({
 	width:960,
 height:500,
+color: {
+		legend: true,
+	
+},
 	marks: [
 	Plot.ruleY([0]),
 	Plot.line(data.eggs, {x: (d,i)=>i, y:d=>d, stroke:"#666666", 
@@ -140,5 +173,6 @@ height:500,
 		
 	}
 });
-document.body.append(myplot);
+document.getElementById("linegraphcontainer").innerHTML = "";
+document.getElementById("linegraphcontainer").appendChild(myplot);
 }

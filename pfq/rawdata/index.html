@@ -17,13 +17,12 @@ g[aria-label="crosshair text"] {
 background: #000;
 }
 g[aria-label="crosshair text"] text{
-
 font-size: 12pt;
 }
 </style>
 </head>
 <body>
-<form id="bonusgraph">
+<form id="graphform">
 <select><option value="exp">Niet (EXP bonus)</option>
 <option value="ip">Garthic (IP bonus)</option>
 <option value="scour">Suríya (Scour bonus)</option>
@@ -39,6 +38,8 @@ font-size: 12pt;
 <option value="week">Past week</option>
 </select>
 </form>
+<div id="graphcontainer">Loading...</div>
+<div id="linegraphcontainer">Loading...</div>
 </body>
 </html>
 <script type="module" src="main.js"></script>
