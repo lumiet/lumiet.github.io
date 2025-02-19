@@ -1,0 +1,44 @@
+<!DOCTYPE html><html>
+<head>
+<title>Raw Data Analyzer - PFQ</title>
+<style>
+body {
+font-family: arial;
+font-size: 12pt;
+
+}
+g[aria-label="x-axis label"] text, g[aria-label="y-axis label"] text {
+font-size:14px;
+}
+g[aria-label*="tick label"] text {
+font-size:12px;
+}
+g[aria-label="crosshair text"] {
+background: #000;
+}
+g[aria-label="crosshair text"] text{
+
+font-size: 12pt;
+}
+</style>
+</head>
+<body>
+<form id="bonusgraph">
+<select><option value="exp">Niet (EXP bonus)</option>
+<option value="ip">Garthic (IP bonus)</option>
+<option value="scour">Suríya (Scour bonus)</option>
+<option value="gem">Ravyne (Gem bonus)</option>
+<option value="credit">Novan-chan (Credit discount)</option>
+<option value="shelter">Shazi (Shelter bonus)</option>
+<option value="gp">Eltafez (GP discount)</option>
+<option value="shiny">Sei (Shiny bonus)</option>
+</select>
+<select><option value="all">All time</option>
+<option value="year">Past year</option>
+<option value="month">Past month</option>
+<option value="week">Past week</option>
+</select>
+</form>
+</body>
+</html>
+<script type="module" src="main.js"></script>
