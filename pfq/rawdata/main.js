@@ -86,14 +86,14 @@ function handleData(data) {
 		dataobj.hatched.albinos.push(Number(currline[3]));	
 		dataobj.hatched.melans.push(Number(currline[4]));
 		//populate boost data for this day
-		dataobj.boosts.exp.push(temp[0]);
-		dataobj.boosts.ip.push(temp[1]);
-		dataobj.boosts.scour.push(temp[2]);
-		dataobj.boosts.gem.push(temp[3]);
-		dataobj.boosts.credit.push(temp[4]);
-		dataobj.boosts.shelter.push(temp[5]);
-		dataobj.boosts.gp.push(temp[6]);
-		dataobj.boosts.shiny.push(temp[7]);
+		dataobj.boosts.exp.push(Number(temp[0]));
+		dataobj.boosts.ip.push(Number(temp[1]));
+		dataobj.boosts.scour.push(Number(temp[2]));
+		dataobj.boosts.gem.push(Number(temp[3]));
+		dataobj.boosts.credit.push(Number(temp[4]));
+		dataobj.boosts.shelter.push(Number(temp[5]));
+		dataobj.boosts.gp.push(Number(temp[6]));
+		dataobj.boosts.shiny.push(Number(temp[7]));
 	}
 	console.log(dataobj);
 	//filtering out days where the bonus = 0
