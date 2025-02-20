@@ -45,10 +45,9 @@ function httpRequest() {
 	req.open("GET", "https://pokefarm.com/shinyhunt/rawdata");
 	req.send();	
 }
-function handleData(data) {
+function updateGraphs() {	
 	const dropdown = document.getElementById("graphform");
-	dropdown.addEventListener('change', function() {
-
+	const lineform = document.getElementById("lineoptions");
 		const boostoption = dropdown[0].value == "exp" ? dataobj.boosts.exp 
 		: dropdown[0].value == "ip" ? dataobj.boosts.ip
 		: dropdown[0].value == "scour" ? dataobj.boosts.scour
@@ -67,10 +66,27 @@ function handleData(data) {
 		: dropdown[0].value == "gp" ? "Eltafez/GP Discount"
 		: dropdown[0].value == "shiny" ? "Sei/Shiny Bonus"
 		: null;
-		const timerange = dropdown[1].value;
+		const timerange = dropdown[1].value == "all" ? 0
+		: dropdown[1].value == "year" ? -365
+		: dropdown[1].value == "month" ? -31
+		: dropdown[1].value == "week" ? -7
+		: 0;
 		console.log(boostoption);
-		renderBarGraph(boostoption.filter(n => n!=0), "Multiplier", graphtitle);
-	});
+		renderBarGraph(boostoption.slice(timerange).filter(n => n!=0), "Multiplier", graphtitle);
+		const render = [
+		document.querySelector("#lineoptions #eggs").checked,
+		document.querySelector("#lineoptions #shinies").checked,
+		document.querySelector("#lineoptions #albinos").checked,
+		document.querySelector("#lineoptions #melans").checked,
+		];
+		console.log(render);
+		renderLineGraph(dataobj,"Date","Eggs/Specials Hatched",timerange, render);
+}
+function handleData(data) {
+	const dropdown = document.getElementById("graphform");
+	const lineform = document.getElementById("lineoptions");
+	dropdown.addEventListener('change', updateGraphs);
+	lineform.addEventListener('change', updateGraphs);
 	
 	console.log(data.split('\n'));
 	const lines = data.split('\n');
@@ -78,7 +94,7 @@ function handleData(data) {
 	for(var i=1;i<lines.length;i++) { //for each day
 		var currline = lines[i].split('\t');
 		//console.log(currline);
-		dataobj.dates.push(currline[0]);
+		dataobj.dates.push(new Date(currline[0]));
 		var temp = currline[5].split(',');
 		//populate hatched totals for this day
 		dataobj.hatched.eggs.push(Number(currline[1]));
@@ -98,7 +114,7 @@ function handleData(data) {
 	console.log(dataobj);
 	//filtering out days where the bonus = 0
 	renderBarGraph(dataobj.boosts.exp.filter(n => n!=0), "Multiplier","Niet/EXP Bonus");
-	renderLineGraph(dataobj.hatched,"Date","Eggs Hatched");
+	renderLineGraph(dataobj,"Date","Eggs/Specials Hatched",0,[true,true,true,true]);
 }
 
 function renderBarGraph(data, xlabel, title) {
@@ -133,33 +149,31 @@ document.getElementById("graphcontainer").innerHTML = "";
 document.getElementById("graphcontainer").appendChild(myplot);
 }
 
-function renderLineGraph(data, xlabel, title) {
-	console.log(data.eggs);
+function renderLineGraph(data, xlabel, title, timerange, render) {
+console.log(render);
 	const boosts = dataobj.boosts;
-	
+	console.log(data);
 const myplot = Plot.plot({
 	width:960,
 height:500,
-color: {
-		legend: true,
-	
-},
+
 	marks: [
 	Plot.ruleY([0]),
-	Plot.line(data.eggs, {x: (d,i)=>i, y:d=>d, stroke:"#666666", 
-	channels: {"Eggs Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp[i], "Shazi Bonus": (d,i)=>boosts.shelter[i], "Sei Bonus": (d,i)=>boosts.shiny[i]}, 
+	Plot.line(render[0] ? data.hatched.eggs.slice(timerange) : '', {x: (d,i) => data.dates.slice(timerange)[i], y:d=>d, stroke:"#666666", 
+	channels: {"Eggs Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp.slice(timerange)[i], "Shazi Bonus": (d,i)=>boosts.shelter.slice(timerange)[i], "Sei Bonus": (d,i)=>boosts.shiny.slice(timerange)[i]}, 
 	tip: true}),
-	Plot.line(data.shinies, {x: (d,i)=>i, y:d=>d, stroke:"#f59b42", 
-	channels: {"Shinies Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp[i], "Shazi Bonus": (d,i)=>boosts.shelter[i], "Sei Bonus": (d,i)=>boosts.shiny[i]}, 
+	Plot.line(render[1] ? data.hatched.shinies.slice(timerange) : '', {x:(d,i) => data.dates.slice(timerange)[i], y:d=>d, stroke:"#f59b42", mixBlendMode: "screen",
+	channels: {"Shinies Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp.slice(timerange)[i], "Shazi Bonus": (d,i)=>boosts.shelter.slice(timerange)[i], "Sei Bonus": (d,i)=>boosts.shiny.slice(timerange)[i]}, 
 	tip: true}),
-	Plot.line(data.albinos, {x: (d,i)=>i, y:d=>d, stroke:"#ff6989", 
-	channels: {"Albinos Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp[i], "Shazi Bonus": (d,i)=>boosts.shelter[i], "Sei Bonus": (d,i)=>boosts.shiny[i]}, 
+	Plot.line(render[2] ? data.hatched.albinos.slice(timerange) : '', {x: (d,i) => data.dates.slice(timerange)[i], y:d=>d, stroke:"#ff6989", mixBlendMode: "screen",
+	channels: {"Albinos Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp.slice(timerange)[i], "Shazi Bonus": (d,i)=>boosts.shelter.slice(timerange)[i], "Sei Bonus": (d,i)=>boosts.shiny.slice(timerange)[i]}, 
 	tip: true}),
-	Plot.line(data.melans, {x: (d,i)=>i, y:d=>d, stroke:"#be69ff", 
-	channels: {"Melans Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp[i], "Shazi Bonus": (d,i)=>boosts.shelter[i], "Sei Bonus": (d,i)=>boosts.shiny[i]}, 
+	Plot.line(render[3] ? data.hatched.melans.slice(timerange) : '', {x: (d,i) => data.dates.slice(timerange)[i], y:d=>d, stroke:"#be69ff", 
+	channels: {"Melans Hatched":d=>d, "Niet Bonus": (d,i)=>boosts.exp.slice(timerange)[i], "Shazi Bonus": (d,i)=>boosts.shelter.slice(timerange)[i], "Sei Bonus": (d,i)=>boosts.shiny.slice(timerange)[i]}, 
 	tip: true}),
-	Plot.crosshair(data.eggs, {x: (d,i)=>i, y:d=>d}),
-	Plot.crosshair(data.shinies, {x: (d,i)=>i, y:d=>d})
+	Plot.text([title],{frameAnchor:"top", dy:-20,fontSize:20,fontWeight:600})
+	//Plot.crosshair(data.hatched.eggs, {x: (d,i) => data.dates[i], y:d=>d}),
+	//Plot.crosshair(data.shinies, {x: (d,i) => data.dates[i], y:d=>d})
 	],
 	x: {
 		label: xlabel,
@@ -168,8 +182,8 @@ color: {
 	y : {
 		type: "log",
 		grid: true,
-		tickPadding: 0,
-		tickSize: 0.1,
+		//tickPadding: 0,
+		//tickSize: 0.1,
 		
 	}
 });
