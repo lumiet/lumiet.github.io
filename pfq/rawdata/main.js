@@ -112,6 +112,7 @@ function handleData(data) {
 		dataobj.boosts.shiny.push(Number(temp[7]));
 	}
 	console.log(dataobj);
+	//these are where we render our defaults when the page loads
 	//filtering out days where the bonus = 0
 	renderBarGraph(dataobj.boosts.exp.filter(n => n!=0), "Multiplier","Niet/EXP Bonus");
 	renderLineGraph(dataobj,"Date","Eggs/Specials Hatched",0,[true,true,true,true]);
@@ -122,7 +123,7 @@ function renderBarGraph(data, xlabel, title) {
 	//https://observablehq.com/plot/transforms/group
 const myplot = Plot.plot({
 	color: {
-		legend:true,
+		//legend:true,
 	type: "linear",
 	range: ["#b5d1ff", "#fc6f8e"],
 	interpolate: "hcl"

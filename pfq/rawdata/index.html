@@ -3,9 +3,18 @@
 <title>Raw Data Analyzer - PFQ</title>
 <style>
 body {
-font-family: arial;
+font-family: "Arial";
 font-size: 12pt;
-
+background: #def;
+}
+#graphcontainer, #linegraphcontainer {
+user-select:none;
+display: inline-block;
+background: #fff;
+margin: 10px;
+padding: 10px;
+border-radius: 5px;
+border: 2px solid #5ac;
 }
 g[aria-label="x-axis label"] text, g[aria-label="y-axis label"] text {
 font-size:14px;
@@ -19,11 +28,44 @@ background: #000;
 g[aria-label="crosshair text"] text{
 font-size: 12pt;
 }
+.formcontainer {
+display: inline-block;
+background: #fff;
+border: 2px solid #5ac;
+border-radius: 5px;
+padding: 20px;
+min-width: 400px;
+max-width:400px;
+}
+.formcontainer p {
+margin: 5px;
+font-size: 14pt;
+color: #59b;
+text-decoration: underline 2px dotted;
+}
+#maincontainer {
+display: flex;
+flex-flow: row wrap;
+align-items: center;
+margin: 20px;
+justify-content:center;
+}
+h1 {
+color: #59b;
+text-decoration: underline 2px dotted;
+margin: auto;
+text-align: center;
+}
 </style>
 </head>
 <body>
-<form id="graphform">
-<select><option value="exp">Niet (EXP bonus)</option>
+<h1>PFQ Shiny Hunt Raw Data Analysis</h1>
+<div id="maincontainer">
+<div id="graphcontainer">Loading...</div>
+<div class="formcontainer">
+<p>Boost/Timeframe Options</p>
+<form id="graphform" >
+<select autocomplete="off"><option value="exp">Niet (EXP bonus)</option>
 <option value="ip">Garthic (IP bonus)</option>
 <option value="scour">Suríya (Scour bonus)</option>
 <option value="gem">Ravyne (Gem bonus)</option>
@@ -32,20 +74,24 @@ font-size: 12pt;
 <option value="gp">Eltafez (GP discount)</option>
 <option value="shiny">Sei (Shiny bonus)</option>
 </select>
-<select><option value="all">All time</option>
+<select autocomplete="off"><option value="all">All time</option>
 <option value="year">Past year</option>
 <option value="month">Past month</option>
 <option value="week">Past week</option>
 </select>
-</form>
-<div id="graphcontainer">Loading...</div>
+</form></div>
+<br>
+<div id="linegraphcontainer">Loading...</div>
+<div class="formcontainer">
+<p>Filter Options</p>
 <form id="lineoptions">
 <input type="checkbox" value="eggs" id="eggs" checked><label for="eggs">Show eggs hatched</label>
 <input type="checkbox" value="shinies" id="shinies" checked><label for="shinies">Show shinies hatched</label>
+<br>
 <input type="checkbox" value="albinos" id="albinos" checked><label for="albinos">Show albinos hatched</label>
 <input type="checkbox" value="melans" id="melans" checked><label for="melans">Show melans hatched</label>
-</form>
-<div id="linegraphcontainer">Loading...</div>
+</form></div>
+</div>
 </body>
 </html>
 <script type="module" src="main.js"></script>
