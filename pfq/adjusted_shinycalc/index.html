@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head><title>Adjusted Shiny Odds Calculator</title>
+<style>
+body {
+font-size:12pt;
+font-family:arial;
+}
+#formcontainer {
+margin: 10px auto;
+width:40%;
+border: 1px solid #000;
+border-radius: 10px;
+padding:10px;
+}
+.inputcontainer {
+padding: 4px;
+border-radius:10px;
+border: 1px solid #000;
+display: inline-flex;
+align-items:center;
+align-content:center;
+justify-content:center;
+flex-wrap: wrap;
+margin:2px;
+user-select: none;
+text-align:center;
+max-width:200px;
+}
+label {
+display: flex;
+align-items:center;
+}
+label img {
+margin: 4px;
+height:24px;
+}
+input[type="range"] {
+flex-basis:100%;
+flex-shrink:0;
+}
+input[type="text"] {
+width:50px;
+}
+h4 {
+margin: 0;
+}
+.noselect {
+user-select:none;
+}
+</style>
+</head>
+<body onload="main()">
+<div id="formcontainer">
+<form>
+<h4>Select your Boosts</h4>
+<div class="inputcontainer">
+<input id="basealbino" type="range" min="1" max="7" step="1" value="7">
+<label for="basealbino"><img src="https://static.pokefarm.com/img/items/albinoradar.png"> <span id="lvl">Albino radar level: 7</span></label>
+</div>
+<div class="inputcontainer">
+⊕<input id="sei" type="text" value="0" placeholder="0, 10-25">
+<label for="sei"><img src="https://static.pokefarm.com/img/items/albinoradar.png"> Sei Power</label>
+</div>
+<div class="inputcontainer">
+<input id="longchain" type="text" value="0" placeholder="0-75">%
+<label for="longchain"><img src="https://static.pokefarm.com/img/items/amulet_melan.png/t=1708343725.png"> Cobalt Amulet</label>
+</div>
+<div class="inputcontainer">
+<input id="hypermode" type="checkbox">
+<label for="hypermode"><img src="https://static.pokefarm.com/img/zophan/hypermode-24.png"> Hypermode</label>
+</div>
+<div class="inputcontainer">
+<input id="shinycharm" type="checkbox">
+<label for="shinycharm"><img src="https://static.pokefarm.com/img/items/shinycharm.png"> Shiny Charm</label>
+</div>
+<div class="inputcontainer">
+<input id="ubercharm" type="checkbox">
+<label for="ubercharm"><img src="https://static.pokefarm.com/img/items/ubercharm.png"> Übercharm</label>
+</div>
+<div class="inputcontainer">
+<input id="z" type="checkbox">
+<label for="z"><img src="https://static.pokefarm.com/img/items/z-normal.png"> Z-Crystal</label>
+</div>
+<div class="inputcontainer">
+<input id="goldamulet" type="checkbox">
+<label for="goldamulet"><img src="https://static.pokefarm.com/img/items/amulet_shiny.png"> Gold Amulet</label>
+</div>
+<div class="inputcontainer">
+<input id="silveramulet" type="checkbox">
+<label for="silveramulet"><img src="https://static.pokefarm.com/img/items/amulet_albino.png"> Silver Amulet</label>
+</div>
+<div class="inputcontainer">
+<input id="typerace" type="checkbox">
+<label for="typerace"><img src="https://static.pokefarm.com/img/types/v-stellar.png"> Type Race</label>
+</div>
+<div class="inputcontainer">
+<input id="potd" type="checkbox">
+<label for="potd"><img src="https://static.pokefarm.com/img/pkmn/shiny.png"> PotD</label>
+</div>
+</form>
+</div>
+
+<div id="formcontainer">
+<div class="noselect">
+<svg id="minusEgg" viewBox="-6 -6 12 12" width="24" height="24"><polygon points="2,4 -4, 0 2, -4"></polygon></svg>
+<input id="eggcount" type="range" min="0" max="500" step="1" value="0">
+<svg id="plusEgg" viewBox="-6 -6 12 12" width="24" height="24"><polygon points="-2,-4 4, 0 -2, 4"></polygon></svg>
+</div>
+<label for="eggcount"><span id="count">0 Eggs since last Shiny</span></label>
+<br>
+<h4>Shiny Odds Modifiers</h4>
+<ol id="shinyexplanation"></ol>
+<h4>Melan Odds: If Shiny roll succeeds on this egg...</h4>
+<ol id="melanexplanation"></ol>
+</div>
+</body>
+</html>
+<script src="main.js"></script>
