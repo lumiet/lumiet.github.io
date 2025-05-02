@@ -67,13 +67,33 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 	}
 	txt.innerHTML += "<li>Final base odds: 1/" + Math.ceil(baseOdds) + "</li>";
 	var odds = [];
-	
+	var freq = [];
+	var negate = [];
+	var exact = [];
+	var avglength = 0;
 	for(var i=0; i<500; i++) {
-		if(i==0) odds.push(baseOdds);
-		else odds.push((odds[i-1]-1) * decay + 1);
+		if(i==0) {
+			odds.push(baseOdds);
+			freq.push(1/Math.ceil(baseOdds));
+			exact.push(1/Math.ceil(baseOdds));
+			negate.push(1-(1/Math.ceil(baseOdds)));
+		}
+		else {
+			var x = (odds[i-1]-1) * decay + 1;
+			var f = (1/Math.ceil(x));
+			odds.push(x);
+			freq.push(f);
+			exact.push(f*negate.reduce((a,b)=>a*b,1));
+			negate.push(1-f);
+			avglength+=(i+1)*exact[i];
+		}
 	}
-	odds.push(1);
+	odds.push(1); //for 500th egg
 	console.log(odds);
+	console.log(freq);
+	console.log(exact);
+	console.log(avglength);
+	document.getElementById("shinyaverage").innerHTML = "On average, these boosts will produce a Shiny every " + format(avglength) + " eggs.";
 	txt.innerHTML += "If there have been " + eggcount + " egg(s) since your last Shiny, the odds that this egg will be a Shiny are <b>1/" + Math.ceil(odds[eggcount]) + "</b>."; 
 	
 	
