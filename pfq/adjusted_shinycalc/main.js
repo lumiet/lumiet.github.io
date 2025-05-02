@@ -63,7 +63,7 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 	var decay = .99;
 	if(sei) {
 		decay = .99 - sei/25 * 0.01;
-		txt.innerHTML += "<li>"+ sei + " Sei Power means decay is " + decay + " (down from 0.99 on non-Sei days)</li>" 
+		txt.innerHTML += "<li>"+ sei + " Sei Power means decay is " + format(decay) + " (down from 0.99 on non-Sei days). This means your mini-chain Shiny boost increases faster!</li>" 
 	}
 	txt.innerHTML += "<li>Final base odds: 1/" + Math.ceil(baseOdds) + "</li>";
 	var odds = [];
@@ -78,7 +78,7 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 	
 	
 	const albBoost = [6144, 3072, 1536, 768, 480, 270, 180];
-	baseAlbino = albBoost[albIndex-1];
+	var baseAlbino = albBoost[albIndex-1];
 	
 	txt = document.getElementById("melanexplanation");
 	txt.innerHTML = "";
@@ -104,7 +104,25 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 		txt.innerHTML += "<li>Cobalt Amulet (Long Chain Bonus) ("+longChain+"%) reduces base odds to 1/" + format(baseAlbino) + "</li>";
 	}
 	txt.innerHTML += "Final odds that this Shiny will become a Melanistic: <b>1/" + Math.ceil(baseAlbino) + "</b>."
-	+ "<br>This means the overall odds that this egg will become a Melanistic (Shiny * Albino * Melan modifiers) is <b>1/" + (Math.ceil(baseAlbino) * Math.ceil(odds[eggcount])) + "</b>.";
+	+ "<br>This means the overall odds that this egg will become a Melanistic (Shiny odds * Albino odds * Melan modifiers) is <b>1/" + (Math.ceil(baseAlbino) * Math.ceil(odds[eggcount])) + "</b>.";
+
+	var baseAlbino = albBoost[albIndex-1];
+	txt = document.getElementById("albinoexplanation");
+	txt.innerHTML="";
+	txt.innerHTML += "<li>Albino odds at level "+ albIndex + ": 1/" + format(baseAlbino) + "</li>"; 
+	if(silverAmulet) {
+		baseAlbino /= (4/3);
+		txt.innerHTML += "<li>Silver Amulet (1.33x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	if(z) {
+		baseAlbino /= 1.5;
+		txt.innerHTML += "<li>Z-Crystal (1.5x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	if(typerace) {
+		baseAlbino/=1.2;
+		txt.innerHTML += "<li>Type Race (1.2x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	txt.innerHTML += "Final odds that this egg will be an albino: <b>1/" + Math.ceil(baseAlbino) + "</b>.";
 }
 
 function format(n) {
