@@ -26,7 +26,7 @@ function updateValues() {
 	var albIndex = document.getElementById("basealbino").value;
 	document.getElementById("lvl").innerHTML = "Albino radar level: " + document.getElementById("basealbino").value;
 	var sei = parseInt(document.getElementById("sei").value);	
-	var longChain = document.getElementById("longchain").value;
+	var longChain = parseInt(document.getElementById("longchain").value);
 	var goldAmulet = document.getElementById("goldamulet").checked;
 	var silverAmulet = document.getElementById("silveramulet").checked;
 	var shinyCharm = document.getElementById("shinycharm").checked;
