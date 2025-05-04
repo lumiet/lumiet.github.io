@@ -115,16 +115,21 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 		baseAlbino/=1.2;
 		txt.innerHTML += "<li>Type Race (1.2x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
 	}
+	var success = 100 //base success threshold of 100
+	baseAlbino *= 100 //multiplying by 100 on both reduces rounding issues when generating a random integer later
+	
 	if(uberCharm) {
-		baseAlbino /= 6;
-		txt.innerHTML += "<li>Ubercharm (6x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+		txt.innerHTML += "<li>Übercharm increases success threshold from "+ success + " to " + (success*6) + " for an effective 6x boost to odds.</li>";
+		success *= 6;
 	}
 	if(longChain) {
-		baseAlbino /= (1+longChain*.01);
-		txt.innerHTML += "<li>Cobalt Amulet (Long Chain Bonus) ("+longChain+"%) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+		txt.innerHTML += "<li>Cobalt Amulet (Long Chain Bonus)  increases success threshold from " + success + " to " + (success*(1+longChain*.01)) + " for an effective "+longChain+"% boost to odds.</li>";
+		success *= (1+longChain*.01);
 	}
-	txt.innerHTML += "Final odds that this Shiny will become a Melanistic: <b>1/" + Math.ceil(baseAlbino) + "</b>."
-	+ "<br>This means the overall odds that this egg will become a Melanistic (Shiny odds * Albino odds * Melan modifiers) is <b>1/" + (Math.ceil(baseAlbino) * Math.ceil(odds[eggcount])) + "</b>.";
+	console.log(success)
+	console.log(baseAlbino)
+	txt.innerHTML += "Final odds that this Shiny will become a Melanistic: <b>" + Math.ceil(success) + "/" + Math.ceil(baseAlbino) + ", or 1/"+format(Math.ceil(baseAlbino)/Math.ceil(success))+"</b>."
+	+ "<br>This means the overall odds that this egg will become a Melanistic (Shiny odds * Albino odds * Melan modifiers) is <b>1/" + (Math.ceil(baseAlbino/success) * Math.ceil(odds[eggcount])) + "</b>.";
 
 	var baseAlbino = albBoost[albIndex-1];
 	txt = document.getElementById("albinoexplanation");
