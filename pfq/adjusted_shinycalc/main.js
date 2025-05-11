@@ -123,13 +123,13 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 		success *= 6;
 	}
 	if(longChain) {
-		txt.innerHTML += "<li>Cobalt Amulet (Long Chain Bonus)  increases success threshold from " + success + " to " + (success*(1+longChain*.01)) + " for an effective "+longChain+"% boost to odds.</li>";
+		txt.innerHTML += "<li>Cobalt Amulet (Long Chain Bonus)  increases success threshold from " + success + " to " + Math.ceil(success*(1+longChain*.01)) + " for an effective "+longChain+"% boost to odds.</li>";
 		success *= (1+longChain*.01);
 	}
 	console.log(success)
 	console.log(baseAlbino)
 	txt.innerHTML += "Final odds that this Shiny will become a Melanistic: <b>" + Math.ceil(success) + "/" + Math.ceil(baseAlbino) + ", or 1/"+format(Math.ceil(baseAlbino)/Math.ceil(success))+"</b>."
-	+ "<br>This means the overall odds that this egg will become a Melanistic (Shiny odds * Albino odds * Melan modifiers) is <b>1/" + (Math.ceil(baseAlbino/success) * Math.ceil(odds[eggcount])) + "</b>.";
+	+ "<br>This means the overall odds that this egg will become a Melanistic is <b>1/" + Math.ceil(Math.ceil(baseAlbino) * Math.ceil(odds[eggcount])/ Math.ceil(success)) + "</b>.";
 
 	var baseAlbino = albBoost[albIndex-1];
 	txt = document.getElementById("albinoexplanation");
