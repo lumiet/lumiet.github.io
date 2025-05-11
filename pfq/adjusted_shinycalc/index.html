@@ -9,7 +9,8 @@ background:#8d99a8;
 }
 #formcontainer {
 margin: 10px auto;
-width:40%;
+width:800px;
+max-width:90%;
 border: 1px solid #000;
 border-radius: 10px;
 padding:10px;
@@ -104,6 +105,11 @@ user-select:none;
 </div>
 
 <div id="formcontainer">
+<h4>Overall Averages</h4>
+<span id="shinyaverage"></span>
+</div>
+
+<div id="formcontainer">
 <div class="noselect">
 <svg id="minusEgg" viewBox="-6 -6 12 12" width="24" height="24"><polygon points="2,4 -4, 0 2, -4"></polygon></svg>
 <input id="eggcount" type="range" min="0" max="500" step="1" value="0">
@@ -119,10 +125,7 @@ user-select:none;
 <ol id="albinoexplanation"></ol>
 </div>
 
-<div id="formcontainer">
-<h4>Overall Averages</h4>
-<span id="shinyaverage"></span>
-</div>
+
 </body>
 </html>
 <script src="main.js"></script>

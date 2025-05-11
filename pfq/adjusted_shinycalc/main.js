@@ -130,7 +130,7 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 	console.log(baseAlbino)
 	txt.innerHTML += "Final odds that this Shiny will become a Melanistic: <b>" + Math.ceil(success) + "/" + Math.ceil(baseAlbino) + ", or 1/"+format(Math.ceil(baseAlbino)/Math.ceil(success))+"</b>."
 	+ "<br>This means the overall odds that this egg will become a Melanistic is <b>1/" + Math.ceil(Math.ceil(baseAlbino) * Math.ceil(odds[eggcount])/ Math.ceil(success)) + "</b>.";
-
+ document.getElementById("shinyaverage").innerHTML += "<br>This means that the average Melanistic rate (until LCB increases) is <b>1/" + Math.ceil(avglength * Math.ceil(baseAlbino) / Math.ceil(success))+".</b>";
 	var baseAlbino = albBoost[albIndex-1];
 	txt = document.getElementById("albinoexplanation");
 	txt.innerHTML="";
