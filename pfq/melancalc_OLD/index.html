@@ -1,0 +1,154 @@
+<!DOCTYPE html><html>
+<head>
+<title>Melanistic Odds Calculator</title>
+<style>
+body {
+font-family: arial;
+font-size: 12pt;
+background-repeat: no-repeat no-repeat!important;
+background-size: cover!important;
+background-position: center center !important;
+
+}
+input[type="text"] {
+width:50px;
+}
+#longchain {
+text-align: right;
+}
+#container {
+padding: 10px;
+border: 2px solid #000;
+text-align:center;
+width:350px;
+min-width:350px;
+background: rgba(255,255,255,.8);
+margin: auto;
+line-height:1.3;
+display: inline-block;
+margin:20px;
+}
+#container:nth-child(4) {
+width:500px;
+}
+h3 {
+margin: 4px;
+}
+h4 {
+text-align: left;
+margin:4px;
+}
+.info {
+font-size: 12pt;
+}
+.info ul {
+text-align: left;
+margin: 0;
+padding: 0 0 0 10px;
+}
+#flexcontainer {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-flow: row wrap;
+}
+#hidebox {
+overflow: hidden;
+height: 0;
+}
+svg {
+transition: .5s;
+}
+#apikey {
+width:200px;
+}
+</style>
+</head>
+<body onload="main()">
+<div id="flexcontainer"><div id="container"><h3>Melanistic Odds Calculator</h3>
+<form>
+<label>Albino radar level: <span id="lvl"></span></label>
+<br>
+<input type="range" id="basealbino" min="1" max="7" step="1" value="7">
+<br>
+<label>Sei Power (if no Sei day, put 0):</label>
+<input type="text" id="sei" value="0">
+<br>
+<label>Cobalt Amulet Melan boost:</label>
+<input type="text" id="longchain" value="0">%
+<br>
+<label>Hypermode:</label>
+<input type="checkbox" id="hypermode">
+<label>Shiny Charm:</label>
+<input type="checkbox" id="shinycharm">
+<br>
+<label>Übercharm:</label>
+<input type="checkbox" id="ubercharm"> 
+<label>Z-Crystal:</label>
+<input type="checkbox" id="z">
+<br>
+<label>Type Race Boost:</label>
+<input type="checkbox" id="typerace">
+<label>Gold Amulet:</label>
+<input type="checkbox" id="goldamulet">
+<br>
+<label>Silver Amulet:</label>
+<input type="checkbox" id="silveramulet">
+<label>PotD boost:</label>
+<input type="checkbox" id="potd">
+</form>
+<br>
+<div id="results"></div></div>
+<div id="container"><h3>Odds by Eggs Hatched</h3>
+<form>
+<label>Eggs hatched: </label>
+<input type="text" id="eggshatched" value="100">
+</form>
+<br>
+<div id="hatchedresults"></div>
+<p><b>Note:</b> Displayed values are rounded and will never total exactly 100%, and Melan odds only uses your initial long chain Melan boost.</p></div>
+<div id="container"><h3>PFQ API Key</h3>
+To automatically fill your buffs according to your status onsite, please input your API key. This will be saved to your browser's local storage so that you only need to input it once.
+<br>You can still alter numbers after the application auto-fills if you'd like to play with odds.
+<br><a href="https://pokefarm.com/farm#tab=5.7">Click here</a> and navigate to the bottom to find or generate a new API key.
+<br><br>
+<input type="password" id="apikey"><button id="apibutton">Add</button>
+<span id="apierrortext" style="color:#a22"></span></div>
+<div id="container" class="info"><h3 id="togglehide">Info (click to toggle)<svg viewBox="-6 -6 12 12" height="16"><polygon fill="#777" points="-2,-4 4,0 -2,4"></polygon></svg></h3>
+<div id="hidebox"><h4>Shiny Odds</h4>
+<ul>
+<li>Shiny odds at a 40 chain (with Hypermode) are <b>1/200</b>. For non-Hypermode users, chains will max at 39, or <b>1/400</b>.</li>
+<li>The Gold Amulet is a 1.25x modifier, bringing Hypermode odds to <b>1/160</b>, or for non-Hypermode users, <b>1/320</b>.</li>
+<li>Shiny Charm is a 2.5x modifier to Shiny odds.</li>
+<li>Sei Power's impact on Shiny odds can be calculated as odds = 1/(sqrt(X) * sqrt(50-S)), where X is your initial Shiny odds and S is Sei power. It can range from 5 to 25 on Sei days. <a href="https://i.imgur.com/tX7PuiW.png">(Source)</a></li>
+<li>PotD (Pokémon of the Day) increases Shiny odds by 10%.</li>
+<li>When maximizing all these factors, the best Shiny odds are <b>1/40</b>, or <b>1/39</b> with PoTD.</li>
+</ul>
+<h4>Albino Odds</h4>
+<ul>
+<li>Albino odds at level 7 (full charge) are <b>1/180</b>.</li>
+<li>A Z-Crystal is a 1.5x modifier to Albino odds.</li>
+<li>The Silver Amulet is a 4/3x (~1.33x) modifier to Albino odds.</li>
+<li>Type Race Albino boost is a 1.2x modifier to Albino odds. <a href="https://pokefarm.com/forum/thread/369724/New-Year-Updates-2023">(Source)</a></li>
+<li>This means the best Albino odds are <b>1/90</b>, or <b>1/75</b> during Type Race.</li>
+</ul>
+<h4>Melanistic Odds</h4>
+<ul>
+<li>Since a Melanistic Pokemon occurs when a Pokemon is both Albino and Shiny, we can conclude that Melanistic odds are equal to Shiny odds * Albino odds.</li>
+<li>The Übercharm is a 6x modifier to Melanistic odds.</li>
+<li>The Cobalt Amulet provides a maximum 75% Melanistic odds bonus to Arceus+ rank users at 5000 eggs. It provides an additive 1.5% per 100 eggs hatched. </li>
+<li>Due to rounding up at each calculation, order-specific quirks, and Melanistic multipliers being applied to Albino odds, true best Melan odds are <b>1/320</b> or <b>1/312</b> with PoTD.</li>
+</ul>
+<h4>Misc</h4>
+<ul>
+<li>Odds are referenced from <a href="https://pokefarm.com/forum/post/7398531">this guide from Niet</a>.</li>
+<li>Questions or feedback? Feel free to <a href="https://pokefarm.com/pm/send/:Kp">contact me onsite</a>.</li>
+<li>Backgrounds used are official art.</li>
+</ul>
+<br>
+<b>IMPORTANT DISCLAIMER:</b> You are not guaranteed a Melan within the calculated odds! This is just the odds for any specific egg to be Melanistic, and your actual luck may be better or worse thanks to RNG.
+
+</div></div></div>
+</body>
+</html>
+<script src="main.js"></script>

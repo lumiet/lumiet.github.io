@@ -1,64 +1,5 @@
-function reqListener() { //once we get API data, auto-apply it
-  var values = JSON.parse(this.responseText);
-  console.log(values);
-  if(this.status != 200) {
-	  console.log("API key incorrect or site timeout, etc")
-	  document.getElementById("apierrortext").innerHTML += "<br><br>API key incorrect or site error; please re-enter API key or try again later.";
-	  return;
-  }	  //key is incorrect, timeout, etc
-  
-  document.getElementById('hypermode').checked = values.hyperMode;
-  document.getElementById('silveramulet').checked = values.silverAmulet;
-  document.getElementById('goldamulet').checked = values.goldAmulet;
-  if(!values.cobaltAmulet) document.getElementById('longchain').value = 0; //if you don't have cobalt amulet, it's 0
-  else if(values.shinyChainCount <= 5000) document.getElementById('longchain').value = (values.shinyChainCount - (values.shinyChainCount%100))/100 * 1.5; //if you do have cobalt amulet, it's this expression
-  else document.getElementById('longchain').value = 75; //caps at 75% if you're over 5k chain
-  document.getElementById('basealbino').value = values.albinoLevel;
-  document.getElementById("lvl").innerHTML = document.getElementById("basealbino").value;
-  document.getElementById('sei').value = values.seiPower;
-  document.getElementById('shinycharm').checked = values.shinyCharm;
-  document.getElementById("ubercharm").checked = values.uberCharm;
-  document.getElementById("z").checked = values.zCrystal;
-  document.getElementById("typerace").checked = values.typeRace;
-  document.getElementById("potd").checked = values.potd;
-  updateValues();
-}
-
-function httpApiRequest(key) {
-	const req = new XMLHttpRequest();
-	req.addEventListener("load", reqListener);
-	req.open("GET", "https://api.pokefarm.com/boosts");
-	req.setRequestHeader("Authorization", key);
-	req.send();	
-}
-
-function toggleHide() {
-	//for toggling the info box
-	style = document.createElement("style");
-	style.id = "toggle";
-	style.innerHTML = `
-	#hidebox {
-		height: 100%;
-	}
-	svg {
-		transform: rotate(90deg);
-	}
-	`;
-	if(document.getElementById("toggle") == null) document.head.appendChild(style);
-	else document.getElementById("toggle").remove();
-
-}
-function setApiKey() {
-	var key = document.getElementById("apikey").value;
-	localStorage.setItem("melancalcKey", key);
-	document.getElementById("apibutton").innerHTML = "Saved";
-}
-
 function main() {
-		if (localStorage.getItem("melancalcKey") != null) { 
-			httpApiRequest(localStorage.getItem("melancalcKey"));
-		}
-		updateValues();
+	updateValues();
 		document.getElementById('hypermode').addEventListener('change', updateValues);
 		document.getElementById('basealbino').addEventListener('change', updateValues);
 		document.getElementById('sei').addEventListener('change', updateValues);
@@ -70,32 +11,22 @@ function main() {
 		document.getElementById('goldamulet').addEventListener('input', updateValues);
 		document.getElementById('silveramulet').addEventListener('input', updateValues);
 		document.getElementById('potd').addEventListener('input', updateValues);
-		document.getElementById('eggshatched').addEventListener('input', updateValues);		
-		
-		document.getElementById('togglehide').addEventListener('click', toggleHide);
-		document.getElementById('apibutton').addEventListener('click', setApiKey);
-		
-		document.getElementById("lvl").innerHTML = document.getElementById("basealbino").value;
-		
-		var styleToAppend = `
-		body {
-		background: url('assets/bg` + Math.floor(Math.random()*28 + 1) + `.jpg'), rgba(0,0,0,.5);
-		background-blend-mode: multiply;
-		background-attachment: fixed;
-		}`;
-		var newstyle = document.createElement("style");
-		newstyle.innerHTML = styleToAppend;
-		document.head.appendChild(newstyle);
-		
+		document.getElementById('eggcount').addEventListener('change', updateValues);
+		document.getElementById('minusEgg').addEventListener('click', (e) => {
+			document.getElementById('eggcount').value = parseInt(document.getElementById('eggcount').value) - 1;
+			updateValues();
+		});
+		document.getElementById('plusEgg').addEventListener('click', (e) => {
+			document.getElementById('eggcount').value = parseInt(document.getElementById('eggcount').value) + 1;
+			updateValues();
+		});
 }
-
 function updateValues() {
 	var hypermode = document.getElementById("hypermode").checked;	
 	var albIndex = document.getElementById("basealbino").value;
-	document.getElementById("lvl").innerHTML = document.getElementById("basealbino").value;
-	var sei = document.getElementById("sei").value;	
-	var longChain = document.getElementById("longchain").value;	
-	var eggsHatched = document.getElementById("eggshatched").value;	
+	document.getElementById("lvl").innerHTML = "Albino radar level: " + document.getElementById("basealbino").value;
+	var sei = parseInt(document.getElementById("sei").value);	
+	var longChain = parseInt(document.getElementById("longchain").value);
 	var goldAmulet = document.getElementById("goldamulet").checked;
 	var silverAmulet = document.getElementById("silveramulet").checked;
 	var shinyCharm = document.getElementById("shinycharm").checked;
@@ -103,43 +34,122 @@ function updateValues() {
 	var z = document.getElementById("z").checked;	
 	var typerace = document.getElementById("typerace").checked;
 	var potd = document.getElementById("potd").checked;
-	longChain = 1 + longChain/100;
-	calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,eggsHatched,silverAmulet,goldAmulet);
+	var eggcount = document.getElementById("eggcount").value;
+	document.getElementById("count").innerHTML = eggcount + " Eggs since last Shiny";
+	calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,silverAmulet,goldAmulet,eggcount);
 }
 
-function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,eggsHatched,silverAmulet,goldAmulet) {
-
-	var baseAlbino = 6144;
+function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,silverAmulet,goldAmulet,eggcount) {
+	var txt = document.getElementById("shinyexplanation");
+	txt.innerHTML = "";
+	var baseOdds = 1000; 
+	txt.innerHTML += "<li>Base odds: 1/" + baseOdds + "</li>";
+	if(hypermode) {
+		baseOdds /= 2;
+		txt.innerHTML += "<li>Hypermode (2x bonus) reduces base odds to 1/" + format(baseOdds) + "</li>";
+	}
+	if(goldAmulet) {
+		baseOdds /= 1.5;
+		txt.innerHTML += "<li>Gold Amulet (1.5x bonus) reduces base odds to 1/" + format(baseOdds) + "</li>";
+	};
+	if(shinyCharm) {		
+		baseOdds /= 2.5;
+		txt.innerHTML += "<li>Shiny Charm (2.5x bonus) reduces base odds to 1/" + format(baseOdds) + "</li>";
+	}
+	if(potd) {
+		baseOdds /= 2;
+		txt.innerHTML += "<li>PotD (2x bonus) reduces base odds to 1/" + format(baseOdds) + "</li>";
+	}
+	var decay = .99;
+	if(sei) {
+		decay = .99 - sei/25 * 0.01;
+		txt.innerHTML += "<li>"+ sei + " Sei Power means decay is " + format(decay) + " (down from 0.99 on non-Sei days). This means your mini-chain Shiny boost increases faster!</li>" 
+	}
+	txt.innerHTML += "<li>Final base odds: 1/" + Math.ceil(baseOdds) + "</li>";
+	var odds = [];
+	var freq = [];
+	var negate = [];
+	var exact = [];
+	var avglength = 0;
+	for(var i=0; i<500; i++) {
+		if(i==0) {
+			odds.push(baseOdds);
+			freq.push(1/Math.ceil(baseOdds));
+			exact.push(1/Math.ceil(baseOdds));
+			negate.push(1-(1/Math.ceil(baseOdds)));
+		}
+		else {
+			var x = (odds[i-1]-1) * decay + 1;
+			var f = (1/Math.ceil(x));
+			odds.push(x);
+			freq.push(f);
+			exact.push(f*negate.reduce((a,b)=>a*b,1));
+			negate.push(1-f);
+			avglength+=(i+1)*exact[i];
+		}
+	}
+	odds.push(1); //for 500th egg
+	console.log(odds);
+	console.log(freq);
+	console.log(exact);
+	console.log(avglength);
+	document.getElementById("shinyaverage").innerHTML = "On average, these boosts will produce a Shiny every " + format(avglength) + " eggs.";
+	txt.innerHTML += "If there have been " + eggcount + " egg(s) since your last Shiny, the odds that this egg will be a Shiny are <b>1/" + Math.ceil(odds[eggcount]) + "</b>."; 
+	
+	
 	const albBoost = [6144, 3072, 1536, 768, 480, 270, 180];
-	baseAlbino = albBoost[albIndex-1]; //applies boost from alb radar level
-	if(silverAmulet) baseAlbino = Math.ceil(baseAlbino/(4/3));
+	var baseAlbino = albBoost[albIndex-1];
 	
+	txt = document.getElementById("melanexplanation");
+	txt.innerHTML = "";
+	txt.innerHTML += "<li>Albino odds at level "+ albIndex + ": 1/" + format(baseAlbino) + "</li>"; 
+	if(silverAmulet) {
+		baseAlbino /= (4/3);
+		txt.innerHTML += "<li>Silver Amulet (1.33x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	if(z) {
+		baseAlbino /= 1.5;
+		txt.innerHTML += "<li>Z-Crystal (1.5x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	if(typerace) {
+		baseAlbino/=1.2;
+		txt.innerHTML += "<li>Type Race (1.2x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	var success = 100 //base success threshold of 100
+	baseAlbino *= 100 //multiplying by 100 on both reduces rounding issues when generating a random integer later
 	
-	var baseShiny = 400;
-	if(hypermode) baseShiny = Math.ceil(baseShiny/2); //hypermode users will have 1/200
-	if(shinyCharm) baseShiny = Math.ceil(baseShiny/2.5); //2.5x shiny odds
-	if(potd) baseShiny = Math.ceil(baseShiny/1.1); //10% shiny boost
-	if(goldAmulet) baseShiny = Math.ceil(baseShiny/1.25); //1.25x shiny odds
-	if(sei>0) baseShiny = Math.ceil(Math.sqrt(baseShiny) * Math.sqrt(50-sei)); //apply sei boost formula. must be calculated in this order
-	console.log("Shiny odds after boosts: 1/" + baseShiny); 
-	if(z) baseAlbino = Math.ceil(baseAlbino/1.5); //1.5x albino odds (+50%)
-	if(typerace) baseAlbino =Math.ceil(baseAlbino/1.2); //1.2x albino odds (+20)
-	
-	var trueAlbino = baseAlbino; //...since melan modifiers technically should be calculated via albino odds
-
-	//note: melan modifiers are technically applied to albino odds, and rounding 
-	if(uberCharm) baseAlbino = Math.ceil(baseAlbino/6); //6x melan odds
-	if(longChain!=0) baseAlbino=Math.ceil(baseAlbino/longChain);
-	var result = baseShiny * baseAlbino; //base melan odds
-	console.log("Calculated melan odds: 1/" + result);
-	document.getElementById("results").innerHTML = 
-	"<b>Shiny odds:</b> 1/" + Number.parseFloat(baseShiny.toFixed(3)) + ", or " + Number.parseFloat((1/baseShiny*100).toFixed(3)) + "%<br>" +
-	"<b>Albino odds:</b> 1/" + Number.parseFloat(trueAlbino.toFixed(3)) + ", or " + Number.parseFloat((1/trueAlbino*100).toFixed(3)) + "%<br>" +
-	"<b>Melan odds:</b> 1/" + Number.parseFloat(result.toFixed(3)) + ", or " + Number.parseFloat((1/result*100).toFixed(3)) + "%"
-	;
-	document.getElementById("hatchedresults").innerHTML = "Odds of hatching at least one Shiny: " + Number.parseFloat(((1-Math.pow((baseShiny-1)/baseShiny,eggsHatched))*100).toFixed(3))+"%";
-	document.getElementById("hatchedresults").innerHTML += "<br>Odds of hatching at least one Albino: " + Number.parseFloat(((1-Math.pow((trueAlbino-1)/trueAlbino,eggsHatched))*100).toFixed(3))+"%";
-	document.getElementById("hatchedresults").innerHTML += "<br>Odds of hatching at least one Melan: " + Number.parseFloat(((1-Math.pow((result-1)/result,eggsHatched))*100).toFixed(3))+"%";
-	
+	if(uberCharm) {
+		txt.innerHTML += "<li>Übercharm increases success threshold from "+ success + " to " + (success*6) + " for an effective 6x boost to odds.</li>";
+		success *= 6;
+	}
+	if(longChain) {
+		txt.innerHTML += "<li>Cobalt Amulet (Long Chain Bonus)  increases success threshold from " + success + " to " + Math.ceil(success*(1+longChain*.01)) + " for an effective "+longChain+"% boost to odds.</li>";
+		success *= (1+longChain*.01);
+	}
+	console.log(success)
+	console.log(baseAlbino)
+	txt.innerHTML += "Final odds that this Shiny will become a Melanistic: <b>" + Math.ceil(success) + "/" + Math.ceil(baseAlbino) + ", or 1/"+format(Math.ceil(baseAlbino)/Math.ceil(success))+"</b>."
+	+ "<br>This means the overall odds that this egg will become a Melanistic is <b>1/" + Math.ceil(Math.ceil(baseAlbino) * Math.ceil(odds[eggcount])/ Math.ceil(success)) + "</b>.";
+ document.getElementById("shinyaverage").innerHTML += "<br>This means that the average Melanistic rate (until LCB increases) is <b>1/" + Math.ceil(avglength * Math.ceil(baseAlbino) / Math.ceil(success))+".</b>";
+	var baseAlbino = albBoost[albIndex-1];
+	txt = document.getElementById("albinoexplanation");
+	txt.innerHTML="";
+	txt.innerHTML += "<li>Albino odds at level "+ albIndex + ": 1/" + format(baseAlbino) + "</li>"; 
+	if(silverAmulet) {
+		baseAlbino /= (4/3);
+		txt.innerHTML += "<li>Silver Amulet (1.33x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	if(z) {
+		baseAlbino /= 1.5;
+		txt.innerHTML += "<li>Z-Crystal (1.5x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	if(typerace) {
+		baseAlbino/=1.2;
+		txt.innerHTML += "<li>Type Race (1.2x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
+	}
+	txt.innerHTML += "Final odds that this egg will be an albino: <b>1/" + Math.ceil(baseAlbino) + "</b>.";
 }
 
+function format(n) {
+	return Number.parseFloat((n).toFixed(3));
+}

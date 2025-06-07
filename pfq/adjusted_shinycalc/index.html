@@ -53,79 +53,16 @@ user-select:none;
 }
 </style>
 </head>
-<body onload="main()">
+<body>
 <div id="formcontainer">
-<form>
-<h4>Select your Boosts</h4>
-<div class="inputcontainer">
-<input id="basealbino" type="range" min="1" max="7" step="1" value="7">
-<label for="basealbino"><img src="assets/albinoradar.png"> <span id="lvl">Albino radar level: 7</span></label>
+<h4>Moving URLs</h4>
+<p>Since the new shiny system has become official, I am migrating this tool to the old URL <a href="https://lumiet.github.io/pfq/melancalc/">here</a>. 
+<br><br>
+You can still access the calculator for the old shiny system <a href="https://lumiet.github.io/pfq/melancalc_OLD/">here</a>.
+<br><br>
+I apologize for the inconvenience!
+</p>
 </div>
-<div class="inputcontainer">
-⊕<input id="sei" type="text" value="0" placeholder="0, 10-25">
-<label for="sei"><img src="assets/sei.png"> Sei Power</label>
-</div>
-<div class="inputcontainer">
-<input id="longchain" type="text" value="0" placeholder="0-100">%
-<label for="longchain"><img src="assets/amulet_melan.png"> Cobalt Amulet</label>
-</div>
-<div class="inputcontainer">
-<input id="hypermode" type="checkbox">
-<label for="hypermode"><img src="assets/hypermode.png"> Hypermode</label>
-</div>
-<div class="inputcontainer">
-<input id="shinycharm" type="checkbox">
-<label for="shinycharm"><img src="assets/shinycharm.png"> Shiny Charm</label>
-</div>
-<div class="inputcontainer">
-<input id="ubercharm" type="checkbox">
-<label for="ubercharm"><img src="assets/ubercharm.png"> Übercharm</label>
-</div>
-<div class="inputcontainer">
-<input id="z" type="checkbox">
-<label for="z"><img src="assets/z.png"> Z-Crystal</label>
-</div>
-<div class="inputcontainer">
-<input id="goldamulet" type="checkbox">
-<label for="goldamulet"><img src="assets/amulet_shiny.png"> Gold Amulet</label>
-</div>
-<div class="inputcontainer">
-<input id="silveramulet" type="checkbox">
-<label for="silveramulet"><img src="assets/amulet_albino.png"> Silver Amulet</label>
-</div>
-<div class="inputcontainer">
-<input id="typerace" type="checkbox">
-<label for="typerace"><img src="assets/v-stellar.png"> Type Race</label>
-</div>
-<div class="inputcontainer">
-<input id="potd" type="checkbox">
-<label for="potd"><img src="assets/shiny.png"> PotD</label>
-</div>
-</form>
-</div>
-
-<div id="formcontainer">
-<h4>Overall Averages</h4>
-<span id="shinyaverage"></span>
-</div>
-
-<div id="formcontainer">
-<div class="noselect">
-<svg id="minusEgg" viewBox="-6 -6 12 12" width="24" height="24"><polygon points="2,4 -4, 0 2, -4"></polygon></svg>
-<input id="eggcount" type="range" min="0" max="500" step="1" value="0">
-<svg id="plusEgg" viewBox="-6 -6 12 12" width="24" height="24"><polygon points="-2,-4 4, 0 -2, 4"></polygon></svg>
-</div>
-<label for="eggcount"><span id="count">0 Eggs since last Shiny</span></label>
-<br>
-<h4>Shiny Odds Modifiers</h4>
-<ol id="shinyexplanation"></ol>
-<h4>Melan Odds: If Shiny roll succeeds on this egg...</h4>
-<ol id="melanexplanation"></ol>
-<h4>Albino Odds: If not a Shiny or Melan...</h4>
-<ol id="albinoexplanation"></ol>
-</div>
-
-
 </body>
 </html>
 <script src="main.js"></script>
