@@ -51,9 +51,10 @@ margin: 0;
 .noselect {
 user-select:none;
 }
+
 </style>
 </head>
-<body onload="main()">
+<body>
 <div id="formcontainer">
 <form>
 <h4>Select your Boosts</h4>
@@ -123,6 +124,7 @@ user-select:none;
 <ol id="melanexplanation"></ol>
 <h4>Albino Odds: If not a Shiny or Melan...</h4>
 <ol id="albinoexplanation"></ol>
+<div id="graph" class="noselect"></div>
 </div>
 <div id="formcontainer">
 This tool is still a work in progress and will be periodically updated. Numbers here should be accurate, but if you have any concerns, <a href="https://pokefarm.com/pm/send/:Kp">please PM me onsite</a>. Periodic progress updates may be posted in my <a href="https://pokefarm.com/forum/thread/66107/null-domain">journal onsite</a>.
@@ -134,4 +136,4 @@ Permission to use PFQ Sprites granted by Shazi <a href="https://greegon.pokefarm
 
 </body>
 </html>
-<script src="main.js"></script>
+<script type="module" src="main.js"></script>

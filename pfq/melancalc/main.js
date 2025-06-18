@@ -1,3 +1,9 @@
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+main(); 
+
 function main() {
 	updateValues();
 		document.getElementById('hypermode').addEventListener('change', updateValues);
@@ -93,6 +99,8 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 	console.log(freq);
 	console.log(exact);
 	console.log(avglength);
+	var oddsObj = {odds: odds, frequency: freq, exact: exact, average: avglength};
+
 	document.getElementById("shinyaverage").innerHTML = "On average, these boosts will produce a Shiny every " + format(avglength) + " eggs.";
 	txt.innerHTML += "If there have been " + eggcount + " egg(s) since your last Shiny, the odds that this egg will be a Shiny are <b>1/" + Math.ceil(odds[eggcount]) + "</b>."; 
 	
@@ -148,6 +156,29 @@ function calculateOdds(hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,t
 		txt.innerHTML += "<li>Type Race (1.2x bonus) reduces base odds to 1/" + format(baseAlbino) + "</li>";
 	}
 	txt.innerHTML += "Final odds that this egg will be an albino: <b>1/" + Math.ceil(baseAlbino) + "</b>.";
+	
+	//console.log(oddsObj);
+const myplot = Plot.plot({
+	width:960,
+height:500,
+	style: {fontSize:"12pt"},
+	marks: [
+	Plot.ruleY([0],{stroke:"#888"}),
+	Plot.ruleX([0],{stroke:"#888"}),
+	Plot.lineY(oddsObj.odds,{x: (d,i)=>i, y:(d)=>Math.ceil(d), stroke:"#666", tip: true}),
+	Plot.dot([oddsObj.odds[eggcount]],{x: [parseInt(eggcount)], y:(d)=>Math.ceil(d), stroke:"rgba(200,30,30,.6)",symbol:"circle",r:5})
+	],
+	x: {
+		label: "Minichain Length",		
+	},
+	y : {
+		label: "Shiny Odds (1/X)",
+		grid: true,
+	},
+	margin: 60 //helps for larger font size
+});
+document.body.querySelector("#graph").innerHTML = "";
+document.body.querySelector("#graph").appendChild(myplot);
 }
 
 function format(n) {
