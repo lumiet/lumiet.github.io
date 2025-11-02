@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PFQ Melan Calculator Timers Bar
 // @namespace    http://tampermonkey.net/
-// @version      2025-02-13
+// @version      2025-11-01
 // @description  adds a button to the timers bar showing your current melan odds, fetched every 5 minutes
 // @author       Corviknight https://pfq.link/@Kp
 // @match        https://pokefarm.com/*
@@ -12,42 +12,74 @@
 (function() {
     'use strict';
 
-    window.calculateOdds = function (hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,silverAmulet,goldAmulet,chaincount) {
+    window.calculateOdds = function (hypermode,albIndex,sei,longChain,shinyCharm,uberCharm,z,typerace,potd,silverAmulet,goldAmulet,chaincount,minichain) {
         var baseAlbino = 6144;
         const albBoost = [6144, 3072, 1536, 768, 480, 270, 180];
         baseAlbino = albIndex==0 ? Infinity : albBoost[albIndex-1]; //applies boost from alb radar level. 1/inf if not active
         if(silverAmulet) baseAlbino = Math.ceil(baseAlbino/(4/3));
-        //this was a ton of manual entry so if it's wrong then god help me
-        //it's fairly likely this will be off by a smidge because i don't know how exactly niet rounds things, but this is according to wiki listed boosts
-        var earlyChain = [8192, 7129.68,6971.91,6809.64,6649.35,6486.14,6325.87,6159.4,5997.07,5830.6,5665.28, //0-10
-                         5497.99,5329.86,5158.69,4989.04,4818.82,4646.63,4474.06,4298.01,4124.87,3947.95, //11-20
-                         3769.9,3591.41,3413.33,3232.83,3052.16,2869.35,2685.9,2501.37,2316.09,2128.9, //21-30
-                         1940.77,1751.92,1561.87,1371.05,1179.04,984.97,790.96,595,400];//31-39
-        var baseShiny = chaincount<39 ? Math.ceil(earlyChain[chaincount]) : 400;
-        if(hypermode) baseShiny = Math.ceil(baseShiny/2); //hypermode users will have 1/200
-        if(shinyCharm) baseShiny = Math.ceil(baseShiny/2.5); //2.5x shiny odds
-        if(potd) baseShiny = Math.ceil(baseShiny/1.1); //10% shiny boost
-        if(goldAmulet) baseShiny = Math.ceil(baseShiny/1.25); //1.25x shiny odds
-        if(sei>0) baseShiny = Math.ceil(Math.sqrt(baseShiny) * Math.sqrt(50-sei)); //apply sei boost formula. must be calculated in this order
-        console.log("Calculated shiny odds: 1/" + baseShiny);
         if(z) baseAlbino = Math.ceil(baseAlbino/1.5); //1.5x albino odds (+50%)
         if(typerace) baseAlbino =Math.ceil(baseAlbino/1.2); //1.2x albino odds (+20%)
 
         var trueAlbino = baseAlbino; //this point is the actual albino odds, so preserve that
         console.log("Calculated albino odds: 1/" + trueAlbino);
 
-        //note: melan modifiers are technically applied to albino odds, and rounding
-        if(uberCharm) baseAlbino = Math.ceil(baseAlbino/6); //6x melan odds
-        if(longChain!=0) baseAlbino=Math.ceil(baseAlbino/(1+longChain/100));
-        var result = baseShiny * baseAlbino; //base melan odds
-        console.log("Calculated melan odds: 1/" + result);
+        var baseShiny = 1000;
+        if(hypermode) baseShiny = baseShiny/2; //hypermode users will have 1/200
+        if(shinyCharm) baseShiny = baseShiny/2.5; //2.5x shiny odds
+        if(potd) baseShiny = baseShiny/2; //2x shiny boost
+        if(goldAmulet) baseShiny = baseShiny/1.5; //1.5x shiny odds
+        var decay = .99 - sei/25 * 0.01; //sei boost now affects decay
+        //console.log("decay " + decay);
+        console.log("Base shiny odds (minichain 0): 1/" + baseShiny);
+
+        //below is computing average minichain length, ie. average space between shinies or running average shiny odds
+        //this is most representative of what you can expect with given boosts
+        //individual odds from 0 to 500 are also recorded to access shiny odds at any given minichain
+        var odds = [];
+        var freq = [];
+        var negate = [];
+        var exact = [];
+        var avglength = 0;
+        for(var i=0; i<500; i++) {
+            if(i==0) {
+                odds.push(baseShiny);
+                freq.push(1/Math.ceil(baseShiny));
+                exact.push(1/Math.ceil(baseShiny));
+                negate.push(1-(1/Math.ceil(baseShiny)));
+            }
+            else {
+                var x = (odds[i-1]-1) * decay + 1;
+                var f = (1/Math.ceil(x));
+                odds.push(x);
+                freq.push(f);
+                exact.push(f*negate.reduce((a,b)=>a*b,1));
+                negate.push(1-f);
+                avglength+=(i+1)*exact[i];
+            }
+        }
+        console.log(odds);
+        console.log("Calculated average minichain length (average shiny odds across minichain): 1/" + avglength);
+
+        var success = 100;
+        baseAlbino *=100;
+        if(uberCharm) success*=6;
+        if(longChain!=0) success *= (1+longChain*.01);
+
+        var result = Math.ceil(avglength * Math.ceil(baseAlbino)/Math.ceil(success)); //average melan odds across minichain (utilizing average shiny odds)
+        console.log("Calculated average melan odds: 1/" + result);
         document.querySelector("span#calculatedMelanOdds").innerHTML = " 1/"+result;
 
-        localStorage.setItem("0melancalc.results",[baseShiny,trueAlbino,result]);
+        localStorage.setItem("0melancalc.results",[Math.ceil(avglength),trueAlbino,result,baseAlbino,success]);
+        localStorage.setItem("0melancalc.minichain",minichain);
+        localStorage.setItem("0melancalc.shinyodds",JSON.stringify(odds));
         localStorage.setItem("0melancalc.resultstimestamp",Date.now());
     }
     var prevResults = null;
+    var prevShinyOdds = null;
+    var minichain = null;
     if(localStorage.getItem("0melancalc.results") != null) prevResults = localStorage.getItem("0melancalc.results").split(',');
+    if(localStorage.getItem("0melancalc.minichain") != null) minichain = localStorage.getItem("0melancalc.minichain").split(',');
+    if(localStorage.getItem("0melancalc.shinyodds") != null) prevShinyOdds = JSON.parse(localStorage.getItem("0melancalc.shinyodds"));
     var timestamp = localStorage.getItem("0melancalc.resultstimestamp");
     const delta = Date.now() - timestamp;
     console.log("Melan odds last fetched (ms): " + delta);
@@ -56,7 +88,39 @@
     const pin = localStorage.getItem("0melancalc.pinleft");
     const announceul = document.querySelector("#announcements ul");
     const spacer = document.querySelector("#announcements li.spacer");
+    const happy = document.getElementById("partypage") == null ? null : document.getElementById("partypage").getElementsByClassName("happy"); //ensures we only get this on the party page, not other users
     const myli = document.createElement("li");
+    const type = document.getElementsByClassName("type");
+
+    //append elements showing odds on the party's egg panels
+    if(happy!=null){
+        const newStyle = document.createElement("style");
+        document.head.appendChild(newStyle);
+        newStyle.innerHTML = `
+    .party > div > .extra {
+    display: flex;
+    justify-content: space-between;
+    }
+    `;
+        for(var i=0;i<happy.length;i++) {
+            if(happy[i].innerHTML.includes("egg.png")) { //check whether we're dealing with an egg on our party page
+                type[i].style.width = "unset"; //this gives us a little more space
+                const newDiv = document.createElement("div");
+                happy[i].after(newDiv); //inserting our new elements after the egg hatch %
+                var currMini = parseInt(minichain);
+                console.log(prevShinyOdds);
+                newDiv.outerHTML = `
+<div style="float:left;margin:0 2px;">
+<img style="margin:0 2px 0 0" src="https://static.pokefarm.com/img/pkmn/shiny.png">
+1/` + (prevResults == null ? " N/A" : Math.ceil(prevShinyOdds[currMini+i])) +
+`</div>
+<div style="float:left;margin:0 2px;">
+<img style="margin:0 2px 0 0" src="https://static.pokefarm.com/img/pkmn/melanistic.png">
+1/` + (prevResults == null ? " N/A" : Math.ceil(Math.ceil(prevShinyOdds[currMini+i])*Math.ceil(prevResults[3]/*albino threshold*/) / Math.ceil(prevResults[4] /*success threshold*/))) +
+`</div>`;
+            }
+        }
+    }
 
     //defaults to putting it as the last timer, but has option to put it as the first in config
     if(!(+pin)) { announceul.insertBefore(myli,spacer); } //unary operator + converts to int because localstorage stores as string
@@ -67,17 +131,18 @@
     <li data-name="melancalc" style="cursor: pointer;"><a title="Melanistic Calculator"><img src="https://pokefarm.com/upload/:Kp/melan_calc_star.png" alt="Melanistic Calculator"><span id="calculatedMelanOdds">` + (prevResults == null ? " N/A" : " 1/" + prevResults[2]) + `</span> </a></li>
     `;
     if (localStorage.getItem("0melancalc.key") != null) {
-        if(delta>300000) { //only send a request every 5 minutes
+        if(delta>10000) { //wait 10 seconds between requests
         //gotta do it with tampermonkey's special xml method to avoid cors killing me
         //it'll come up with a screen asking the user for permission the first time
         GM_xmlhttpRequest ({
             method: "GET",
-            url: "https://api.pokefarm.com/boosts",
+            url: "https://api.pokefarm.com/v1/user/boosts",
             headers: {
-                "Authorization": localStorage.getItem("0melancalc.key")
+                "x-api-key": localStorage.getItem("0melancalc.key")
             },
             onload: function (response) { //once we get API data, auto-apply it
-                var values = JSON.parse(response.responseText);
+                console.log(response.responseText);
+                var values = JSON.parse(response.responseText).boosts;
                 console.log(values);
                 if(this.status == 500) {
                     //this is probably happening because the user doesn't currently have a chain at all, the api doesn't handle it right
@@ -93,10 +158,9 @@
                 } //key is incorrect, timeout, etc
 
                 var cobaltBoost = !values.cobaltAmulet ? 0 // if no cobalt amulet, long chain boost = 0
-                : values.shinyChainCount <=5000 ? (values.shinyChainCount - (values.shinyChainCount%100))/100 * 1.5 // if you have amulet and you're <= 5000 eggs, calculate boost
-                : 75; // if you have amulet and over 5000 eggs, cap at 75
-
-                window.calculateOdds(values.hyperMode,values.albinoLevel,values.seiPower,cobaltBoost,values.shinyCharm,values.uberCharm,values.zCrystal,values.typeRace,values.potd,values.silverAmulet,values.goldAmulet,values.shinyChainCount);
+                : values.shinyChainCount <=5000 ? (values.shinyChainCount - (values.shinyChainCount%100))/100 * 2 // if you have amulet and you're <= 5000 eggs, calculate boost
+                : 100; // if you have amulet and over 5000 eggs, cap at 100
+                window.calculateOdds(values.hypermode,values.albinoLevel,values.seiPower,cobaltBoost,values.shinyCharm,values.uberCharm,values.zCrystal,values.typeRace,values.potd,values.silverAmulet,values.goldAmulet,values.shinyChainCount,values.shinyChainSubchain);
             }
 
         });
